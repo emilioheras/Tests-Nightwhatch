@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="preferential"
+    errors="0" failures="0" hostname="" id="" package="preferential" skipped="0"
+    tests="1" time="109.4" timestamp="Wed, 27 Apr 2016 07:32:50 GMT">
+  
+    <testcase name="check if payment has been made correctly" time="109.4" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+  
+  </testsuite>
+</testsuites>
