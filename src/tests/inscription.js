@@ -21,6 +21,7 @@ module.exports = {
 		utils.logout(browser);
 		utils.login(browser, 'user+test00@gmail.com' , '123456');
 		browser.url(utils.buildUrl(browser, data.inscriptionTest.eventsList));
+		browser.waitForElementVisible('#custom-content > fieldset > div.col-xs-12.u-mb-lg > div > div > div:nth-child(1) > label > input', 10000);
 		browser.assert.elementPresent('#custom-content > fieldset > div.col-xs-12.u-mb-lg > div > div > div:nth-child(1) > label > input[checked]');
 		browser.end();
 	},
