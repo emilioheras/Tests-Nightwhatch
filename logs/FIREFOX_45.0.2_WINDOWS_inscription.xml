@@ -1,56 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
             failures="0"
-            tests="5">
+            tests="10">
 
   <testsuite name="inscription"
     errors="0" failures="0" hostname="" id="" package="inscription" skipped="0"
-    tests="5" time="495.2" timestamp="Thu, 28 Apr 2016 10:09:43 GMT">
+    tests="10" time="122.7" timestamp="Tue, 03 May 2016 15:00:51 GMT">
   
-    <testcase name="the &#39;Im inscribing myself&#39; option is checked by default" time="96.17" assertions="2">
+    <testcase name="should go to the login page if not logged in" time="9.271" assertions="1">
+
+    
+    </testcase>
+  
+    <testcase name="should go straight to the inscription form if logged in" time="11.82" assertions="1">
+
+    
+    </testcase>
+  
+    <testcase name="the &#39;Im inscribing myself&#39; option is checked by default" time="11.06" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="should fill the form with my user data when inscribing myself" time="103.2" assertions="9">
+    <testcase name="should fill the form with my user data when inscribing myself" time="13.20" assertions="9">
 
     
 
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    </testcase>
-  
-    <testcase name="my user data fields should be locked when inscribing myself" time="98.50" assertions="6">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    </testcase>
-  
-    <testcase name="my user data fields should unlock when inscribing another person" time="90.88" assertions="7">
 
     
 
@@ -67,7 +45,7 @@
     
     </testcase>
   
-    <testcase name="the basic fields are ALWAYS shown in the form" time="106.5" assertions="13">
+    <testcase name="the basic fields are ALWAYS shown in the form" time="13.38" assertions="13">
 
     
 
@@ -86,6 +64,65 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="my user data fields should be locked when inscribing myself" time="13.83" assertions="7">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="my user data fields should unlock when inscribing another person" time="12.45" assertions="7">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="the form should not let me finish a step with errors" time="13.60" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="not filling a mandatory field is considered an error" time="12.02" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="should show field error messages when validation fails" time="12.10" assertions="4">
 
     
 

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="7">
+
+  <testsuite name="fetri"
+    errors="0" failures="1" hostname="" id="" package="fetri" skipped="4"
+    tests="7" time="129.1" timestamp="Fri, 29 Apr 2016 07:43:55 GMT">
+  
+    <testcase name="should go to the login page if not logged in" time="26.49" assertions="1">
+
+    
+    </testcase>
+  
+    <testcase name="should go to the page if logged in" time="49.88" assertions="1">
+
+    
+    </testcase>
+  
+    <testcase name="should go to the page after connected" time="52.73" assertions="1">  <failure message="Timed out while waiting for element &lt;body &gt; main &gt; div &gt; div:nth-child(2) &gt; div &gt; form &gt; fieldset.auth-form-login.animated.fadeInDown &gt; div.u-pos-r &gt; div &gt; input&gt; to be present for 5000 milliseconds.">    at loginInscription (C:\Users\Emilio\nightwhatch\src\functions.js:54:11)
+    at Object.module.exports.should go to the page after connected (C:\Users\Emilio\nightwhatch\src\tests\fetri.js:22:9)
+    at Module.call (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\lib\runner\module.js:63:34)
+    at C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\lib\runner\testcase.js:97:29
+    at _fulfilled (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:834:54)
+    at self.promiseDispatch.done (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:863:30)
+    at Promise.promise.promiseDispatch (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:796:13)
+    at C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:556:49
+    at runSingle (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:137:13)
+    at flush (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:125:13)</failure>
+
+    
+    </testcase>
+  
+  
+    
+    <testcase
+      name="should display error if user are not federated">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="display user data in the register">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="resumen de datos">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="pagina de pago">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="4">
+
+  <testsuite name="login"
+    errors="0" failures="0" hostname="" id="" package="login" skipped="0"
+    tests="4" time="44.09" timestamp="Wed, 04 May 2016 10:30:07 GMT">
+  
+    <testcase name="should fail at login with bad password" time="9.132" assertions="1">
+
+    
+    </testcase>
+  
+    <testcase name="should login succesfully" time="9.960" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="should say the user has an email" time="11.90" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="should create an account" time="13.10" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+  
+  </testsuite>
+</testsuites>

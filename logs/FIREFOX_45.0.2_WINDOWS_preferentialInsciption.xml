@@ -5,66 +5,41 @@
 
   <testsuite name="preferentialInsciption"
     errors="0" failures="0" hostname="" id="" package="preferentialInsciption" skipped="0"
-    tests="9" time="873.9" timestamp="Thu, 28 Apr 2016 08:21:58 GMT">
+    tests="9" time="711.0" timestamp="Fri, 29 Apr 2016 09:55:42 GMT">
   
-    <testcase name="should go to the login page if not logged in" time="39.06" assertions="1">
+    <testcase name="should go to the login page if not logged in" time="32.55" assertions="1">
 
     
     </testcase>
   
-    <testcase name="should go straight to the document number form if logged in" time="72.49" assertions="1">
+    <testcase name="should go straight to the document number form if logged in" time="44.77" assertions="1">
 
     
     </testcase>
   
-    <testcase name="the form should not let me go to the preferential inscription form with a bad document number" time="78.15" assertions="2">
-
-    
-
-    
-    </testcase>
-  
-    <testcase name="the form should let me go to the preferential inscription form with a valid document number" time="88.95" assertions="2">
+    <testcase name="the form should not let me go to the preferential inscription form with a bad document number" time="75.96" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="the basic fields are alwais shown in the form" time="88.74" assertions="15">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
+    <testcase name="the form should let me go to the preferential inscription form with a valid document number" time="82.25" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="check that the form fields have been filled with user data" time="104.0" assertions="11">
+    <testcase name="the basic fields are alwais shown in the form" time="82.69" assertions="15">
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -89,7 +64,19 @@
     
     </testcase>
   
-    <testcase name="my user data fields should be locked" time="97.06" assertions="5">
+    <testcase name="check that the form fields have been filled with user data" time="81.06" assertions="11">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -102,7 +89,9 @@
     
     </testcase>
   
-    <testcase name="check registration summary" time="158.5" assertions="4">
+    <testcase name="my user data fields should be locked" time="85.07" assertions="5">
+
+    
 
     
 
@@ -113,7 +102,18 @@
     
     </testcase>
   
-    <testcase name="check if payment has been made correctly" time="147.0" assertions="6">
+    <testcase name="check registration summary" time="117.2" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="check if payment has been made correctly" time="109.4" assertions="6">
 
     
 

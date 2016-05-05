@@ -8,19 +8,34 @@ module.exports = {
 	randomPostalCode: Math.floor(Math.random() * (10000 - 99999) + 99999),
 
 	//URLs:
-	baseUrl: "http://cervantes.local.sportmaniacs.com/sportmaniacs/web/",
+	baseUrl: "http://beta.sportmaniacs.com/",
 	tpvUrl: 'https://sis-t.redsys.es:25443/sis/realizarPago',
 	
 	inscriptionTest: {
-		home: "races/carrera-inscriptiones-test",
-		eventsList: "services/inscription/carrera-inscriptiones-test/366",
-		eventLogin: "services/inscription/carrera-inscriptiones-test/366/login",
-		eventForm: "services/inscription/carrera-inscriptiones-test/366/register"
+		home: "races/10km-villa-de-pantoja/",
+		eventsList: "services/inscription/10km-villa-de-pantoja",
+		eventLogin: "services/inscription/10km-villa-de-pantoja/56e709de-26fc-4c75-b1a1-4088bc5ffd28/login",
+		eventForm: "services/inscription/10km-villa-de-pantoja/56e709de-26fc-4c75-b1a1-4088bc5ffd28"
 	},
 
 	preferentialInscription: {		
 		eventsPreferentialInscription: "services/inscription/carrera-inscriptiones-test/367",
 		eventPreferentialLogin: "services/inscription/carrera-inscriptiones-test/367/login"		
+	},
+
+	fetriInscription: {		
+		eventsFetriInscription: "services/inscription/carrera-inscriptiones-test/368",
+		eventFetriLogin: "services/inscription/carrera-inscriptiones-test/368/login"		
+	},
+
+	rfeaInscription: {		
+		eventsRfeaInscription: "services/inscription/carrera-inscriptiones-test/369",
+		eventRfeaLogin: "services/inscription/carrera-inscriptiones-test/369/login"		
+	},
+
+	supersprintInscription: {		
+		eventsSupersprintInscription: "services/inscription/carrera-inscriptiones-test/371",
+		eventSupersprintLogin: "services/inscription/carrera-inscriptiones-test/371/login"		
 	},	
 
 	sampleRaceRelativeUrl: "races/sportmaniacs-clasificacion",

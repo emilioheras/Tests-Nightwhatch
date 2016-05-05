@@ -5,9 +5,9 @@
 
   <testsuite name="fetriInscription"
     errors="0" failures="0" hostname="" id="" package="fetriInscription" skipped="0"
-    tests="1" time="82.17" timestamp="Thu, 28 Apr 2016 11:12:54 GMT">
+    tests="1" time="54.24" timestamp="Tue, 03 May 2016 09:37:03 GMT">
   
-    <testcase name="display user data in the register" time="82.17" assertions="17">
+    <testcase name="should fill the form with the RFEA data and lock the fields" time="54.24" assertions="17">
 
     
 

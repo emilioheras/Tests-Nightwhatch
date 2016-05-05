@@ -67,6 +67,40 @@ Utils = function() {
 			.setValue("#loginFormPassword", pass)
 	};
 
+	this.fillFormCreateAccountPopup = function(browser, name, surname, email, password) {
+		browser.waitForElementVisible('#signupFormName', 20000);
+		browser.setValue('#signupFormName', name);
+		browser.setValue('#signupFormSurname', surname);
+		browser.setValue('#signupFormEmail', email);
+		browser.setValue('#signupFormPassword', password);
+		browser.click('.asyncForm-submitButton');
+		browser.waitForElementVisible('span.nav-item-text:nth-child(2)', 20000);
+		browser.pause(2000);
+	};
+
+	this.fillFormCreateAccountInInscriptionRace = function(browser, name, surname, password) {
+		browser.waitForElementVisible('#authFormName', 20000);
+		browser.setValue('#authFormName', name);
+		browser.waitForElementVisible('#authFormSurame', 20000);
+		browser.setValue('#authFormSurame', surname);
+		browser.waitForElementVisible('#authFormPassword', 20000);
+		browser.setValue('#authFormPassword', password);
+		browser.click('.u-pt-md > button:nth-child(1)');
+		browser.waitForElementVisible('span.nav-item-text:nth-child(2)', 20000);
+		browser.pause(2000);
+	};
+
+	this.fillFormContact = function(browser, name, email, phone, text) {
+		browser.waitForElementVisible('#cfName', 20000);
+		browser.setValue('#cfName', name);
+		browser.setValue('#cfEmail', email);
+		browser.setValue('#cfTel', phone);
+		browser.waitForElementVisible('#cfMessage', 20000);
+		browser.setValue('#cfMessage', text);
+		browser.click('#cfSubmitButton');
+		browser.waitForElementVisible('.contactForm-response', 20000);		
+	};
+
 	this.fillInscriptionFetri = function(browser, doc, day, month, year) {
 		browser.waitForElementVisible('body > main > div > div:nth-child(2) > div.col-md-8 > form > nav > a.btn.btn-primary.u-fl-r', 20000);
 		browser.setValue("#data_FETRI_dni_validate", doc);
@@ -76,11 +110,24 @@ Utils = function() {
 		browser.click("body > main > div > div:nth-child(2) > div.col-md-8 > form > nav > a.btn.btn-primary.u-fl-r");
 	};
 
+	this.fillInscriptionRfea = function(browser, typeDoc, year) {
+		browser.waitForElementVisible('body > main > div > div:nth-child(2) > div.col-md-8 > form > nav > a.btn.btn-primary.u-fl-r', 20000);
+		browser.setValue("#data_RFEA_license_type_validate", typeDoc);
+		browser.setValue("#data_RFEA_birth_validate_year", year);		
+	};
+
 	this.enterValidOrInvalidDocumentNumber = function (browser, dni) {
 		this.logout(browser);
 	 	this.login(browser, 'user+test00@gmail.com' , '123456');
 	 	browser.url(this.buildUrl(browser, data.preferentialInscription.eventsPreferentialInscription));
 	 	this.fillDocumentNumberForm(browser, dni);
+	};
+
+	this.enterValidOrInvalidDocumentNumber = function (browser, typeDoc, year) { //Inscripcion RFEA
+		this.logout(browser);
+	 	this.login(browser, 'user+test00@gmail.com' , '123456');
+	 	browser.url(this.buildUrl(browser, data.rfeaInscription.eventsRfeaInscription));
+	 	this.fillInscriptionRfea(browser, typeDoc, year);
 	};
 
 	this.jQueryElementsArePresent = function(browser, selectorsArray) {
@@ -196,6 +243,23 @@ Utils = function() {
 		postalCode = browser.getValue("#postal_code");
 		country = browser.getValue("#country")
 	};
+
+	this.checkDataProfile = function(browser, name, surname, day, month, year, documentType, doc, origin, phone, gender, club, address, postalCode, country) {
+		browser.assert.value('#name', name);
+	 	browser.assert.value('#surname', surname);
+	 	browser.assert.value('div.row:nth-child(2) > div:nth-child(2) > select:nth-child(1)', day);
+	 	browser.assert.value('div.row:nth-child(2) > div:nth-child(3) > select:nth-child(1)', month);
+	 	browser.assert.value('div.form-group:nth-child(4) > select:nth-child(1)', year);
+	 	browser.assert.value('#documentType', documentType);
+	 	browser.assert.value('#document', doc);
+	 	browser.assert.value('#origin', origin);
+	 	browser.assert.value('#phone', phone);
+	 	browser.assert.value('div.row:nth-child(4) > div:nth-child(3) > div:nth-child(2) > label:nth-child(1) > input:nth-child(1)', gender);
+	 	browser.assert.value('#club', club);
+	 	browser.assert.value('#address', address);
+	 	browser.assert.value('#postal_code', postalCode);
+	 	browser.assert.value('#country', country);
+	 };
 
 	this.randomNumberForTests = function(initial, end) {
 		var randNumber = Math.random() * (initial - end) + end;
