@@ -1,35 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
             failures="0"
-            tests="3">
+            tests="1">
 
   <testsuite name="raceLogin"
     errors="0" failures="0" hostname="" id="" package="raceLogin" skipped="0"
-    tests="3" time="36.24" timestamp="Thu, 12 May 2016 07:54:33 GMT">
+    tests="1" time="17.70" timestamp="Tue, 17 May 2016 10:25:15 GMT">
   
-    <testcase name="should fail at login with bad password" time="10.44" assertions="4">
-
-    
-
-    
-
-    
-
-    
-    </testcase>
-  
-    <testcase name="should say the user has an email" time="13.52" assertions="4">
-
-    
-
-    
-
-    
-
-    
-    </testcase>
-  
-    <testcase name="should create an account" time="12.29" assertions="5">
+    <testcase name="should create an account" time="17.70" assertions="5">
 
     
 

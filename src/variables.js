@@ -8,9 +8,10 @@ module.exports = {
 	randomPostalCode: Math.floor(Math.random() * (10000 - 99999) + 99999),	
 
 	//URLs:
-	baseUrl: "http://beta.sportmaniacs.com/",
+	baseUrl: "https://sportmaniacs.com/es/",
 	tpvUrl: 'https://sis-t.redsys.es:25443/sis/realizarPago',
 	
+	//Carrera con inscripciones.
 	getRaceInscriptionUrl: function(race) {
 		return "services/inscription/" + race;
 	},
@@ -23,6 +24,19 @@ module.exports = {
 		return this.getInscriptionFormUrl(race, event) + "/login";
 	},
 
+	//Carrera con clasificaciones.
+	getRaceClassificationUrl: function(race) {
+		return "races/" + race;
+	},
+
+	getRaceClassificationResultsUrl: function(race, event) {
+		return this.getRaceClassificationUrl(race) + "/" + event + "/results/official";
+	},
+
+	getAthleteClassificationResultsUrl: function(race, event) {
+		return this.getRaceClassificationUrl(race) + "/" + event + "/results/athlete/3/results";
+	},
+
 	races: {
 		normal: {
 			race: "criterium-pontevedra",
@@ -33,6 +47,11 @@ module.exports = {
 			race: "Carrera de la mujer Madrid 2015",
 			partialName: "de la Mujer Madrid 2015",
 			province: "Madrid"
+		},
+
+		classification: {
+			race: "carrera-de-la-mujer-madrid-2016",
+			event: "56d052a0-9e18-467d-a611-11abbc5ffd28"
 		}
 	},
 

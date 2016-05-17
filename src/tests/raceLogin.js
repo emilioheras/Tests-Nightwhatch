@@ -46,9 +46,9 @@ module.exports = {
 		utils.logout(browser);
 		browser.url(utils.buildUrl(browser, data.getInscriptionLoginUrl(data.races.normal.race, data.races.normal.event)));
 		browser.waitForElementVisible('#loginFormEmail', 20000);
-		browser.setValue('#loginFormEmail', data.users.aleatorio.userEmail);
+		browser.setValue('#loginFormEmail', 'user' + Math.random() * 100 + 1 + '@gmail.com');
 		browser.click('button.btn:nth-child(2)');
-		utils.fillFormCreateAccountInInscriptionRace(browser, 'New UserName', 'New UserSurname', data.users.aleatorio.password);
+		utils.fillFormCreateAccountInInscriptionRace(browser, 'New UserName', 'New UserSurname', "123456");
   		browser.assert.containsText('span.nav-item-text:nth-child(2)', 'NEW USERNAME');
 		browser.end();
 	}
