@@ -5,17 +5,84 @@ module.exports = {
 	randomPhone: Math.floor(Math.random() * (100000000 - 999999999) + 999999999),
 	randomDayBirth: Math.floor(Math.random() * (1 - 31) + 31),	
 	randomYearBirth: Math.floor(Math.random() * (1916 - 2016) + 2016),
-	randomPostalCode: Math.floor(Math.random() * (10000 - 99999) + 99999),
+	randomPostalCode: Math.floor(Math.random() * (10000 - 99999) + 99999),	
 
 	//URLs:
 	baseUrl: "http://beta.sportmaniacs.com/",
 	tpvUrl: 'https://sis-t.redsys.es:25443/sis/realizarPago',
 	
+	getRaceInscriptionUrl: function(race) {
+		return "services/inscription/" + race;
+	},
+
+	getInscriptionFormUrl: function(race, event) {
+		return this.getRaceInscriptionUrl(race) + "/" + event;
+	},
+
+	getInscriptionLoginUrl: function(race, event) {
+		return this.getInscriptionFormUrl(race, event) + "/login";
+	},
+
+	races: {
+		normal: {
+			race: "criterium-pontevedra",
+			event: "570e084a-4cf4-448b-9c5f-7589bc5ffd28"
+		},
+
+		search: {
+			race: "Carrera de la mujer Madrid 2015",
+			partialName: "de la Mujer Madrid 2015",
+			province: "Madrid"
+		}
+	},
+
+	others: {
+		login: "login",
+		logout: "app/logout",
+		clasificaciones: "results",
+		provinceOfRace: "Valencia",		
+
+		datosPerfil: {			
+			perfil: "/my-profile",
+			datosEditables: "my-profile/edit",
+			fotos: "my-profile/photos",
+			carreras: "my-profile/results"
+		}
+	},
+
+	users: {
+		pruebas: {
+			userEmail: "user+test00@gmail.com",
+			password: "123456",
+			badPassword: "555555"
+		},
+
+		modificable: {
+			userEmail: "pepitoGrillo@myMail.com",
+			password: "123456"
+		},
+
+		perfilIncompleto: {
+			userEmail: "userb+test00@gmail.com",
+			password: "123456"
+		},
+
+		conCarreras: {
+			userEmail: "lauracloquell@gmail.com",
+			password: "i66740b"
+		},
+
+		conFotos: {
+			userEmail: "javier@sportmaniacs.com",
+			password: "123456"
+		}
+	},
+
 	inscriptionTest: {
 		home: "races/10km-villa-de-pantoja/",
-		eventsList: "services/inscription/10km-villa-de-pantoja",
-		eventLogin: "services/inscription/10km-villa-de-pantoja/56e709de-26fc-4c75-b1a1-4088bc5ffd28/login",
-		eventForm: "services/inscription/10km-villa-de-pantoja/56e709de-26fc-4c75-b1a1-4088bc5ffd28"
+		eventsList: "services/inscription/criterium-pontevedra",
+		eventLogin: "services/inscription/criterium-pontevedra/570e084a-4cf4-448b-9c5f-7589bc5ffd28/login",
+		eventForm: "services/inscription/criterium-pontevedra/570e084a-4cf4-448b-9c5f-7589bc5ffd28"
 	},
 
 	preferentialInscription: {		
@@ -38,20 +105,22 @@ module.exports = {
 		eventSupersprintLogin: "services/inscription/carrera-inscriptiones-test/371/login"		
 	},	
 
-	sampleRaceRelativeUrl: "races/sportmaniacs-clasificacion",
-	infoAtheleteUrl: "races/sportmaniacs-clasificacion/330/results/athlete/12685/results",
+	sampleRaceRelativeUrl: "races/carrera-de-la-mujer-madrid-2016",
+	classificationUrl: "races/carrera-de-la-mujer-madrid-2016/56d052a0-9e18-467d-a611-11abbc5ffd28/results/official",
+	infoAtheleteUrl: "races/carrera-de-la-mujer-madrid-2016/56d052a0-9e18-467d-a611-11abbc5ffd28/results/athlete/3/results",
 	infoClubUrl: "races/sportmaniacs-clasificacion/330/results/clubs/search/AD%20SEVILLA",
 	searchAthleteUrl: "races/sportmaniacs-clasificacion/330/results/official/search/yessica",
 	classificationRelativeUrl: "races/sportmaniacs-clasificacion/330/results/official",
 
 	//TEXTS
-	partialRaceSearch: "sportmaniacs clasi",
+	partialRaceSearch: "de la Mujer Madrid 2015",
 	sampleTitleEnglish: "Browse and compete in races around the world",
-	sampleRaceName: "sportmaniacs clasificacion",
+	sampleRaceName: "Carrera de la mujer Madrid 2015",
 	classificationSubtitle: "Clasificación oficial evento con clasificacion",
-	race: '5ª Carrera "Fiestas de El Niño de Mula". La Carrera de Moncho',
+	race: 'Criterium Pontevedra',
 
 	//ELEMENTS:
+
 	contactForm: "body > footer > div.footer > div > div > nav.col-md-7.text-md-left.text-xs-center.footer-legal > ul > li:nth-child(4) > a",
 	english: "body > footer > div.footer > div > div > nav.col-md-5.u-fw-600.text-md-right.text-xs-center > ul > li:nth-child(1) > a",
 	spanish: "body > footer > div.footer > div > div > nav.col-md-5.u-fw-600.text-md-right.text-xs-center > ul > li:nth-child(2) > a",

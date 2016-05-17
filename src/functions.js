@@ -19,8 +19,28 @@ Utils = function() {
 		browser.click("body > main > div > div > section:nth-child(2) > div > div > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button");
 	};
 
+	this.singUpIfNotExistAccount = function(browser, name, surname, email, password, day, month, year, dni, phone, club, address, postalCode, country) {
+		this.logout(browser);
+		this.login(browser, 'user+test00@gmail.com' , '123456');
+		browser.pause(2000);
+		if (browser.assert.elementPresent(".alert")) {
+			this.createNewAcount(browser, name, surname, email, password);
+			browser.url(this.buildUrl(browser, '/my-profile/edit'));
+			this.changeAllUserData(browser, day, month, year, dni, phone, club, address, postalCode, country);
+			browser.end();
+		}
+	};
+
+	this.createNewAcount = function(browser, name, surname, email, password) {
+		browser.setValue('#signupFormName', name);
+		browser.setValue('#signupFormSurname', surname);
+		browser.setValue('#signupFormEmail', email);
+		browser.setValue('#signupFormPassword', password);
+		browser.click('.asyncForm-submitButton');
+	};
+
 	this.openLoginPopup = function(browser) {
-	browser.click("#topBar > div > nav > ul > li.nav-item.topBar-nav-login.pull-xs-right.text-xs-center > a");
+		browser.click("#topBar > div > nav > ul > li.nav-item.topBar-nav-login.pull-xs-right.text-xs-center > a");
 	};
 
 	this.loginOnPage = function(browser, user, pass) {
@@ -29,7 +49,7 @@ Utils = function() {
 		browser.click("#ajax-modal-body > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button");
 	};
 
-	this.logoutOnPage = function(browser, user, pass) {
+	this.logoutOnPage = function(browser) {
 		browser.waitForElementVisible('#userDropdown', 60000) 	
  		browser.click('#userDropdown')
  		browser.waitForElementVisible('#topBar > div > nav > ul > li.dropdown.nav-item.pull-xs-right.text-xs-right.open > div.dropdown-menu.u-r-0.u-l-a > a:nth-child(3)', 60000)
@@ -86,8 +106,7 @@ Utils = function() {
 		browser.waitForElementVisible('#authFormPassword', 20000);
 		browser.setValue('#authFormPassword', password);
 		browser.click('.u-pt-md > button:nth-child(1)');
-		browser.waitForElementVisible('span.nav-item-text:nth-child(2)', 20000);
-		browser.pause(2000);
+		browser.pause(3000);
 	};
 
 	this.fillFormContact = function(browser, name, email, phone, text) {
@@ -130,6 +149,12 @@ Utils = function() {
 	 	this.fillInscriptionRfea(browser, typeDoc, year);
 	};
 
+	this.enterValidOrInvalidDocumentNumber = function (browser) { //Inscripcion Supersprint
+		this.logout(browser);
+	 	this.login(browser, 'user+test00@gmail.com' , '123456');
+	 	browser.url(this.buildUrl(browser, data.supersprintInscription.eventsSupersprintInscription));
+	};
+
 	this.jQueryElementsArePresent = function(browser, selectorsArray) {
 		selectorsArray.forEach( function(element, index) {
 			browser.assert.jqueryElementPresent(element);
@@ -156,7 +181,65 @@ Utils = function() {
 	 	browser.assert.value('#data_0_Inscription_club2', club);	
 	 };
 
-	this.checkDataDisabled = function(browser) {		
+	 this.checkDataProfile = function(browser, name, surname, day, month, year, documentType, doc, origin, phone, gender, club, address, postalCode, country) {
+		browser.assert.value('#name', name);
+	 	browser.assert.value('#surname', surname);
+	 	browser.assert.value('div.row:nth-child(2) > div:nth-child(2) > select:nth-child(1)', day);
+	 	browser.assert.value('div.row:nth-child(2) > div:nth-child(3) > select:nth-child(1)', month);
+	 	browser.assert.value('div.form-group:nth-child(4) > select:nth-child(1)', year);
+	 	browser.assert.value('#documentType', documentType);
+	 	browser.assert.value('#document', doc);
+	 	browser.assert.value('#origin', origin);
+	 	browser.assert.value('#phone', phone);
+	 	browser.assert.value('div.row:nth-child(4) > div:nth-child(3) > div:nth-child(2) > label:nth-child(1) > input:nth-child(1)', gender);
+	 	browser.assert.value('#club', club);
+	 	browser.assert.value('#address', address);
+	 	browser.assert.value('#postal_code', postalCode);
+	 	browser.assert.value('#country', country);
+	 };
+
+	 this.changeUserData = function(browser, phone, address, postalCode) {
+		browser.waitForElementVisible('.btn', 20000);
+		browser.clearValue('#phone');
+ 		browser.setValue('#phone', phone);
+ 		browser.clearValue('#address');
+ 		browser.setValue('#address', address);
+ 		browser.clearValue('#postal_code');
+ 		browser.setValue('#postal_code', postalCode);
+ 		browser.keys('\uE006');
+ 		browser.waitForElementVisible('.profileForm-response', 20000);
+ 		browser.assert.cssClassPresent('.profileForm-response', 'alert-success');
+	 };
+
+	 this.changeAllUserData = function(browser, day, month, year, dni, phone, club, address, postalCode, country) {	
+		browser.waitForElementVisible('.btn', 20000);
+		browser.setValue('div.row:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > select:nth-child(1)', day);
+		browser.setValue('div.row:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > select:nth-child(1)', month);
+		browser.setValue('div.row:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > select:nth-child(1)', year);
+		browser.clearValue('#document');
+		browser.setValue('#document', dni);
+		browser.clearValue('#phone');
+ 		browser.setValue('#phone', phone);
+ 		browser.click('div.row:nth-child(5) > div:nth-child(3) > div:nth-child(2) > label:nth-child(1) > input:nth-child(1)');
+ 		browser.clearValue('#club');
+ 		browser.setValue('#club', club);
+ 		browser.clearValue('#address');
+ 		browser.setValue('#address', address);
+ 		browser.clearValue('#postal_code');
+ 		browser.setValue('#postal_code', postalCode);
+ 		browser.setValue('#country', country);
+ 		browser.keys('\uE006');
+ 		browser.waitForElementVisible('.profileForm-response', 20000);
+ 		browser.assert.cssClassPresent('.profileForm-response', 'alert-success');
+	 };
+
+	 this.checkNewUserData = function(browser, phone, address, postalCode) {
+		browser.assert.value('#phone', phone);
+ 		browser.assert.value('#address', address);
+ 		browser.assert.value('#postal_code', postalCode);
+	 };
+
+	 this.checkDataDisabled = function(browser) {		
 		browser.assert.elementPresent("#data_0_Inscription_name[disabled]");
 		browser.assert.elementPresent("#data_0_Inscription_surname[disabled]");
 		// browser.assert.elementNotPresent("#data_0_Inscription_mail[disabled]");
@@ -170,6 +253,22 @@ Utils = function() {
 		browser.assert.elementPresent("#data_0_Inscription_club2[readonly]");
 	};
 
+	 this.checkUserDataProfile = function(browser, name, surname, birth_day, birth_month, birth_year, docutype, dni, country, phone, gender, club, address, postalcode) {
+	 	browser.assert.value('#name', name);
+	 	browser.assert.value('#surname', surname);	 	
+	 	browser.assert.value('div.row:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > select:nth-child(1)', birth_day);
+	 	browser.assert.value('div.row:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > select:nth-child(1)', birth_day);
+	 	browser.assert.value('div.row:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > select:nth-child(1)', birth_month);
+	 	browser.assert.value('div.row:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > select:nth-child(1)', birth_year);
+	 	browser.assert.value('#documentType', docutype);
+	 	browser.assert.value('#document', dni);
+	 	browser.assert.value('#origin', country);
+	 	browser.assert.value('#phone', phone);
+	 	browser.assert.value('div.row:nth-child(5) > div:nth-child(3) > div:nth-child(2) > label:nth-child(1) > input:nth-child(1)', gender);
+	 	browser.assert.value('#club', club);
+	 	browser.assert.value('#address', address);
+	 	browser.assert.value('#postal_code', postalcode);
+	 };
 
 	this.fillCheckInscriptionform = function(browser, race, dni, day, month, year) {
 		checkInscriptionUrl = this.buildUrl(browser, "check-inscription");
@@ -182,7 +281,7 @@ Utils = function() {
 		browser.click("#checkInscriptionFormContent > div.form-group.u-mt-lg > button");
 	};
 
-	this.fillTheRaceInscriptionFormWithMyUserData = function(browser, name, surname, mail, dni, gender, birth_day, birth_month, birth_year) {
+	this.checkMyUserDataIsSetInTheform = function(browser, name, surname, mail, dni, gender, birth_day, birth_month, birth_year) {
 		browser.waitForElementVisible('#data_0_Inscription_name', 10000);
 		browser.assert.value('#data_0_Inscription_name', name);
 	 	browser.assert.value('#data_0_Inscription_surname', surname);
@@ -244,27 +343,39 @@ Utils = function() {
 		country = browser.getValue("#country")
 	};
 
-	this.checkDataProfile = function(browser, name, surname, day, month, year, documentType, doc, origin, phone, gender, club, address, postalCode, country) {
-		browser.assert.value('#name', name);
-	 	browser.assert.value('#surname', surname);
-	 	browser.assert.value('div.row:nth-child(2) > div:nth-child(2) > select:nth-child(1)', day);
-	 	browser.assert.value('div.row:nth-child(2) > div:nth-child(3) > select:nth-child(1)', month);
-	 	browser.assert.value('div.form-group:nth-child(4) > select:nth-child(1)', year);
-	 	browser.assert.value('#documentType', documentType);
-	 	browser.assert.value('#document', doc);
-	 	browser.assert.value('#origin', origin);
-	 	browser.assert.value('#phone', phone);
-	 	browser.assert.value('div.row:nth-child(4) > div:nth-child(3) > div:nth-child(2) > label:nth-child(1) > input:nth-child(1)', gender);
-	 	browser.assert.value('#club', club);
-	 	browser.assert.value('#address', address);
-	 	browser.assert.value('#postal_code', postalCode);
-	 	browser.assert.value('#country', country);
-	 };
 
 	this.randomNumberForTests = function(initial, end) {
 		var randNumber = Math.random() * (initial - end) + end;
 		return randNumber;
 	};
+
+	this.getTextFromElement = function(browser, selector) {//////////////////
+		var name;
+		// browser.waitForElementVisible(selector, 20000);
+		// name = browser.getText(selector, function(result){
+
+		// });
+
+		name = browser.execute(function() {
+			return $(data.selectorForCityNameInTheCard).text();
+		}, null, function(result) {
+			name = result;
+		});
+
+		return name;
+	};
+
+	this.getSpanishProvinceFromCity = function(browser,city) {
+
+		var result = "";
+
+
+
+
+		return result;
+	};
+
+
 };
 
 module.exports = new Utils;

@@ -3,29 +3,34 @@ var utils = require("../functions");
 
 module.exports = {
   "should go to the classification page" : function (browser) {
+    utils.logout(browser);
     browser.url(utils.buildUrl(browser, data.sampleRaceRelativeUrl));
     browser.click(data.classificationButton);
     browser.pause(3000);
-    browser.assert.urlEquals(utils.buildUrl(browser, data.classificationRelativeUrl));
+    browser.assert.urlEquals(utils.buildUrl(browser, data.classificationUrl));
     browser.assert.elementPresent("#rankingTable > table");
+    browser.end();
   },
 
-  "should change the category succesfully" : function (browser) { 
-    browser.url(utils.buildUrl(browser, data.classificationRelativeUrl));
+  "should change the category succesfully" : function (browser) {
+    utils.logout(browser);
+    browser.url(utils.buildUrl(browser, data.classificationUrl));
     browser.pause(3000);
     browser.click('#eventCategory');
     browser.keys(['\uE015','\uE015', '\uE006']);
     browser.pause(5000);
     browser.assert.elementPresent("#rankingTable > table");
-    browser.assert.containsText(data.rankingTable, "YESSICA SANCHEZ SANTOS");
+    browser.assert.containsText(data.rankingTable, "JACQUELINE MARTIN ALVAREZ");
+    browser.end();
   },
 
   "should go to athlete" : function (browser) {
-    browser.url(utils.buildUrl(browser, data.classificationRelativeUrl));
+    browser.url(utils.buildUrl(browser, data.classificationUrl));
     browser.pause(5000);
-    browser.assert.elementPresent("#rankingTable > table > tbody > tr:nth-child(1) > td:nth-child(5) > a");
-    browser.executeAsync(function(data, done) {$("td > a").eq(0).click();});
-    browser.pause(5000);
+    //browser.assert.elementPresent("#rankingTable > table > tbody > tr:nth-child(1) > td:nth-child(5) > a");
+    browser.click('tr.table-tr:nth-child(1) > td:nth-child(7) > a:nth-child(1)');
+    //browser.executeAsync(function(data, done) {$("td > a").eq(0).click();});
+    browser.waitForElementVisible('.btn', 20000);
     browser.assert.urlEquals(utils.buildUrl(browser, data.infoAtheleteUrl));
   }, 
   
@@ -42,7 +47,7 @@ module.exports = {
   },
   
   "should search by athlete" : function (browser) {
-    browser.url(utils.buildUrl(browser, data.classificationRelativeUrl));
+    browser.url(utils.buildUrl(browser, data.classificationUrl));
     browser.pause(5000);
     browser.assert.elementPresent('#dorsal');
     browser.setValue('#dorsal', 'yessica');
@@ -54,7 +59,7 @@ module.exports = {
   },
 
   "should search by dorsal" : function (browser) {
-    browser.url(utils.buildUrl(browser, data.classificationRelativeUrl));
+    browser.url(utils.buildUrl(browser, data.data.classificationUrl));
     browser.pause(5000);
     browser.assert.elementPresent('#dorsal');
     browser.setValue('#dorsal', '12639');

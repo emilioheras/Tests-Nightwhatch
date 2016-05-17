@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="8">
+
+  <testsuite name="profile"
+    errors="0" failures="0" hostname="" id="" package="profile" skipped="0"
+    tests="8" time="96.10" timestamp="Thu, 12 May 2016 08:40:18 GMT">
+  
+    <testcase name="redirect you to your user profile logged clicking the button" time="12.47" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="should show user information" time="12.05" assertions="16">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="should show user race results" time="11.24" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="should show the proper message when the user has no results" time="12.92" assertions="6">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="should show the proper message when the user has no photos" time="11.39" assertions="5">
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="should show user bought photos" time="12.56" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Should require login and redirect back when logging in" time="11.05" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="should save the modifications" time="12.42" assertions="7">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+  
+  </testsuite>
+</testsuites>

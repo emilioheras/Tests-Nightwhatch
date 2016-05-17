@@ -5,9 +5,13 @@
 
   <testsuite name="profile"
     errors="0" failures="0" hostname="" id="" package="profile" skipped="0"
-    tests="1" time="11.44" timestamp="Thu, 05 May 2016 08:07:27 GMT">
+    tests="1" time="12.31" timestamp="Fri, 06 May 2016 09:11:48 GMT">
   
-    <testcase name="should show user information" time="11.44" assertions="1">
+    <testcase name="Should require login and redirect back when logging in" time="12.31" assertions="3">
+
+    
+
+    
 
     
     </testcase>
