@@ -5,15 +5,9 @@
 
   <testsuite name="raceLogin"
     errors="0" failures="0" hostname="" id="" package="raceLogin" skipped="0"
-    tests="1" time="17.70" timestamp="Tue, 17 May 2016 10:25:15 GMT">
+    tests="1" time="9.438" timestamp="Wed, 18 May 2016 11:58:01 GMT">
   
-    <testcase name="should create an account" time="17.70" assertions="5">
-
-    
-
-    
-
-    
+    <testcase name="should say the user has an email" time="9.438" assertions="2">
 
     
 

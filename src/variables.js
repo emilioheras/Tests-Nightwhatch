@@ -8,7 +8,7 @@ module.exports = {
 	randomPostalCode: Math.floor(Math.random() * (10000 - 99999) + 99999),	
 
 	//URLs:
-	baseUrl: "https://sportmaniacs.com/es/",
+	baseUrl: "https://sportmaniacs.com/",
 	tpvUrl: 'https://sis-t.redsys.es:25443/sis/realizarPago',
 	
 	//Carrera con inscripciones.
@@ -37,10 +37,20 @@ module.exports = {
 		return this.getRaceClassificationUrl(race) + "/" + event + "/results/athlete/3/results";
 	},
 
+	getSearchByClubUrl: function(race, event) {
+		return this.getRaceClassificationUrl(race) + "/" + event + "/results/clubs";
+	},
+
+	//Idiomas.
+
+	getLanguageUrl: function(language) {
+		return "https://sportmaniacs.com/" + language;
+	},
+	
 	races: {
 		normal: {
-			race: "criterium-pontevedra",
-			event: "570e084a-4cf4-448b-9c5f-7589bc5ffd28"
+			race: "15k-nocturno-castellon---banco-mediolanum",
+			event: "56bcd051-c3ec-4560-ac02-699bbc5ffd28"
 		},
 
 		search: {
@@ -66,6 +76,13 @@ module.exports = {
 			datosEditables: "my-profile/edit",
 			fotos: "my-profile/photos",
 			carreras: "my-profile/results"
+		},
+
+		atleta: {
+			nombreCorto: "JACQUELINE",
+			nombre: "JACQUELINE MARTIN ALVAREZ",
+			dorsal: "3",
+			club: "CORRECONMIGOAV 1"
 		}
 	},
 
