@@ -2,7 +2,14 @@ var data = require("../variables");
 var utils = require("../functions");
 
 module.exports = {
- "should send a contact form email " : function (browser) {
+ "should add the '/es' to the url" : function (browser) { 
+ 	browser.url(data.baseUrlWithoutLanguage);
+ 	browser.pause(3000);
+ 	browser.assert.urlEquals(data.baseUrl);
+    browser.end();
+ },
+
+ "should send a contact form email" : function (browser) {
  	utils.logout(browser); 
 	browser.url(data.baseUrl);
 	browser.waitForElementVisible(data.contactForm, 20000);

@@ -8,7 +8,7 @@ module.exports = {
 		var targetUrl = utils.buildUrl(browser, data.getInscriptionLoginUrl(data.races.normal.race, data.races.normal.event));
 
 		browser.url(utils.buildUrl(browser, data.getInscriptionFormUrl(data.races.normal.race, data.races.normal.event)));
-		browser.assert.urlEquals(utils.buildUrl(browser, data.getInscriptionLoginUrl(data.races.normal.race, data.races.normal.event)));
+		browser.assert.urlEquals(targetUrl);
 		browser.end();
 	},
 
@@ -66,7 +66,7 @@ module.exports = {
 		utils.login(browser, data.users.pruebas.userEmail , data.users.pruebas.password);
 		browser.url(utils.buildUrl(browser, data.getInscriptionFormUrl(data.races.normal.race, data.races.normal.event)));
 		browser.waitForElementVisible('#data_0_Inscription_phone', 20000);
-		utils.jQueryElementsArePresent(browser, ['#data_0_Inscription_name[readonly]', '#data_0_Inscription_surname[readonly]', '#data_0_Inscription_mail[readonly]', '#data_0_Inscription_dni[readonly]', '#data_0_Inscription_phone[readonly]']);
+		utils.jQueryElementsArePresent(browser, ['#data_0_Inscription_name[disabled]', '#data_0_Inscription_surname[disabled]', '#data_0_Inscription_mail[disabled]', '#data_0_Inscription_dni[disabled]', '#data_0_Inscription_phone[disabled]']);
 		browser.end();
 	},
 
@@ -114,19 +114,6 @@ module.exports = {
 		browser.end();
 	},
 
-	// "(Supersprint inscription) dependent fields are shown when the criteria is met" : function (browser) {
-	// 	utils.logout(browser);
-	// 	utils.login(browser, data.users.perfilIncompleto.userEmail , data.users.perfilIncompleto.password);
-	// 	browser.url(utils.buildUrl(browser, data.supersprintInscription.eventsSupersprintInscription));
-	// 	browser.waitForElementVisible('fieldset.form-step:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > label:nth-child(1) > input:nth-child(1)', 20000);
-	// 	browser.click('fieldset.form-step:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > label:nth-child(1) > input:nth-child(1)');
-	// 	browser.waitForElementVisible('#data_0_Inscription_dateofbirthday_year', 20000);
-	// 	browser.setValue('#data_0_Inscription_dateofbirthday_year', "1999");
-	// 	browser.waitForElementVisible('#data_0_Inscription_auth', 20000);
-	// 	browser.end();
-	// },
-
-
 	"should show field error messages when validation fails" : function (browser) {
 		utils.logout(browser);
 		utils.login(browser, data.users.perfilIncompleto.userEmail , data.users.perfilIncompleto.password);
@@ -136,8 +123,7 @@ module.exports = {
 		browser.waitForElementVisible('div.col-sm-4:nth-child(6) > div:nth-child(2)', 20000);
 		browser.waitForElementVisible('div.form-group:nth-child(7) > div:nth-child(2)', 20000);
 		browser.waitForElementVisible('div.subgroup:nth-child(3) > div:nth-child(2) > div:nth-child(2)', 20000);
-		browser.waitForElementVisible('div.has-danger:nth-child(5) > div:nth-child(2)', 20000);
-		browser.waitForElementVisible('div.has-danger:nth-child(4) > div:nth-child(2)', 20000);		
+		browser.waitForElementVisible('div.has-danger:nth-child(5) > div:nth-child(2)', 20000);				
 		browser.end();
 	}
 };

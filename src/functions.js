@@ -3,7 +3,7 @@ var data = require("./variables");
 Utils = function() {
 	
 	this.buildUrl = function(browser, url) {
-		return data.baseUrl + url.replace(/^\//, "").replace(/\/$/, "");
+		return (data.baseUrl + "/" + url.replace(/^\//, "").replace(/\/$/, "")); //.replace(/\/\//, "")
 	};
 
 	this.fillLoginform = function(browser, user, pass) {
@@ -13,7 +13,7 @@ Utils = function() {
 	};
 
 	this.login = function(browser, user, pass) {
-		loginUrl = this.buildUrl(browser, "login");
+		loginUrl = this.buildUrl(browser, "/login");
 		browser.url(loginUrl);
 		this.fillLoginform(browser, user, pass);
 		browser.click("body > main > div > div > section:nth-child(2) > div > div > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button");
@@ -63,7 +63,7 @@ Utils = function() {
 	};
 
 	this.logout = function(browser) {		
- 		loginUrl = this.buildUrl(browser, "app/logout");
+ 		loginUrl = this.buildUrl(browser, "/app/logout");
 		browser.url(loginUrl);
 	};
 
@@ -87,12 +87,14 @@ Utils = function() {
 			.setValue("#loginFormPassword", pass)
 	};
 
-	this.fillFormCreateAccountPopup = function(browser, name, surname, email, password) {
+	this.fillFormCreateAccountPopup = function(browser, name, surname, email, password, confirmPassword) {
+		browser.pause(1000);
 		browser.waitForElementVisible('#signupFormName', 20000);
 		browser.setValue('#signupFormName', name);
 		browser.setValue('#signupFormSurname', surname);
 		browser.setValue('#signupFormEmail', email);
 		browser.setValue('#signupFormPassword', password);
+		browser.setValue('div.u-pos-r:nth-child(7) > div:nth-child(1) > input:nth-child(2)', confirmPassword);
 		browser.click('.asyncForm-submitButton');
 		browser.waitForElementVisible('span.nav-item-text:nth-child(2)', 20000);
 		browser.pause(2000);

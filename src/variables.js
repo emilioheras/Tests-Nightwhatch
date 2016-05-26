@@ -8,7 +8,10 @@ module.exports = {
 	randomPostalCode: Math.floor(Math.random() * (10000 - 99999) + 99999),	
 
 	//URLs:
-	baseUrl: "https://sportmaniacs.com/",
+	baseUrl: "https://sportmaniacs.com/es",
+	baseUrlWithoutLanguage: "https://sportmaniacs.com",
+	// baseUrl: "http://nacho.local.sportmaniacs.com/sportmaniacs/web/es/",
+	// baseUrlWithoutLanguage: "http://nacho.local.sportmaniacs.com/sportmaniacs/web/",	
 	tpvUrl: 'https://sis-t.redsys.es:25443/sis/realizarPago',
 	
 	//Carrera con inscripciones.
@@ -43,14 +46,14 @@ module.exports = {
 
 	//Idiomas.
 
-	getLanguageUrl: function(language) {
-		return "https://sportmaniacs.com/" + language;
+	getLanguageUrl: function(language) {		
+		return this.baseUrlWithoutLanguage + "/" + language;
 	},
 	
 	races: {
 		normal: {
-			race: "15k-nocturno-castellon---banco-mediolanum",
-			event: "56bcd051-c3ec-4560-ac02-699bbc5ffd28"
+			race: "vii-carrera-de-fondo-ciudad-de-baeza",
+			event: "56f02b1c-0748-40d0-a3a2-330abc5ffd28"
 		},
 
 		search: {
@@ -99,7 +102,7 @@ module.exports = {
 		},
 
 		perfilIncompleto: {
-			userEmail: "userb+test00@gmail.com",
+			userEmail: "userb@gmail.com",
 			password: "123456"
 		},
 
