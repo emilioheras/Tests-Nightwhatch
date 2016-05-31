@@ -66,7 +66,7 @@ module.exports = {
 		utils.login(browser, data.users.pruebas.userEmail , data.users.pruebas.password);
 		browser.url(utils.buildUrl(browser, data.getInscriptionFormUrl(data.races.normal.race, data.races.normal.event)));
 		browser.waitForElementVisible('#data_0_Inscription_phone', 20000);
-		utils.jQueryElementsArePresent(browser, ['#data_0_Inscription_name[disabled]', '#data_0_Inscription_surname[disabled]', '#data_0_Inscription_mail[disabled]', '#data_0_Inscription_dni[disabled]', '#data_0_Inscription_phone[disabled]']);
+		utils.jQueryElementsArePresent(browser, ['#data_0_Inscription_name[readonly]', '#data_0_Inscription_surname[readonly]', '#data_0_Inscription_mail[readonly]', '#data_0_Inscription_dni[readonly]', '#data_0_Inscription_phone[readonly]']);
 		browser.end();
 	},
 

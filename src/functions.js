@@ -371,9 +371,6 @@ Utils = function() {
 
 		var result = "";
 
-
-
-
 		return result;
 	};
 
