@@ -85,7 +85,7 @@ module.exports = {
 	// 	browser.end();
 	// },
 
-	"check discountsMinus" : function (browser) {
+	"check discountsPlus" : function (browser) {
 		utils.logout(browser);
 		utils.login(browser, data.users.pruebas.userEmail , data.users.pruebas.password);		
 		browser.url(utils.buildUrl(browser, data.getInscriptionFormUrl(data.races.fetriInscription.race, data.races.fetriInscription.event)));
@@ -100,7 +100,7 @@ module.exports = {
 		browser.end();
 	},
 
-	"check discountsPlus" : function (browser) {
+	"check discountsMinus" : function (browser) {
 		utils.logout(browser);
 		utils.login(browser, data.users.pruebas.userEmail , data.users.pruebas.password);		
 		browser.url(utils.buildUrl(browser, data.getInscriptionFormUrl(data.races.fetriInscription.race, data.races.fetriInscription.event)));
