@@ -305,7 +305,7 @@ Utils = function() {
         });
 	 	browser.setValue("#data_0_Inscription_phone", phone);
 	 	browser.click("a.btn:nth-child(2)");
-	 }
+	 };
 
 	 this.fillRequiredFieldsRfea = function(browser, email, phone, phoneEmergency, postalcode, country, province) {
         browser.waitForElementVisible("#data_0_Inscription_mail", 20000);

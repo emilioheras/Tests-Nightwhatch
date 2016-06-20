@@ -8,15 +8,15 @@ module.exports = {
 	randomPostalCode: Math.floor(Math.random() * (10000 - 99999) + 99999),	
 
 	//URLs:
-	baseUrl: "https://sportmaniacs.com/es",
-	baseUrlWithoutLanguage: "https://sportmaniacs.com",
+	// baseUrl: "https://sportmaniacs.com/es",
+	// baseUrlWithoutLanguage: "https://sportmaniacs.com",
 
-	// baseUrl: "http://web-test.local.sportmaniacs.com/es",
-	// baseUrlWithoutLanguage: "http://web-test.local.sportmaniacs.com",
+	baseUrl: "http://web-test.local.sportmaniacs.com/es",
+	baseUrlWithoutLanguage: "http://web-test.local.sportmaniacs.com",
 
 	// baseUrl: "http://nacho.local.sportmaniacs.com/sportmaniacs/web/es/",
 	// baseUrlWithoutLanguage: "http://nacho.local.sportmaniacs.com/sportmaniacs/web/",	
-	tpvUrl: 'https://sis.redsys.es/sis/realizarPago',
+	tpvUrl: 'https://sis-t.redsys.es/sis/realizarPago',
 	price: '16,00',
 	price2: '16.00',
 	
@@ -88,15 +88,15 @@ module.exports = {
 		// 	event: "369"
 		// },
 
-		fetriInscription: {
-			race: "i-triatlon-cros-villa-de-torrox",
-			event: "57446cd9-ac44-49ea-b202-56b8bc5ffd28"
-		}
-
 		// fetriInscription: {
-		// 	race: "carrera-inscriptiones-test",
-		// 	event: "368"		
+		// 	race: "i-triatlon-cros-villa-de-torrox",
+		// 	event: "57446cd9-ac44-49ea-b202-56b8bc5ffd28"
 		// }
+
+		fetriInscription: {
+			race: "carrera-inscriptiones-test",
+			event: "368"		
+		}
 	 },
 
 	others: {

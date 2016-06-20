@@ -5,9 +5,11 @@
 
   <testsuite name="fetriInscription"
     errors="0" failures="0" hostname="" id="" package="fetriInscription" skipped="0"
-    tests="1" time="14.18" timestamp="Wed, 15 Jun 2016 08:47:49 GMT">
+    tests="1" time="15.47" timestamp="Mon, 20 Jun 2016 12:48:43 GMT">
   
-    <testcase name="check registration summary" time="14.18" assertions="3">
+    <testcase name="check discountsPlus" time="15.47" assertions="4">
+
+    
 
     
 

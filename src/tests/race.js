@@ -18,7 +18,7 @@ tests = {
 
 	testModeIsCorrect: {
 		RFEA: function(browser, event) {
-			this.amountOfFieldsIsCorrect([""], event.team_size, "RFEA");
+			this.amountOfFieldsIsCorrect(browser, [""], event.team_size, "RFEA");
 		},
 
 		FETRI: function() {
