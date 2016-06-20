@@ -10,9 +10,15 @@ module.exports = {
 	//URLs:
 	baseUrl: "https://sportmaniacs.com/es",
 	baseUrlWithoutLanguage: "https://sportmaniacs.com",
+
+	// baseUrl: "http://web-test.local.sportmaniacs.com/es",
+	// baseUrlWithoutLanguage: "http://web-test.local.sportmaniacs.com",
+
 	// baseUrl: "http://nacho.local.sportmaniacs.com/sportmaniacs/web/es/",
 	// baseUrlWithoutLanguage: "http://nacho.local.sportmaniacs.com/sportmaniacs/web/",	
-	tpvUrl: 'https://sis-t.redsys.es:25443/sis/realizarPago',
+	tpvUrl: 'https://sis.redsys.es/sis/realizarPago',
+	price: '16,00',
+	price2: '16.00',
 	
 	//Carrera con inscripciones.
 	getRaceInscriptionUrl: function(race) {
@@ -52,8 +58,8 @@ module.exports = {
 	
 	races: {
 		normal: {
-			race: "vii-carrera-de-fondo-ciudad-de-baeza",
-			event: "56f02b1c-0748-40d0-a3a2-330abc5ffd28"
+			race: "travesia-nocturna-a-nado-noche-de-san-juan-2016",
+			event: "574ee02e-fe74-42be-a7d9-1216bc5ffd28"
 		},
 
 		search: {
@@ -65,8 +71,33 @@ module.exports = {
 		classification: {
 			race: "carrera-de-la-mujer-madrid-2016",
 			event: "56d052a0-9e18-467d-a611-11abbc5ffd28"
+		},
+
+		// preferentialInscription: {
+		// 	race: "carrera-inscriptiones-test",
+		// 	event: "56f02bef-2248-48f0-b797-388dbc5ffd28"
+		// },
+
+		rfeaInscription: {
+			race: "vii-maraton-malaga",
+			event: "56bdd7c0-5b80-49e7-90d3-2e62bc5ffd28"
+		},
+
+		// rfeaInscription: {
+		// 	race: "carrera-inscriptiones-test",
+		// 	event: "369"
+		// },
+
+		fetriInscription: {
+			race: "i-triatlon-cros-villa-de-torrox",
+			event: "57446cd9-ac44-49ea-b202-56b8bc5ffd28"
 		}
-	},
+
+		// fetriInscription: {
+		// 	race: "carrera-inscriptiones-test",
+		// 	event: "368"		
+		// }
+	 },
 
 	others: {
 		login: "login",
@@ -86,12 +117,17 @@ module.exports = {
 			nombre: "JACQUELINE MARTIN ALVAREZ",
 			dorsal: "3",
 			club: "CORRECONMIGOAV 1"
+		},
+
+		prices: {
+			price: "16,00",
+			price2: "16.00"
 		}
 	},
 
 	users: {
 		pruebas: {
-			userEmail: "user+test00@gmail.com",
+			userEmail: "user@gmail.com",
 			password: "123456",
 			badPassword: "555555"
 		},
@@ -124,20 +160,10 @@ module.exports = {
 		eventForm: "services/inscription/criterium-pontevedra/570e084a-4cf4-448b-9c5f-7589bc5ffd28"
 	},
 
-	preferentialInscription: {		
-		eventsPreferentialInscription: "services/inscription/carrera-inscriptiones-test/367",
-		eventPreferentialLogin: "services/inscription/carrera-inscriptiones-test/367/login"		
-	},
-
-	fetriInscription: {		
-		eventsFetriInscription: "services/inscription/carrera-inscriptiones-test/368",
-		eventFetriLogin: "services/inscription/carrera-inscriptiones-test/368/login"		
-	},
-
-	rfeaInscription: {		
-		eventsRfeaInscription: "services/inscription/carrera-inscriptiones-test/369",
-		eventRfeaLogin: "services/inscription/carrera-inscriptiones-test/369/login"		
-	},
+	/*preferentialInscription: {		
+		eventsPreferentialInscription: "services/inscription/vii-carrera-de-fondo-ciudad-de-baeza",
+		eventPreferentialLogin: "services/inscription/vii-carrera-de-fondo-ciudad-de-baeza/56f02bef-2248-48f0-b797-388dbc5ffd28/login"		
+	},*/
 
 	supersprintInscription: {		
 		eventsSupersprintInscription: "services/inscription/carrera-inscriptiones-test/371",

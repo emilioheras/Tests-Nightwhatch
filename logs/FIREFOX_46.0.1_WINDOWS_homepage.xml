@@ -5,14 +5,14 @@
 
   <testsuite name="homepage"
     errors="0" failures="0" hostname="" id="" package="homepage" skipped="0"
-    tests="3" time="31.83" timestamp="Tue, 24 May 2016 14:22:49 GMT">
+    tests="3" time="42.53" timestamp="Tue, 31 May 2016 09:15:35 GMT">
   
-    <testcase name="should add the &#39;/es&#39; to the url" time="9.661" assertions="1">
+    <testcase name="should add the &#39;/es&#39; to the url" time="10.20" assertions="1">
 
     
     </testcase>
   
-    <testcase name="should send a contact form email" time="10.80" assertions="6">
+    <testcase name="should send a contact form email" time="15.40" assertions="6">
 
     
 
@@ -27,7 +27,7 @@
     
     </testcase>
   
-    <testcase name="should change language clicking footer links" time="11.37" assertions="8">
+    <testcase name="should change language clicking footer links" time="16.93" assertions="8">
 
     
 

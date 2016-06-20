@@ -5,9 +5,9 @@
 
   <testsuite name="checkInscription"
     errors="0" failures="0" hostname="" id="" package="checkInscription" skipped="0"
-    tests="1" time="13.29" timestamp="Tue, 24 May 2016 14:29:24 GMT">
+    tests="1" time="14.12" timestamp="Wed, 01 Jun 2016 11:04:10 GMT">
   
-    <testcase name="should warn the user that the inscription is not correct" time="13.29" assertions="1">
+    <testcase name="should warn the user that the inscription is not correct" time="14.12" assertions="1">
 
     
     </testcase>

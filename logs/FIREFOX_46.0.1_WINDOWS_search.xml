@@ -5,16 +5,16 @@
 
   <testsuite name="search"
     errors="0" failures="0" hostname="" id="" package="search" skipped="0"
-    tests="3" time="31.61" timestamp="Fri, 13 May 2016 11:35:09 GMT">
+    tests="3" time="33.19" timestamp="Tue, 31 May 2016 10:30:27 GMT">
   
-    <testcase name="should search a race by name" time="11.01" assertions="2">
+    <testcase name="should search a race by name" time="10.95" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="should search a race by province" time="9.984" assertions="3">
+    <testcase name="should search a race by province" time="9.229" assertions="3">
 
     
 
@@ -23,7 +23,7 @@
     
     </testcase>
   
-    <testcase name="should search a race by province AND name" time="10.62" assertions="2">
+    <testcase name="should search a race by province AND name" time="13.01" assertions="2">
 
     
 

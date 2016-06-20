@@ -1,63 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites errors="0"
-            failures="1"
-            tests="8">
+<testsuites errors="2"
+            failures="0"
+            tests="1">
 
   <testsuite name="rfeaInscription"
-    errors="0" failures="1" hostname="" id="" package="rfeaInscription" skipped="7"
-    tests="8" time="15.16" timestamp="Tue, 10 May 2016 11:18:54 GMT">
+    errors="2" failures="0" hostname="" id="" package="rfeaInscription" skipped="0"
+    tests="1" time="22.14" timestamp="Wed, 15 Jun 2016 11:49:08 GMT">
   
-    <testcase name="should go to the login page if not logged in" time="15.16" assertions="1">  <failure message="Testing if the URL equals &quot;http://beta.sportmaniacs.com/services/inscription/carrera-inscriptiones-test/369/login&quot;.">    at Object.module.exports.should go to the login page if not logged in (C:\Users\Emilio\nightwhatch\src\tests\rfeaInscription.js:10:18)
-    at Module.call (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\lib\runner\module.js:63:34)
-    at C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\lib\runner\testcase.js:97:29
-    at _fulfilled (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:834:54)
-    at self.promiseDispatch.done (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:863:30)
-    at Promise.promise.promiseDispatch (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:796:13)
-    at C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:556:49
-    at runSingle (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:137:13)
-    at flush (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:125:13)
-    at nextTickCallbackWith0Args (node.js:420:9)</failure>
+    <testcase name="check registration summary" time="22.14" assertions="3">
+
+    
+
+    
 
     
     </testcase>
+      <system-err>
+         ERROR: Unable to locate element: &quot;#data_0_Inscriptionattribute_2_value&quot; using: css selector
+      </system-err>
   
-  
-    
-    <testcase
-      name="should go to the page if logged in">
-      <skipped />
-    </testcase>
-    
-    <testcase
-      name="should go to the page after connected">
-      <skipped />
-    </testcase>
-    
-    <testcase
-      name="should display error if user are not license Plus">
-      <skipped />
-    </testcase>
-    
-    <testcase
-      name="display user data in the register">
-      <skipped />
-    </testcase>
-    
-    <testcase
-      name="check registration summary">
-      <skipped />
-    </testcase>
-    
-    <testcase
-      name="check registration data gender summary">
-      <skipped />
-    </testcase>
-    
-    <testcase
-      name="check if payment has been made correctly">
-      <skipped />
-    </testcase>
-    
   
   </testsuite>
 </testsuites>

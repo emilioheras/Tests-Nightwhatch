@@ -1,0 +1,154 @@
+13:00:26.295 INFO - Launching a standalone Selenium Server
+Setting system property webdriver.chrome.driver to ./lib/chromedriver.exe
+13:00:26.349 INFO - Java: Oracle Corporation 25.91-b14
+13:00:26.349 INFO - OS: Windows 10 10.0 amd64
+13:00:26.365 INFO - v2.53.0, with Core v2.53.0. Built from revision 35ae25b
+13:00:26.412 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+13:00:26.412 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+13:00:26.412 INFO - Driver provider org.openqa.selenium.safari.SafariDriver registration is skipped:
+registration capabilities Capabilities [{browserName=safari, version=, platform=MAC}] does not match the current platform WIN10
+13:00:26.412 INFO - Driver class not found: org.openqa.selenium.htmlunit.HtmlUnitDriver
+13:00:26.412 INFO - Driver provider org.openqa.selenium.htmlunit.HtmlUnitDriver is not registered
+13:00:26.512 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+13:00:26.512 INFO - Selenium Server is up and running
+13:00:26.797 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Race, browserName=firefox, javascriptEnabled=true, platform=ANY}]])
+13:00:26.797 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Race, browserName=firefox, javascriptEnabled=true, platform=ANY}]
+13:00:30.785 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Race, browserName=firefox, javascriptEnabled=true, platform=ANY}]]
+13:00:30.799 INFO - Executing: [get: https://sportmaniacs.com/es/login])
+13:00:34.501 INFO - Done: [get: https://sportmaniacs.com/es/login]
+13:00:34.509 INFO - Executing: [find element: By.cssSelector: #loginFormEmail])
+13:00:34.565 INFO - Done: [find element: By.cssSelector: #loginFormEmail]
+13:00:34.573 INFO - Executing: [send keys: 0 [[FirefoxDriver: firefox on WINDOWS (c994b77d-7c60-47a3-a865-996be51e9725)] -> css selector: #loginFormEmail], [n, a, c, h, o, @, s, p, o, r, t, m, a, n, i, a, c, s, ., c, o, m]])
+13:00:34.684 INFO - Done: [send keys: 0 [[FirefoxDriver: firefox on WINDOWS (c994b77d-7c60-47a3-a865-996be51e9725)] -> css selector: #loginFormEmail], [n, a, c, h, o, @, s, p, o, r, t, m, a, n, i, a, c, s, ., c, o, m]]
+13:00:34.688 INFO - Executing: [find element: By.cssSelector: #loginFormPassword])
+13:00:34.707 INFO - Done: [find element: By.cssSelector: #loginFormPassword]
+13:00:34.710 INFO - Executing: [send keys: 1 [[FirefoxDriver: firefox on WINDOWS (c994b77d-7c60-47a3-a865-996be51e9725)] -> css selector: #loginFormPassword], [A, e, r, i, t, h, 7]])
+13:00:34.783 INFO - Done: [send keys: 1 [[FirefoxDriver: firefox on WINDOWS (c994b77d-7c60-47a3-a865-996be51e9725)] -> css selector: #loginFormPassword], [A, e, r, i, t, h, 7]]
+13:00:34.786 INFO - Executing: [find element: By.cssSelector: body > main > div > div > section:nth-child(2) > div > div > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button])
+13:00:34.807 INFO - Done: [find element: By.cssSelector: body > main > div > div > section:nth-child(2) > div > div > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button]
+13:00:34.809 INFO - Executing: [click: 2 [[FirefoxDriver: firefox on WINDOWS (c994b77d-7c60-47a3-a865-996be51e9725)] -> css selector: body > main > div > div > section:nth-child(2) > div > div > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button]])
+13:00:35.025 INFO - Done: [click: 2 [[FirefoxDriver: firefox on WINDOWS (c994b77d-7c60-47a3-a865-996be51e9725)] -> css selector: body > main > div > div > section:nth-child(2) > div > div > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button]]
+13:00:35.028 INFO - Executing: [get: https://sportmaniacs.com/es/services/inscription/travesia-nocturna-a-nado-noche-de-san-juan-2016/574ee02e-fe74-42be-a7d9-1216bc5ffd28])
+13:00:41.854 INFO - Done: [get: https://sportmaniacs.com/es/services/inscription/travesia-nocturna-a-nado-noche-de-san-juan-2016/574ee02e-fe74-42be-a7d9-1216bc5ffd28]
+13:00:41.861 INFO - Executing: [find elements: By.cssSelector: form])
+13:00:41.882 INFO - Done: [find elements: By.cssSelector: form]
+13:00:41.891 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [name]])
+13:00:41.912 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [name]]
+13:00:41.917 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [surname]])
+13:00:41.938 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [surname]]
+13:00:41.942 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [mail]])
+13:00:41.965 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [mail]]
+13:00:41.968 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [verify_email]])
+13:00:41.992 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [verify_email]]
+13:00:41.997 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [dni]])
+13:00:42.022 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [dni]]
+13:00:42.027 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [tipodni]])
+13:00:42.049 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [tipodni]]
+13:00:42.055 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [gender]])
+13:00:42.078 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [gender]]
+13:00:42.082 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [dateofbirthday]])
+13:00:42.119 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [dateofbirthday]]
+13:00:42.123 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [prefix_phone]])
+13:00:42.150 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [prefix_phone]]
+13:00:42.186 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [phone]])
+13:00:42.214 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [phone]]
+13:00:42.218 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [prefix_phone_emergency]])
+13:00:42.246 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [prefix_phone_emergency]]
+13:00:42.267 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [phone_emergency]])
+13:00:42.295 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [phone_emergency]]
+13:00:42.301 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [code]])
+13:00:42.327 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [code]]
+13:00:42.332 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [address]])
+13:00:42.360 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [address]]
+13:00:42.364 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [country_id]])
+13:00:42.397 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [country_id]]
+13:00:42.402 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [province_id]])
+13:00:42.441 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [province_id]]
+13:00:42.444 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [city_id]])
+13:00:42.476 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [city_id]]
+13:00:42.480 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [club]])
+13:00:42.511 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [club]]
+13:00:42.535 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [club2]])
+13:00:42.570 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [club2]]
+13:00:42.574 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [federico]])
+13:00:42.610 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length;
+			}.apply(window, passedArgs);, [federico]]

@@ -16,18 +16,18 @@ module.exports = {
 	 	browser.end();
   	},
 //FALLA PORQUE VA A LA HOME DESPUÉS DE LOGUEARSE.
-  // "should login succesfully" : function (browser) {
-  // 		utils.logout(browser);
-		// browser.url(utils.buildUrl(browser, data.getInscriptionFormUrl(data.races.normal.race, data.races.normal.event)));
-		// browser.waitForElementVisible('#loginFormEmail', 20000);
-		// browser.setValue('#loginFormEmail', data.users.pruebas.userEmail);
-		// browser.click('button.btn:nth-child(2)');
-		// browser.waitForElementVisible('div.u-pos-r:nth-child(1) > div:nth-child(1) > input:nth-child(2)', 20000);
-		// browser.setValue('div.u-pos-r:nth-child(1) > div:nth-child(1) > input:nth-child(2)', data.users.pruebas.password);
-		// browser.click('.u-mb-md');
-		// browser.waitForElementVisible('a.btn:nth-child(2)', 20000);
-		// browser.end();
-  // 	},
+  "should login succesfully" : function (browser) {
+  		utils.logout(browser);
+		browser.url(utils.buildUrl(browser, data.getInscriptionFormUrl(data.races.normal.race, data.races.normal.event)));
+		browser.waitForElementVisible('#loginFormEmail', 20000);
+		browser.setValue('#loginFormEmail', data.users.pruebas.userEmail);
+		browser.click('button.btn:nth-child(2)');
+		browser.waitForElementVisible('div.u-pos-r:nth-child(1) > div:nth-child(1) > input:nth-child(2)', 20000);
+		browser.setValue('div.u-pos-r:nth-child(1) > div:nth-child(1) > input:nth-child(2)', data.users.pruebas.password);
+		browser.click('.u-mb-md');
+		browser.waitForElementVisible('a.btn:nth-child(2)', 20000);
+		browser.end();
+  	},
 	
   "should say the user has an email" : function (browser) {
 		utils.logout(browser);

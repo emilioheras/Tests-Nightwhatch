@@ -5,23 +5,23 @@
 
   <testsuite name="classificationAthlete"
     errors="0" failures="0" hostname="" id="" package="classificationAthlete" skipped="0"
-    tests="4" time="56.04" timestamp="Fri, 27 May 2016 11:17:33 GMT">
+    tests="4" time="51.46" timestamp="Tue, 31 May 2016 09:14:13 GMT">
   
-    <testcase name="Certificate should be donwloadable" time="13.66" assertions="2">
+    <testcase name="Certificate should be donwloadable" time="10.72" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="Should be able to confirm I am an athlete if I&#39;m logged in" time="16.30" assertions="2">
+    <testcase name="Should be able to confirm I am an athlete if I&#39;m logged in" time="14.64" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="should not confirm that I am the athlete with incomplete data profile" time="20.07" assertions="4">
+    <testcase name="should not confirm that I am the athlete with incomplete data profile" time="20.54" assertions="4">
 
     
 
@@ -32,7 +32,7 @@
     
     </testcase>
   
-    <testcase name="should confirm that I am the athlete with complete data profile" time="6.008" assertions="2">
+    <testcase name="should confirm that I am the athlete with complete data profile" time="5.560" assertions="2">
 
     
 

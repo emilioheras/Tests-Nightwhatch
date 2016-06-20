@@ -52,8 +52,8 @@ Utils = function() {
 	this.logoutOnPage = function(browser) {
 		browser.waitForElementVisible('#userDropdown', 60000) 	
  		browser.click('#userDropdown')
- 		browser.waitForElementVisible('#topBar > div > nav > ul > li.dropdown.nav-item.pull-xs-right.text-xs-right.open > div.dropdown-menu.u-r-0.u-l-a > a:nth-child(3)', 60000)
- 		browser.click('#topBar > div > nav > ul > li.dropdown.nav-item.pull-xs-right.text-xs-right.open > div.dropdown-menu.u-r-0.u-l-a > a:nth-child(3)')
+ 		browser.waitForElementVisible('a.dropdown-item:nth-child(3)', 60000)
+ 		browser.click('a.dropdown-item:nth-child(3)')
 	}; 
 
 	this.fillDocumentNumberForm = function(browser, dni) {		
@@ -79,6 +79,15 @@ Utils = function() {
 	this.checkAnonymousUser = function(browser) {
 		browser.pause(8000)
       	browser.assert.elementNotPresent('#userDropdown', 'Anonymous User')
+	};
+
+	this.fillVerifyEmailAndPhoneEmergencyfIfExist = function(browser, email, phone) {
+		if(browser.assert.elementPresent("#data_0_Inscription_verify_email") == true) {
+			browser.setValue('#data_0_Inscription_verify_email', email);
+		}
+		if(browser.assert.elementPresent("#data_0_Inscription_phone_emergency")) {
+			browser.setValue('#data_0_Inscription_phone_emergency', phone);
+		}
 	};
 
 	this.fillInscriptionform = function(browser, user, pass) {
@@ -122,6 +131,25 @@ Utils = function() {
 		browser.waitForElementVisible('.contactForm-response', 20000);		
 	};
 
+	this.fillDataFormInscription = function(browser, name, surname, email, dni, phone, day, month, year, country) {
+		browser.waitForElementVisible('#data_0_Inscription_name', 20000);
+		browser.setValue('#data_0_Inscription_name', name);
+		browser.setValue('#data_0_Inscription_surname', surname)
+		browser.setValue('#data_0_Inscription_mail', email);
+		browser.setValue('#data_0_Inscription_dni', dni);
+		browser.setValue('#data_0_Inscription_phone', phone);
+		browser.setValue('#data_0_Inscription_dateofbirthday_day', day);
+		browser.setValue('#data_0_Inscription_dateofbirthday_month', month);
+		browser.setValue('#data_0_Inscription_dateofbirthday_year', year);
+		browser.setValue('#data_0_Inscription_country_id', country);
+		browser.click('#data_0_Inscription_province_id');
+		browser.keys(['\uE015','\uE015', '\uE006']);
+		this.fillVerifyEmailAndPhoneEmergencyfIfExist(browser, dni, "555556688");
+		browser.click('#data_0_Inscription_gender_0');
+		browser.click('a.btn:nth-child(2)');
+	};
+
+
 	this.fillInscriptionFetri = function(browser, doc, day, month, year) {
 		browser.waitForElementVisible('body > main > div > div:nth-child(2) > div.col-md-8 > form > nav > a.btn.btn-primary.u-fl-r', 20000);
 		browser.setValue("#data_FETRI_dni_validate", doc);
@@ -134,28 +162,21 @@ Utils = function() {
 	this.fillInscriptionRfea = function(browser, typeDoc, year) {
 		browser.waitForElementVisible('body > main > div > div:nth-child(2) > div.col-md-8 > form > nav > a.btn.btn-primary.u-fl-r', 20000);
 		browser.setValue("#data_RFEA_license_type_validate", typeDoc);
-		browser.setValue("#data_RFEA_birth_validate_year", year);		
+		browser.executeAsync(function(data, done) {$('#data_RFEA_carnet_validate').val('903');});
+		browser.setValue("#data_RFEA_birth_validate_year", year);
+		browser.click("body > main > div > div:nth-child(2) > div.col-md-8 > form > nav > a.btn.btn-primary.u-fl-r");				
 	};
 
-	this.enterValidOrInvalidDocumentNumber = function (browser, dni) {
-		this.logout(browser);
-	 	this.login(browser, 'user+test00@gmail.com' , '123456');
-	 	browser.url(this.buildUrl(browser, data.preferentialInscription.eventsPreferentialInscription));
-	 	this.fillDocumentNumberForm(browser, dni);
-	};
-
-	this.enterValidOrInvalidDocumentNumber = function (browser, typeDoc, year) { //Inscripcion RFEA
-		this.logout(browser);
-	 	this.login(browser, 'user+test00@gmail.com' , '123456');
-	 	browser.url(this.buildUrl(browser, data.rfeaInscription.eventsRfeaInscription));
+	this.enterDataRfea = function (browser, typeDoc, year) { //Inscripcion RFEA
+	 	browser.url(this.buildUrl(browser, data.getInscriptionFormUrl(data.races.rfeaInscription.race, data.races.rfeaInscription.event)));
 	 	this.fillInscriptionRfea(browser, typeDoc, year);
 	};
 
-	this.enterValidOrInvalidDocumentNumber = function (browser) { //Inscripcion Supersprint
-		this.logout(browser);
-	 	this.login(browser, 'user+test00@gmail.com' , '123456');
-	 	browser.url(this.buildUrl(browser, data.supersprintInscription.eventsSupersprintInscription));
-	};
+	// this.enterValidOrInvalidDocumentNumber = function (browser) { //Inscripcion Supersprint
+	// 	this.logout(browser);
+	//  	this.login(browser, 'user+test00@gmail.com' , '123456');
+	//  	browser.url(this.buildUrl(browser, data.supersprintInscription.eventsSupersprintInscription));
+	// };
 
 	this.jQueryElementsArePresent = function(browser, selectorsArray) {
 		selectorsArray.forEach( function(element, index) {
@@ -169,6 +190,16 @@ Utils = function() {
 			browser.assert.jqueryElementNotPresent(element);
 		});
 
+	};
+
+	this.checkUserDataFetriAndRfea = function (browser, name, surname, dni, birth_day, birth_month, birth_year) {
+		browser.waitForElementVisible("#data_0_Inscription_name", 20000);
+		browser.assert.value('#data_0_Inscription_name', name);
+	 	browser.assert.value('#data_0_Inscription_surname', surname);
+	 	browser.assert.value('#data_0_Inscription_dni', dni);
+	 	browser.assert.value('#data_0_Inscription_dateofbirthday_day', birth_day);
+	 	browser.assert.value('#data_0_Inscription_dateofbirthday_month', birth_month);
+	 	browser.assert.value('#data_0_Inscription_dateofbirthday_year', birth_year);
 	};
 
 	this.checkUserData = function(browser, name, surname, mail, dni, gender, birth_day, birth_month, birth_year, club) {		
@@ -242,17 +273,11 @@ Utils = function() {
 	 };
 
 	 this.checkDataDisabled = function(browser) {		
-		browser.assert.elementPresent("#data_0_Inscription_name[disabled]");
-		browser.assert.elementPresent("#data_0_Inscription_surname[disabled]");
-		// browser.assert.elementNotPresent("#data_0_Inscription_mail[disabled]");
-		// browser.assert.elementPresent("#data_0_Inscription_dni[readonly]");
-		browser.assert.elementPresent("#data_0_Inscription_gender_0[disabled]");
+		browser.assert.elementPresent("#data_0_Inscription_name[readonly]");
+		browser.assert.elementPresent("#data_0_Inscription_surname[readonly]");
 		browser.assert.elementPresent("#data_0_Inscription_dateofbirthday_day[disabled]");
 		browser.assert.elementPresent("#data_0_Inscription_dateofbirthday_month[disabled]");
 		browser.assert.elementPresent("#data_0_Inscription_dateofbirthday_year[disabled]");
-		// browser.assert.elementNotPresent("#data_0_Inscription_phone[disabled]");
-		// browser.assert.elementNotPresent("#data_0_Inscription_code[disabled]");
-		browser.assert.elementPresent("#data_0_Inscription_club2[readonly]");
 	};
 
 	 this.checkUserDataProfile = function(browser, name, surname, birth_day, birth_month, birth_year, docutype, dni, country, phone, gender, club, address, postalcode) {
@@ -271,6 +296,40 @@ Utils = function() {
 	 	browser.assert.value('#address', address);
 	 	browser.assert.value('#postal_code', postalcode);
 	 };
+
+	 this.fillRequiredFieldsFetri = function(browser, email, phone) {
+        browser.waitForElementVisible("#data_0_Inscription_mail", 20000);
+	 	browser.setValue("#data_0_Inscription_mail", email);
+	 	browser.execute(function(data) {$('#data_0_Inscription_gender_0').click();
+           return true;
+        });
+	 	browser.setValue("#data_0_Inscription_phone", phone);
+	 	browser.click("a.btn:nth-child(2)");
+	 }
+
+	 this.fillRequiredFieldsRfea = function(browser, email, phone, phoneEmergency, postalcode, country, province) {
+        browser.waitForElementVisible("#data_0_Inscription_mail", 20000);
+	 	browser.setValue("#data_0_Inscription_mail", email);
+	 	browser.execute(function(data) {$('#data_0_Inscription_gender_0').click();
+           return true;
+        });
+	 	browser.setValue("#data_0_Inscription_phone", phone);
+	 	browser.setValue("#data_0_Inscription_phone_emergency", phoneEmergency)
+	 	browser.setValue("#data_0_Inscription_code", postalcode);
+	 	browser.setValue("#data_0_Inscription_country_id", country);
+	 	browser.setValue("#data_0_Inscription_province_id", province);
+	 	// browser.setValue("#data_0_Inscriptionattribute_1_value", "S");
+	 	browser.click("#data_0_Inscriptionattribute_1_value");
+	 	browser.keys(['\uE015','\uE015', '\uE006']);
+	 	browser.setValue("#data_0_Inscriptionattribute_2_value", "Nombre test");
+	 	// browser.setValue("#data_0_Inscriptionattribute_4_value", "sub 2:30h");
+	 	// browser.click("#data_0_Inscriptionattribute_4_value");
+	 	// browser.keys(['\uE015','\uE015', '\uE006']);
+
+
+
+	 	// browser.click("a.btn:nth-child(2)");  
+	 }
 
 	this.fillCheckInscriptionform = function(browser, race, dni, day, month, year) {
 		checkInscriptionUrl = this.buildUrl(browser, "check-inscription");

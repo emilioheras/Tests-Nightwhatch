@@ -5,9 +5,9 @@
 
   <testsuite name="rfeaInscription"
     errors="0" failures="1" hostname="" id="" package="rfeaInscription" skipped="0"
-    tests="1" time="0.04700" timestamp="Tue, 03 May 2016 07:29:50 GMT">
+    tests="1" time="0.03700" timestamp="Tue, 14 Jun 2016 12:29:18 GMT">
   
-    <testcase name="should display error if user are not license Plus" time="0.04700" assertions="0">
+    <testcase name="should display error if user are not license Plus" time="0.03700" assertions="0">
     </testcase>
   
   

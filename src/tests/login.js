@@ -35,7 +35,7 @@ module.exports = {
   		utils.openLoginPopup(browser);
   		browser.waitForElementVisible('.type-link', 20000);
   		browser.click('.type-link');
-  		utils.fillFormCreateAccountPopup(browser, 'New UserName', 'New UserSurname', 'user' + Math.random() * 100 + 1 + '@gmail.com', '123456');
+  		utils.fillFormCreateAccountPopup(browser, 'New UserName', 'New UserSurname', 'user' + Math.random() * 100 + 1 + '@gmail.com', '123456', '123456');
   		browser.pause(2000);
    		browser.assert.containsText('span.nav-item-text:nth-child(2)', 'NEW USERNAME');
 		browser.end();

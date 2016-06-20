@@ -5,32 +5,32 @@
 
   <testsuite name="login"
     errors="0" failures="0" hostname="" id="" package="login" skipped="0"
-    tests="4" time="47.40" timestamp="Tue, 24 May 2016 15:04:57 GMT">
+    tests="4" time="54.69" timestamp="Tue, 31 May 2016 09:23:57 GMT">
   
-    <testcase name="should fail at login with bad password" time="10.13" assertions="1">
+    <testcase name="should fail at login with bad password" time="11.59" assertions="1">
 
     
     </testcase>
   
-    <testcase name="should login succesfully" time="10.34" assertions="2">
-
-    
-
-    
-    </testcase>
-  
-    <testcase name="should say the user has an email" time="13.10" assertions="4">
-
-    
-
-    
+    <testcase name="should login succesfully" time="12.05" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="should create an account" time="13.83" assertions="4">
+    <testcase name="should say the user has an email" time="15.15" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="should create an account" time="15.90" assertions="4">
 
     
 

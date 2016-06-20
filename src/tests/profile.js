@@ -15,7 +15,7 @@ module.exports = {
 
 	"should show user information" : function (browser) {
 		utils.logout(browser);
-		utils.login(browser, data.users.pruebas.userEmail , data.users.pruebas.password);
+		utils.login(browser, data.users.pruebas.userEmail , data.users.pruebas.password);		
  		browser.url(utils.buildUrl(browser, data.others.datosPerfil.datosEditables));
  		browser.waitForElementVisible('.sideNav > ul:nth-child(1) > li:nth-child(4) > a:nth-child(1)', 20000);
  		browser.click('.sideNav > ul:nth-child(1) > li:nth-child(4) > a:nth-child(1)');

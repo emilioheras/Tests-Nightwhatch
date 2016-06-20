@@ -1,43 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
-            failures="1"
+            failures="0"
             tests="4">
 
   <testsuite name="logout"
-    errors="0" failures="1" hostname="" id="" package="logout" skipped="2"
-    tests="4" time="87.25" timestamp="Tue, 24 May 2016 15:10:16 GMT">
+    errors="0" failures="0" hostname="" id="" package="logout" skipped="0"
+    tests="4" time="57.71" timestamp="Tue, 31 May 2016 10:12:33 GMT">
   
-    <testcase name="should be anonymous after logging out" time="18.37" assertions="1">
+    <testcase name="should be anonymous after logging out" time="21.13" assertions="1">
 
     
     </testcase>
   
-    <testcase name="should send me to the same page if not in any login protected zone" time="68.88" assertions="1">  <failure message="Timed out while waiting for element &lt;#userDropdown&gt; to be present for 60000 milliseconds.">    at logoutOnPage (C:\Users\Emilio\nightwhatch\src\functions.js:53:11)
-    at Object.module.exports.should send me to the same page if not in any login protected zone (C:\Users\Emilio\nightwhatch\src\tests\logout.js:17:10)
-    at Module.call (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\lib\runner\module.js:63:34)
-    at C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\lib\runner\testcase.js:97:29
-    at _fulfilled (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:834:54)
-    at self.promiseDispatch.done (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:863:30)
-    at Promise.promise.promiseDispatch (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:796:13)
-    at C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:556:49
-    at runSingle (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:137:13)
-    at flush (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:125:13)</failure>
+    <testcase name="should send me to the same page if not in any login protected zone" time="13.06" assertions="4">
+
+    
+
+    
+
+    
 
     
     </testcase>
   
+    <testcase name="should send me to the login page if in a login protected zone" time="15.58" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
   
+    <testcase name="should send me to the home page if I was not logged in" time="7.940" assertions="1">
+
     
-    <testcase
-      name="should send me to the login page if in a login protected zone">
-      <skipped />
     </testcase>
-    
-    <testcase
-      name="should send me to the home page if I was not logged in">
-      <skipped />
-    </testcase>
-    
+  
   
   </testsuite>
 </testsuites>

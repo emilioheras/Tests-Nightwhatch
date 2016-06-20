@@ -5,9 +5,9 @@
 
   <testsuite name="inscription"
     errors="0" failures="1" hostname="" id="" package="inscription" skipped="0"
-    tests="1" time="0.03700" timestamp="Wed, 20 Apr 2016 09:00:55 GMT">
+    tests="1" time="0.03900" timestamp="Thu, 16 Jun 2016 08:56:23 GMT">
   
-    <testcase name="my form should be in the same state when refreshing the page" time="0.03700" assertions="0">
+    <testcase name="the form should not let me finish a step with errors" time="0.03900" assertions="0">
     </testcase>
   
   

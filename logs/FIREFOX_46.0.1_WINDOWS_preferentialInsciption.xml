@@ -5,9 +5,9 @@
 
   <testsuite name="preferentialInsciption"
     errors="0" failures="1" hostname="" id="" package="preferentialInsciption" skipped="8"
-    tests="9" time="10.18" timestamp="Tue, 10 May 2016 11:18:10 GMT">
+    tests="9" time="12.44" timestamp="Thu, 02 Jun 2016 11:35:03 GMT">
   
-    <testcase name="should go to the login page if not logged in" time="10.18" assertions="1">  <failure message="Testing if the URL equals &quot;http://beta.sportmaniacs.com/services/inscription/carrera-inscriptiones-test/367/login&quot;.">    at Object.module.exports.should go to the login page if not logged in (C:\Users\Emilio\nightwhatch\src\tests\preferentialInsciption.js:8:18)
+    <testcase name="should go to the login page if not logged in" time="12.44" assertions="1">  <failure message="Testing if the URL equals &quot;https://sportmaniacs.com/es/services/inscription/vii-carrera-de-fondo-ciudad-de-baeza/56f02bef-2248-48f0-b797-388dbc5ffd28/login&quot;.">    at Object.module.exports.should go to the login page if not logged in (C:\Users\Emilio\nightwhatch\src\tests\preferentialInsciption.js:8:18)
     at Module.call (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\lib\runner\module.js:63:34)
     at C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\lib\runner\testcase.js:97:29
     at _fulfilled (C:\Users\Emilio\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:834:54)
