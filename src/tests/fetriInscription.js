@@ -85,35 +85,35 @@ module.exports = {
 	// 	browser.end();
 	// },
 
-	"check discountsPlus" : function (browser) {
-		utils.logout(browser);
-		utils.login(browser, data.users.pruebas.userEmail , data.users.pruebas.password);		
-		browser.url(utils.buildUrl(browser, data.getInscriptionFormUrl(data.races.fetriInscription.race, data.races.fetriInscription.event)));
-		utils.fillInscriptionFetri(browser, "26742203B", "05", "Agosto", "1973");
-		browser.waitForElementVisible("fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)", 20000);
-		browser.click("fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)");
-		browser.setValue("#data_0_Inscription_discount", "vdDdvfA");
-		browser.click("#data_0_Inscriptionattribute_0_value");
-		browser.click("a.btn:nth-child(2)");
-		browser.waitForElementVisible("tr.u-fw-600 > td:nth-child(2)", 20000);
-		browser.assert.containsText("tr.u-fw-600 > td:nth-child(2)", "13.00" + "€");
-		browser.end();
-	},
-
-	"check discountsMinus" : function (browser) {
-		utils.logout(browser);
-		utils.login(browser, data.users.pruebas.userEmail , data.users.pruebas.password);		
-		browser.url(utils.buildUrl(browser, data.getInscriptionFormUrl(data.races.fetriInscription.race, data.races.fetriInscription.event)));
-		utils.fillInscriptionFetri(browser, "26742203B", "05", "Agosto", "1973");
-		browser.waitForElementVisible("fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)", 20000);
-		browser.click("fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)");
-		browser.setValue("#data_0_Inscription_discount", "vdDdvfA");
-		browser.click("#data_0_Inscriptionattribute_1_value");
-		browser.click("a.btn:nth-child(2)");
-		browser.waitForElementVisible("tr.u-fw-600 > td:nth-child(2)", 20000);
-		browser.assert.containsText("tr.u-fw-600 > td:nth-child(2)", "7.00" + "€");
-		browser.end();
-	},
+	// "check discountsPlus" : function (browser) {
+	// 	utils.logout(browser);
+	// 	utils.login(browser, data.users.pruebas.userEmail , data.users.pruebas.password);
+	// 	browser.url(utils.buildUrl(browser, data.getInscriptionFormUrl(data.races.fetriInscription.race, data.races.fetriInscription.event)));
+	// 	utils.fillInscriptionFetri(browser, "26742203B", "05", "Agosto", "1973");
+	// 	browser.waitForElementVisible("fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)", 20000);
+	// 	browser.click("fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)");
+	// 	browser.setValue("#data_0_Inscription_discount", "vdDdvfA");
+	// 	browser.click("#data_0_Inscriptionattribute_0_value");
+	// 	browser.click("a.btn:nth-child(2)");
+	// 	browser.waitForElementVisible("tr.u-fw-600 > td:nth-child(2)", 20000);
+	// 	browser.assert.containsText("tr.u-fw-600 > td:nth-child(2)", "13.00" + "€");
+	// 	browser.end();
+	// },
+    //
+	// "check discountsMinus" : function (browser) {
+	// 	utils.logout(browser);
+	// 	utils.login(browser, data.users.pruebas.userEmail , data.users.pruebas.password);
+	// 	browser.url(utils.buildUrl(browser, data.getInscriptionFormUrl(data.races.fetriInscription.race, data.races.fetriInscription.event)));
+	// 	utils.fillInscriptionFetri(browser, "26742203B", "05", "Agosto", "1973");
+	// 	browser.waitForElementVisible("fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)", 20000);
+	// 	browser.click("fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)");
+	// 	browser.setValue("#data_0_Inscription_discount", "vdDdvfA");
+	// 	browser.click("#data_0_Inscriptionattribute_1_value");
+	// 	browser.click("a.btn:nth-child(2)");
+	// 	browser.waitForElementVisible("tr.u-fw-600 > td:nth-child(2)", 20000);
+	// 	browser.assert.containsText("tr.u-fw-600 > td:nth-child(2)", "7.00" + "€");
+	// 	browser.end();
+	// },
 
 	"check SelectShirt" : function (browser) {
 		utils.logout(browser);
@@ -128,6 +128,7 @@ module.exports = {
 		browser.click("a.btn:nth-child(2)");
 		browser.waitForElementVisible("tr.u-fw-600 > td:nth-child(2)", 20000);
 		browser.assert.containsText("tr.u-fw-600 > td:nth-child(2)", "13.00" + "€");
-		browser.end();
+		// browser.click(button.btn);
+		// browser.end();
 	}
 };

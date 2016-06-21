@@ -1,4 +1,4 @@
-var user = require("./users/RFEA");
+var user = require("../users/rfea.js");
 
 module.exports = {
 	"id":"travesia-nocturna-a-nado-noche-de-san-juan-2016",
