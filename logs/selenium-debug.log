@@ -1,97 +1,364 @@
-18:08:24.629 INFO - Launching a standalone Selenium Server
+18:59:15.783 INFO - Launching a standalone Selenium Server
 Setting system property webdriver.chrome.driver to ./lib/chromedriver.exe
-18:08:24.667 INFO - Java: Oracle Corporation 25.91-b15
-18:08:24.667 INFO - OS: Windows 10 10.0 amd64
-18:08:24.677 INFO - v2.53.0, with Core v2.53.0. Built from revision 35ae25b
-18:08:24.722 INFO - Driver class not found: com.opera.core.systems.OperaDriver
-18:08:24.722 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
-18:08:24.728 INFO - Driver provider org.openqa.selenium.safari.SafariDriver registration is skipped:
+18:59:15.814 INFO - Java: Oracle Corporation 25.91-b15
+18:59:15.814 INFO - OS: Windows 10 10.0 amd64
+18:59:15.830 INFO - v2.53.0, with Core v2.53.0. Built from revision 35ae25b
+18:59:15.877 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+18:59:15.877 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+18:59:15.877 INFO - Driver provider org.openqa.selenium.safari.SafariDriver registration is skipped:
 registration capabilities Capabilities [{browserName=safari, version=, platform=MAC}] does not match the current platform WIN10
-18:08:24.729 INFO - Driver class not found: org.openqa.selenium.htmlunit.HtmlUnitDriver
-18:08:24.729 INFO - Driver provider org.openqa.selenium.htmlunit.HtmlUnitDriver is not registered
-18:08:24.786 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
-18:08:24.786 INFO - Selenium Server is up and running
-18:08:25.055 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Fetri Inscription, browserName=firefox, javascriptEnabled=true, platform=ANY}]])
-18:08:25.063 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Fetri Inscription, browserName=firefox, javascriptEnabled=true, platform=ANY}]
-18:08:28.468 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Fetri Inscription, browserName=firefox, javascriptEnabled=true, platform=ANY}]]
-18:08:28.480 INFO - Executing: [get: http://web-test.local.sportmaniacs.com/es/app/logout])
-18:08:30.247 INFO - Done: [get: http://web-test.local.sportmaniacs.com/es/app/logout]
-18:08:30.252 INFO - Executing: [get: http://web-test.local.sportmaniacs.com/es/login])
-18:08:31.500 INFO - Done: [get: http://web-test.local.sportmaniacs.com/es/login]
-18:08:31.506 INFO - Executing: [find element: By.cssSelector: #loginFormEmail])
-18:08:31.562 INFO - Done: [find element: By.cssSelector: #loginFormEmail]
-18:08:31.567 INFO - Executing: [send keys: 0 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: #loginFormEmail], [u, s, e, r, @, g, m, a, i, l, ., c, o, m]])
-18:08:31.646 INFO - Done: [send keys: 0 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: #loginFormEmail], [u, s, e, r, @, g, m, a, i, l, ., c, o, m]]
-18:08:31.649 INFO - Executing: [find element: By.cssSelector: #loginFormPassword])
-18:08:31.666 INFO - Done: [find element: By.cssSelector: #loginFormPassword]
-18:08:31.669 INFO - Executing: [send keys: 1 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: #loginFormPassword], [1, 2, 3, 4, 5, 6]])
-18:08:31.726 INFO - Done: [send keys: 1 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: #loginFormPassword], [1, 2, 3, 4, 5, 6]]
-18:08:31.729 INFO - Executing: [find element: By.cssSelector: body > main > div > div > section:nth-child(2) > div > div > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button])
-18:08:31.745 INFO - Done: [find element: By.cssSelector: body > main > div > div > section:nth-child(2) > div > div > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button]
-18:08:31.748 INFO - Executing: [click: 2 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: body > main > div > div > section:nth-child(2) > div > div > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button]])
-18:08:31.934 INFO - Done: [click: 2 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: body > main > div > div > section:nth-child(2) > div > div > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button]]
-18:08:31.937 INFO - Executing: [get: http://web-test.local.sportmaniacs.com/es/services/inscription/carrera-inscriptiones-test/368])
-18:08:34.214 INFO - Done: [get: http://web-test.local.sportmaniacs.com/es/services/inscription/carrera-inscriptiones-test/368]
-18:08:34.222 INFO - Executing: [find elements: By.cssSelector: body > main > div > div:nth-child(2) > div.col-md-8 > form > nav > a.btn.btn-primary.u-fl-r])
-18:08:34.248 INFO - Done: [find elements: By.cssSelector: body > main > div > div:nth-child(2) > div.col-md-8 > form > nav > a.btn.btn-primary.u-fl-r]
-18:08:34.252 INFO - Executing: [is displayed: 3 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: body > main > div > div:nth-child(2) > div.col-md-8 > form > nav > a.btn.btn-primary.u-fl-r]])
-18:08:34.277 INFO - Done: [is displayed: 3 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: body > main > div > div:nth-child(2) > div.col-md-8 > form > nav > a.btn.btn-primary.u-fl-r]]
-18:08:34.283 INFO - Executing: [find element: By.cssSelector: #data_FETRI_dni_validate])
-18:08:34.301 INFO - Done: [find element: By.cssSelector: #data_FETRI_dni_validate]
-18:08:34.308 INFO - Executing: [send keys: 4 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: #data_FETRI_dni_validate], [2, 6, 7, 4, 2, 2, 0, 3, B]])
-18:08:34.374 INFO - Done: [send keys: 4 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: #data_FETRI_dni_validate], [2, 6, 7, 4, 2, 2, 0, 3, B]]
-18:08:34.377 INFO - Executing: [find element: By.cssSelector: #data_FETRI_birth_validate_day])
-18:08:34.399 INFO - Done: [find element: By.cssSelector: #data_FETRI_birth_validate_day]
-18:08:34.402 INFO - Executing: [send keys: 5 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: #data_FETRI_birth_validate_day], [0, 5]])
-18:08:34.449 INFO - Done: [send keys: 5 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: #data_FETRI_birth_validate_day], [0, 5]]
-18:08:34.453 INFO - Executing: [find element: By.cssSelector: #data_FETRI_birth_validate_month])
-18:08:34.470 INFO - Done: [find element: By.cssSelector: #data_FETRI_birth_validate_month]
-18:08:34.473 INFO - Executing: [send keys: 6 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: #data_FETRI_birth_validate_month], [A, g, o, s, t, o]])
-18:08:34.532 INFO - Done: [send keys: 6 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: #data_FETRI_birth_validate_month], [A, g, o, s, t, o]]
-18:08:34.535 INFO - Executing: [find element: By.cssSelector: #data_FETRI_birth_validate_year])
-18:08:34.552 INFO - Done: [find element: By.cssSelector: #data_FETRI_birth_validate_year]
-18:08:34.557 INFO - Executing: [send keys: 7 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: #data_FETRI_birth_validate_year], [1, 9, 7, 3]])
-18:08:34.611 INFO - Done: [send keys: 7 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: #data_FETRI_birth_validate_year], [1, 9, 7, 3]]
-18:08:34.614 INFO - Executing: [find element: By.cssSelector: body > main > div > div:nth-child(2) > div.col-md-8 > form > nav > a.btn.btn-primary.u-fl-r])
-18:08:34.633 INFO - Done: [find element: By.cssSelector: body > main > div > div:nth-child(2) > div.col-md-8 > form > nav > a.btn.btn-primary.u-fl-r]
-18:08:34.636 INFO - Executing: [click: 3 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: body > main > div > div:nth-child(2) > div.col-md-8 > form > nav > a.btn.btn-primary.u-fl-r]])
-18:08:34.885 INFO - Done: [click: 3 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: body > main > div > div:nth-child(2) > div.col-md-8 > form > nav > a.btn.btn-primary.u-fl-r]]
-18:08:34.890 INFO - Executing: [find elements: By.cssSelector: fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)])
-18:08:34.914 INFO - Done: [find elements: By.cssSelector: fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)]
-18:08:34.917 INFO - Executing: [is displayed: 8 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)]])
-18:08:34.937 INFO - Done: [is displayed: 8 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)]]
-18:08:35.444 INFO - Executing: [is displayed: 8 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)]])
-18:08:35.498 INFO - Done: [is displayed: 8 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)]]
-18:08:35.502 INFO - Executing: [find element: By.cssSelector: fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)])
-18:08:35.528 INFO - Done: [find element: By.cssSelector: fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)]
-18:08:35.530 INFO - Executing: [click: 8 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)]])
-18:08:35.665 INFO - Done: [click: 8 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: fieldset.form-step:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)]]
-18:08:35.669 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_discount])
-18:08:35.903 INFO - Done: [find element: By.cssSelector: #data_0_Inscription_discount]
-18:08:35.907 INFO - Executing: [send keys: 9 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: #data_0_Inscription_discount], [v, d, D, d, v, f, A]])
-18:08:35.980 INFO - Done: [send keys: 9 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: #data_0_Inscription_discount], [v, d, D, d, v, f, A]]
-18:08:35.983 INFO - Executing: [find element: By.cssSelector: #data_0_Inscriptionattribute_2_value])
-18:08:36.012 INFO - Done: [find element: By.cssSelector: #data_0_Inscriptionattribute_2_value]
-18:08:36.015 INFO - Executing: [click: 10 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: #data_0_Inscriptionattribute_2_value]])
-18:08:36.147 INFO - Done: [click: 10 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: #data_0_Inscriptionattribute_2_value]]
-18:08:36.150 INFO - Executing: [send keys to active: [?, ?]])
-18:08:36.297 INFO - Done: [send keys to active: [?, ?]]
-18:08:36.299 INFO - Executing: [find element: By.cssSelector: a.btn:nth-child(2)])
-18:08:36.314 INFO - Done: [find element: By.cssSelector: a.btn:nth-child(2)]
-18:08:36.316 INFO - Executing: [click: 3 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: body > main > div > div:nth-child(2) > div.col-md-8 > form > nav > a.btn.btn-primary.u-fl-r]])
-18:08:36.487 INFO - Done: [click: 3 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: body > main > div > div:nth-child(2) > div.col-md-8 > form > nav > a.btn.btn-primary.u-fl-r]]
-18:08:36.491 INFO - Executing: [find elements: By.cssSelector: tr.u-fw-600 > td:nth-child(2)])
-18:08:36.520 INFO - Done: [find elements: By.cssSelector: tr.u-fw-600 > td:nth-child(2)]
-18:08:36.524 INFO - Executing: [is displayed: 11 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: tr.u-fw-600 > td:nth-child(2)]])
-18:08:36.988 WARN - Exception thrown
-org.openqa.selenium.StaleElementReferenceException: Element is no longer attached to the DOM
-Command duration or timeout: 27 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+18:59:15.877 INFO - Driver class not found: org.openqa.selenium.htmlunit.HtmlUnitDriver
+18:59:15.877 INFO - Driver provider org.openqa.selenium.htmlunit.HtmlUnitDriver is not registered
+18:59:15.946 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+18:59:15.946 INFO - Selenium Server is up and running
+18:59:16.212 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Race, browserName=firefox, javascriptEnabled=true, platform=ANY}]])
+18:59:16.212 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Race, browserName=firefox, javascriptEnabled=true, platform=ANY}]
+18:59:19.592 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Race, browserName=firefox, javascriptEnabled=true, platform=ANY}]]
+18:59:19.602 INFO - Executing: [get: http://web-test.local.sportmaniacs.com/es/login])
+18:59:21.475 INFO - Done: [get: http://web-test.local.sportmaniacs.com/es/login]
+18:59:21.482 INFO - Executing: [find element: By.cssSelector: #loginFormEmail])
+18:59:21.540 INFO - Done: [find element: By.cssSelector: #loginFormEmail]
+18:59:21.546 INFO - Executing: [send keys: 0 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #loginFormEmail], [n, a, c, h, o, @, s, p, o, r, t, m, a, n, i, a, c, s, ., c, o, m]])
+18:59:21.637 INFO - Done: [send keys: 0 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #loginFormEmail], [n, a, c, h, o, @, s, p, o, r, t, m, a, n, i, a, c, s, ., c, o, m]]
+18:59:21.640 INFO - Executing: [find element: By.cssSelector: #loginFormPassword])
+18:59:21.656 INFO - Done: [find element: By.cssSelector: #loginFormPassword]
+18:59:21.659 INFO - Executing: [send keys: 1 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #loginFormPassword], [A, e, r, i, t, h, 7]])
+18:59:21.722 INFO - Done: [send keys: 1 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #loginFormPassword], [A, e, r, i, t, h, 7]]
+18:59:21.725 INFO - Executing: [find element: By.cssSelector: body > main > div > div > section:nth-child(2) > div > div > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button])
+18:59:21.741 INFO - Done: [find element: By.cssSelector: body > main > div > div > section:nth-child(2) > div > div > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button]
+18:59:21.744 INFO - Executing: [click: 2 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body > main > div > div > section:nth-child(2) > div > div > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button]])
+18:59:21.954 INFO - Done: [click: 2 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body > main > div > div > section:nth-child(2) > div > div > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button]]
+18:59:21.957 INFO - Executing: [get: http://web-test.local.sportmaniacs.com/es/services/inscription/carrera-inscriptiones-test/369])
+18:59:25.003 INFO - Done: [get: http://web-test.local.sportmaniacs.com/es/services/inscription/carrera-inscriptiones-test/369]
+18:59:25.011 INFO - Executing: [find elements: By.cssSelector: form])
+18:59:25.029 INFO - Done: [find elements: By.cssSelector: form]
+18:59:25.034 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [name]])
+18:59:25.058 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [name]]
+18:59:25.063 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [surname]])
+18:59:25.083 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [surname]]
+18:59:25.086 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [mail]])
+18:59:25.109 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [mail]]
+18:59:25.113 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [verify_email]])
+18:59:25.135 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [verify_email]]
+18:59:25.139 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [dni]])
+18:59:25.164 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [dni]]
+18:59:25.167 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [tipodni]])
+18:59:25.195 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [tipodni]]
+18:59:25.200 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [gender]])
+18:59:25.235 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [gender]]
+18:59:25.238 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [dateofbirthday]])
+18:59:25.266 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [dateofbirthday]]
+18:59:25.269 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [prefix_phone]])
+18:59:25.299 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [prefix_phone]]
+18:59:25.304 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [phone]])
+18:59:25.334 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [phone]]
+18:59:25.338 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [prefix_phone_emergency]])
+18:59:25.370 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [prefix_phone_emergency]]
+18:59:25.373 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [phone_emergency]])
+18:59:25.405 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [phone_emergency]]
+18:59:25.408 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [code]])
+18:59:25.440 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [code]]
+18:59:25.444 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [address]])
+18:59:25.477 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [address]]
+18:59:25.481 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [country_id]])
+18:59:25.515 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [country_id]]
+18:59:25.519 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [province_id]])
+18:59:25.555 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [province_id]]
+18:59:25.557 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [city_id]])
+18:59:25.596 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [city_id]]
+18:59:25.600 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [club]])
+18:59:25.635 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [club]]
+18:59:25.639 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [club2]])
+18:59:25.674 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (searchField) {
+				return $("[data-short-name='" + searchField + "']").length; //para que el datashortname
+			}.apply(window, passedArgs);, [club2]]
+18:59:25.679 INFO - Executing: [get: http://web-test.local.sportmaniacs.com/es/services/inscription/carrera-inscriptiones-test/369])
+18:59:28.056 INFO - Done: [get: http://web-test.local.sportmaniacs.com/es/services/inscription/carrera-inscriptiones-test/369]
+18:59:28.058 INFO - Executing: [find elements: By.cssSelector: form])
+18:59:28.097 INFO - Done: [find elements: By.cssSelector: form]
+18:59:28.100 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (params) {
+
+			var result = [];
+			var fields = $(".form-register fieldset.active [name]:not([type=hidden])");
+			var pushed = [];
+
+			fields.each(function(index, item) {
+
+				var name = $(item).data("short-name");
+				var id = $(item).attr("id");
+
+				if(!id)
+					return true;
+
+				if(!name)
+					name = $(item).closest("[data-short-name]").data("short-name");
+
+				if($(item).is("[type=radio]")) {
+					id = id.split("_").slice(0, id.split("_").length - 1).join("_");
+				}
+
+				console.log(name, id);
+
+				if(pushed.indexOf(id) == -1) {
+
+					result.push({
+						id: id,
+						name: name
+					});
+
+					pushed.push(id);
+				}
+
+
+			});
+
+
+			return result;
+
+		}.apply(window, passedArgs);, []])
+18:59:28.305 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (params) {
+
+			var result = [];
+			var fields = $(".form-register fieldset.active [name]:not([type=hidden])");
+			var pushed = [];
+
+			fields.each(function(index, item) {
+
+				var name = $(item).data("short-name");
+				var id = $(item).attr("id");
+
+				if(!id)
+					return true;
+
+				if(!name)
+					name = $(item).closest("[data-short-name]").data("short-name");
+
+				if($(item).is("[type=radio]")) {
+					id = id.split("_").slice(0, id.split("_").length - 1).join("_");
+				}
+
+				console.log(name, id);
+
+				if(pushed.indexOf(id) == -1) {
+
+					result.push({
+						id: id,
+						name: name
+					});
+
+					pushed.push(id);
+				}
+
+
+			});
+
+
+			return result;
+
+		}.apply(window, passedArgs);, []]
+18:59:28.831 INFO - Executing: [find element: By.cssSelector: #data_RFEA_license_type_validate])
+18:59:28.904 INFO - Done: [find element: By.cssSelector: #data_RFEA_license_type_validate]
+18:59:28.907 INFO - Executing: [send keys: 7 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_RFEA_license_type_validate], [C, A, R, N, E, T,  , P, L, U, S]])
+18:59:29.036 INFO - Done: [send keys: 7 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_RFEA_license_type_validate], [C, A, R, N, E, T,  , P, L, U, S]]
+18:59:29.039 INFO - Executing: [find element: By.cssSelector: #data_RFEA_license_type_validate_CARNET PLUS])
+18:59:29.552 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_RFEA_license_type_validate_CARNET PLUS"}
+Command duration or timeout: 68 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
 System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=43.0.4, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 5e2038ec-17a2-47ef-83eb-6d1b3bbd8496
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c8de97b0-ccec-4d94-9e86-abb3486ab6c2
+*** Element info: {Using=css selector, value=#data_RFEA_license_type_validate_CARNET PLUS}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_RFEA_license_type_validate_CARNET PLUS"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+18:59:29.556 WARN - Exception: Unable to locate element: {"method":"css selector","selector":"#data_RFEA_license_type_validate_CARNET PLUS"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+18:59:29.593 INFO - Executing: [find element: By.cssSelector: body])
+18:59:29.621 INFO - Done: [find element: By.cssSelector: body]
+18:59:29.623 INFO - Executing: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]])
+18:59:29.769 INFO - Done: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]]
+18:59:30.774 INFO - Executing: [find element: By.cssSelector: #data_RFEA_carnet_validate])
+18:59:30.814 INFO - Done: [find element: By.cssSelector: #data_RFEA_carnet_validate]
+18:59:30.818 INFO - Executing: [send keys: 9 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_RFEA_carnet_validate], [9, 0, 3]])
+18:59:30.879 INFO - Done: [send keys: 9 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_RFEA_carnet_validate], [9, 0, 3]]
+18:59:30.882 INFO - Executing: [find element: By.cssSelector: #data_RFEA_carnet_validate_903])
+18:59:31.283 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_RFEA_carnet_validate_903"}
+Command duration or timeout: 19 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c8de97b0-ccec-4d94-9e86-abb3486ab6c2
+*** Element info: {Using=css selector, value=#data_RFEA_carnet_validate_903}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_RFEA_carnet_validate_903"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+18:59:31.284 WARN - Exception: Unable to locate element: {"method":"css selector","selector":"#data_RFEA_carnet_validate_903"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+18:59:31.310 INFO - Executing: [find element: By.cssSelector: body])
+18:59:31.328 INFO - Done: [find element: By.cssSelector: body]
+18:59:31.330 INFO - Executing: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]])
+18:59:31.401 INFO - Done: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]]
+18:59:31.906 INFO - Executing: [find element: By.cssSelector: #data_RFEA_birth_validate])
+18:59:31.944 INFO - Done: [find element: By.cssSelector: #data_RFEA_birth_validate]
+18:59:31.949 INFO - Executing: [send keys: 10 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_RFEA_birth_validate], [1, 9, 7, 2, -, A, g, o, s, t, o, -, 0, 5]])
+18:59:32.361 WARN - Exception thrown
+org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
+Command duration or timeout: 24 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c8de97b0-ccec-4d94-9e86-abb3486ab6c2
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -100,48 +367,884 @@ Session ID: 5e2038ec-17a2-47ef-83eb-6d1b3bbd8496
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
-	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:368)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:122)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement$1.invoke(EventFiringWebDriver.java:335)
-	at com.sun.proxy.$Proxy2.isDisplayed(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.isDisplayed(EventFiringWebDriver.java:389)
+	at com.sun.proxy.$Proxy2.sendKeys(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.sendKeys(EventFiringWebDriver.java:358)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.openqa.selenium.remote.server.KnownElements$1.invoke(KnownElements.java:64)
-	at com.sun.proxy.$Proxy3.isDisplayed(Unknown Source)
-	at org.openqa.selenium.remote.server.handler.GetElementDisplayed.call(GetElementDisplayed.java:32)
-	at org.openqa.selenium.remote.server.handler.GetElementDisplayed.call(GetElementDisplayed.java:1)
+	at com.sun.proxy.$Proxy3.sendKeys(Unknown Source)
+	at org.openqa.selenium.remote.server.handler.SendKeys.call(SendKeys.java:50)
+	at org.openqa.selenium.remote.server.handler.SendKeys.call(SendKeys.java:1)
 	at java.util.concurrent.FutureTask.run(Unknown Source)
 	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
-Caused by: org.openqa.selenium.StaleElementReferenceException: Element is no longer attached to the DOM
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+Caused by: org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
 Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
 System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
 Driver info: driver.version: unknown
-	at <anonymous class>.fxdriver.cache.getElementAt(resource://fxdriver/modules/web-element-cache.js:9457)
-	at <anonymous class>.Utils.getElementAt(file:///C:/Users/Javier/AppData/Local/Temp/anonymous2513886608024762757webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:9039)
-	at <anonymous class>.WebElement.isElementDisplayed(file:///C:/Users/Javier/AppData/Local/Temp/anonymous2513886608024762757webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12189)
-	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Javier/AppData/Local/Temp/anonymous2513886608024762757webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
-	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous2513886608024762757webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
-	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Javier/AppData/Local/Temp/anonymous2513886608024762757webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
-18:08:36.994 WARN - Exception: Element is no longer attached to the DOM
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+	at <anonymous class>.fxdriver.preconditions.visible(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:10092)
+	at <anonymous class>.DelayedCommand.prototype.checkPreconditions_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12644)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+18:59:32.363 WARN - Exception: Element is not currently visible and so may not be interacted with
 Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
 System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
 Driver info: driver.version: unknown
-18:08:37.044 INFO - Executing: [find elements: By.cssSelector: tr.u-fw-600 > td:nth-child(2)])
-18:08:37.064 INFO - Done: [find elements: By.cssSelector: tr.u-fw-600 > td:nth-child(2)]
-18:08:37.066 INFO - Executing: [is displayed: 12 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: tr.u-fw-600 > td:nth-child(2)]])
-18:08:37.094 INFO - Done: [is displayed: 12 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: tr.u-fw-600 > td:nth-child(2)]]
-18:08:37.098 INFO - Executing: [find element: By.cssSelector: tr.u-fw-600 > td:nth-child(2)])
-18:08:37.115 INFO - Done: [find element: By.cssSelector: tr.u-fw-600 > td:nth-child(2)]
-18:08:37.117 INFO - Executing: [get text: 12 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: tr.u-fw-600 > td:nth-child(2)]])
-18:08:37.138 INFO - Done: [get text: 12 [[FirefoxDriver: firefox on WINDOWS (5e2038ec-17a2-47ef-83eb-6d1b3bbd8496)] -> css selector: tr.u-fw-600 > td:nth-child(2)]]
+18:59:32.395 INFO - Executing: [find element: By.cssSelector: #data_RFEA_birth_validate_year])
+18:59:32.409 INFO - Done: [find element: By.cssSelector: #data_RFEA_birth_validate_year]
+18:59:32.412 INFO - Executing: [send keys: 11 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_RFEA_birth_validate_year], [1, 9, 7, 2]])
+18:59:32.464 INFO - Done: [send keys: 11 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_RFEA_birth_validate_year], [1, 9, 7, 2]]
+18:59:32.466 INFO - Executing: [find element: By.cssSelector: #data_RFEA_birth_validate_month])
+18:59:32.489 INFO - Done: [find element: By.cssSelector: #data_RFEA_birth_validate_month]
+18:59:32.492 INFO - Executing: [send keys: 12 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_RFEA_birth_validate_month], [A, g, o, s, t, o]])
+18:59:32.562 INFO - Done: [send keys: 12 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_RFEA_birth_validate_month], [A, g, o, s, t, o]]
+18:59:32.566 INFO - Executing: [find element: By.cssSelector: #data_RFEA_birth_validate_day])
+18:59:32.589 INFO - Done: [find element: By.cssSelector: #data_RFEA_birth_validate_day]
+18:59:32.591 INFO - Executing: [send keys: 13 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_RFEA_birth_validate_day], [0, 5]])
+18:59:32.645 INFO - Done: [send keys: 13 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_RFEA_birth_validate_day], [0, 5]]
+18:59:32.648 INFO - Executing: [find element: By.cssSelector: #data_RFEA_birth_validate_1972-Agosto-05])
+18:59:33.019 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_RFEA_birth_validate_1972-Agosto-05"}
+Command duration or timeout: 24 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c8de97b0-ccec-4d94-9e86-abb3486ab6c2
+*** Element info: {Using=css selector, value=#data_RFEA_birth_validate_1972-Agosto-05}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_RFEA_birth_validate_1972-Agosto-05"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+18:59:33.021 WARN - Exception: Unable to locate element: {"method":"css selector","selector":"#data_RFEA_birth_validate_1972-Agosto-05"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+18:59:33.041 INFO - Executing: [find element: By.cssSelector: body])
+18:59:33.059 INFO - Done: [find element: By.cssSelector: body]
+18:59:33.061 INFO - Executing: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]])
+18:59:33.137 INFO - Done: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]]
+18:59:34.644 INFO - Executing: [find element: By.cssSelector: .form-nav .btn.btn-primary.u-fl-r])
+18:59:34.690 INFO - Done: [find element: By.cssSelector: .form-nav .btn.btn-primary.u-fl-r]
+18:59:34.692 INFO - Executing: [click: 14 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .form-nav .btn.btn-primary.u-fl-r]])
+18:59:34.954 INFO - Done: [click: 14 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .form-nav .btn.btn-primary.u-fl-r]]
+18:59:34.957 INFO - Executing: [find elements: By.cssSelector: .plainoverlay])
+18:59:34.977 INFO - Done: [find elements: By.cssSelector: .plainoverlay]
+18:59:34.979 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:35.003 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:35.006 INFO - Executing: [find elements: By.cssSelector: .plainoverlay])
+18:59:35.041 INFO - Done: [find elements: By.cssSelector: .plainoverlay]
+18:59:35.043 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:35.074 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:35.579 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:35.630 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:36.136 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:36.189 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:36.693 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:36.753 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:37.260 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:37.312 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:37.816 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:37.860 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:38.365 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:38.412 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:38.917 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:38.968 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:39.470 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:39.509 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:40.012 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:40.057 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:40.560 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:40.607 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:41.110 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:41.127 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:41.631 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:41.699 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:42.204 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:42.255 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:42.758 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:42.809 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:43.314 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:43.357 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:43.860 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:44.033 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:44.036 INFO - Executing: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (params) {
+
+			var result = [];
+			var fields = $(".form-register fieldset.active [name]:not([type=hidden])");
+			var pushed = [];
+
+			fields.each(function(index, item) {
+
+				var name = $(item).data("short-name");
+				var id = $(item).attr("id");
+
+				if(!id)
+					return true;
+
+				if(!name)
+					name = $(item).closest("[data-short-name]").data("short-name");
+
+				if($(item).is("[type=radio]")) {
+					id = id.split("_").slice(0, id.split("_").length - 1).join("_");
+				}
+
+				console.log(name, id);
+
+				if(pushed.indexOf(id) == -1) {
+
+					result.push({
+						id: id,
+						name: name
+					});
+
+					pushed.push(id);
+				}
+
+
+			});
+
+
+			return result;
+
+		}.apply(window, passedArgs);, []])
+18:59:44.147 INFO - Done: [execute script: var passedArgs = Array.prototype.slice.call(arguments,0); return function (params) {
+
+			var result = [];
+			var fields = $(".form-register fieldset.active [name]:not([type=hidden])");
+			var pushed = [];
+
+			fields.each(function(index, item) {
+
+				var name = $(item).data("short-name");
+				var id = $(item).attr("id");
+
+				if(!id)
+					return true;
+
+				if(!name)
+					name = $(item).closest("[data-short-name]").data("short-name");
+
+				if($(item).is("[type=radio]")) {
+					id = id.split("_").slice(0, id.split("_").length - 1).join("_");
+				}
+
+				console.log(name, id);
+
+				if(pushed.indexOf(id) == -1) {
+
+					result.push({
+						id: id,
+						name: name
+					});
+
+					pushed.push(id);
+				}
+
+
+			});
+
+
+			return result;
+
+		}.apply(window, passedArgs);, []]
+18:59:45.162 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_name])
+18:59:45.205 INFO - Done: [find element: By.cssSelector: #data_0_Inscription_name]
+18:59:45.207 INFO - Executing: [send keys: 16 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_name], [u, s, e, r]])
+18:59:45.267 INFO - Done: [send keys: 16 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_name], [u, s, e, r]]
+18:59:45.270 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_name_user])
+18:59:45.618 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_name_user"}
+Command duration or timeout: 22 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c8de97b0-ccec-4d94-9e86-abb3486ab6c2
+*** Element info: {Using=css selector, value=#data_0_Inscription_name_user}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.GeneratedMethodAccessor18.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_name_user"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+18:59:45.619 WARN - Exception: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_name_user"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+18:59:45.647 INFO - Executing: [find element: By.cssSelector: body])
+18:59:45.665 INFO - Done: [find element: By.cssSelector: body]
+18:59:45.667 INFO - Executing: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]])
+18:59:45.749 INFO - Done: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]]
+18:59:46.253 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_surname])
+18:59:46.293 INFO - Done: [find element: By.cssSelector: #data_0_Inscription_surname]
+18:59:46.296 INFO - Executing: [send keys: 17 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_surname], [u, s, e, r]])
+18:59:46.347 INFO - Done: [send keys: 17 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_surname], [u, s, e, r]]
+18:59:46.349 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_surname_user])
+18:59:46.702 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_surname_user"}
+Command duration or timeout: 19 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c8de97b0-ccec-4d94-9e86-abb3486ab6c2
+*** Element info: {Using=css selector, value=#data_0_Inscription_surname_user}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.GeneratedMethodAccessor18.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_surname_user"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+18:59:46.703 WARN - Exception: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_surname_user"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+18:59:46.731 INFO - Executing: [find element: By.cssSelector: body])
+18:59:46.747 INFO - Done: [find element: By.cssSelector: body]
+18:59:46.749 INFO - Executing: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]])
+18:59:46.824 INFO - Done: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]]
+18:59:47.329 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_mail])
+18:59:47.388 INFO - Done: [find element: By.cssSelector: #data_0_Inscription_mail]
+18:59:47.392 INFO - Executing: [send keys: 18 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_mail], [u, s, e, r, @, g, m, a, i, l, ., c, o, m]])
+18:59:47.479 INFO - Done: [send keys: 18 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_mail], [u, s, e, r, @, g, m, a, i, l, ., c, o, m]]
+18:59:47.481 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_mail_user@gmail.com])
+18:59:47.800 WARN - Exception thrown
+org.openqa.selenium.InvalidSelectorException: The given selector #data_0_Inscription_mail_user@gmail.com is either invalid or does not result in a WebElement. The following error occurred:
+InvalidSelectorError: An invalid or illegal selector was specified
+Command duration or timeout: 19 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c8de97b0-ccec-4d94-9e86-abb3486ab6c2
+*** Element info: {Using=css selector, value=#data_0_Inscription_mail_user@gmail.com}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.GeneratedMethodAccessor18.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.openqa.selenium.InvalidSelectorException: The given selector #data_0_Inscription_mail_user@gmail.com is either invalid or does not result in a WebElement. The following error occurred:
+InvalidSelectorError: An invalid or illegal selector was specified
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.annotateInvalidSelectorError_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10744)
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10775)
+	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+18:59:47.801 WARN - Exception: The given selector #data_0_Inscription_mail_user@gmail.com is either invalid or does not result in a WebElement. The following error occurred:
+InvalidSelectorError: An invalid or illegal selector was specified
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+18:59:47.829 INFO - Executing: [find element: By.cssSelector: body])
+18:59:47.844 INFO - Done: [find element: By.cssSelector: body]
+18:59:47.846 INFO - Executing: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]])
+18:59:47.918 INFO - Done: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]]
+18:59:48.423 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_tipodni])
+18:59:48.482 INFO - Done: [find element: By.cssSelector: #data_0_Inscription_tipodni]
+18:59:48.487 INFO - Executing: [send keys: 19 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_tipodni], [0]])
+18:59:48.814 WARN - Exception thrown
+org.openqa.selenium.InvalidElementStateException: Element is disabled and so may not be used for actions
+Command duration or timeout: 41 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c8de97b0-ccec-4d94-9e86-abb3486ab6c2
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:122)
+	at sun.reflect.GeneratedMethodAccessor10.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement$1.invoke(EventFiringWebDriver.java:335)
+	at com.sun.proxy.$Proxy2.sendKeys(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.sendKeys(EventFiringWebDriver.java:358)
+	at sun.reflect.GeneratedMethodAccessor10.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.remote.server.KnownElements$1.invoke(KnownElements.java:64)
+	at com.sun.proxy.$Proxy3.sendKeys(Unknown Source)
+	at org.openqa.selenium.remote.server.handler.SendKeys.call(SendKeys.java:50)
+	at org.openqa.selenium.remote.server.handler.SendKeys.call(SendKeys.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.openqa.selenium.InvalidElementStateException: Element is disabled and so may not be used for actions
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+	at <anonymous class>.fxdriver.preconditions.enabled(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:10098)
+	at <anonymous class>.DelayedCommand.prototype.checkPreconditions_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12644)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+18:59:48.815 WARN - Exception: Element is disabled and so may not be used for actions
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+18:59:48.825 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_tipodni_0])
+18:59:49.134 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_tipodni_0"}
+Command duration or timeout: 15 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c8de97b0-ccec-4d94-9e86-abb3486ab6c2
+*** Element info: {Using=css selector, value=#data_0_Inscription_tipodni_0}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.GeneratedMethodAccessor18.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_tipodni_0"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+18:59:49.135 WARN - Exception: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_tipodni_0"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+18:59:49.153 INFO - Executing: [find element: By.cssSelector: body])
+18:59:49.168 INFO - Done: [find element: By.cssSelector: body]
+18:59:49.170 INFO - Executing: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]])
+18:59:49.244 INFO - Done: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]]
+18:59:49.749 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_dni])
+18:59:49.791 INFO - Done: [find element: By.cssSelector: #data_0_Inscription_dni]
+18:59:49.793 INFO - Executing: [send keys: 20 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_dni], [2, 2, 5, 8, 4, 2, 0, 5, E]])
+18:59:49.845 INFO - Done: [send keys: 20 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_dni], [2, 2, 5, 8, 4, 2, 0, 5, E]]
+18:59:49.848 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_dni_22584205E])
+18:59:50.174 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_dni_22584205E"}
+Command duration or timeout: 19 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c8de97b0-ccec-4d94-9e86-abb3486ab6c2
+*** Element info: {Using=css selector, value=#data_0_Inscription_dni_22584205E}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.GeneratedMethodAccessor18.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_dni_22584205E"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+18:59:50.175 WARN - Exception: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_dni_22584205E"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+18:59:50.199 INFO - Executing: [find element: By.cssSelector: body])
+18:59:50.215 INFO - Done: [find element: By.cssSelector: body]
+18:59:50.217 INFO - Executing: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]])
+18:59:50.289 INFO - Done: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]]
+18:59:50.794 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_gender])
+18:59:50.840 INFO - Done: [find element: By.cssSelector: #data_0_Inscription_gender]
+18:59:50.843 INFO - Executing: [send keys: 21 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_gender], [0]])
+18:59:50.889 INFO - Done: [send keys: 21 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_gender], [0]]
+18:59:50.891 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_gender_0])
+18:59:50.906 INFO - Done: [find element: By.cssSelector: #data_0_Inscription_gender_0]
+18:59:50.908 INFO - Executing: [click: 22 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_gender_0]])
+18:59:51.037 INFO - Done: [click: 22 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_gender_0]]
+18:59:51.039 INFO - Executing: [find element: By.cssSelector: body])
+18:59:51.081 INFO - Done: [find element: By.cssSelector: body]
+18:59:51.082 INFO - Executing: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]])
+18:59:51.155 INFO - Done: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]]
+18:59:51.658 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_dateofbirthday])
+18:59:51.710 INFO - Done: [find element: By.cssSelector: #data_0_Inscription_dateofbirthday]
+18:59:51.712 INFO - Executing: [send keys: 23 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_dateofbirthday], [5, -, A, g, o, s, t, o, -, 1, 9, 7, 3]])
+18:59:52.039 WARN - Exception thrown
+org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
+Command duration or timeout: 28 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c8de97b0-ccec-4d94-9e86-abb3486ab6c2
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:122)
+	at sun.reflect.GeneratedMethodAccessor10.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement$1.invoke(EventFiringWebDriver.java:335)
+	at com.sun.proxy.$Proxy2.sendKeys(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.sendKeys(EventFiringWebDriver.java:358)
+	at sun.reflect.GeneratedMethodAccessor10.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.remote.server.KnownElements$1.invoke(KnownElements.java:64)
+	at com.sun.proxy.$Proxy3.sendKeys(Unknown Source)
+	at org.openqa.selenium.remote.server.handler.SendKeys.call(SendKeys.java:50)
+	at org.openqa.selenium.remote.server.handler.SendKeys.call(SendKeys.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+	at <anonymous class>.fxdriver.preconditions.visible(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:10092)
+	at <anonymous class>.DelayedCommand.prototype.checkPreconditions_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12644)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+18:59:52.040 WARN - Exception: Element is not currently visible and so may not be interacted with
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+18:59:52.050 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_dateofbirthday_5-Agosto-1973])
+18:59:52.364 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_dateofbirthday_5-Agosto-1973"}
+Command duration or timeout: 17 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c8de97b0-ccec-4d94-9e86-abb3486ab6c2
+*** Element info: {Using=css selector, value=#data_0_Inscription_dateofbirthday_5-Agosto-1973}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.GeneratedMethodAccessor18.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_dateofbirthday_5-Agosto-1973"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+18:59:52.365 WARN - Exception: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_dateofbirthday_5-Agosto-1973"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+18:59:52.376 INFO - Executing: [find element: By.cssSelector: body])
+18:59:52.392 INFO - Done: [find element: By.cssSelector: body]
+18:59:52.394 INFO - Executing: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]])
+18:59:52.474 INFO - Done: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]]
+18:59:54.478 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_phone])
+18:59:54.529 INFO - Done: [find element: By.cssSelector: #data_0_Inscription_phone]
+18:59:54.533 INFO - Executing: [send keys: 24 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_phone], [5, 5, 5, 5, 5, 5, 5, 5, 5]])
+18:59:54.612 INFO - Done: [send keys: 24 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_phone], [5, 5, 5, 5, 5, 5, 5, 5, 5]]
+18:59:54.613 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_phone_555555555])
+18:59:54.915 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_phone_555555555"}
+Command duration or timeout: 20 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c8de97b0-ccec-4d94-9e86-abb3486ab6c2
+*** Element info: {Using=css selector, value=#data_0_Inscription_phone_555555555}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.GeneratedMethodAccessor18.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_phone_555555555"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+18:59:54.916 WARN - Exception: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_phone_555555555"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+18:59:54.928 INFO - Executing: [find element: By.cssSelector: body])
+18:59:54.944 INFO - Done: [find element: By.cssSelector: body]
+18:59:54.946 INFO - Executing: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]])
+18:59:55.018 INFO - Done: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]]
+18:59:55.522 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_code])
+18:59:55.568 INFO - Done: [find element: By.cssSelector: #data_0_Inscription_code]
+18:59:55.571 INFO - Executing: [send keys: 25 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_code], [4, 6, 7, 0, 0]])
+18:59:55.644 INFO - Done: [send keys: 25 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_code], [4, 6, 7, 0, 0]]
+18:59:55.647 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_code_46700])
+18:59:55.960 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_code_46700"}
+Command duration or timeout: 20 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c8de97b0-ccec-4d94-9e86-abb3486ab6c2
+*** Element info: {Using=css selector, value=#data_0_Inscription_code_46700}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.GeneratedMethodAccessor18.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_code_46700"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+18:59:55.961 WARN - Exception: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_code_46700"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+18:59:55.980 INFO - Executing: [find element: By.cssSelector: body])
+18:59:55.996 INFO - Done: [find element: By.cssSelector: body]
+18:59:55.999 INFO - Executing: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]])
+18:59:56.078 INFO - Done: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]]
+18:59:56.582 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_club])
+18:59:56.627 INFO - Done: [find element: By.cssSelector: #data_0_Inscription_club]
+18:59:56.630 INFO - Executing: [send keys: 26 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_club], [S, I, N,  , C, L, U, B]])
+18:59:56.712 INFO - Done: [send keys: 26 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: #data_0_Inscription_club], [S, I, N,  , C, L, U, B]]
+18:59:56.714 INFO - Executing: [find element: By.cssSelector: #data_0_Inscription_club_SIN CLUB])
+18:59:57.025 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_club_SIN CLUB"}
+Command duration or timeout: 21 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c8de97b0-ccec-4d94-9e86-abb3486ab6c2
+*** Element info: {Using=css selector, value=#data_0_Inscription_club_SIN CLUB}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.GeneratedMethodAccessor18.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_club_SIN CLUB"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/Javier/AppData/Local/Temp/anonymous4161754644487058376webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+18:59:57.026 WARN - Exception: Unable to locate element: {"method":"css selector","selector":"#data_0_Inscription_club_SIN CLUB"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: 'Javi', ip: '192.168.1.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_91'
+Driver info: driver.version: unknown
+18:59:57.037 INFO - Executing: [find element: By.cssSelector: body])
+18:59:57.053 INFO - Done: [find element: By.cssSelector: body]
+18:59:57.056 INFO - Executing: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]])
+18:59:57.137 INFO - Done: [click: 8 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: body]]
+18:59:58.641 INFO - Executing: [find element: By.cssSelector: .form-nav .btn.btn-primary.u-fl-r])
+18:59:58.683 INFO - Done: [find element: By.cssSelector: .form-nav .btn.btn-primary.u-fl-r]
+18:59:58.685 INFO - Executing: [click: 14 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .form-nav .btn.btn-primary.u-fl-r]])
+18:59:58.875 INFO - Done: [click: 14 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .form-nav .btn.btn-primary.u-fl-r]]
+18:59:58.882 INFO - Executing: [find elements: By.cssSelector: .plainoverlay])
+18:59:58.915 INFO - Done: [find elements: By.cssSelector: .plainoverlay]
+18:59:58.918 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:58.953 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:58.963 INFO - Executing: [find elements: By.cssSelector: .plainoverlay])
+18:59:58.989 INFO - Done: [find elements: By.cssSelector: .plainoverlay]
+18:59:58.993 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:59.030 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:59.532 INFO - Executing: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]])
+18:59:59.579 INFO - Done: [is displayed: 15 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: .plainoverlay]]
+18:59:59.583 INFO - Executing: [find elements: By.cssSelector: button.btn])
+18:59:59.615 INFO - Done: [find elements: By.cssSelector: button.btn]
+19:00:00.117 INFO - Executing: [find elements: By.cssSelector: button.btn])
+19:00:00.138 INFO - Done: [find elements: By.cssSelector: button.btn]
+19:00:00.140 INFO - Executing: [is displayed: 27 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: button.btn]])
+19:00:00.163 INFO - Done: [is displayed: 27 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: button.btn]]
+19:00:00.165 INFO - Executing: [find element: By.cssSelector: button.btn])
+19:00:00.189 INFO - Done: [find element: By.cssSelector: button.btn]
+19:00:00.192 INFO - Executing: [click: 27 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: button.btn]])
+19:00:03.915 INFO - Done: [click: 27 [[FirefoxDriver: firefox on WINDOWS (c8de97b0-ccec-4d94-9e86-abb3486ab6c2)] -> css selector: button.btn]]

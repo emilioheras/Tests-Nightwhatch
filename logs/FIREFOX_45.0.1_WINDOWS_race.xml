@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="12"
+            failures="1"
+            tests="1">
+
+  <testsuite name="race"
+    errors="12" failures="1" hostname="" id="" package="race" skipped="0"
+    tests="1" time="47.85" timestamp="Wed, 22 Jun 2016 16:59:15 GMT">
+  
+    <testcase name="Test Carrera" time="47.85" assertions="26">
+
+    
+
+    
+
+    
+
+      <failure message="Failed [equal]: (El campo verify_email del tipo basic)">    at Object.callBackFunction (C:\Source\nightwatch\src\tests\race.js:43:20)</failure>
+
+    
+
+    
+
+    
+
+    
+
+      <failure message="Failed [equal]: (El campo prefix_phone del tipo basic)">    at Object.callBackFunction (C:\Source\nightwatch\src\tests\race.js:43:20)</failure>
+
+    
+
+      <failure message="Failed [equal]: (El campo prefix_phone_emergency del tipo basic)">    at Object.callBackFunction (C:\Source\nightwatch\src\tests\race.js:43:20)</failure>
+
+      <failure message="Failed [equal]: (El campo phone_emergency del tipo basic)">    at Object.callBackFunction (C:\Source\nightwatch\src\tests\race.js:43:20)</failure>
+
+    
+
+      <failure message="Failed [equal]: (El campo address del tipo basic)">    at Object.callBackFunction (C:\Source\nightwatch\src\tests\race.js:43:20)</failure>
+
+      <failure message="Failed [equal]: (El campo country_id del tipo basic)">    at Object.callBackFunction (C:\Source\nightwatch\src\tests\race.js:43:20)</failure>
+
+      <failure message="Failed [equal]: (El campo province_id del tipo basic)">    at Object.callBackFunction (C:\Source\nightwatch\src\tests\race.js:43:20)</failure>
+
+      <failure message="Failed [equal]: (El campo city_id del tipo basic)">    at Object.callBackFunction (C:\Source\nightwatch\src\tests\race.js:43:20)</failure>
+
+      <failure message="Failed [equal]: (El campo club del tipo basic)">    at Object.callBackFunction (C:\Source\nightwatch\src\tests\race.js:43:20)</failure>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+      <system-err>
+        ERROR: Unable to locate element: &quot;#data_RFEA_license_type_validate_CARNET PLUS&quot; using: css selector
+    at C:\Source\nightwatch\src\tests\race.js:144:13
+    at Array.forEach (native)
+    at Object.&lt;anonymous&gt; (C:\Source\nightwatch\src\tests\race.js:124:17)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:354:18)
+    at emitTwo (events.js:100:13)
+    at HttpRequest.emit (events.js:185:7)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:370:15)
+    at emitThree (events.js:110:13)
+    at HttpRequest.emit (events.js:188:7)
+    at IncomingMessage.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\http\request.js:157:16)
+ERROR: Unable to locate element: &quot;#data_RFEA_carnet_validate_903&quot; using: css selector
+    at C:\Source\nightwatch\src\tests\race.js:144:13
+    at Array.forEach (native)
+    at Object.&lt;anonymous&gt; (C:\Source\nightwatch\src\tests\race.js:124:17)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:354:18)
+    at emitTwo (events.js:100:13)
+    at HttpRequest.emit (events.js:185:7)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:370:15)
+    at emitThree (events.js:110:13)
+    at HttpRequest.emit (events.js:188:7)
+    at IncomingMessage.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\http\request.js:157:16)
+ERROR: Unable to locate element: &quot;#data_RFEA_birth_validate_1972-Agosto-05&quot; using: css selector
+    at C:\Source\nightwatch\src\tests\race.js:144:13
+    at Array.forEach (native)
+    at Object.&lt;anonymous&gt; (C:\Source\nightwatch\src\tests\race.js:124:17)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:354:18)
+    at emitTwo (events.js:100:13)
+    at HttpRequest.emit (events.js:185:7)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:370:15)
+    at emitThree (events.js:110:13)
+    at HttpRequest.emit (events.js:188:7)
+    at IncomingMessage.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\http\request.js:157:16)
+ERROR: Unable to locate element: &quot;#data_0_Inscription_name_user&quot; using: css selector
+    at C:\Source\nightwatch\src\tests\race.js:144:13
+    at Array.forEach (native)
+    at Object.&lt;anonymous&gt; (C:\Source\nightwatch\src\tests\race.js:124:17)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:354:18)
+    at emitTwo (events.js:100:13)
+    at HttpRequest.emit (events.js:185:7)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:370:15)
+    at emitThree (events.js:110:13)
+    at HttpRequest.emit (events.js:188:7)
+    at IncomingMessage.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\http\request.js:157:16)
+ERROR: Unable to locate element: &quot;#data_0_Inscription_surname_user&quot; using: css selector
+    at C:\Source\nightwatch\src\tests\race.js:144:13
+    at Array.forEach (native)
+    at Object.&lt;anonymous&gt; (C:\Source\nightwatch\src\tests\race.js:124:17)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:354:18)
+    at emitTwo (events.js:100:13)
+    at HttpRequest.emit (events.js:185:7)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:370:15)
+    at emitThree (events.js:110:13)
+    at HttpRequest.emit (events.js:188:7)
+    at IncomingMessage.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\http\request.js:157:16)
+ERROR: Unable to locate element: &quot;#data_0_Inscription_mail_user@gmail.com&quot; using: css selector
+    at C:\Source\nightwatch\src\tests\race.js:144:13
+    at Array.forEach (native)
+    at Object.&lt;anonymous&gt; (C:\Source\nightwatch\src\tests\race.js:124:17)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:354:18)
+    at emitTwo (events.js:100:13)
+    at HttpRequest.emit (events.js:185:7)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:370:15)
+    at emitThree (events.js:110:13)
+    at HttpRequest.emit (events.js:188:7)
+    at IncomingMessage.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\http\request.js:157:16)
+ERROR: Unable to locate element: &quot;#data_0_Inscription_tipodni_0&quot; using: css selector
+    at C:\Source\nightwatch\src\tests\race.js:144:13
+    at Array.forEach (native)
+    at Object.&lt;anonymous&gt; (C:\Source\nightwatch\src\tests\race.js:124:17)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:354:18)
+    at emitTwo (events.js:100:13)
+    at HttpRequest.emit (events.js:185:7)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:370:15)
+    at emitThree (events.js:110:13)
+    at HttpRequest.emit (events.js:188:7)
+    at IncomingMessage.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\http\request.js:157:16)
+ERROR: Unable to locate element: &quot;#data_0_Inscription_dni_22584205E&quot; using: css selector
+    at C:\Source\nightwatch\src\tests\race.js:144:13
+    at Array.forEach (native)
+    at Object.&lt;anonymous&gt; (C:\Source\nightwatch\src\tests\race.js:124:17)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:354:18)
+    at emitTwo (events.js:100:13)
+    at HttpRequest.emit (events.js:185:7)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:370:15)
+    at emitThree (events.js:110:13)
+    at HttpRequest.emit (events.js:188:7)
+    at IncomingMessage.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\http\request.js:157:16)
+ERROR: Unable to locate element: &quot;#data_0_Inscription_dateofbirthday_5-Agosto-1973&quot; using: css selector
+    at C:\Source\nightwatch\src\tests\race.js:144:13
+    at Array.forEach (native)
+    at Object.&lt;anonymous&gt; (C:\Source\nightwatch\src\tests\race.js:124:17)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:354:18)
+    at emitTwo (events.js:100:13)
+    at HttpRequest.emit (events.js:185:7)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:370:15)
+    at emitThree (events.js:110:13)
+    at HttpRequest.emit (events.js:188:7)
+    at IncomingMessage.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\http\request.js:157:16)
+ERROR: Unable to locate element: &quot;#data_0_Inscription_phone_555555555&quot; using: css selector
+    at C:\Source\nightwatch\src\tests\race.js:144:13
+    at Array.forEach (native)
+    at Object.&lt;anonymous&gt; (C:\Source\nightwatch\src\tests\race.js:124:17)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:354:18)
+    at emitTwo (events.js:100:13)
+    at HttpRequest.emit (events.js:185:7)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:370:15)
+    at emitThree (events.js:110:13)
+    at HttpRequest.emit (events.js:188:7)
+    at IncomingMessage.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\http\request.js:157:16)
+ERROR: Unable to locate element: &quot;#data_0_Inscription_code_46700&quot; using: css selector
+    at C:\Source\nightwatch\src\tests\race.js:144:13
+    at Array.forEach (native)
+    at Object.&lt;anonymous&gt; (C:\Source\nightwatch\src\tests\race.js:124:17)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:354:18)
+    at emitTwo (events.js:100:13)
+    at HttpRequest.emit (events.js:185:7)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:370:15)
+    at emitThree (events.js:110:13)
+    at HttpRequest.emit (events.js:188:7)
+    at IncomingMessage.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\http\request.js:157:16)
+ERROR: Unable to locate element: &quot;#data_0_Inscription_club_SIN CLUB&quot; using: css selector
+    at C:\Source\nightwatch\src\tests\race.js:144:13
+    at Array.forEach (native)
+    at Object.&lt;anonymous&gt; (C:\Source\nightwatch\src\tests\race.js:124:17)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:354:18)
+    at emitTwo (events.js:100:13)
+    at HttpRequest.emit (events.js:185:7)
+    at HttpRequest.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\index.js:370:15)
+    at emitThree (events.js:110:13)
+    at HttpRequest.emit (events.js:188:7)
+    at IncomingMessage.&lt;anonymous&gt; (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\http\request.js:157:16)
+      </system-err>
+  
+  
+  </testsuite>
+</testsuites>

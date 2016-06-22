@@ -84,7 +84,7 @@ module.exports = {
 	// 	browser.assert.containsText(".price > div:nth-child(2) > p:nth-child(1)", data.others.prices.price + " €");
 	// 	browser.end();
 	// },
-
+    //
 	// "check discountsPlus" : function (browser) {
 	// 	utils.logout(browser);
 	// 	utils.login(browser, data.users.pruebas.userEmail , data.users.pruebas.password);

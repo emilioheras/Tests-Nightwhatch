@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="checkInscription"
+    errors="0" failures="0" hostname="" id="" package="checkInscription" skipped="0"
+    tests="1" time="11.64" timestamp="Wed, 22 Jun 2016 14:12:25 GMT">
+  
+    <testcase name="should warn the user that the inscription is not correct" time="11.64" assertions="1">
+
+    
+    </testcase>
+  
+  
+  </testsuite>
+</testsuites>

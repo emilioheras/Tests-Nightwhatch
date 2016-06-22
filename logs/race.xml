@@ -5,24 +5,24 @@
 
   <testsuite name="race"
     errors="1" failures="0" hostname="" id="" package="race" skipped="0"
-    tests="1" time="0.01000" timestamp="Mon, 20 Jun 2016 15:38:24 GMT">
+    tests="1" time="0.01600" timestamp="Wed, 22 Jun 2016 16:14:27 GMT">
   
-    <testcase name="Test Carrera" time="0.01000" assertions="0">
+    <testcase name="Test Carrera" time="0.01600" assertions="0">
     </testcase>
       <system-err>
           Error while running [Race / Test Carrera]:
 
-  TypeError: Cannot read property &#39;team_size&#39; of undefined
-    at Object.tests.testModeIsCorrect.RFEA (C:\Source\nightwatch\src\tests\race.js:21:53)
-    at Object.tests.event (C:\Source\nightwatch\src\tests\race.js:16:38)
-    at C:\Source\nightwatch\src\tests\race.js:58:10
+  TypeError: Cannot read property &#39;waitForElementVisible&#39; of undefined
+    at Object.tests.event.iCanCompleteAnInscription.fillStepFields.sendInscription (C:\Source\nightwatch\src\tests\race.js:136:10)
+    at Object.tests.event.iCanCompleteAnInscription.user [as iCanCompleteAnInscription] (C:\Source\nightwatch\src\tests\race.js:62:8)
+    at C:\Source\nightwatch\src\tests\race.js:15:9
     at Array.forEach (native)
-    at Object.module.exports.Test Carrera (C:\Source\nightwatch\src\tests\race.js:57:15)
+    at Object.tests.event.event [as event] (C:\Source\nightwatch\src\tests\race.js:14:28)
+    at C:\Source\nightwatch\src\tests\race.js:151:10
+    at Array.forEach (native)
+    at Object.tests.event.module.exports.Test Carrera (C:\Source\nightwatch\src\tests\race.js:150:15)
     at Module.call (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\runner\module.js:62:34)
     at C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\lib\runner\testcase.js:70:29
-    at _fulfilled (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:834:54)
-    at self.promiseDispatch.done (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:863:30)
-    at Promise.promise.promiseDispatch (C:\Users\Javier\AppData\Roaming\npm\node_modules\nightwatch\node_modules\q\q.js:796:13)
       </system-err>
   
   

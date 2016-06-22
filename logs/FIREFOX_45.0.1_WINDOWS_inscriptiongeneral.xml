@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="inscriptiongeneral"
+    errors="0" failures="0" hostname="" id="" package="inscriptiongeneral" skipped="0"
+    tests="1" time="16.58" timestamp="Wed, 22 Jun 2016 08:38:50 GMT">
+  
+    <testcase name="should complete all fields of the form" time="16.58" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+  
+  </testsuite>
+</testsuites>
