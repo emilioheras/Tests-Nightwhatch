@@ -1,14 +1,14 @@
 //Usuarios validos
-var userSimple = require("../users/simple.js");
-var userRfea = require("../users/rfea.js");
-var userFetri = require("../users/fetri.js");
-var userPreferente = require("../users/preferente.js");
+var userSimple = require("./simple.js");
+var userRfea = require("./rfea.js");
+var userFetri = require("./fetri.js");
+var userPreferente = require("./preferente.js");
 //Usuarios invalidos
-var userSimpleInvalid = require("../users/simpleInvalid.js");
-var userRfeaInvalid = require("../users/rfeaInvalid.js");
-var userFetriInvalid = require("../users/fetriInvalid.js");
-var userPreferenteInvalid = require("../users/preferenteInvalid.js");
-var userEmpty = require("../users/anonymousEmpty.js");
+var userSimpleInvalid = require("./simpleInvalid.js");
+var userRfeaInvalid = require("./rfeaInvalid.js");
+var userFetriInvalid = require("./fetriInvalid.js");
+var userPreferenteInvalid = require("./preferenteInvalid.js");
+var userEmpty = require("./anonymousEmpty.js");
 module.exports = {
 	simple: {
 		valid: userSimple,
@@ -28,7 +28,7 @@ module.exports = {
 		valid: userPreferente,
 		invalid: userPreferenteInvalid
 	},
-	empty: {
+	vacio: {
 		invalid: userEmpty
 	}
 }

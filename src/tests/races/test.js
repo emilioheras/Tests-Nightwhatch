@@ -26,7 +26,7 @@ module.exports = {
 					users.rfea.invalid,
 					users.fetri.invalid,
 					users.preferente.invalid,
-					users.empty
+					users.vacio.invalid
 				]
 			},
 			"steps": ["FETRI", "0"]
