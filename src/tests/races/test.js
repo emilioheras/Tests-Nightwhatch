@@ -1,6 +1,6 @@
 
 // var user = require("../users/rfea.js");
-var user = require("../users/preferente.js");
+var users = require("../users/users.js");
 
 module.exports = {
 	"id":"carrera-inscriptiones-test",
@@ -16,10 +16,10 @@ module.exports = {
 			},
 			"inscriptions":{
 				"valid":[
-					user
+					user.preferente.valid
 				],
 				"invalid":[
-					user.invalid
+					user.simple, user.invalid, user.empty, user.rfea
 				]
 			},
 			"steps": ["PREFERENTE", "0"]
