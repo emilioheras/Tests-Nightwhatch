@@ -1,10 +1,10 @@
-var user = require("../users/rfea.js");
-
+// var user = require("../users/rfea.js");
+var user = require("../users/fetri.js");
 module.exports = {
 	"id":"carrera-inscriptiones-test",
 	"events": [
 		{
-			"id": "369",
+			"id": "368",
 			"mode": "simple",
 			"team_size": 1,
 			"fields": {
@@ -20,7 +20,7 @@ module.exports = {
 					user.invalid
 				]
 			},
-			"steps": ["RFEA", "0"]
+			"steps": ["FETRI", "0"]
 		}
 	]
 }

@@ -26,7 +26,7 @@ tests = {
 
 		},
 
-		FEDERADOS: function(browser, event) {
+		FETRI: function(browser, event) {
 
 		},
 
