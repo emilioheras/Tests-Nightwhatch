@@ -1,0 +1,21 @@
+module.exports = {
+    "name":"BadUser",
+    "surname":"BadUser",
+    "pass":"123456",
+    "mail":"BadUser@gmail.com",
+    "verify_email":"BadUser@gmail.com",
+    "dni":"22577705E",
+    "tipodni":"0",
+    "gender":"0",
+    "dateofbirthday":"8-Abril-1979",
+    "prefix_phone":"34",
+    "phone":"666666666",
+    "prefix_phone_emergency":"34",
+    "phone_emergency":"777777777",
+    "code":"46700",
+    "address":"Calle falsa 123",
+    "country_id":"ESP",
+    "province_id":"8",
+    "city_id":"2129",
+    "club":"SIN CLUB"
+}

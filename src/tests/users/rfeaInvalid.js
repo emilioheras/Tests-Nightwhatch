@@ -1,9 +1,9 @@
-var base = require("./anonymous.js");
+var base = require("./anonymousInvalid.js");
 
 var RFEA = {
     "license_type_validate": "CARNET PLUS",
-    "carnet_validate":"903",
-    "birth_validate":"1972-Agosto-05"
+    "carnet_validate":"908",
+    "birth_validate":"1974-Agosto-05"
 };
 
 var user = Object.assign(base, RFEA);

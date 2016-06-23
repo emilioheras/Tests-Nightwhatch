@@ -1,4 +1,4 @@
-var base = require("./anonymous.js");
+var base = require("./anonymousInvalid.js");
 
 var simple = {};
 
