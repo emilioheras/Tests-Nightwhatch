@@ -1,21 +1,47 @@
-var race = require("./races/test.js");
+var race = require("./races/fetriTest.js");
+// var race = require("./races/preferentTest.js");
+// var race = require("./races/rfeaTest.js");
+// var race = require("./races/simpleTest.js");
 var data = require("../variables");
 var utils = require("../functions");
 
 tests = {
 
 	event: function(browser, event) {
-
+        
 		this.goToEventPage(browser, event);
 
 		for(var type in event.fields)
 			this.amountOfFieldsIsCorrect(browser, event.fields[type], event.team_size, type);
 
-		event.inscriptions.valid.forEach((user) => {
+        event.inscriptions.valid.forEach((user) => {
 			this.iCanCompleteAnInscription(browser, event, user);
 		});
 
+        // event.inscriptions.invalid.forEach((user) => {
+        //      this.iCantCompleteAnInscription[event.type](browser, event, user);
+        // });
+
 	},
+
+    iCantCompleteAnInscription: {
+
+        SIMPLE: function(browser, event, user) {
+            
+        },
+
+        RFEA: function(browser, event, user) {
+
+            this.checkICantGoPastStepOne();
+            
+
+        },
+
+        FETRI: function(browser, event, user) {
+
+        }
+
+    },
 
 	testModeIsCorrect: {
 		RFEA: function(browser, event) {
@@ -63,8 +89,8 @@ tests = {
 	},
 
 	iCanCompleteAnInscription: function(browser, event, user) {
-		
-		this.goToEventPage(browser, event);
+
+        this.goToEventPage(browser, event);
 
 		event.steps.forEach((step, index) => {
 			this.fillStepFields(browser, user);
@@ -79,6 +105,7 @@ tests = {
 
 	goToNextStep: function(browser) {
 		browser.click(".form-nav .btn.btn-primary.u-fl-r");
+
 		browser.waitForElementVisible(".plainoverlay", 3000);
 		browser.waitForElementNotVisible(".plainoverlay", 10000);
 	},
@@ -129,8 +156,6 @@ tests = {
 
 		}, [], function(result) {
 
-			console.log(result.value);
-
 			result.value.forEach((item, index) => {
 
 				var id = '#' + item.id;
@@ -142,7 +167,7 @@ tests = {
 
 				var desiredValue = user[item.name];
 				browser.setValue(id, desiredValue);
-				console.log(desiredValue);
+
 				if(desiredValue && !!desiredValue.match(/\d\d\d\d-\w*-\d\d?/)) {
 
 					var parts = desiredValue.split("-");
@@ -164,9 +189,9 @@ tests = {
 	sendInscription: function (browser){
 		browser.waitForElementVisible('button.btn', 20000);
 		browser.click("button.btn");
-	}
+	},
 
-
+   
 };
 
 

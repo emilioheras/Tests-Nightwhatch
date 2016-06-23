@@ -7,7 +7,7 @@ module.exports = {
 	"events": [
 		{
 			"id": "368",
-			"mode": "simple",
+			"mode": "fetri",
 			"team_size": 1,
 			"fields": {
 				"basic": ["name", "surname", "mail", "verify_email", "dni", "tipodni", "gender", "dateofbirthday", "prefix_phone", "phone", "prefix_phone_emergency", "phone_emergency", "code", "address", "country_id", "province_id", "city_id", "club", "club2"],
@@ -19,18 +19,12 @@ module.exports = {
 					users.fetri.valid
 				],
 				"invalid":[
-					// users.simple.valid,
-					// users.rfea.valid,
-					// users.fetri.valid,
-					// users.simple.invalid,
-					// users.rfea.invalid,
-					// users.fetri.invalid,
-					// users.preferente.valid,
-					// users.preferente.invalid,
-					// users.vacio.invalid
+					users.fetri.invalid,
+					users.fetri.valid1step,
+					users.vacio.invalid
 				]
 			},
-			"steps": ["PREFERENTE", "0"]
+			"steps": ["FETRI", "0"]
 		}
 	]
 }

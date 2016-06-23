@@ -1,1 +1,1 @@
-module.exports = require("./anonymous.js");
+module.exports = require("../anonymous.js");

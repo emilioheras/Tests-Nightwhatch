@@ -1,4 +1,4 @@
-var base = require("./anonymousInvalid.js");
+var base = require("../anonymousInvalid.js");
 
 var RFEA = {
     "license_type_validate": "CARNET PLUS",

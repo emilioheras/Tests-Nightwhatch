@@ -1,1 +1,1 @@
-module.exports = require("./anonymousInvalid.js");
+module.exports = require("../anonymousInvalid.js");
