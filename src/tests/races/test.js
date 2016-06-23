@@ -1,10 +1,10 @@
-var user = require("../users/rfea.js");
+var user = require("../users/preferente.js");
 
 module.exports = {
 	"id":"carrera-inscriptiones-test",
 	"events": [
 		{
-			"id": "369",
+			"id": "367",
 			"mode": "simple",
 			"team_size": 1,
 			"fields": {
@@ -20,7 +20,7 @@ module.exports = {
 					user.invalid
 				]
 			},
-			"steps": ["RFEA", "0"]
+			"steps": ["PREFERENTE", "0"]
 		}
 	]
 }
