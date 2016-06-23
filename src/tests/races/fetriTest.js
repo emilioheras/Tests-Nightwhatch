@@ -16,20 +16,21 @@ module.exports = {
 			},
 			"inscriptions":{
 				"valid":[
-					users.simple.valid,
-					users.rfea.valid,
-					users.fetri.valid,
-					users.preferente.valid
+					users.fetri.valid
 				],
 				"invalid":[
-					users.simple.invalid,
-					users.rfea.invalid,
-					users.fetri.invalid,
-					users.preferente.invalid,
-					users.vacio.invalid
+					// users.simple.valid,
+					// users.rfea.valid,
+					// users.fetri.valid,
+					// users.simple.invalid,
+					// users.rfea.invalid,
+					// users.fetri.invalid,
+					// users.preferente.valid,
+					// users.preferente.invalid,
+					// users.vacio.invalid
 				]
 			},
-			"steps": ["FETRI", "0"]
+			"steps": ["PREFERENTE", "0"]
 		}
 	]
 }

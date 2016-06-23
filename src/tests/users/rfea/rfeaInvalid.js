@@ -6,6 +6,4 @@ var RFEA = {
     "birth_validate":"1974-Agosto-05"
 };
 
-var user = Object.assign(base, RFEA);
-
-module.exports = user;
+module.exports = Object.assign({}, base, RFEA);

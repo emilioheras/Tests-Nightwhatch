@@ -5,6 +5,4 @@ var FETRI = {
     "birth_validate":"1973-Agosto-05"
 };
 
-var user = Object.assign(base, FETRI);
-
-module.exports = user;
+module.exports = Object.assign({}, base, FETRI);
