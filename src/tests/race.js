@@ -22,11 +22,23 @@ tests = {
 
 		},
 
-		FETRI: function(browser, event) {
+		PREFERENTE: function(browser, event) {
 
 		},
 
-		simple: function(browser, event) {
+		FEDERADOS: function(browser, event) {
+
+		},
+
+		SIMPLE: function(browser, event) {
+
+		},
+
+		GRUPO: function(browser, event) {
+
+		},
+
+		SUPERSPRINT: function(browser, event) {
 
 		}
 	},
