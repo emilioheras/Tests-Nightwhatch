@@ -1,1 +1,1 @@
-module.exports = require("../base.incomplete.js");
+module.exports = require("./base.incomplete.js");

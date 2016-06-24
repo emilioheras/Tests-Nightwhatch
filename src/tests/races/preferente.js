@@ -1,5 +1,5 @@
 
-var users = require("../users/users.js");
+var users = require("../../users.js");
 
 
 module.exports = {
@@ -20,8 +20,7 @@ module.exports = {
                 ],
                 "invalid":[
                     users.preferente.invalid,
-                    users.preferente.invalid1step,
-                    users.vacio.invalid
+                    users.preferente.incomplete
                 ]
             },
             "steps": ["PREFERENTE", "0"]

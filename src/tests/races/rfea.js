@@ -1,5 +1,5 @@
 
-var users = require("../users/users.js");
+var users = require("../../users.js");
 
 
 module.exports = {
@@ -21,8 +21,7 @@ module.exports = {
                 ],
                 "invalid":[
                     users.rfea.invalid,
-                    users.rfea.invalid1step,
-                    users.vacio.invalid
+                    users.rfea.incomplete
                 ]
             },
             "steps": ["RFEA", "0"]

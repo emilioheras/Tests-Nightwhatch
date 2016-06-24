@@ -1,12 +1,12 @@
 
-var users = require("../users/users.js");
+var users = require("../../users.js");
 
 
 module.exports = {
-	"id":"carrera-inscriptiones-test",
+	"id":"iv-triatln-olmpico-trigranada",
 	"events": [
 		{
-			"id": "368",
+			"id": "56f02bd0-c9dc-4193-80de-3b68bc5ffd28",
 			"mode": "fetri",
 			"team_size": 1,
 			"fields": {
@@ -20,8 +20,7 @@ module.exports = {
 				],
 				"invalid":[
 					users.fetri.invalid,
-					users.fetri.invalid1step,
-					users.vacio.invalid
+					users.fetri.incomplete
 				]
 			},
 			"steps": ["FETRI", "0"]

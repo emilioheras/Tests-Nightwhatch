@@ -1,7 +1,7 @@
-var race = require("./races/fetriTest.js");
-// var race = require("./races/preferentTest.js");
-// var race = require("./races/rfeaTest.js");
-// var race = require("./races/simpleTest.js");
+var race = require("./races/fetri.js");
+// var race = require("./races/preferent.js");
+// var race = require("./races/rfea.js");
+// var race = require("./races/simple.js");
 var data = require("../variables");
 var utils = require("../functions");
 

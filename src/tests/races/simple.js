@@ -1,5 +1,5 @@
 //NO FUNCIONA PORQUE FALTA DECIDIR SI TE INSCRIBES A TI MISMO U A OTRA PERSONA
-var users = require("../users/users.js");
+var users = require("../../users.js");
 
 
 module.exports = {
@@ -19,19 +19,10 @@ module.exports = {
                     users.simple.valid
                 ],
                 "invalid":[
-                    users.simple.invalid,
-                    users.vacio.invalid
+                    users.simple.invalid
                 ]
             },
             "steps": ["SIMPLE", "0"]
         }
     ]
 }
-//
-// fetri.valid.complete.js
-// fetri.invalid.complete.js
-// fetri.valid.incomplete.js
-// fetri.invalid.incomplete.js
-// base.complete.js
-// base.incomplete.js
-// base.js
