@@ -18,10 +18,10 @@ module.exports = {
                 "valid":[
                     users.simple.valid
                 ],
-                "invalid":[
+                "invalid":[/*
                     users.simple.invalid,
                     users.vacio.invalid
-                ]
+                */]
             },
             "steps": ["SIMPLE", "0"]
         }

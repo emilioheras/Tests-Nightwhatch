@@ -14,13 +14,14 @@ module.exports = {
                 "advanced": [],
                 "extra": []
             },
+            "requiredFields": ["name", ""],
             "inscriptions":{
                 "valid":[
                     users.rfea.valid
                 ],
                 "invalid":[
                     users.rfea.invalid,
-                    users.rfea.valid1step,
+                    users.rfea.invalid1step,
                     users.vacio.invalid
                 ]
             },

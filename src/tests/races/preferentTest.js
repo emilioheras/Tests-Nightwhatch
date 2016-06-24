@@ -20,7 +20,7 @@ module.exports = {
                 ],
                 "invalid":[
                     users.preferente.invalid,
-                    users.preferente.valid1step,
+                    users.preferente.invalid1step,
                     users.vacio.invalid
                 ]
             },

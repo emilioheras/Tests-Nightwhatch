@@ -1,4 +1,4 @@
-var base = require("../anonymousInvalid.js");
+var base = require("../baseInvalid.js");
 
 var FETRI = {
     "dni_validate":"26748403B",

@@ -20,7 +20,7 @@ module.exports = {
 				],
 				"invalid":[
 					users.fetri.invalid,
-					users.fetri.valid1step,
+					users.fetri.invalid1step,
 					users.vacio.invalid
 				]
 			},

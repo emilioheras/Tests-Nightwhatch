@@ -18,30 +18,8 @@ tests = {
 			this.iCanCompleteAnInscription(browser, event, user);
 		});
 
-        // event.inscriptions.invalid.forEach((user) => {
-        //      this.iCantCompleteAnInscription[event.type](browser, event, user);
-        // });
-
 	},
 
-    iCantCompleteAnInscription: {
-
-        SIMPLE: function(browser, event, user) {
-            
-        },
-
-        RFEA: function(browser, event, user) {
-
-            this.checkICantGoPastStepOne();
-            
-
-        },
-
-        FETRI: function(browser, event, user) {
-
-        }
-
-    },
 
 	testModeIsCorrect: {
 		RFEA: function(browser, event) {
@@ -74,17 +52,17 @@ tests = {
 		fields.forEach(function(field, index) {
 
 			var browserFunction = function(searchField) {
-				return $("[data-short-name='" + searchField + "']").length; 
+				return $("[data-short-name='" + searchField + "']").length;
 			};
-			
-			var callBackFunction = function(real_amount) { 		
+
+			var callBackFunction = function(real_amount) {
 				browser.verify.equal(real_amount.value, team_size, "El campo " + field + " del tipo " + type);
 			};
 
 			var params = [field];
-			
+
 			browser.execute(browserFunction, params, callBackFunction);
-			
+
 		});
 	},
 
@@ -103,7 +81,9 @@ tests = {
 
 	},
 
+
 	goToNextStep: function(browser) {
+		browser.waitForElementPresent(".form-nav .btn.btn-primary.u-fl-r", 20000);
 		browser.click(".form-nav .btn.btn-primary.u-fl-r");
 
 		browser.waitForElementVisible(".plainoverlay", 3000);
@@ -113,6 +93,46 @@ tests = {
 	goToEventPage: function(browser, event) {
 		browser.url(utils.buildUrl(browser, "/services/inscription/" + race.id + "/" + event.id));
 		browser.waitForElementPresent("form", 20000);
+	},
+
+
+
+	detectStepFields: function(browser){
+
+		browser.execute(function(params) {
+
+			var result = [];
+			var fields = $(".form-register fieldset.active [name]:not([type=hidden])");
+			var pushed = [];
+
+			fields.each(function (index, item) {
+
+				var name = $(item).data("short-name");
+				var id = $(item).attr("id");
+
+				if (!id)
+					return true;
+
+				if (!name)
+					name = $(item).closest("[data-short-name]").data("short-name");
+
+				if ($(item).is("[type=radio]")) {
+					id = id.split("_").slice(0, id.split("_").length - 1).join("_");
+				}
+
+				if (pushed.indexOf(id) == -1) {
+
+					result.push({
+						id: id,
+						name: name
+					});
+
+					pushed.push(id);
+				}
+			});
+
+			return result;
+		});
 	},
 
 	fillStepFields: function(browser, user) {
@@ -151,7 +171,6 @@ tests = {
 
 			});
 
-
 			return result;
 
 		}, [], function(result) {
@@ -189,9 +208,9 @@ tests = {
 	sendInscription: function (browser){
 		browser.waitForElementVisible('button.btn', 20000);
 		browser.click("button.btn");
-	},
+	}
 
-   
+
 };
 
 

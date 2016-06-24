@@ -1,4 +1,4 @@
-var base = require("../baseInvalid.js");
+var base = require("../baseEmpty.js");
 
 var PREFERENTE = {
     "dni_validate": "33566340W",
