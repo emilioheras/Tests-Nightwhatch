@@ -1,4 +1,4 @@
-var base = require("../baseInvalid.js");
+var base = require("../base.complete.js");
 
 var FETRI = {
     "dni_validate":"26742203B",
