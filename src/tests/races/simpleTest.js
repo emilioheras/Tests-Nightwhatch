@@ -18,12 +18,20 @@ module.exports = {
                 "valid":[
                     users.simple.valid
                 ],
-                "invalid":[/*
+                "invalid":[
                     users.simple.invalid,
                     users.vacio.invalid
-                */]
+                ]
             },
             "steps": ["SIMPLE", "0"]
         }
     ]
 }
+//
+// fetri.valid.complete.js
+// fetri.invalid.complete.js
+// fetri.valid.incomplete.js
+// fetri.invalid.incomplete.js
+// base.complete.js
+// base.incomplete.js
+// base.js

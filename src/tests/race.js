@@ -95,85 +95,48 @@ tests = {
 		browser.waitForElementPresent("form", 20000);
 	},
 
+	doSomethingWithAllFieldsFromCurrentGroup: function(browser, callBack) {
+		browser.execute(this.detectStepFields, [], callBack.bind(this));
+	},
 
+	detectStepFields: function() {
 
-	detectStepFields: function(browser){
+		var result = [];
+		var fields = $(".form-register fieldset.active [name]:not([type=hidden])");
+		var pushed = [];
 
-		browser.execute(function(params) {
+		fields.each(function (index, item) {
 
-			var result = [];
-			var fields = $(".form-register fieldset.active [name]:not([type=hidden])");
-			var pushed = [];
+			var name = $(item).data("short-name");
+			var id = $(item).attr("id");
 
-			fields.each(function (index, item) {
+			if (!id)
+				return true;
 
-				var name = $(item).data("short-name");
-				var id = $(item).attr("id");
+			if (!name)
+				name = $(item).closest("[data-short-name]").data("short-name");
 
-				if (!id)
-					return true;
+			if ($(item).is("[type=radio]")) {
+				id = id.split("_").slice(0, id.split("_").length - 1).join("_");
+			}
 
-				if (!name)
-					name = $(item).closest("[data-short-name]").data("short-name");
+			if (pushed.indexOf(id) == -1) {
 
-				if ($(item).is("[type=radio]")) {
-					id = id.split("_").slice(0, id.split("_").length - 1).join("_");
-				}
+				result.push({
+					id: id,
+					name: name
+				});
 
-				if (pushed.indexOf(id) == -1) {
-
-					result.push({
-						id: id,
-						name: name
-					});
-
-					pushed.push(id);
-				}
-			});
-
-			return result;
+				pushed.push(id);
+			}
 		});
+
+		return result;
 	},
 
 	fillStepFields: function(browser, user) {
 
-		browser.execute(function(params) {
-
-			var result = [];
-			var fields = $(".form-register fieldset.active [name]:not([type=hidden])");
-			var pushed = [];
-
-			fields.each(function(index, item) {
-
-				var name = $(item).data("short-name");
-				var id = $(item).attr("id");
-
-				if(!id)
-					return true;
-
-				if(!name)
-					name = $(item).closest("[data-short-name]").data("short-name");
-
-				if($(item).is("[type=radio]")) {
-					id = id.split("_").slice(0, id.split("_").length - 1).join("_");
-				}
-
-				if(pushed.indexOf(id) == -1) {
-
-					result.push({
-						id: id,
-						name: name
-					});
-
-					pushed.push(id);
-				}
-
-
-			});
-
-			return result;
-
-		}, [], function(result) {
+		this.doSomethingWithAllFieldsFromCurrentGroup(browser, function(result) {
 
 			result.value.forEach((item, index) => {
 
