@@ -17,7 +17,7 @@ tests = {
             this.amountOfFieldsIsCorrect(browser, event.fields[type], event.team_size, type);
 
         event.inscriptions.valid.forEach((user) => {
-            this.iCanCompleteAnInscription(browser, event, user);
+            // this.iCanCompleteAnInscription(browser, event, user);
             this.checkIfRequiredAreRequired(browser, event, user);
         });
 

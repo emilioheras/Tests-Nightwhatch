@@ -1,11 +1,11 @@
 var race = require("./tests/races/fetri.js");
-// var race = require("./races/preferent.js");
-// var race = require("./races/rfea.js");
-// var race = require("./races/simple.js");
+// var race = require("./tests/races/preferent.js");
+// var race = require("./tests/races/rfea.js");
+// var race = require("./tests/races/simple.js");
 var data = require("./variables.js");
 var utils = require("./functions.js");
 
-var functions = function() {
+module.exports = new function() {
 
         this.goToNextStep = function(browser) {
             browser.waitForElementPresent(".form-nav .btn.btn-primary.u-fl-r", 20000);
@@ -17,7 +17,12 @@ var functions = function() {
 
         this.goToEventPage = function(browser, event) {
             browser.url(utils.buildUrl(browser, "/services/inscription/" + race.id + "/" + event.id));
-            browser.waitForElementPresent("form", 20000);
+            browser.pause(2000);
+            var tomate = browser.execute(function(){$('#custom-content > fieldset > div.col-xs-12.u-mb-lg.inscription-mode-selector > div').attr("style")});
+            console.log(tomate);
+            browser.click('#custom-content > fieldset > div.col-xs-12.u-mb-lg.inscription-mode-selector > div > div > div:nth-child(2)');
+
+            browser.waitForElementPresent("form", 20000)
         };
 
         this.doSomethingWithAllFieldsFromCurrentGroup = function(browser, callBack) {
@@ -71,9 +76,8 @@ var functions = function() {
                         return false;
 
                     var desiredValue = user[item.name];
-                    console.log(desiredValue);
                     browser.setValue(id, desiredValue);
-
+                    browser.pause(500);
                     if(desiredValue && !!desiredValue.match(/\d\d\d\d-\w*-\d\d?/)) {
 
                         var parts = desiredValue.split("-");
@@ -105,8 +109,6 @@ var functions = function() {
 
         };
 
-
-
         this.doSomethingWithTheCurrentGroup = function(browser, callBack) {
             browser.execute(this.obtainFieldsetActive, [], callBack.bind(this));
         };
@@ -135,11 +137,3 @@ var functions = function() {
         };
 
     };
-
-
-
-    module.exports = functions;
-
-
-
-//Andresito

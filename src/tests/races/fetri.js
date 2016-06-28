@@ -24,7 +24,6 @@ module.exports = {
 				]
 			},
 			"steps": ["FETRI", "0"],
-			"price": 16.00,
 		}
 	]
 }
