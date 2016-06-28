@@ -126,8 +126,62 @@ var functions = function() {
             });
 
             return false;
-
         };
+
+
+
+
+    //**************************************************************************************
+    //haremos una funcion callback que recoja el result 4 y los compare con los elementos del require de config simple.js
+
+
+
+
+        this.checkErrorsInRequiredFields = function(browser, event){
+
+            this.detectFieldsWithErrors(browser,event);
+
+            
+        };
+
+        this.detectFieldsWithErrors = function(browser,event){
+            var result4 = [];
+            var fields = $(".form-register fieldset.active [name]:not([type=hidden])");
+            var pushed = [];
+            var errors= $('.form-control-danger').map(function() {return $(this).attr('id');}).get();
+
+            fields.each(function (index, item) {
+
+                var name = $(item).data("short-name");
+                var id = $(item).attr("id");
+
+                if (errors.indexOf(id) != -1) {
+                     if (!id)
+                         return true;
+
+                     if (!name)
+                         name = $(item).closest("[data-short-name]").data("short-name");
+
+                     if ($(item).is("[type=radio]")) {
+                         id = id.split("_").slice(0, id.split("_").length - 1).join("_");
+                     }
+
+                     if (pushed.indexOf(id) == -1) {
+
+                         result4.push({
+                             id: id,
+                             name: name
+                         });
+
+                         pushed.push(id);
+                     }
+                 }
+            });
+
+            return result4;
+        };
+
+    //***********************************************************
 
         this.sendInscription = function (browser){
             browser.waitForElementVisible('button.btn', 20000);

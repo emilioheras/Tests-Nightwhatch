@@ -89,6 +89,7 @@ tests = {
         event.steps.forEach((step, index) => {
             raceFunctions.unsetStepFields(browser, user);
             raceFunctions.goToNextStep(browser);
+            // raceFunctions.checkErrorsInRequiredFields;
             raceFunctions.checkIfImOnTheSameStep(browser);
             raceFunctions.fillStepFields(browser, user);
             raceFunctions.goToNextStep(browser);
