@@ -5,7 +5,7 @@ var race = require("./tests/races/fetri.js");
 var data = require("./variables.js");
 var utils = require("./functions.js");
 
-functionsWarro = function() {
+var functions = function() {
 
         this.goToNextStep = function(browser) {
             browser.waitForElementPresent(".form-nav .btn.btn-primary.u-fl-r", 20000);
@@ -134,11 +134,11 @@ functionsWarro = function() {
             browser.click("button.btn");
         };
 
-    };//fin
+    };
 
 
 
-    module.exports = new functionsWarro;
+    module.exports = functions;
 
 
 

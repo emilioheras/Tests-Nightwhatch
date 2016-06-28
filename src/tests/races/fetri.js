@@ -23,7 +23,8 @@ module.exports = {
 					users.fetri.incomplete
 				]
 			},
-			"steps": ["FETRI", "0"]
+			"steps": ["FETRI", "0"],
+			"price": 16.00,
 		}
 	]
 }
