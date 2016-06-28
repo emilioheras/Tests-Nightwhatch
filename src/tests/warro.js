@@ -1,8 +1,8 @@
 
-var race = require("./races/fetri.js");
+// var race = require("./races/fetri.js");
 // var race = require("./races/preferent.js");
 // var race = require("./races/rfea.js");
-// var race = require("./races/simple.js");
+var race = require("./races/simple.js");
 var data = require("../variables");
 var utils = require("../functions");
 var raceFunctions = require("../functions.race.js");
@@ -17,8 +17,9 @@ tests = {
             this.amountOfFieldsIsCorrect(browser, event.fields[type], event.team_size, type);
 
         event.inscriptions.valid.forEach((user) => {
-            this.iCanCompleteAnInscription(browser, event, user);
+
             this.checkIfRequiredAreRequired(browser, event, user);
+            this.iCanCompleteAnInscription(browser, event, user);
         });
 
     },
@@ -76,7 +77,6 @@ tests = {
             raceFunctions.fillStepFields(browser, user);
             raceFunctions.goToNextStep(browser);
         });
-
         raceFunctions.sendInscription(browser);
 
         //raceFunctions.checkPriceIsCorrect(event, user);

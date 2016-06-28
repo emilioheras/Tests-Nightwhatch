@@ -1,23 +1,25 @@
 var race = require("./tests/races/fetri.js");
-// var race = require("./races/preferent.js");
-// var race = require("./races/rfea.js");
-// var race = require("./races/simple.js");
+// var race = require("./tests/races/preferent.js");
+// var race = require("./tests/races/rfea.js");
+// var race = require("./tests/races/simple.js");
 var data = require("./variables.js");
 var utils = require("./functions.js");
 
-var functions = function() {
+module.exports = new function() {
 
         this.goToNextStep = function(browser) {
             browser.waitForElementPresent(".form-nav .btn.btn-primary.u-fl-r", 20000);
             browser.click(".form-nav .btn.btn-primary.u-fl-r");
-
-            browser.waitForElementVisible(".plainoverlay", 3000);
-            browser.waitForElementNotVisible(".plainoverlay", 10000);
+            // browser.waitForElementVisible(".plainoverlay", 3000); ESTO EN FETRI FUNCIONABA PERO EN SIMPLE YA NO, LO SUSTITUIMOS POR LA LINEA 14
+            browser.pause(3000)
+            browser.waitForElementNotVisible(".plainoverlay", 50000);
         };
 
         this.goToEventPage = function(browser, event) {
             browser.url(utils.buildUrl(browser, "/services/inscription/" + race.id + "/" + event.id));
-            browser.waitForElementPresent("form", 20000);
+            browser.pause(2000);
+            browser.click('#custom-content > fieldset > div.col-xs-12.u-mb-lg.inscription-mode-selector > div > div > div:nth-child(2)');
+            browser.waitForElementPresent("form", 20000)
         };
 
         this.doSomethingWithAllFieldsFromCurrentGroup = function(browser, callBack) {
@@ -71,9 +73,8 @@ var functions = function() {
                         return false;
 
                     var desiredValue = user[item.name];
-                    console.log(desiredValue);
                     browser.setValue(id, desiredValue);
-
+                    browser.pause(500);
                     if(desiredValue && !!desiredValue.match(/\d\d\d\d-\w*-\d\d?/)) {
 
                         var parts = desiredValue.split("-");
@@ -83,7 +84,7 @@ var functions = function() {
                     }
 
                     browser.click(id + "_" + desiredValue);
-                    browser.click("body");
+                    // browser.click("body");
 
                 });
 
@@ -105,15 +106,13 @@ var functions = function() {
 
         };
 
-
-
         this.doSomethingWithTheCurrentGroup = function(browser, callBack) {
             browser.execute(this.obtainFieldsetActive, [], callBack.bind(this));
         };
 
 
         this.obtainFieldsetActive= function(){
-            var result2 = $('#custom-content > fieldset.active').attr("class");
+            var result2 = $('fieldset.active').attr("class");
             return result2;
         };
 
@@ -122,7 +121,7 @@ var functions = function() {
 
             this.doSomethingWithTheCurrentGroup(browser, function(result2) {
                 console.log(result2.value);
-                browser.assert.attributeContains('#custom-content > fieldset.active', 'class', result2.value)
+                browser.assert.attributeContains('fieldset.active', 'class', result2.value)
             });
 
             return false;
@@ -130,16 +129,9 @@ var functions = function() {
         };
 
         this.sendInscription = function (browser){
-            browser.waitForElementVisible('button.btn', 20000);
-            browser.click("button.btn");
+            browser.waitForElementVisible('.pay', 30000);
+            console.log("************************************************");
+            browser.click(".pay");
         };
 
     };
-
-
-
-    module.exports = functions;
-
-
-
-//Andresito
