@@ -14,6 +14,7 @@ module.exports = {
                 "advanced": [],
                 "extra": []
             },
+            "required":["name", "surname", "mail", "dni", "gender", "dateofbirthday", "code"],
             "inscriptions":{
                 "valid":[
                     users.simple.valid
