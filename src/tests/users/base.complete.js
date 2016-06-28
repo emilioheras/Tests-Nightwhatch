@@ -7,7 +7,7 @@ module.exports = {
 	"dni":"22584205E",
 	"tipodni":"0",
 	"gender":"0",
-	"dateofbirthday":"5-Agosto-1973",
+	"dateofbirthday":"1973-Agosto-05",
 	"prefix_phone":"34",
 	"phone":"555555555",
 	"prefix_phone_emergency":"34",

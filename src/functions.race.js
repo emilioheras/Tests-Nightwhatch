@@ -10,18 +10,15 @@ module.exports = new function() {
         this.goToNextStep = function(browser) {
             browser.waitForElementPresent(".form-nav .btn.btn-primary.u-fl-r", 20000);
             browser.click(".form-nav .btn.btn-primary.u-fl-r");
-
-            browser.waitForElementVisible(".plainoverlay", 3000);
-            browser.waitForElementNotVisible(".plainoverlay", 10000);
+            // browser.waitForElementVisible(".plainoverlay", 3000); ESTO EN FETRI FUNCIONABA PERO EN SIMPLE YA NO, LO SUSTITUIMOS POR LA LINEA 14
+            browser.pause(3000)
+            browser.waitForElementNotVisible(".plainoverlay", 50000);
         };
 
         this.goToEventPage = function(browser, event) {
             browser.url(utils.buildUrl(browser, "/services/inscription/" + race.id + "/" + event.id));
             browser.pause(2000);
-            var tomate = browser.execute(function(){$('#custom-content > fieldset > div.col-xs-12.u-mb-lg.inscription-mode-selector > div').attr("style")});
-            console.log(tomate);
             browser.click('#custom-content > fieldset > div.col-xs-12.u-mb-lg.inscription-mode-selector > div > div > div:nth-child(2)');
-
             browser.waitForElementPresent("form", 20000)
         };
 
@@ -87,7 +84,7 @@ module.exports = new function() {
                     }
 
                     browser.click(id + "_" + desiredValue);
-                    browser.click("body");
+                    // browser.click("body");
 
                 });
 
@@ -115,7 +112,7 @@ module.exports = new function() {
 
 
         this.obtainFieldsetActive= function(){
-            var result2 = $('#custom-content > fieldset.active').attr("class");
+            var result2 = $('fieldset.active').attr("class");
             return result2;
         };
 
@@ -124,7 +121,7 @@ module.exports = new function() {
 
             this.doSomethingWithTheCurrentGroup(browser, function(result2) {
                 console.log(result2.value);
-                browser.assert.attributeContains('#custom-content > fieldset.active', 'class', result2.value)
+                browser.assert.attributeContains('fieldset.active', 'class', result2.value)
             });
 
             return false;
@@ -132,8 +129,9 @@ module.exports = new function() {
         };
 
         this.sendInscription = function (browser){
-            browser.waitForElementVisible('button.btn', 20000);
-            browser.click("button.btn");
+            browser.waitForElementVisible('.pay', 30000);
+            console.log("************************************************");
+            browser.click(".pay");
         };
 
     };

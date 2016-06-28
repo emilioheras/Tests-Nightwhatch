@@ -1,4 +1,4 @@
-//NO FUNCIONA PORQUE FALTA DECIDIR SI TE INSCRIBES A TI MISMO U A OTRA PERSONA
+
 var users = require("../../users.js");
 
 
