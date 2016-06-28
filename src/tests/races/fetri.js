@@ -3,10 +3,10 @@ var users = require("../../users.js");
 
 
 module.exports = {
-	"id":"iv-triatln-olmpico-trigranada",
+	"id":"carrera-inscriptiones-test",
 	"events": [
 		{
-			"id": "56f02bd0-c9dc-4193-80de-3b68bc5ffd28",
+			"id": "368",
 			"mode": "fetri",
 			"team_size": 1,
 			"fields": {
