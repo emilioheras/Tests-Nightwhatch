@@ -238,7 +238,7 @@ tests = {
         browser.click("button.btn");
     }
 
-};
+};//fin
 
 
 
