@@ -14,7 +14,6 @@ module.exports = {
                 "advanced": [],
                 "extra": []
             },
-            "requiredFields": ["name", ""],
             "inscriptions":{
                 "valid":[
                     users.rfea.valid
