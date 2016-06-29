@@ -1,7 +1,7 @@
-var race = require("./tests/races/fetri.js");
+// var race = require("./tests/races/fetri.js");
 // var race = require("./tests/races/preferent.js");
 // var race = require("./tests/races/rfea.js");
-// var race = require("./tests/races/simple.js");
+var race = require("./tests/races/simple.js");
 var data = require("./variables.js");
 var utils = require("./functions.js");
 
@@ -15,7 +15,7 @@ module.exports = new function() {
             browser.waitForElementNotVisible(".plainoverlay", 50000);
         };
 
-        this.goToEventPage = function(browser, event) {
+        this.goToEventPage = function(browser, event){
             browser.url(utils.buildUrl(browser, "/services/inscription/" + race.id + "/" + event.id));
             browser.pause(2000);
             browser.click('#custom-content > fieldset > div.col-xs-12.u-mb-lg.inscription-mode-selector > div > div > div:nth-child(2)');
@@ -126,6 +126,57 @@ module.exports = new function() {
 
             return false;
 
+
+
+
+    //**************************************************************************************
+    //haremos una funcion callback que recoja el result 4 y los compare con los elementos del require de config simple.js
+
+
+
+
+        this.checkErrorsInRequiredFields = function(browser, event){
+
+            this.detectFieldsWithErrors(browser,event);
+
+
+        };
+
+        this.detectFieldsWithErrors = function(browser,event){
+            var result4 = [];
+            var fields = $(".form-register fieldset.active [name]:not([type=hidden])");
+            var pushed = [];
+            var errors= $('.form-control-danger').map(function() {return $(this).attr('id');}).get();
+
+            fields.each(function (index, item) {
+
+                var name = $(item).data("short-name");
+                var id = $(item).attr("id");
+
+                if (errors.indexOf(id) != -1) {
+                     if (!id)
+                         return true;
+
+                     if (!name)
+                         name = $(item).closest("[data-short-name]").data("short-name");
+
+                     if ($(item).is("[type=radio]")) {
+                         id = id.split("_").slice(0, id.split("_").length - 1).join("_");
+                     }
+
+                     if (pushed.indexOf(id) == -1) {
+
+                         result4.push({
+                             id: id,
+                             name: name
+                         });
+
+                         pushed.push(id);
+                     }
+                 }
+            });
+
+            return result4;
         };
 
         this.sendInscription = function (browser){
