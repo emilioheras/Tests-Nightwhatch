@@ -30,6 +30,39 @@ module.exports = {
                     "operator":"!=",
                     "value":3
                 }
+                /*,
+                "club":{
+                    "field":"newClub",
+                    "operator":"==",
+                    "value":"false"
+                },
+                "club2":{
+                    "field":"newClub",
+                    "operator":"==",
+                    "value":"true"
+                },
+                "auth":{
+                    "field":"dateofbirthday",
+                    "operator":">",
+                    "value":"1998-10-31"
+                },
+                "auth_surname":{
+                    "field":"dateofbirthday",
+                    "operator":">",
+                    "value":"1998-10-31"
+                },
+                "tipodni_auth":{
+                    "field":"dateofbirthday",
+                    "operator":">",
+                    "value":"1998-10-31"
+                },
+                "dni_auth":{
+                    "field":"dateofbirthday",
+                    "operator":">",
+                    "value":"1998-10-31"
+                }
+                */
+
             }
         }
     ]

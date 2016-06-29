@@ -1,4 +1,5 @@
 module.exports = {
+	"selprice": "178",
 	"name":"user",
 	"surname":"user",
 	"pass":"123456",
@@ -14,8 +15,9 @@ module.exports = {
 	"phone_emergency":"622454578",
 	"code":"46700",
 	"address":"Calle Test",
-	"country_id":"ESP",
-	"province_id":"8",
-	"city_id":"2129",
-	"club":"SIN CLUB"
+	"country_id":"España",
+	"province_id":"Huesca",
+	"city_id":"Aisa",
+	"club":"SIN CLUB",
+	"nacionalidad":"ESP"
 }

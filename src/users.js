@@ -42,5 +42,5 @@ module.exports = {
 		invalid: userPreferenteInvalid,
 		incomplete: userPreferenteIncomplete,
 	}
-
+	
 }

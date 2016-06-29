@@ -2,7 +2,8 @@
 // var race = require("./races/fetri.js");
 // var race = require("./races/preferent.js");
 // var race = require("./races/rfea.js");
-var race = require("./races/simple.js");
+// var race = require("./races/simple.js");
+var race = require("./races/supersprint.js");
 var data = require("../variables");
 var utils = require("../functions");
 var raceFunctions = require("../functions.race.js");
@@ -19,8 +20,8 @@ tests = {
         event.inscriptions.valid.forEach((user) => {
 
 
-            // this.iCanCompleteAnInscription(browser, event, user);
-            this.checkIfRequiredAreRequired(browser, event, user);
+            this.iCanCompleteAnInscription(browser, event, user);
+            // this.checkIfRequiredAreRequired(browser, event, user);
         });
 
     },
@@ -106,7 +107,14 @@ tests = {
         });
         raceFunctions.sendInscription(browser);
     }
-
+    // checkDependenciesOfFields: function(browser){
+    //     raceFunctions.goToEventPage(browser, event);
+    //     event.steps.forEach((step, index) => {
+    //         //Ejecuta una de las posibles dependencias
+    //         raceFunctions.fillStepFields(browser, user);
+    //         raceFunctions.goToNextStep(browser);
+    //     });
+    // }
 
 };//fin
 
@@ -122,7 +130,3 @@ module.exports = {
         });
     }
 };
-
-checkDependenciesOfFields: function(browser){
-
-}

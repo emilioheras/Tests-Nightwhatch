@@ -1,7 +1,8 @@
 // var race = require("./tests/races/fetri.js");
 // var race = require("./tests/races/preferent.js");
 // var race = require("./tests/races/rfea.js");
-var race = require("./tests/races/simple.js");
+// var race = require("./tests/races/simple.js");
+var race = require("./tests/races/supersprint.js");
 var data = require("./variables.js");
 var utils = require("./functions.js");
 
@@ -55,13 +56,13 @@ module.exports = new function() {
                     pushed.push(id);
                 }
             });
-
             return result;
         };
 
         this.fillStepFields = function(browser, user) {
 
             this.doSomethingWithAllFieldsFromCurrentGroup(browser, function(result) {
+
                 result.value.forEach((item, index) => {
 
                     var id = '#' + item.id;
@@ -72,6 +73,7 @@ module.exports = new function() {
                         return false;
 
                     var desiredValue = user[item.name];
+                    browser.click(id);
                     browser.setValue(id, desiredValue);
                     browser.pause(500);
                     if(desiredValue && !!desiredValue.match(/\d\d\d\d-\w*-\d\d?/)) {
@@ -81,7 +83,7 @@ module.exports = new function() {
                         browser.setValue(id+"_month", parts[1]);
                         browser.setValue(id+"_day", parts[2]);
                     }
-
+                    console.log("**************"+item.name);
                     browser.click(id + "_" + desiredValue);
 
                 });
@@ -112,17 +114,14 @@ module.exports = new function() {
 
         this.obtainFieldsetActive= function(){
             var result = $('fieldset.active').attr("class");
-            console.log(result);
             return result;
         };
 
 
         this.checkIfImOnTheSameStep = function(browser, document) {
-
             this.doSomethingWithTheCurrentGroup(browser, function (result) {
                 browser.assert.attributeContains('fieldset.active', 'class', result.value)
             });
-
             return false;
             
         };
@@ -131,5 +130,10 @@ module.exports = new function() {
             browser.waitForElementVisible('.pay', 30000);
             browser.click(".pay");
         };
+    
+        this.checkDependencies = function (browser, dependencies){
+            
+        };
 
+    
     };
