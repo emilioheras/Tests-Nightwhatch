@@ -10,8 +10,7 @@ module.exports = new function() {
         this.goToNextStep = function(browser) {
             browser.waitForElementPresent(".form-nav .btn.btn-primary.u-fl-r", 20000);
             browser.click(".form-nav .btn.btn-primary.u-fl-r");
-            // browser.waitForElementVisible(".plainoverlay", 3000); ESTO EN FETRI FUNCIONABA PERO EN SIMPLE YA NO, LO SUSTITUIMOS POR LA LINEA 14
-            browser.pause(3000)
+            browser.pause(3000);
             browser.waitForElementNotVisible(".plainoverlay", 50000);
         };
 
@@ -84,7 +83,6 @@ module.exports = new function() {
                     }
 
                     browser.click(id + "_" + desiredValue);
-                    // browser.click("body");
 
                 });
 
@@ -104,7 +102,8 @@ module.exports = new function() {
             });
             return false;
 
-        };
+        };        
+    
 
         this.doSomethingWithTheCurrentGroup = function(browser, callBack) {
             browser.execute(this.obtainFieldsetActive, [], callBack.bind(this));
@@ -112,76 +111,24 @@ module.exports = new function() {
 
 
         this.obtainFieldsetActive= function(){
-            var result2 = $('fieldset.active').attr("class");
-            return result2;
+            var result = $('fieldset.active').attr("class");
+            console.log(result);
+            return result;
         };
 
 
-        this.checkIfImOnTheSameStep = function(browser, document){
+        this.checkIfImOnTheSameStep = function(browser, document) {
 
-            this.doSomethingWithTheCurrentGroup(browser, function(result2) {
-                console.log(result2.value);
-                browser.assert.attributeContains('fieldset.active', 'class', result2.value)
+            this.doSomethingWithTheCurrentGroup(browser, function (result) {
+                browser.assert.attributeContains('fieldset.active', 'class', result.value)
             });
 
             return false;
-
-
-
-
-    //**************************************************************************************
-    //haremos una funcion callback que recoja el result 4 y los compare con los elementos del require de config simple.js
-
-
-
-
-        this.checkErrorsInRequiredFields = function(browser, event){
-
-            this.detectFieldsWithErrors(browser,event);
-
-
-        };
-
-        this.detectFieldsWithErrors = function(browser,event){
-            var result4 = [];
-            var fields = $(".form-register fieldset.active [name]:not([type=hidden])");
-            var pushed = [];
-            var errors= $('.form-control-danger').map(function() {return $(this).attr('id');}).get();
-
-            fields.each(function (index, item) {
-
-                var name = $(item).data("short-name");
-                var id = $(item).attr("id");
-
-                if (errors.indexOf(id) != -1) {
-                     if (!id)
-                         return true;
-
-                     if (!name)
-                         name = $(item).closest("[data-short-name]").data("short-name");
-
-                     if ($(item).is("[type=radio]")) {
-                         id = id.split("_").slice(0, id.split("_").length - 1).join("_");
-                     }
-
-                     if (pushed.indexOf(id) == -1) {
-
-                         result4.push({
-                             id: id,
-                             name: name
-                         });
-
-                         pushed.push(id);
-                     }
-                 }
-            });
-
-            return result4;
+            
         };
 
         this.sendInscription = function (browser){
             browser.waitForElementVisible('.pay', 30000);
-            console.log("************************************************");
             browser.click(".pay");
         };
 

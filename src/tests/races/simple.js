@@ -14,6 +14,7 @@ module.exports = {
                 "advanced": [],
                 "extra": []
             },
+            "requiredFields":["name", "surname", "dni", "mail", "gender", "phone", "code"],
             "inscriptions":{
                 "valid":[
                     users.simple.valid
@@ -22,7 +23,14 @@ module.exports = {
                     users.simple.invalid
                 ]
             },
-            "steps": ["SIMPLE", "0"]
+            "steps": ["SIMPLE", "0"],
+            "dependencies":{
+                "dni": {
+                    "field":"tipodni",
+                    "operator":"!=",
+                    "value":3
+                }
+            }
         }
     ]
 }

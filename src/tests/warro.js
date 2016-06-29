@@ -18,8 +18,9 @@ tests = {
 
         event.inscriptions.valid.forEach((user) => {
 
+
+            // this.iCanCompleteAnInscription(browser, event, user);
             this.checkIfRequiredAreRequired(browser, event, user);
-            this.iCanCompleteAnInscription(browser, event, user);
         });
 
     },
@@ -90,6 +91,16 @@ tests = {
             raceFunctions.unsetStepFields(browser, user);
             raceFunctions.goToNextStep(browser);
             raceFunctions.checkIfImOnTheSameStep(browser);
+
+            browser.getAttribute("fieldset.active", "class", function(result){
+                var fieldsetClass = (result);
+
+                if( fieldsetClass.value != "form-step row checkout active"){
+                    event.requiredFields.forEach(function(field) {
+                        browser.waitForElementPresent(`.has-danger [data-short-name=${field}]`, 100);
+                    });
+                }
+            });
             raceFunctions.fillStepFields(browser, user);
             raceFunctions.goToNextStep(browser);
         });
@@ -112,3 +123,6 @@ module.exports = {
     }
 };
 
+checkDependenciesOfFields: function(browser){
+
+}
