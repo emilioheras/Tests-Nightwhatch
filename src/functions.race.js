@@ -31,6 +31,7 @@ module.exports = new function() {
             var fields = $(".form-register fieldset.active [name]:not([type=hidden])");
             var pushed = [];
 
+
             fields.each(function (index, item) {
 
                 var name = $(item).data("short-name");
@@ -41,6 +42,12 @@ module.exports = new function() {
 
                 if (!name)
                     name = $(item).closest("[data-short-name]").data("short-name");
+
+                if(name == "value")
+                {
+                    var targetElement = $("#" + id.replace("value", "eventattribute_id"));
+                    name = targetElement.attr("value");
+                }
 
                 if ($(item).is("[type=radio]")) {
                     id = id.split("_").slice(0, id.split("_").length - 1).join("_");
@@ -56,6 +63,7 @@ module.exports = new function() {
                     pushed.push(id);
                 }
             });
+
             return result;
         };
 
@@ -73,9 +81,10 @@ module.exports = new function() {
                         return false;
 
                     var desiredValue = user[item.name];
-                    browser.click(id);
+
+                    browser.click("body");
                     browser.setValue(id, desiredValue);
-                    browser.pause(500);
+                    browser.pause(1000);
                     if(desiredValue && !!desiredValue.match(/\d\d\d\d-\w*-\d\d?/)) {
 
                         var parts = desiredValue.split("-");
@@ -83,7 +92,6 @@ module.exports = new function() {
                         browser.setValue(id+"_month", parts[1]);
                         browser.setValue(id+"_day", parts[2]);
                     }
-                    console.log("**************"+item.name);
                     browser.click(id + "_" + desiredValue);
 
                 });

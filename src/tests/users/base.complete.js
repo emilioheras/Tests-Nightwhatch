@@ -1,5 +1,5 @@
 module.exports = {
-	"selprice": "178",
+	"selprice": "precio especial",
 	"name":"user",
 	"surname":"user",
 	"pass":"123456",
@@ -15,9 +15,15 @@ module.exports = {
 	"phone_emergency":"622454578",
 	"code":"46700",
 	"address":"Calle Test",
-	"country_id":"España",
-	"province_id":"Huesca",
-	"city_id":"Aisa",
+	"country_id":"Alemania",
+	"province_id":"Bremen",
+	"city_id":"Bremerhaven",
 	"club":"SIN CLUB",
-	"nacionalidad":"ESP"
-}
+	"nacionalidad":"ESP",
+	"348":"0",
+	"349":"0",
+	"350":"Tu padre",
+	"351":"",
+	"352":"",
+	"353":""
+	}

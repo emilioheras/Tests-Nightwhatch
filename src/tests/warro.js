@@ -14,14 +14,13 @@ tests = {
 
         raceFunctions.goToEventPage(browser, event);
 
-        for(var type in event.fields)
-            this.amountOfFieldsIsCorrect(browser, event.fields[type], event.team_size, type);
+        for(var type in event.fields){
+            this.amountOfFieldsIsCorrect[type](browser, event.fields[type], event.team_size, type);
+        }
 
         event.inscriptions.valid.forEach((user) => {
-
-
+            this.checkIfRequiredAreRequired(browser, event, user);
             this.iCanCompleteAnInscription(browser, event, user);
-            // this.checkIfRequiredAreRequired(browser, event, user);
         });
 
     },
@@ -52,23 +51,50 @@ tests = {
         }
     },
 
-    amountOfFieldsIsCorrect: function(browser, fields, team_size, type) {
+    amountOfFieldsIsCorrect: {
 
-        fields.forEach(function(field, index) {
+        basic: function(browser, fields, team_size, type) {
 
-            var browserFunction = function(searchField) {
-                return $("[data-short-name='" + searchField + "']").length;
-            };
+            fields.forEach(function(field, index) {
 
-            var callBackFunction = function(real_amount) {
-                browser.verify.equal(real_amount.value, team_size, "El campo " + field + " del tipo " + type);
-            };
+                var browserFunction = function(searchField) {
+                    return $("[data-short-name='" + searchField + "']").length;
+                };
 
-            var params = [field];
+                var callBackFunction = function(real_amount) {
+                    browser.verify.equal(real_amount.value, team_size, "El campo " + field + " del tipo " + type);
+                };
 
-            browser.execute(browserFunction, params, callBackFunction);
+                var params = [field];
 
-        });
+                browser.execute(browserFunction, params, callBackFunction);
+
+            });
+        },
+
+        advanced: function(browser, fields, team_size, type) {
+            return this.amountOfFieldsIsCorrect.basic(browser, fields, team_size, type);
+        },
+
+        extra: function(browser, extraField, team_size, type) {
+
+            extraField.forEach(function(field, index) {
+
+                var browserFunction = function(searchField) {
+
+                    return $("[type=hidden][value='" + searchField + "'][data-short-name='eventattribute_id']").length;
+                };
+
+                var callBackFunction = function(real_amount) {
+                    browser.verify.equal(real_amount.value, team_size, "El campo " + field + " del tipo " + type);
+                };
+
+                var params = [field];
+
+                browser.execute(browserFunction, params, callBackFunction);
+
+            });
+        }
     },
 
     iCanCompleteAnInscription: function(browser, event, user) {

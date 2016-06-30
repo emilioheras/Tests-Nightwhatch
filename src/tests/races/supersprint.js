@@ -32,9 +32,9 @@ module.exports = {
                     "club2",
                     "nacionalidad"],
                 "advanced": [],
-                "extra": []
+                "extra": [348, 349, 350, 351, 352, 353, 371]
             },
-            "requiredFields":["name", "surname", "dni", "mail", "gender", "phone", "code"],
+            "requiredFields":["selprice","name", "surname", "dni", "mail", "verify_email", "gender", "phone", "phone_emergency", "code", "address", "province_id", 350],
             "inscriptions":{
                 "valid":[
                     users.simple.valid
