@@ -22,24 +22,40 @@ module.exports = new function() {
         browser.click("body > main > div > div > section:nth-child(2) > div > div > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button");
     };
     
-    this.goToEventPage = function(browser, dataRace){
+    this.goToEventPage = function(browser){
         browser.url(this.buildUrl(browser, "/services/inscription/" + dataRace.race.id + "/" + dataRace.race.event));
         browser.pause(2000);
         browser.click('#custom-content > fieldset > div.col-xs-12.u-mb-lg.inscription-mode-selector > div > div > div:nth-child(2)');
         browser.waitForElementPresent("form", 20000)
     };
     
-    this.selectorConstructor = function(field){
-        // ESTO ES UN EJEMPLO DE LO QUE QUEREMOS GENERAR (((var selector = '[name ="data[0][Inscription][event_id]"][type = "hidden"][label = ""][required = true][value = "371"]')))
-        
-        var selector = "";
-        
-        field.forEach(function(index, item){
-            selector = selector + "[" + item.key + "=" + item.value + "]";
+    this.buildFormElementSelector = function(field){
 
-        });
-        return selector;
-        
+        var selector = "";
+        var hashMap = {};
+        var elementType = "input";
+
+        hashMap.name = field.name;
+
+        if (field.type)
+            hashMap["type"] = field.type;
+
+        if (field.type == "select")
+            {
+                elementType = "select";
+                delete hashMap.type;
+                
+            }
+
+
+        if(field.dependent)
+            hashMap["data-dependent"] = JSON.stringify(field.dependent);
+
+
+        for (var attribute in hashMap)
+            selector += `[${attribute}='${hashMap[attribute]}']`;
+
+        return `${elementType}${selector}`;
 
     }
 
