@@ -4,5 +4,5 @@ module.exports = {
         id: "carrera-inscriptiones-test",
         event: "371"
     }
-    
+
 };
