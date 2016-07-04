@@ -33,9 +33,7 @@ module.exports = new function() {
         // ESTO ES UN EJEMPLO DE LO QUE QUEREMOS GENERAR (((var selector = '[name ="data[0][Inscription][event_id]"][type = "hidden"][label = ""][required = true][value = "371"]')))
         
         var selector = "";
-
-
-
+        
         field.forEach(function(index, item){
             selector = selector + "[" + item.key + "=" + item.value + "]";
 

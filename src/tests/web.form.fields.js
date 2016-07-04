@@ -24,7 +24,7 @@ module.exports = {
     "Test Formularios" : function (browser) {
         formFunctions.login(browser, "nacho@sportmaniacs.com", "Aerith7");
         
-        form.data.fields.forEach(function(event, index) {
+        form.fields.forEach(function(event, index) {
             tests.event(browser, event);
         });
 
