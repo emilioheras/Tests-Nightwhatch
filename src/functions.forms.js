@@ -28,8 +28,17 @@ module.exports = new function() {
         browser.click('#custom-content > fieldset > div.col-xs-12.u-mb-lg.inscription-mode-selector > div > div > div:nth-child(2)');
         browser.waitForElementPresent("form", 20000)
     };
+
+    this.calculateName = function (name)
+    {
+        var matches = [];
+
+        matches += name("/\[([\w\d_-]+)\]$/"); //hay que detectar la expresion regular del name
+        return matches[1];
+    };
+
     
-    this.buildFormElementSelector = function(field){
+    this.buildFormElementSelector = function(field) {
 
         var selector = "";
         var hashMap = {};
@@ -37,55 +46,75 @@ module.exports = new function() {
 
         hashMap.name = field.name;
 
-        // CONDICIONES RESPECTO AL TYPE
         if (field.type)
             hashMap["type"] = field.type;
 
+        if (field.required)
+            hashMap["required"] = 'required';
+
+        if (field.dependent)
+            hashMap["data-dependent"] = JSON.stringify(field.dependent);
+
+        if (field.group)
+            hashMap["data-group"] = field.group.key;
+
+        if (field.isPrice == true)
+            hashMap["data-price"] = "data-price";
+
+        if (field.ws)
+            hashMap["data-ws"] = field.ws.substring(5, field.ws.length);
+
+        if (field.response_type)
+            hashMap["data-ws-response-type"] = field.response_type;
+
+
+        if(field.label)
+        {
+            hashMap["data-short-name"] = this.calculateName(field.name);
+            hashMap["data-default"] = field.value;
+            hashMap["data-is-field"] = true;
+        }
+
+
+        // CONDICIONES RESPECTO AL TYPE
         if (field.type == "select" || field.type == "product")//product ¿es un tipo válido?
-            {
-                elementType = "select";
-                delete hashMap.type;
-            }
+        {
+            elementType = "select";
+            delete hashMap["type"];
+        }
 
-        if (field.type == "select" && field.label == "Club")
+        if (field.type == "select")
         {
             elementType = "input";
             hashMap["type"] = "text";
         }
 
-        if (field.type == "phone" || field.type == "number")//¿esto tiene que camiar los tipos de verdad a text?
+        if (field.type == "phone" || field.type == "number")
             hashMap["type"] = "text";
-
-        if (field.label == "Prefijo") // ni idea de como validar esto
-        {
-            delete hashMap.type;
-            delete hashMap.name;
-        }
-        if (field.label == "Género")// no sabemos como diferenciar entre un select de verdad y un radio
-            elementType = "input";
 
         if (field.type == "date")
-            delete hashMap.type;
-
-        //FIN DE LAS CONDICIONES RESPECTO AL TYPE
+            delete hashMap["type"];
+        //FIN
 
 
         //CONDICIONES RESPECTO A REQUIRED
-        if (field.required == true)
-            hashMap["required"] = 'required';
-
         if (field.type == "select")//Establece el required en el label
             delete hashMap["required"];
+        //FIN
 
-        //FIN DE LAS CONDICIONES RESPECTO AL REQUIRED
-        
+        //CONDICIONES RESPECTO A WS
+        if(field.ws_deferred == true)
+            delete hashMap["data-ws"];
+
+        //FIN
 
 
-        //CONDICIONES RESPECTO A DEPENDENT
-        if(field.dependent)
-            hashMap["data-dependent"] = JSON.stringify(field.dependent);
-
-        //FIN DE LAS CONDICIONES RESPECTO AL DEPENDENT
+        if (field.label == "Género") // no sabemos como diferenciar entre un select de verdad y un radio
+        {
+            elementType = "input";
+            delete hashMap["data-group"];
+        }
+        //FIN
 
 
 
