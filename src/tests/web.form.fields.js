@@ -6,7 +6,7 @@ tests = {
 
     event: function(browser, fields) {
 
-        fields.forEach(function(index,field){
+        fields.forEach (function(index, field){
             var selector =formFunctions.selectorConstructor(field);
             console.log(selector);
             // Ve a la pagina
@@ -15,17 +15,17 @@ tests = {
     }
 
 
-}
+};
 
 
 
 
 module.exports = {
     "Test Formularios" : function (browser) {
-        formFunctions.login(browser, "nacho@sportmaniacs.com", "Aerith7");
+        formFunctions.login (browser, "nacho@sportmaniacs.com", "Aerith7");
         
-        form.fields.forEach(function(event, index) {
-            tests.event(browser, event);
+        form.data.fields.forEach (function(field, index) {
+            tests.event (browser, field);
         });
 
     }
