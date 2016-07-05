@@ -23,7 +23,10 @@ module.exports = {
 
         form.data.fields.forEach (function(field, index) {
 
-            browser.waitForElementPresent(formFunctions.buildFormElementSelector(field), 1000);
+            var selector = formFunctions.buildFormElementSelector(field);
+
+            if(selector)
+                browser.waitForElementPresent(selector, 1000);
 
         });
 
