@@ -32,8 +32,8 @@ module.exports = new function() {
     this.calculateName = function (name)
     {
         var matches = [];
-
-        matches += name("/\[([\w\d_-]+)\]$/"); //hay que detectar la expresion regular del name
+        var res = str.match(/ain/g);
+        matches += name.match("/([\w\d_-]+\])$/");
         return matches[1];
     };
 
@@ -45,6 +45,11 @@ module.exports = new function() {
         var elementType = "input";
 
         hashMap.name = field.name;
+
+        // hashMap["data-short-name"] = this.calculateName(field.name);
+        // hashMap["data-default"] = field.value;
+        // hashMap["data-is-field"] = true;
+
 
         if (field.type)
             hashMap["type"] = field.type;
@@ -68,16 +73,12 @@ module.exports = new function() {
             hashMap["data-ws-response-type"] = field.response_type;
 
 
-        if(field.label)
-        {
-            hashMap["data-short-name"] = this.calculateName(field.name);
-            hashMap["data-default"] = field.value;
-            hashMap["data-is-field"] = true;
-        }
+
+
 
 
         // CONDICIONES RESPECTO AL TYPE
-        if (field.type == "select" || field.type == "product")//product ¿es un tipo válido?
+        if (field.type == "select" || field.type == "product")
         {
             elementType = "select";
             delete hashMap["type"];
