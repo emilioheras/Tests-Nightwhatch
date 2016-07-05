@@ -46,9 +46,9 @@ module.exports = new function() {
         hashMap.name = field.name;
 
         hashMap["data-short-name"] = this.calculateName(field.name);
-        hashMap["data-default"] = field.value;
-        hashMap["data-is-field"] = true;
-
+        hashMap["data-is-field"] = 'data-is-field';
+        if (field.value)
+            hashMap["data-default"] = field.value;
 
         if (field.type)
             hashMap["type"] = field.type;
@@ -83,11 +83,11 @@ module.exports = new function() {
             delete hashMap["type"];
         }
 
-        if (field.type == "select")
-        {
-            elementType = "input";
-            hashMap["type"] = "text";
-        }
+        // if (field.type == "select")
+        // {
+        //     elementType = "input";
+        //     hashMap["type"] = "text";
+        // }
 
         if (field.type == "phone" || field.type == "number")
             hashMap["type"] = "text";
@@ -112,6 +112,7 @@ module.exports = new function() {
         if (field.label == "Género") // no sabemos como diferenciar entre un select de verdad y un radio
         {
             elementType = "input";
+            
             delete hashMap["data-group"];
         }
         //FIN
