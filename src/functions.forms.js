@@ -112,7 +112,8 @@ module.exports = new function() {
         if (field.label == "Género") // no sabemos como diferenciar entre un select de verdad y un radio
         {
             elementType = "input";
-            
+            delete hashMap["data-is-field"];
+            delete hashMap["data-short-name"];
             delete hashMap["data-group"];
         }
         //FIN
