@@ -66,7 +66,8 @@ module.exports = new function() {
             hashMap["data-price"] = "data-price";
 
         if (field.ws)
-            hashMap["data-ws"] = field.ws.substring(5, field.ws.length);
+            hashMap["data-ws"] = field.ws.replace("https:", "");
+            hashMap["data-ws"] = field.ws.replace("http:", "");
 
         if (field.response_type)
             hashMap["data-ws-response-type"] = field.response_type;
