@@ -31,10 +31,9 @@ module.exports = new function() {
 
     this.calculateName = function (name)
     {
-        var matches = [];
-        var res = str.match(/ain/g);
-        matches += name.match("/([\w\d_-]+\])$/");
-        return matches[1];
+        var matche = name.match(/([\w\d_-]+])$/);
+        var match = matche[0].replace(']','');
+        return match;
     };
 
     
@@ -46,9 +45,9 @@ module.exports = new function() {
 
         hashMap.name = field.name;
 
-        // hashMap["data-short-name"] = this.calculateName(field.name);
-        // hashMap["data-default"] = field.value;
-        // hashMap["data-is-field"] = true;
+        hashMap["data-short-name"] = this.calculateName(field.name);
+        hashMap["data-default"] = field.value;
+        hashMap["data-is-field"] = true;
 
 
         if (field.type)
