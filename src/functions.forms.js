@@ -36,6 +36,17 @@ module.exports = new function() {
         return match;
     };
 
+    this.changeType = function(type)
+    {
+        var newType = "";
+        if (type == "select" || type == "optionGroup" || type == "autocomplete" || type == "product"){
+            newType = "choice";
+        }
+        if (type == "phone"){
+            newType = "text";
+        }
+        return newType;
+    };
     
     this.buildFormElementSelector = function(field) {
 
