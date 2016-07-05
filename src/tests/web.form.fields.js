@@ -4,8 +4,6 @@ var dataRace = require("../race.js");
 tests = {
 
     event: function(browser, field) {
-
-
         
     }
 

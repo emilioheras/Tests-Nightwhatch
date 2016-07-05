@@ -43,14 +43,16 @@ module.exports = new function() {
         var selector = "";
         var hashMap = {};
         var elementType = "input";
+
         hashMap["name"] = field.name;
+
         var breakFields = [
             "tipodni",
             "mail",
             "code",
             "tipodni_auth"
         ];
-        console.log(breakFields);
+
         if (field.type == "date")
             return false;
 
@@ -58,6 +60,9 @@ module.exports = new function() {
 
         if (hashMap["data-short-name"] == "prefix_phone" || hashMap["data-short-name"] == "prefix_emergency")
             return false;
+
+        if (field.options && field.type == "select" && field.options.length == 1)
+            field.type = "hidden";
 
         hashMap["data-is-field"] = 'data-is-field';
 
@@ -82,12 +87,11 @@ module.exports = new function() {
         if (field.ws) {
             var newWs = field.ws;
             newWs = newWs.replace("http:", "");
-            newWs = newWs.replace("https:", "");
-            hashMap["data-ws"] = newWs;
+            hashMap["data-ws"] = newWs.replace("https:", "");
         }
 
         if(field.ws_deferred == true)
-            hashMap["data-ws-validation"] = hashMap["data-ws"] ;
+            hashMap["data-ws-validation"] = hashMap["data-ws"];
 
         if (field.response_type)
             hashMap["data-ws-response-type"] = field.response_type;
@@ -103,6 +107,7 @@ module.exports = new function() {
         }
         if (field.type == "phone" || field.type == "number")
             hashMap["type"] = "text";
+
         //FIN
 
 
