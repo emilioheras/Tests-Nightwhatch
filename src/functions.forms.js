@@ -37,7 +37,7 @@ module.exports = new function() {
     };
 
 
-    
+
     this.buildFormElementSelector = function(field) {
 
         var selector = "";
@@ -45,6 +45,8 @@ module.exports = new function() {
         var elementType = "input";
 
         hashMap["name"] = field.name;
+        hashMap["data-is-field"] = 'data-is-field';
+        hashMap["data-short-name"] = this.calculateName(field.name);
 
         var breakFields = [
             "tipodni",
@@ -52,19 +54,21 @@ module.exports = new function() {
             "code",
             "tipodni_auth"
         ];
+        var asRadio = [
+            "gender"
+        ];
+        var asTypeAhead = [
+            "club"
+        ];
 
         if (field.type == "date")
             return false;
 
-        hashMap["data-short-name"] = this.calculateName(field.name);
-
         if (hashMap["data-short-name"] == "prefix_phone" || hashMap["data-short-name"] == "prefix_emergency")
             return false;
 
-        if (field.options && field.type == "select" && field.options.length == 1)
+        if (field.options && field.type == "select" && field.options.length == 1 && !field.ws)
             field.type = "hidden";
-
-        hashMap["data-is-field"] = 'data-is-field';
 
         if (field.value)
             hashMap["data-default"] = field.value;
@@ -96,6 +100,10 @@ module.exports = new function() {
         if (field.response_type)
             hashMap["data-ws-response-type"] = field.response_type;
 
+        if(breakFields.indexOf(hashMap["data-short-name"]) != -1 && field.type != "hidden")
+            hashMap["data-break"] = "data-break";
+        
+
         //CASOS DEL TYPE
         if (field.type == "select" || field.type == "product")
         {
@@ -109,29 +117,20 @@ module.exports = new function() {
             hashMap["type"] = "text";
 
         //FIN
-
-
-        if(breakFields.indexOf(hashMap["data-short-name"]) != -1 && field.type != "hidden")
-            hashMap["data-break"] = "data-break";
-
-
-
-
-
-        //CASOS CONCRETOS
-        if (hashMap["data-short-name"] == "gender")
-        {
+        if(asRadio.indexOf(hashMap["data-short-name"]) != -1 && field.type != "hidden") {
             elementType = "input";
+            hashMap["type"] = "radio";
             delete hashMap["data-is-field"];
-            delete hashMap["data-short-name"];
+            delete hashMap["data-short-name"];//
             delete hashMap["data-group"];
         }
 
-        if (hashMap["data-short-name"] == "club")
-        {
+        if(asTypeAhead.indexOf(hashMap["data-short-name"]) != -1 && field.type != "hidden") {
             elementType = "input";
             hashMap["type"] = "text";
         }
+
+        
         //FIN
 
 
