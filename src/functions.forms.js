@@ -1,12 +1,43 @@
-var dataRace = require("./race.js");
 var form = require("./form.fields.js");
-
+var baseUrl = "http://sportmaniacs.com/es";
+var request = require('sync-request');
 
 
 module.exports = new function() {
     
+    this.getRacesFromApi = function(api){
+        var races = request('GET', `${api}/api/races?limit=2&date=2016-07-06&page=1`);
+        races = JSON.parse(races.getBody()).data;
+        return races;
+    };
+    
+    this.getEventsFromApi = function (api, race) {
+        var events = request('GET', `${api}/api/events?race=${race.id}`);
+        events = JSON.parse(events.getBody()).data;
+        return events;
+    };
+
+    this.getFormFromApi = function (api, event) {
+        var form = request('GET', `${api}/api/services/inscription/form/${event.id}`);
+        form = JSON.parse(form.getBody()).data;
+        return form;
+    };
+    
+    
+
+    this.login = function(browser, user, pass) {
+        loginUrl = this.buildUrl(browser, "/login");
+        browser.url(loginUrl);
+        this.fillLoginform(browser, user, pass);
+        browser.click("button[data-async-form-submit]");
+    };
+    
+    
+    
+    
+    
     this.buildUrl = function(browser, url) {
-        return (dataRace.baseUrl + "/" + url.replace(/^\//, "").replace(/\/$/, ""));
+        return (baseUrl + "/" + url.replace(/^\//, "").replace(/\/$/, ""));
     };
     
     this.fillLoginform = function(browser, user, pass) {
@@ -19,13 +50,12 @@ module.exports = new function() {
         loginUrl = this.buildUrl(browser, "/login");
         browser.url(loginUrl);
         this.fillLoginform(browser, user, pass);
-        browser.click("body > main > div > div > section:nth-child(2) > div > div > form > fieldset > div.u-pt-md > div > div:nth-child(1) > button");
+        browser.click("button[data-async-form-submit]");
     };
     
-    this.goToEventPage = function(browser){
-        browser.url(this.buildUrl(browser, "/services/inscription/" + dataRace.race.id + "/" + dataRace.race.event));
+    this.goToEventPage = function(browser, raceId, eventId){
+        browser.url(this.buildUrl(browser, "/services/inscription/" + raceId + "/" + eventId));
         browser.pause(2000);
-        browser.click('#custom-content > fieldset > div.col-xs-12.u-mb-lg.inscription-mode-selector > div > div > div:nth-child(2)');
         browser.waitForElementPresent("form", 20000)
     };
 
@@ -35,8 +65,6 @@ module.exports = new function() {
         var match = matche[0].replace(']','');
         return match;
     };
-
-
 
     this.buildFormElementSelector = function(field) {
 
