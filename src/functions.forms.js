@@ -1,6 +1,6 @@
 var form = require("./form.fields.js");
-// var baseUrl = "http://web-test.local.sportmaniacs.com/es"; //testear local
-var baseUrl = "https://sportmaniacs.com/es"; //testear producción
+var baseUrl = "http://web-test.local.sportmaniacs.com/es"; //testear local
+// var baseUrl = "https://sportmaniacs.com/es"; //testear producción
 var request = require('sync-request');
 
 
@@ -198,6 +198,13 @@ module.exports = new function() {
 
 
 //*******************************FUNCIONES PARA INSCRIBIRSE
+    this.goToNextStep = function(browser) {
+        browser.waitForElementPresent(".form-nav .btn.btn-primary.u-fl-r", 20000);
+        browser.click(".form-nav .btn.btn-primary.u-fl-r");
+        browser.pause(3000);
+        browser.waitForElementNotVisible(".plainoverlay", 50000);
+    };
+    
     this.doSomethingWithAllFieldsFromCurrentGroup = function(browser, callBack) {
         browser.execute(this.detectStepFields, [], callBack.bind(this));
     };
