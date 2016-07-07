@@ -8,7 +8,8 @@ module.exports = new function() {
     
     this.getRacesFromApi = function(api){
         var currentDate = this.currentDate();
-        var races = request('GET', `${api}/api/races?limit=2&date=${currentDate}&page=1`); //testear carreras (limit negativo=anteriores a la fecha, limit positivo=posteriores a la fecha)
+        var races = request('GET', `${api}/api/races?limit=1&date=2016-07-07&page=1`);
+        // var races = request('GET', `${api}/api/races?limit=2&date=${currentDate}&page=1`); //testear carreras (limit negativo=anteriores a la fecha, limit positivo=posteriores a la fecha)
         // var races = request('GET', `${api}/api/services/races/inscriptions`); //testear las carreras con inscripciones abiertas
         races = JSON.parse(races.getBody()).data;
         races.forEach((race) => {
@@ -78,6 +79,7 @@ module.exports = new function() {
         browser.url(function(url) {
             console.log("\n\n\n\n********TESTEANDO EL FORMULARIO->"+url.value+"**********\n\n")
         });
+        browser.click("fieldset.form-step:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)")
         browser.waitForElementPresent("form", 20000)
 
     };
@@ -203,6 +205,7 @@ module.exports = new function() {
     this.detectStepFields = function() {
         var result = [];
         var fields = $(".form-register fieldset.active [name]:not([type=hidden])");
+
         var pushed = [];
 
 
@@ -236,8 +239,9 @@ module.exports = new function() {
 
                 pushed.push(id);
             }
+            console.log(item);
         });
-
+        console.log(result.value);
         return result;
     };
 
@@ -248,7 +252,7 @@ module.exports = new function() {
             result.value.forEach((item, index) => {
 
                 var id = '#' + item.id;
-
+                console.log(id);
                 browser.pause(500);
 
                 if(!user.hasOwnProperty(item.name))
@@ -256,8 +260,9 @@ module.exports = new function() {
 
                 var desiredValue = user[item.name];
 
-                browser.click("body");
+
                 browser.setValue(id, desiredValue);
+                browser.click("body");
                 browser.pause(1000);
                 if(desiredValue && !!desiredValue.match(/\d\d\d\d-\w*-\d\d?/)) {
 

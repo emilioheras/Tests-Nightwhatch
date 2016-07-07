@@ -4,7 +4,7 @@ var request = require('sync-request');
 // var api = "http://api.local.sportmaniacs.com"; //testear web.test
 var api = "http://api-beta.sportmaniacs.com"; //testear producción
 var races = formFunctions.getRacesFromApi(api);
-var user = require("../users.js");
+var user = require("./users/base.complete.js");
 
 
 module.exports = {
@@ -13,15 +13,13 @@ module.exports = {
         formFunctions.login(browser, "nacho@sportmaniacs.com", "Aerith7");
         races.forEach(function(race) {
             race.events.forEach(function(event) {
-                formFunctions.goToEventPage(browser, event);
-                event.steps.forEach((step, index) => {
-                    formFunctions.fillStepFields(browser, user);
-                    formFunctions.goToNextStep(browser);
-                });
-                formFunctions.sendInscription(browser);
-                
-                
-                
+                //controlar el tipo de carrera para incorporar un usuario u otro
+                formFunctions.goToEventPage(browser, race.id, event.id);
+                formFunctions.fillStepFields(browser, user);
+
+
+
+
             });
         });
     }
