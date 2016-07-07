@@ -1,6 +1,6 @@
 var form = require("./form.fields.js");
-var baseUrl = "http://web-test.local.sportmaniacs.com/es"; //testear local
-// var baseUrl = "https://sportmaniacs.com/es"; //testear producción
+// var baseUrl = "http://web-test.local.sportmaniacs.com/es"; //testear local
+var baseUrl = "https://sportmaniacs.com/es"; //testear producción
 var request = require('sync-request');
 
 
@@ -220,6 +220,7 @@ module.exports = new function() {
 
             var name = $(item).data("short-name");
             var id = $(item).attr("id");
+            var type = $(item).attr("type");
 
             if (!id)
                 return true;
@@ -241,14 +242,15 @@ module.exports = new function() {
 
                 result.push({
                     id: id,
-                    name: name
+                    name: name,
+                    type: type
                 });
 
                 pushed.push(id);
             }
-            console.log(item);
+
         });
-        console.log(result.value);
+
         return result;
     };
 
@@ -256,15 +258,29 @@ module.exports = new function() {
 
         this.doSomethingWithAllFieldsFromCurrentGroup(browser, function(result) {
 
+            //Aqui hay que comparar result con los campos de la api y sacar los campos que hay que
+            //rellenar de verdad
+
+
             result.value.forEach((item, index) => {
 
                 var id = '#' + item.id;
-                console.log(id);
+
                 browser.pause(500);
+
+                //aqui trucare los campos extra
+                if (id.match(/value/))
+                   if (item.type){
+
+                   }
+                //
+
 
                 if(!user.hasOwnProperty(item.name))
                     return false;
-
+                
+                console.log(item.name);//campos que el usuario tiene y existen en el form
+                
                 var desiredValue = user[item.name];
 
 
@@ -289,6 +305,22 @@ module.exports = new function() {
         browser.click(".pay");
     };
 
+    this.choseRealFieldsOfForm = function (races){
+        console.log("*****************");
+        races.forEach(function(race) {
+                    race.events.forEach(function(event) {
+                        event.form.fields.forEach(function(field) {
+                            if (field.type != "hidden")
+                                console.log(field.name);//tenemos todos los campos que se pueden rellenar
+                        });
+                    });
+        });
 
+
+
+
+
+
+    }
 
 };

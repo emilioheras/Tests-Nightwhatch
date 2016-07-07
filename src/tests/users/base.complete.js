@@ -20,10 +20,4 @@ module.exports = {
 	"city_id":"Bremerhaven",
 	"club":"SIN CLUB",
 	"nacionalidad":"ESP",
-	"348":"0",
-	"349":"0",
-	"350":"Tu padre",
-	"351":"",
-	"352":"",
-	"353":""
 	}
