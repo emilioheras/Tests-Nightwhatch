@@ -4,6 +4,7 @@ var request = require('sync-request');
 // var api = "http://api.local.sportmaniacs.com"; //testear web.test
 var api = "http://api-beta.sportmaniacs.com"; //testear producción
 var races = formFunctions.getRacesFromApi(api);
+var user = require("../user.js");
 
 
 module.exports = {
@@ -12,15 +13,27 @@ module.exports = {
         formFunctions.login(browser, "nacho@sportmaniacs.com", "Aerith7");
         races.forEach(function(race) {
             race.events.forEach(function(event) {
-                formFunctions.goToEventPage(browser, race.id, event.id);
-
-                if(event.form.fields)
-                    event.form.fields.forEach (function(field) {
-                        var selector = formFunctions.buildFormElementSelector(field);
-                        if(selector)
-                            browser.waitForElementPresent(selector, 3000);
-                    });
+                formFunctions.goToEventPage(browser, event);
+                event.steps.forEach((step, index) => {
+                    formFunctions.fillStepFields(browser, user);
+                    formFunctions.goToNextStep(browser);
+                });
+                
+                
+                
             });
         });
     }
 }
+
+this.iCanCompleteAnInscription = function(browser, event, user) {
+
+    raceFunctions.goToEventPage(browser, event);
+
+    event.steps.forEach((step, index) => {
+        raceFunctions.fillStepFields(browser, user);
+        raceFunctions.goToNextStep(browser);
+    });
+    raceFunctions.sendInscription(browser);
+
+//raceFunctions.checkPriceIsCorrect(event, user);
