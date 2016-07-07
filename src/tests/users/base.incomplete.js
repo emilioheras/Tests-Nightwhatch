@@ -1,0 +1,21 @@
+module.exports = {
+    "name":"",
+    "surname":"",
+    "pass":"",
+    "mail":"",
+    "verify_email":"",
+    "dni":"",
+    "tipodni":"",
+    "gender":"",
+    "dateofbirthday":"",
+    "prefix_phone":"",
+    "phone":"",
+    "prefix_phone_emergency":"",
+    "phone_emergency":"",
+    "code":"",
+    "address":"",
+    "country_id":"",
+    "province_id":"",
+    "city_id":"",
+    "club":""
+}

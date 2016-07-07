@@ -4,7 +4,7 @@ var request = require('sync-request');
 // var api = "http://api.local.sportmaniacs.com"; //testear web.test
 var api = "http://api-beta.sportmaniacs.com"; //testear producción
 var races = formFunctions.getRacesFromApi(api);
-var user = require("../user.js");
+var user = require("../users.js");
 
 
 module.exports = {
@@ -18,6 +18,7 @@ module.exports = {
                     formFunctions.fillStepFields(browser, user);
                     formFunctions.goToNextStep(browser);
                 });
+                formFunctions.sendInscription(browser);
                 
                 
                 
@@ -25,15 +26,3 @@ module.exports = {
         });
     }
 }
-
-this.iCanCompleteAnInscription = function(browser, event, user) {
-
-    raceFunctions.goToEventPage(browser, event);
-
-    event.steps.forEach((step, index) => {
-        raceFunctions.fillStepFields(browser, user);
-        raceFunctions.goToNextStep(browser);
-    });
-    raceFunctions.sendInscription(browser);
-
-//raceFunctions.checkPriceIsCorrect(event, user);
