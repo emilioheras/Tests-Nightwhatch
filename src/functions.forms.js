@@ -8,7 +8,7 @@ module.exports = new function() {
     
     this.getRacesFromApi = function(api){
         var currentDate = this.currentDate();
-        var races = request('GET', `${api}/api/races?limit=50&date=${currentDate}&page=1`); //testear carreras (limit negativo=anteriores a la fecha, limit positivo=posteriores a la fecha)
+        var races = request('GET', `${api}/api/races?limit=2&date=${currentDate}&page=1`); //testear carreras (limit negativo=anteriores a la fecha, limit positivo=posteriores a la fecha)
         // var races = request('GET', `${api}/api/services/races/inscriptions`); //testear las carreras con inscripciones abiertas
         races = JSON.parse(races.getBody()).data;
         races.forEach((race) => {
@@ -191,8 +191,91 @@ module.exports = new function() {
 
         return `${elementType}${selector}`;
 
-    }
+    };
 
+
+
+//*******************************FUNCIONES PARA INSCRIBIRSE
+    this.doSomethingWithAllFieldsFromCurrentGroup = function(browser, callBack) {
+        browser.execute(this.detectStepFields, [], callBack.bind(this));
+    };
+
+    this.detectStepFields = function() {
+        var result = [];
+        var fields = $(".form-register fieldset.active [name]:not([type=hidden])");
+        var pushed = [];
+
+
+        fields.each(function (index, item) {
+
+            var name = $(item).data("short-name");
+            var id = $(item).attr("id");
+
+            if (!id)
+                return true;
+
+            if (!name)
+                name = $(item).closest("[data-short-name]").data("short-name");
+
+            if(name == "value")
+            {
+                var targetElement = $("#" + id.replace("value", "eventattribute_id"));
+                name = targetElement.attr("value");
+            }
+
+            if ($(item).is("[type=radio]")) {
+                id = id.split("_").slice(0, id.split("_").length - 1).join("_");
+            }
+
+            if (pushed.indexOf(id) == -1) {
+
+                result.push({
+                    id: id,
+                    name: name
+                });
+
+                pushed.push(id);
+            }
+        });
+
+        return result;
+    };
+
+    this.fillStepFields = function(browser, user) {
+
+        this.doSomethingWithAllFieldsFromCurrentGroup(browser, function(result) {
+
+            result.value.forEach((item, index) => {
+
+                var id = '#' + item.id;
+
+                browser.pause(500);
+
+                if(!user.hasOwnProperty(item.name))
+                    return false;
+
+                var desiredValue = user[item.name];
+
+                browser.click("body");
+                browser.setValue(id, desiredValue);
+                browser.pause(1000);
+                if(desiredValue && !!desiredValue.match(/\d\d\d\d-\w*-\d\d?/)) {
+
+                    var parts = desiredValue.split("-");
+                    browser.setValue(id+"_year", parts[0]);
+                    browser.setValue(id+"_month", parts[1]);
+                    browser.setValue(id+"_day", parts[2]);
+                }
+                browser.click(id + "_" + desiredValue);
+            });
+        });
+        return false;
+    };
+
+    this.sendInscription = function (browser){
+        browser.waitForElementVisible('.pay', 30000);
+        browser.click(".pay");
+    };
 
 
 
