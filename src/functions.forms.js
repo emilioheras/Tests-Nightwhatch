@@ -1,6 +1,6 @@
 var form = require("./form.fields.js");
 // var baseUrl = "http://web-test.local.sportmaniacs.com/es"; //testear local
-var baseUrl = "https://sportmaniacs.com/es";
+var baseUrl = "https://sportmaniacs.com/es"; //testear producción
 var request = require('sync-request');
 
 
@@ -8,23 +8,18 @@ module.exports = new function() {
     
     this.getRacesFromApi = function(api){
         var currentDate = this.currentDate();
-        var races = request('GET', `${api}/api/races?limit=3&date=${currentDate}&page=1`);
-        // var races = request('GET', `${api}/api/services/races/inscriptions?limit=6`);
+        var races = request('GET', `${api}/api/races?limit=50&date=${currentDate}&page=1`); //testear carreras (limit negativo=anteriores a la fecha, limit positivo=posteriores a la fecha)
+        // var races = request('GET', `${api}/api/services/races/inscriptions`); //testear las carreras con inscripciones abiertas
         races = JSON.parse(races.getBody()).data;
         races.forEach((race) => {
             var events = this.getEventsFromApi(api, race);
-
             if(events)
                 events.forEach((event) => {
-
                     var form = this.getFormFromApi(api, event);
-
                     if(form)
                         event.form = form;
                 });
-
             race.events = events;
-
         });
         return races;
     };
@@ -51,13 +46,12 @@ module.exports = new function() {
     this.currentDate = function(){
         var today = new Date();
         var dd = today.getDate();
-        var mm = today.getMonth()+1; //January is 0!
+        var mm = today.getMonth()+1;
         var yyyy = today.getFullYear();
         if(dd<10)
             dd='0'+dd;
         if(mm<10)
             mm='0'+mm;
-
         today = yyyy+'-'+mm+'-'+dd;
         return today;
     };
@@ -82,7 +76,7 @@ module.exports = new function() {
     this.goToEventPage = function(browser, raceId, eventId){
         browser.url(this.buildUrl(browser, "/services/inscription/" + raceId + "/" + eventId));
         browser.url(function(url) {
-            console.log("\n\n\n\n********TESTEANDO FORMULARIO->"+url.value+"**********\n\n")
+            console.log("\n\n\n\n********TESTEANDO EL FORMULARIO->"+url.value+"**********\n\n")
         });
         browser.waitForElementPresent("form", 20000)
 
