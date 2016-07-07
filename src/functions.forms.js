@@ -1,13 +1,31 @@
 var form = require("./form.fields.js");
-var baseUrl = "http://sportmaniacs.com/es";
+// var baseUrl = "http://web-test.local.sportmaniacs.com/es"; //testear local
+var baseUrl = "https://sportmaniacs.com/es";
 var request = require('sync-request');
 
 
 module.exports = new function() {
     
     this.getRacesFromApi = function(api){
-        var races = request('GET', `${api}/api/races?limit=2&date=2016-07-06&page=1`);
+        var currentDate = this.currentDate();
+        var races = request('GET', `${api}/api/races?limit=3&date=${currentDate}&page=1`);
+        // var races = request('GET', `${api}/api/services/races/inscriptions?limit=6`);
         races = JSON.parse(races.getBody()).data;
+        races.forEach((race) => {
+            var events = this.getEventsFromApi(api, race);
+
+            if(events)
+                events.forEach((event) => {
+
+                    var form = this.getFormFromApi(api, event);
+
+                    if(form)
+                        event.form = form;
+                });
+
+            race.events = events;
+
+        });
         return races;
     };
     
@@ -23,18 +41,26 @@ module.exports = new function() {
         return form;
     };
     
-    
-
     this.login = function(browser, user, pass) {
         loginUrl = this.buildUrl(browser, "/login");
         browser.url(loginUrl);
         this.fillLoginform(browser, user, pass);
         browser.click("button[data-async-form-submit]");
     };
-    
-    
-    
-    
+
+    this.currentDate = function(){
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+        if(dd<10)
+            dd='0'+dd;
+        if(mm<10)
+            mm='0'+mm;
+
+        today = yyyy+'-'+mm+'-'+dd;
+        return today;
+    };
     
     this.buildUrl = function(browser, url) {
         return (baseUrl + "/" + url.replace(/^\//, "").replace(/\/$/, ""));
@@ -55,8 +81,11 @@ module.exports = new function() {
     
     this.goToEventPage = function(browser, raceId, eventId){
         browser.url(this.buildUrl(browser, "/services/inscription/" + raceId + "/" + eventId));
-        browser.pause(2000);
+        browser.url(function(url) {
+            console.log("\n\n\n\n********TESTEANDO FORMULARIO->"+url.value+"**********\n\n")
+        });
         browser.waitForElementPresent("form", 20000)
+
     };
 
     this.calculateName = function (name)
@@ -113,7 +142,7 @@ module.exports = new function() {
         if (field.group)
             hashMap["data-group"] = field.group.key;
 
-        if (field.isPrice)
+        if (field.price || field.isPrice)
             hashMap["data-price"] = "data-price";
 
         if (field.ws) {
@@ -121,6 +150,8 @@ module.exports = new function() {
             newWs = newWs.replace("http:", "");
             hashMap["data-ws"] = newWs.replace("https:", "");
         }
+        if(field.blocked)
+            hashMap["data-blocked"] = "data-blocked";
 
         if(field.ws_deferred == true)
             hashMap["data-ws-validation"] = hashMap["data-ws"];
@@ -157,7 +188,6 @@ module.exports = new function() {
             elementType = "input";
             hashMap["type"] = "text";
         }
-
         
         //FIN
 
