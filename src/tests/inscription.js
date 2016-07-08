@@ -13,13 +13,12 @@ module.exports = {
         formFunctions.login(browser, "nacho@sportmaniacs.com", "Aerith7");
         races.forEach(function (race) {
             race.events.forEach(function (event) {
-                
-                    var apiFields = formFunctions.getFormFromApi(api, event);
+                if(event.form.fields && event.form.fields.length) {
                     formFunctions.goToEventPage(browser, race.id, event.id);
-                    var cleanUser = formFunctions.buildUser(apiFields.fields, user);
+                    var cleanUser = JSON.parse(JSON.stringify((formFunctions.buildUser(event.form.fields, user))));
                     formFunctions.fillStepFields(browser, cleanUser);
                     formFunctions.goToNextStep(browser);
-                
+                }
             });
         });
     }

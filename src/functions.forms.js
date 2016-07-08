@@ -9,7 +9,7 @@ module.exports = new function() {
     this.getRacesFromApi = function(api){
         var currentDate = this.currentDate();
         // var races = request('GET', `${api}/api/races/166`);
-        var races = request('GET', `${api}/api/races?limit=1&date=${currentDate}&page=1`); //testear carreras (limit negativo=anteriores a la fecha, limit positivo=posteriores a la fecha)
+        var races = request('GET', `${api}/api/races?limit=5&date=${currentDate}&page=1`); //testear carreras (limit negativo=anteriores a la fecha, limit positivo=posteriores a la fecha)
         // var races = request('GET', `${api}/api/services/races/inscriptions/form/375`); //testear las carreras con inscripciones abiertas
         races = JSON.parse(races.getBody()).data;
         races.forEach((race) => {
@@ -282,11 +282,9 @@ module.exports = new function() {
                 if(!user.hasOwnProperty(item.name))
                     return false;
                 
-                console.log(item.name);//campos que el usuario tiene y existen en el form
-                
                 var desiredValue = user[item.name];
 
-                console.log(item.name);
+
                 browser.setValue(id, desiredValue);
                 browser.click("body");
                 browser.pause(1000);
@@ -314,27 +312,40 @@ module.exports = new function() {
     this.buildUser = function (apiFields, user) {
         var result = user;
 
-        var fields = this.extractShortName(apiFields);
+        console.log(result);
+
+        var fields = this.extractShortNames(apiFields);
 
         for(var field in user) {
             if(fields.indexOf(field) == -1)
                 delete user[field];
         }
 
+        result = this.addExtraFields(apiFields, result);
+        result = this.removeHiddenFields(apiFields, result);
+
+        console.log(result);
+
         return result;
     };
 
-    this.extractShortName = function (apiFields){
+    this.extractShortNames = function (apiFields){
         var apiShortNames = [];
+
+
         apiFields.forEach((field) => {
-            if (field.options && field.type == "select" && field.options.length == 1 && !field.ws)
-                field.type = "hidden";
-            if (field.type != "hidden") {
-                apiShortNames.push(this.calculateName(field.name));
-            }
+            apiShortNames.push(this.calculateName(field.name));
         });
 
         return apiShortNames;
+    };
+
+    this.removeHiddenFields = function(apiFields, user) {
+        return user;
+    };
+
+    this.addExtraFields = function(apiFields, user) {
+        return user;
     };
 
 
