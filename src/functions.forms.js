@@ -305,22 +305,19 @@ module.exports = new function() {
         browser.click(".pay");
     };
 
-    this.choseRealFieldsOfForm = function (races){
-        console.log("*****************");
-        races.forEach(function(race) {
-                    race.events.forEach(function(event) {
-                        event.form.fields.forEach(function(field) {
-                            if (field.type != "hidden")
-                                console.log(field.name);//tenemos todos los campos que se pueden rellenar
-                        });
+    this.choseRealFieldsOfForm = function (races, browser, user) {
+        this.doSomethingWithAllFieldsFromCurrentGroup(browser, function (result) {
+            console.log(result);
+
+            console.log("*****************");
+            races.forEach(function (race) {
+                race.events.forEach(function (event) {
+                    event.form.fields.forEach(function (field) {
+                        if (field.type != "hidden")
+                            console.log(field.name);//tenemos todos los campos que se pueden rellenar
                     });
+                });
+            });
         });
-
-
-
-
-
-
-    }
-
+    };
 };
