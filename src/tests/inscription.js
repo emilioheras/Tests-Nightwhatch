@@ -11,24 +11,16 @@ module.exports = {
 
     "Test Inscriptions" : function (browser) {
         formFunctions.login(browser, "nacho@sportmaniacs.com", "Aerith7");
-        races.forEach(function(race) {
-            race.events.forEach(function(event) {
-                //controlar el tipo de carrera para incorporar un usuario u otro
-                formFunctions.goToEventPage(browser, race.id, event.id);
-                formFunctions.choseRealFieldsOfForm(races, browser);//probando
+        races.forEach(function (race) {
+            race.events.forEach(function (event) {
+                
+                    var apiFields = formFunctions.getFormFromApi(api, event);
+                    formFunctions.goToEventPage(browser, race.id, event.id);
+                    var cleanUser = formFunctions.buildUser(apiFields.fields, user);
+                    formFunctions.fillStepFields(browser, cleanUser);
+                    formFunctions.goToNextStep(browser);
+                
             });
-
         });
-        // races.forEach(function(race) {
-        //     race.events.forEach(function(event) {
-        //         //controlar el tipo de carrera para incorporar un usuario u otro
-        //         formFunctions.goToEventPage(browser, race.id, event.id);
-        //         // formFunctions.fillStepFields(browser, user);
-        //         // formFunctions.goToNextStep(browser);
-        //
-        //
-        //
-        //     });
-        // });
     }
 }

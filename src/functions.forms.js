@@ -8,7 +8,7 @@ module.exports = new function() {
     
     this.getRacesFromApi = function(api){
         var currentDate = this.currentDate();
-        // var races = request('GET', `${api}/api/races?limit=1&date=2016-07-07&page=1`);
+        // var races = request('GET', `${api}/api/races/166`);
         var races = request('GET', `${api}/api/races?limit=1&date=${currentDate}&page=1`); //testear carreras (limit negativo=anteriores a la fecha, limit positivo=posteriores a la fecha)
         // var races = request('GET', `${api}/api/services/races/inscriptions/form/375`); //testear las carreras con inscripciones abiertas
         races = JSON.parse(races.getBody()).data;
@@ -266,13 +266,18 @@ module.exports = new function() {
 
                 browser.pause(500);
 
-                //aqui trucare los campos extra
-                if (id.match(/value/))
-                   if (item.type){
 
-                   }
-                //
+                if (id.match(/value/)) {
+                    if (item.type == "select") {
+                        browser.click(id);
+                        browser.keys(['\uE015', '\uE006']);
+                    }
 
+                    if (item.type == "text") {
+                        browser.setValue(id, "ExtraExtra");
+                    }
+
+                }
 
                 if(!user.hasOwnProperty(item.name))
                     return false;
@@ -281,7 +286,7 @@ module.exports = new function() {
                 
                 var desiredValue = user[item.name];
 
-
+                console.log(item.name);
                 browser.setValue(id, desiredValue);
                 browser.click("body");
                 browser.pause(1000);
@@ -292,7 +297,8 @@ module.exports = new function() {
                     browser.setValue(id+"_month", parts[1]);
                     browser.setValue(id+"_day", parts[2]);
                 }
-                browser.click(id + "_" + desiredValue);
+                if (item.type == "radio" || item.type == "checkbox")
+                    browser.click(id + "_" + desiredValue);
             });
         });
         return false;
@@ -303,34 +309,42 @@ module.exports = new function() {
         browser.click(".pay");
     };
 
-    this.choseRealFieldsOfForm = function (races, browser) {
-        this.doSomethingWithAllFieldsFromCurrentGroup(browser, function (result) {
-            var fieldsFromApi = []
-            var fieldsInCommon = []
 
-            races.forEach((race) => {
-                race.events.forEach((event) => {
-                    if (event.form.fields != "undefined")
-                    event.form.fields.forEach((field) => {
-                        if (field.options && field.type == "select" && field.options.length == 1 && !field.ws)
-                            field.type = "hidden";
-                        if (field.type != "hidden") {
-                            var name = this.calculateName(field.name);
-                            fieldsFromApi.push(name);
-                        }
-                    });
-                });
-            });
-            console.log("*****************");
 
-            result.value.forEach((item) => {
-                if (fieldsFromApi.indexOf(item.name) || item.name == null)
-                    fieldsInCommon.push(item);
-            });
+    this.buildUser = function (apiFields, user) {
+        var result = user;
 
-            return fieldsInCommon;
-            //hay que enchufarselo al fillfield
-        });
-        return false;
+        var fields = this.extractShortName(apiFields);
+
+        for(var field in user) {
+            if(fields.indexOf(field) == -1)
+                delete user[field];
+        }
+
+        return result;
     };
+
+    this.extractShortName = function (apiFields){
+        var apiShortNames = [];
+        apiFields.forEach((field) => {
+            if (field.options && field.type == "select" && field.options.length == 1 && !field.ws)
+                field.type = "hidden";
+            if (field.type != "hidden") {
+                apiShortNames.push(this.calculateName(field.name));
+            }
+        });
+
+        return apiShortNames;
+    };
+
+
+
+
+
+
+
 };
+
+
+
+
