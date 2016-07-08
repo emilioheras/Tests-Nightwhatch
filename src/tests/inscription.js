@@ -15,7 +15,7 @@ module.exports = {
             race.events.forEach(function(event) {
                 //controlar el tipo de carrera para incorporar un usuario u otro
                 formFunctions.goToEventPage(browser, race.id, event.id);
-                formFunctions.choseRealFieldsOfForm(races, browser, user);//probando
+                formFunctions.choseRealFieldsOfForm(races, browser);//probando
             });
 
         });

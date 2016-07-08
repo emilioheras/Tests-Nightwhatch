@@ -9,8 +9,8 @@ module.exports = new function() {
     this.getRacesFromApi = function(api){
         var currentDate = this.currentDate();
         // var races = request('GET', `${api}/api/races?limit=1&date=2016-07-07&page=1`);
-        // var races = request('GET', `${api}/api/races?limit=2&date=${currentDate}&page=1`); //testear carreras (limit negativo=anteriores a la fecha, limit positivo=posteriores a la fecha)
-        var races = request('GET', `${api}/api/services/races/inscriptions/form/375`); //testear las carreras con inscripciones abiertas
+        var races = request('GET', `${api}/api/races?limit=1&date=${currentDate}&page=1`); //testear carreras (limit negativo=anteriores a la fecha, limit positivo=posteriores a la fecha)
+        // var races = request('GET', `${api}/api/services/races/inscriptions/form/375`); //testear las carreras con inscripciones abiertas
         races = JSON.parse(races.getBody()).data;
         races.forEach((race) => {
             var events = this.getEventsFromApi(api, race);
@@ -182,7 +182,7 @@ module.exports = new function() {
             elementType = "input";
             hashMap["type"] = "text";
         }
-        
+
         //FIN
 
 
@@ -305,23 +305,31 @@ module.exports = new function() {
 
     this.choseRealFieldsOfForm = function (races, browser) {
         this.doSomethingWithAllFieldsFromCurrentGroup(browser, function (result) {
+            var fieldsFromApi = []
+            var fieldsInCommon = []
 
-            result.value.forEach((item, index) => {
-                console.log(item.id);
-            });
-            console.log("*****************");
-            races.forEach(function (race) {
-                race.events.forEach(function (event) {
-                    if (event.form.fields)
-                    event.form.fields.forEach(function (field) {
+            races.forEach((race) => {
+                race.events.forEach((event) => {
+                    if (event.form.fields != "undefined")
+                    event.form.fields.forEach((field) => {
                         if (field.options && field.type == "select" && field.options.length == 1 && !field.ws)
                             field.type = "hidden";
-                        if (field.type != "hidden")
-                            console.log(field.name);//tenemos todos los campos que se pueden rellenar
+                        if (field.type != "hidden") {
+                            var name = this.calculateName(field.name);
+                            fieldsFromApi.push(name);
+                        }
                     });
                 });
             });
+            console.log("*****************");
 
+            result.value.forEach((item) => {
+                if (fieldsFromApi.indexOf(item.name) || item.name == null)
+                    fieldsInCommon.push(item);
+            });
+
+            return fieldsInCommon;
+            //hay que enchufarselo al fillfield
         });
         return false;
     };
