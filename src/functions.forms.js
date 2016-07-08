@@ -1,6 +1,6 @@
 var form = require("./form.fields.js");
-// var baseUrl = "http://web-test.local.sportmaniacs.com/es"; //testear local
-var baseUrl = "https://sportmaniacs.com/es"; //testear producción
+var baseUrl = "http://web-test.local.sportmaniacs.com/es"; //testear local
+// var baseUrl = "https://sportmaniacs.com/es"; //testear producción
 var request = require('sync-request');
 
 
@@ -8,9 +8,9 @@ module.exports = new function() {
     
     this.getRacesFromApi = function(api){
         var currentDate = this.currentDate();
-        var races = request('GET', `${api}/api/races?limit=1&date=2016-07-07&page=1`);
+        // var races = request('GET', `${api}/api/races?limit=1&date=2016-07-07&page=1`);
         // var races = request('GET', `${api}/api/races?limit=2&date=${currentDate}&page=1`); //testear carreras (limit negativo=anteriores a la fecha, limit positivo=posteriores a la fecha)
-        // var races = request('GET', `${api}/api/services/races/inscriptions`); //testear las carreras con inscripciones abiertas
+        var races = request('GET', `${api}/api/services/races/inscriptions/form/375`); //testear las carreras con inscripciones abiertas
         races = JSON.parse(races.getBody()).data;
         races.forEach((race) => {
             var events = this.getEventsFromApi(api, race);
@@ -146,8 +146,6 @@ module.exports = new function() {
             newWs = newWs.replace("http:", "");
             hashMap["data-ws"] = newWs.replace("https:", "");
         }
-        if(field.blocked)
-            hashMap["data-blocked"] = "data-blocked";
 
         if(field.ws_deferred == true)
             hashMap["data-ws-validation"] = hashMap["data-ws"];
@@ -305,19 +303,26 @@ module.exports = new function() {
         browser.click(".pay");
     };
 
-    this.choseRealFieldsOfForm = function (races, browser, user) {
+    this.choseRealFieldsOfForm = function (races, browser) {
         this.doSomethingWithAllFieldsFromCurrentGroup(browser, function (result) {
-            console.log(result);
 
+            result.value.forEach((item, index) => {
+                console.log(item.id);
+            });
             console.log("*****************");
             races.forEach(function (race) {
                 race.events.forEach(function (event) {
+                    if (event.form.fields)
                     event.form.fields.forEach(function (field) {
+                        if (field.options && field.type == "select" && field.options.length == 1 && !field.ws)
+                            field.type = "hidden";
                         if (field.type != "hidden")
                             console.log(field.name);//tenemos todos los campos que se pueden rellenar
                     });
                 });
             });
+
         });
+        return false;
     };
 };
