@@ -264,20 +264,26 @@ module.exports = new function() {
 
                 var id = '#' + item.id;
 
-                browser.pause(500);
-
+                browser.pause(300);
 
                 if (id.match(/value/)) {
-                    if (item.type == "select") {
-                        browser.click(id);
-                        browser.keys(['\uE015', '\uE006']);
-                    }
+                    if (id) {
+                        if (item.type == "select") {
+                            browser.click(id);
+                            browser.keys(['\uE015', '\uE006']);
+                        }
 
-                    if (item.type == "text") {
-                        browser.setValue(id, "ExtraExtra");
-                    }
+                        if (item.type == "text") {
+                            browser.setValue(id, "ExtraExtra");
+                        }
 
+                        if (item.type == "radio" || item.type == "checkbox"){
+                            browser.waitForElementPresent(id, 2000);
+                            browser.click(id);
+                        }
+                    }
                 }
+
 
                 if(!user.hasOwnProperty(item.name))
                     return false;
@@ -287,7 +293,7 @@ module.exports = new function() {
 
                 browser.setValue(id, desiredValue);
                 browser.click("body");
-                browser.pause(1000);
+                browser.pause(300);
                 if(desiredValue && !!desiredValue.match(/\d\d\d\d-\w*-\d\d?/)) {
 
                     var parts = desiredValue.split("-");
@@ -303,26 +309,23 @@ module.exports = new function() {
     };
 
     this.sendInscription = function (browser){
-        browser.waitForElementVisible('.pay', 30000);
+        browser.waitForElementVisible('.pay', 300);
         browser.click(".pay");
     };
 
 
 
     this.buildUser = function (apiFields, user) {
-        var result = user;
+        var result =JSON.parse(JSON.stringify((user)));
 
         console.log(result);
 
         var fields = this.extractShortNames(apiFields);
 
-        for(var field in user) {
+        for(var field in result) {
             if(fields.indexOf(field) == -1)
-                delete user[field];
+                delete result[field];
         }
-
-        result = this.addExtraFields(apiFields, result);
-        result = this.removeHiddenFields(apiFields, result);
 
         console.log(result);
 
@@ -340,12 +343,26 @@ module.exports = new function() {
         return apiShortNames;
     };
 
-    this.removeHiddenFields = function(apiFields, user) {
-        return user;
-    };
 
-    this.addExtraFields = function(apiFields, user) {
-        return user;
+    this.fillExtraFields = function(item, id, browser) {
+
+        if (id.match(/value/)) {
+            if (id) {
+                if (item.type == "select") {
+                    browser.click(id);
+                    browser.keys(['\uE015', '\uE006']);
+                }
+                
+                if (item.type == "text") {
+                    browser.setValue(id, "ExtraExtra");
+                }
+
+                if (item.type == "radio" || item.type == "checkbox"){
+                    browser.waitForElementPresent(id, 2000);
+                browser.click(id);
+                }
+            }
+        }
     };
 
 

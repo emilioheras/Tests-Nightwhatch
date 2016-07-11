@@ -20,4 +20,8 @@ module.exports = {
 	"city_id":"Bremerhaven",
 	"club":"SIN CLUB",
 	"nacionalidad":"ESP",
+	"dni_validate": "33566340W",
+	"birth_validate":"1972-Agosto-05",
+	"license_type_validate": "CARNET PLUS",
+	"carnet_validate":"903",
 	}
