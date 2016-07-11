@@ -1,41 +1,8 @@
-var form = require("./form.fields.js");
+
 var baseUrl = "http://web-test.local.sportmaniacs.com/es"; //testear local
 // var baseUrl = "https://sportmaniacs.com/es"; //testear producción
-var request = require('sync-request');
-
 
 module.exports = new function() {
-    
-    this.getRacesFromApi = function(api){
-        var currentDate = this.currentDate();
-        // var races = request('GET', `${api}/api/races/166`);
-        var races = request('GET', `${api}/api/races?limit=5&date=${currentDate}&page=1`); //testear carreras (limit negativo=anteriores a la fecha, limit positivo=posteriores a la fecha)
-        // var races = request('GET', `${api}/api/services/races/inscriptions/form/375`); //testear las carreras con inscripciones abiertas
-        races = JSON.parse(races.getBody()).data;
-        races.forEach((race) => {
-            var events = this.getEventsFromApi(api, race);
-            if(events)
-                events.forEach((event) => {
-                    var form = this.getFormFromApi(api, event);
-                    if(form)
-                        event.form = form;
-                });
-            race.events = events;
-        });
-        return races;
-    };
-    
-    this.getEventsFromApi = function (api, race) {
-        var events = request('GET', `${api}/api/events?race=${race.id}`);
-        events = JSON.parse(events.getBody()).data;
-        return events;
-    };
-
-    this.getFormFromApi = function (api, event) {
-        var form = request('GET', `${api}/api/services/inscription/form/${event.id}`);
-        form = JSON.parse(form.getBody()).data;
-        return form;
-    };
     
     this.login = function(browser, user, pass) {
         loginUrl = this.buildUrl(browser, "/login");
@@ -67,13 +34,6 @@ module.exports = new function() {
             .setValue("#loginFormPassword", pass)
     };
     
-    this.login = function(browser, user, pass) {
-        loginUrl = this.buildUrl(browser, "/login");
-        browser.url(loginUrl);
-        this.fillLoginform(browser, user, pass);
-        browser.click("button[data-async-form-submit]");
-    };
-    
     this.goToEventPage = function(browser, raceId, eventId){
         browser.url(this.buildUrl(browser, "/services/inscription/" + raceId + "/" + eventId));
         browser.url(function(url) {
@@ -91,7 +51,7 @@ module.exports = new function() {
         return match;
     };
 
-    this.buildFormElementSelector = function(field) {
+    this.buildFullAttributesFormElementSelector = function(field) {
 
         var selector = "";
         var hashMap = {};
@@ -331,18 +291,7 @@ module.exports = new function() {
 
         return result;
     };
-
-    this.extractShortNames = function (apiFields){
-        var apiShortNames = [];
-
-
-        apiFields.forEach((field) => {
-            apiShortNames.push(this.calculateName(field.name));
-        });
-
-        return apiShortNames;
-    };
-
+    
 
     this.fillExtraFields = function(item, id, browser) {
 
