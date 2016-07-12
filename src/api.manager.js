@@ -1,12 +1,13 @@
 /**
  * Created by Javier on 11/07/2016.
  */
-var request = require('sync-request');
-var formFunctions   = require("./functions.forms");
+var request         = require('sync-request');
+var navegation      = require("./navegation.functions");
+
 module.exports = new function() {
 
     this.getRacesFromApi = function(api){
-        var currentDate = formFunctions.currentDate();
+        var currentDate = navegation.currentDate();
         // var races = request('GET', `${api}/api/races/166`);
         var races = request('GET', `${api}/api/races?limit=5&date=${currentDate}&page=1`); //testear carreras (limit negativo=anteriores a la fecha, limit positivo=posteriores a la fecha)
         // var races = request('GET', `${api}/api/services/races/inscriptions/form/375`); //testear las carreras con inscripciones abiertas

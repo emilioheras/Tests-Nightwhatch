@@ -9,7 +9,6 @@ module.exports = new function() {
         data.forEach((race) => {
             this.buildRace(race);
         });
-
         return data;
     };
 
@@ -25,6 +24,7 @@ module.exports = new function() {
     this.buildEvent = function(event) {
         if (event)
             this.createFormSteps(event);
+        
         return event;
     };
 

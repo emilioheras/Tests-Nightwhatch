@@ -1,47 +1,20 @@
 
-var baseUrl = "http://web-test.local.sportmaniacs.com/es"; //testear local
-// var baseUrl = "https://sportmaniacs.com/es"; //testear producción
 
 module.exports = new function() {
     
-    this.login = function(browser, user, pass) {
-        loginUrl = this.buildUrl(browser, "/login");
-        browser.url(loginUrl);
-        this.fillLoginform(browser, user, pass);
-        browser.click("button[data-async-form-submit]");
+    
+    this.stepIsAnInscription = function(step) {
+        return !isNaN(step);
     };
+    
+    this.recalculateStepsForTeamInscriptions = function(steps, user) {
 
-    this.currentDate = function(){
-        var today = new Date();
-        var dd = today.getDate();
-        var mm = today.getMonth()+1;
-        var yyyy = today.getFullYear();
-        if(dd<10)
-            dd='0'+dd;
-        if(mm<10)
-            mm='0'+mm;
-        today = yyyy+'-'+mm+'-'+dd;
-        return today;
-    };
-    
-    this.buildUrl = function(browser, url) {
-        return (baseUrl + "/" + url.replace(/^\//, "").replace(/\/$/, ""));
-    };
-    
-    this.fillLoginform = function(browser, user, pass) {
-        browser
-            .setValue("#loginFormEmail", user)
-            .setValue("#loginFormPassword", pass)
-    };
-    
-    this.goToEventPage = function(browser, raceId, eventId){
-        browser.url(this.buildUrl(browser, "/services/inscription/" + raceId + "/" + eventId));
-        browser.url(function(url) {
-            console.log("\n\n\n\n********TESTEANDO EL FORMULARIO->"+url.value+"**********\n\n")
-        });
-        browser.click("fieldset.form-step:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)")
-        browser.waitForElementPresent("form", 20000)
+        if(user.teamtype) {
+            var team_size = parseInt(user.teamtype.replace(/[^\d]/g, ""));
+            steps = steps.slice(0, team_size + 1);
+        }
 
+        return steps;
     };
 
     this.calculateName = function (name)
@@ -156,13 +129,7 @@ module.exports = new function() {
 
 
 //*******************************FUNCIONES PARA INSCRIBIRSE
-    this.goToNextStep = function(browser) {
-        browser.waitForElementPresent(".form-nav .btn.btn-primary.u-fl-r", 20000);
-        browser.click(".form-nav .btn.btn-primary.u-fl-r");
-        browser.pause(3000);
-        browser.waitForElementNotVisible(".plainoverlay", 50000);
-    };
-    
+
     this.doSomethingWithAllFieldsFromCurrentGroup = function(browser, callBack) {
         browser.execute(this.detectStepFields, [], callBack.bind(this));
     };
@@ -226,7 +193,7 @@ module.exports = new function() {
 
                 browser.pause(300);
 
-                if (id.match(/value/)) {
+                if (id.match(/value/)){
                     if (id) {
                         if (item.type == "select") {
                             browser.click(id);
@@ -242,6 +209,7 @@ module.exports = new function() {
                             browser.click(id);
                         }
                     }
+                    browser.pause(300);
                 }
 
 
@@ -268,56 +236,18 @@ module.exports = new function() {
         return false;
     };
 
-    this.sendInscription = function (browser){
-        browser.waitForElementVisible('.pay', 300);
-        browser.click(".pay");
+    this.checkInscriptionEndedOk = function (browser){
+
+        if (!this.ImOnTheTPV(browser) || this.ImOnTheThankyouPage(browser));
+
     };
 
-
-
-    this.buildUser = function (apiFields, user) {
-        var result =JSON.parse(JSON.stringify((user)));
-
-        console.log(result);
-
-        var fields = this.extractShortNames(apiFields);
-
-        for(var field in result) {
-            if(fields.indexOf(field) == -1)
-                delete result[field];
-        }
-
-        console.log(result);
-
-        return result;
+    this.ImOnTheThankyouPage = function(browser){
+        browser.assert.urlContains('thank-you');
     };
-    
-
-    this.fillExtraFields = function(item, id, browser) {
-
-        if (id.match(/value/)) {
-            if (id) {
-                if (item.type == "select") {
-                    browser.click(id);
-                    browser.keys(['\uE015', '\uE006']);
-                }
-                
-                if (item.type == "text") {
-                    browser.setValue(id, "ExtraExtra");
-                }
-
-                if (item.type == "radio" || item.type == "checkbox"){
-                    browser.waitForElementPresent(id, 2000);
-                browser.click(id);
-                }
-            }
-        }
+    this.ImOnTheTPV = function(browser) {
+        browser.assert.urlContains('realizarPago');
     };
-
-
-
-
-
 
 
 };
