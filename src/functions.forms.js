@@ -121,15 +121,11 @@ module.exports = new function() {
 
         for (var attribute in hashMap)
             selector += `[${attribute}='${hashMap[attribute]}']`;
-
+        
         return `${elementType}${selector}`;
 
     };
-
-
-
-//*******************************FUNCIONES PARA INSCRIBIRSE
-
+    
     this.doSomethingWithAllFieldsFromCurrentGroup = function(browser, callBack) {
         browser.execute(this.detectStepFields, [], callBack.bind(this));
     };
@@ -137,7 +133,6 @@ module.exports = new function() {
     this.detectStepFields = function() {
         var result = [];
         var fields = $(".form-register fieldset.active [name]:not([type=hidden])");
-
         var pushed = [];
 
 
@@ -164,13 +159,11 @@ module.exports = new function() {
             }
 
             if (pushed.indexOf(id) == -1) {
-
                 result.push({
                     id: id,
                     name: name,
                     type: type
                 });
-
                 pushed.push(id);
             }
 
@@ -182,7 +175,6 @@ module.exports = new function() {
     this.fillStepFields = function(browser, user) {
 
         this.doSomethingWithAllFieldsFromCurrentGroup(browser, function(result) {
-
 
             result.value.forEach((item, index) => {
 
@@ -196,17 +188,16 @@ module.exports = new function() {
                     }
                     browser.pause(300);
                 }
-
-
+                
                 if(!user.hasOwnProperty(item.name))
                     return false;
                 
                 var desiredValue = user[item.name];
-
-
+                
                 browser.setValue(id, desiredValue);
                 browser.click("body");
                 browser.pause(300);
+                
                 if(desiredValue && !!desiredValue.match(/\d\d\d\d-\w*-\d\d?/)) {
 
                     var parts = desiredValue.split("-");
@@ -220,8 +211,7 @@ module.exports = new function() {
         });
         return false;
     };
-
-
+    
     this.fillExtraFields = function(browser, id, item){
         browser.getTagName(id, function(result) {
             if (result.value == "select") {
@@ -236,14 +226,11 @@ module.exports = new function() {
                 browser.waitForElementPresent(id, 2000);
                 browser.click(id);
             }
-    });
-    }
-
+        });
+    };
     
     this.checkInscriptionEndedOk = function (browser){
-
         if (!this.ImOnTheTPV(browser) || this.ImOnTheThankyouPage(browser));
-
     };
 
     this.ImOnTheThankyouPage = function(browser){
@@ -252,8 +239,7 @@ module.exports = new function() {
     this.ImOnTheTPV = function(browser) {
         browser.assert.urlContains('realizarPago');
     };
-
-
+    
 };
 
 

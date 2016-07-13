@@ -1,7 +1,7 @@
 var formFunctions   = require("../functions.forms");
 var dataBuilder     = require("../testData.builder");
 var navegation      = require("../navegation.functions");
-var api = "http://api.local.sportmaniacs.com";
+var api             = "http://api.local.sportmaniacs.com";
 // var api = "http://api-beta.sportmaniacs.com";
 
 

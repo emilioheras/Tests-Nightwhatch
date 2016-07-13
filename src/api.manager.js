@@ -1,5 +1,5 @@
 /**
- * Created by Javier on 11/07/2016.
+ * Created by Fran on 11/07/2016.
  */
 var request         = require('sync-request');
 var navegation      = require("./navegation.functions");
@@ -9,15 +9,12 @@ module.exports = new function() {
     this.getRacesFromApi = function(api){
         var currentDate = navegation.currentDate();
 
-        var races= request('GET', `${api}/api/races/ii-trail-night-sendas-de-higueruelas`);
-        // var races = request('GET', `${api}/api/races?limit=5&date=${currentDate}&page=1`); //testear carreras (limit negativo=anteriores a la fecha, limit positivo=posteriores a la fecha)
-        // var races = request('GET', `${api}/api/services/races/inscriptions/form/375`); //testear las carreras con inscripciones abiertas
-
-
-
+        var races= request('GET', `${api}/api/races/164`);
+        // var races = request('GET', `${api}/api/races?limit=5&date=${currentDate}&page=1`); 
+        // var races = request('GET', `${api}/api/services/races/inscriptions/form/375`); 
+        
         races = this.imTestingOneOrMoreRaces(races);
-
-
+        
         races.forEach((race) => {
             var events = this.getEventsFromApi(api, race);
             if(events)
@@ -28,7 +25,6 @@ module.exports = new function() {
                 });
             race.events = events;
         });
-
         return races;
     };
 
@@ -46,10 +42,8 @@ module.exports = new function() {
 
     this.imTestingOneOrMoreRaces = function(races){
         races = JSON.parse(races.getBody()).data;
-
         if(races.length == undefined)
             races = [races];
-
         return races;
     };
 };

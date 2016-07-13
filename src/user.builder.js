@@ -1,8 +1,7 @@
 /**
- * Created by Javier on 11/07/2016.
+ * Created by Fran on 11/07/2016.
  */
-var formFunctions   = require("./functions.forms");
-
+var formFunctions       = require("./functions.forms");
 var baseUser            = require("./tests/users/base.complete");
 var baseUserPreferent   = require("./tests/users/preferente.valid.complete");
 var baseUserFetri       = require("./tests/users/fetri.valid.complete");
@@ -16,7 +15,6 @@ module.exports = new function() {
 
         if (event) {
             var correctUser = this.chooseAppropriateUser(event);
-
             var result = correctUser;
             var fields = this.extractShortNames(formFields);
             for (var field in result) {
@@ -24,11 +22,8 @@ module.exports = new function() {
                     delete result[field];
             }
         }
-        if(Object.keys(result).length) {
-
+        if(Object.keys(result).length)
             return result;
-        }
-    
     };
 
 
@@ -36,11 +31,10 @@ module.exports = new function() {
     this.chooseAppropriateUser = function (event) {
 
         var user = JSON.parse(JSON.stringify((baseUser)));
-        // console.log(user);
         var steps = JSON.stringify(event.form.steps);
 
         if(steps) {
-
+            
             if (steps.match(/Preference/)) {
                 user = baseUserPreferent;
             }
@@ -53,8 +47,6 @@ module.exports = new function() {
             if (steps.match(/Team/))
                 user = baseUserTeam;
         }
-
-        // console.log(user);
         return user;
 
     };
@@ -62,7 +54,6 @@ module.exports = new function() {
 
     this.extractShortNames = function (formFields) {
         var shortNames = [];
-
         if(formFields)
             formFields.forEach((field) => {
                 shortNames.push(formFunctions.calculateName(field.name));

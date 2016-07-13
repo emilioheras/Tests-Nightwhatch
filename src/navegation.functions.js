@@ -1,14 +1,14 @@
-/**
- * Created by Javier on 12/07/2016.
+/**¡
+ * Created by Fran on 11/07/2016.
  */
 
-var baseUrl = "http://web-test.local.sportmaniacs.com/es"; 
-// var baseUrl = "https://sportmaniacs.com/es";
+var baseUrl         = "http://web-test.local.sportmaniacs.com/es";
+// var baseUrl         = "https://sportmaniacs.com/es";
 
 module.exports = new function() {
 
     this.login = function(browser, user, pass) {
-        loginUrl = this.buildUrl(browser, "/login");
+        var loginUrl = this.buildUrl(browser, "/login");
         browser.url(loginUrl);
         this.fillLoginform(browser, user, pass);
         browser.click("button[data-async-form-submit]");
@@ -44,8 +44,7 @@ module.exports = new function() {
     this.clickImRegisteringAFriend = function(browser) {
         browser.click("fieldset.active .friend-selector .col-sm-6:nth-of-type(2) label");
     };
-
-
+    
     this.goToNextStep = function(browser) {
         browser.waitForElementPresent(".form-nav .btn.btn-primary.u-fl-r", 20000);
         browser.click(".form-nav .btn.btn-primary.u-fl-r");
@@ -58,7 +57,6 @@ module.exports = new function() {
         browser.waitForElementVisible('.pay', 300);
         browser.click(".pay");
     };
-
-
+    
 };
 

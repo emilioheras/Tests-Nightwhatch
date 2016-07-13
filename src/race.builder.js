@@ -1,11 +1,10 @@
 /**
- * Created by Javier on 11/07/2016.
+ * Created by Fran on 11/07/2016.
  */
 
 module.exports = new function() {
     
     this.transform = function(data) {
-
         data.forEach((race) => {
             this.buildRace(race);
         });
@@ -13,32 +12,25 @@ module.exports = new function() {
     };
 
     this.buildRace = function(race) {
-
         race.events.forEach((event) => {
             this.buildEvent(event);
         });
-
         return race;
     };
 
     this.buildEvent = function(event) {
         if (event)
             this.createFormSteps(event);
-        
         return event;
     };
 
     this.createFormSteps = function(event) {
         var steps = [];
-
         if (event.form.fields && event.form.fields.length) {
             event.form.fields.forEach((field) => {
-
                 steps.push(field.group.key);
-
             });
         }
-
         steps = steps.unique();
         if (steps && steps.length > 0)
             event.form.steps = steps;

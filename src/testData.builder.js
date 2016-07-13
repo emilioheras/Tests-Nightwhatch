@@ -1,5 +1,5 @@
 /**
- * Created by Javier on 11/07/2016.
+ * Created by Fran on 11/07/2016.
  */
 var manager = require("./api.manager");
 var raceBuilder = require("./race.builder");
