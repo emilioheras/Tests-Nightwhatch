@@ -40,6 +40,7 @@ module.exports = new function() {
     this.goToEventPage = function(browser, raceId, eventId){
         browser.url(this.buildUrl(browser, "/services/inscription/" + raceId + "/" + eventId));
     };
+    
     this.clickImRegisteringAFriend = function(browser) {
         browser.click("fieldset.active .friend-selector .col-sm-6:nth-of-type(2) label");
     };
@@ -50,12 +51,14 @@ module.exports = new function() {
         browser.click(".form-nav .btn.btn-primary.u-fl-r");
         browser.pause(3000);
         browser.waitForElementNotVisible(".plainoverlay", 50000);
+
     };
 
     this.clickOnPayButton = function (browser){
         browser.waitForElementVisible('.pay', 300);
         browser.click(".pay");
     };
+
 
 };
 

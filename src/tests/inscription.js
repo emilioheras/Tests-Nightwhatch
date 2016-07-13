@@ -12,9 +12,7 @@ module.exports = {
         navegation.login(browser, "nacho@sportmaniacs.com", "Aerith7");
 
         var races   = dataBuilder.buildTestData(api);
-        
-        
-        
+
         races.forEach(function (race) {
 
             race.events.forEach(function (event) {
@@ -39,9 +37,10 @@ module.exports = {
 
                     navegation.clickOnPayButton(browser);
                     formFunctions.checkInscriptionEndedOk(browser);
-                    
+
                 }
             });
         });
+        // browser.end()
     }
 };

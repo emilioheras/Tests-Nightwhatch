@@ -183,9 +183,6 @@ module.exports = new function() {
 
         this.doSomethingWithAllFieldsFromCurrentGroup(browser, function(result) {
 
-            //Aqui hay que comparar result con los campos de la api y sacar los campos que hay que
-            //rellenar de verdad
-
 
             result.value.forEach((item, index) => {
 
@@ -195,19 +192,7 @@ module.exports = new function() {
 
                 if (id.match(/value/)){
                     if (id) {
-                        if (item.type == "select") {
-                            browser.click(id);
-                            browser.keys(['\uE015', '\uE006']);
-                        }
-
-                        if (item.type == "text") {
-                            browser.setValue(id, "ExtraExtra");
-                        }
-
-                        if (item.type == "radio" || item.type == "checkbox"){
-                            browser.waitForElementPresent(id, 2000);
-                            browser.click(id);
-                        }
+                        this.fillExtraFields(browser, id, item);
                     }
                     browser.pause(300);
                 }
@@ -236,6 +221,25 @@ module.exports = new function() {
         return false;
     };
 
+
+    this.fillExtraFields = function(browser, id, item){
+        browser.getTagName(id, function(result) {
+            if (result.value == "select") {
+                browser.click(id);
+                browser.keys(['\uE015', '\uE006']);
+            }
+            if (item.type == "text") {
+                browser.setValue(id, "ExtraExtra");
+            }
+
+            if (item.type == "radio" || item.type == "checkbox"){
+                browser.waitForElementPresent(id, 2000);
+                browser.click(id);
+            }
+    });
+    }
+
+    
     this.checkInscriptionEndedOk = function (browser){
 
         if (!this.ImOnTheTPV(browser) || this.ImOnTheThankyouPage(browser));
