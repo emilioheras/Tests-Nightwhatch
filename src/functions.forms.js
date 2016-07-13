@@ -125,11 +125,50 @@ module.exports = new function() {
         return `${elementType}${selector}`;
 
     };
-    
+    this.fulfillTheDependencie = function(browser, dependencie){
+
+        if(dependencie) {
+            var name = dependencie.field;
+            var condition = dependencie.condition;
+            var value = dependencie.value;
+            console.log(name);
+            console.log(value);
+            console.log(condition);
+        }
+
+
+        if(condition == "ne"){
+
+        }
+
+        if(condition == "gt"){
+            if(value && !!value.match(/\d\d\d\d-\w*-\d\d?/)) {
+                var selector = name + "[year]";
+                var id =this.buildIdByName(selector);
+                var parts = value.split("-");
+                browser.setValue(id, (parseInt(parts[0])+1));
+            }
+        }
+
+        if(condition == "eq"){
+
+        }
+        if(condition == "in"){
+
+        }
+
+
+
+    };
+    this.buildIdByName = function(selector){
+        var id = selector.replace(/\]\[|\[/g,"_");
+        id = "#" + id.replace("]","");
+        return id;
+    };
     this.doSomethingWithAllFieldsFromCurrentGroup = function(browser, callBack) {
         browser.execute(this.detectStepFields, [], callBack.bind(this));
     };
-
+    
     this.detectStepFields = function() {
         var result = [];
         var fields = $(".form-register fieldset.active [name]:not([type=hidden])");

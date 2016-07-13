@@ -32,6 +32,6 @@ module.exports = {
                 }
             });
         });
-        // browser.end()
+        browser.end()
     }
 };
