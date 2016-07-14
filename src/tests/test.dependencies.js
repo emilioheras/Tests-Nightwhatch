@@ -27,11 +27,10 @@ module.exports = {
 
                         if (formFunctions.stepIsAnInscription(step))
                             navegation.clickImRegisteringAFriend(browser);
-                        event.form.fields.forEach(function (field){
-                           if(field && field.dependent) {
-                               formFunctions.fulfillTheDependencie(browser, field.dependent);
-                           }
-                            // formFunctions.checkIfTheDependencieAppearInTheForm();
+                        
+                        event.form.fields.forEach(function (field) {
+                           if(field && field.dependent)
+                               formFunctions.fulfillTheDependency(browser, field.dependent);
                         });
 
                     });
