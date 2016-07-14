@@ -125,17 +125,52 @@ module.exports = new function() {
         return `${elementType}${selector}`;
 
     };
-    this.fulfillTheDependency = function(browser, dependency){
 
-        if(dependency) {
+    this.fulfillDependencies = function(browser, dependency) {
+        let targetField = dependency.field;
+        let desiredValue = this.calculateFullFillingValue[dependency.condition](dependency.value, dependency.value_type);
+        browser.setValue(field, desiredValue);
+    };
 
-           var dependenciesCheck:{
+    this.calculateFullFillingValue = {
+        eq: function(value) {
+            return value;
+        },
+
+        gt: function(value) {
+            return value + 1;
+        },
+
+        in: function(value) {
+            return [value];
+        }
+    };
+
+    checkBooleanDependency = function(browser, field){
+        var id = buildIdByName(field.name);
+        browser.click(id);
+        browser.click("body");
+        browser.pause(3000);
+    };
+    checkDateDependency = function(browser, field){
+        if (field.value) {
+            var selector = field.name + "[year]";
+            var id = buildIdByName(selector);
+            var parts = field.value.split("-");
+            browser.setValue(id, (parseInt(parts[0]) + 1));
+            browser.click("body");
+            browser.pause(3000);
+        }
+    };
+    buildIdByName = function(name){
+        var id = name.replace(/\]\[|\[/g,"_");
+        id = "#" + id.replace("]","");
+        return id;
+    };
 
 
 
 
-               eq: function() {}
-            }
 
 
 
@@ -157,46 +192,26 @@ module.exports = new function() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-            var name = dependency.field;
-            var condition = dependency.condition;
-            var value = dependency.value;
-            var valueType = dependency.value_type;
 
             // console.log("*****************************");
             // console.log(name);
             // console.log(value);
             // console.log(condition);
             // console.log(valueType);
-            var id = this.buildIdByName(name);
 
-            if (valueType == "bool") {
-                browser.click(id);
-                browser.click("body");
-                browser.pause(3000);
-            }
 
-            if (valueType == "date") {
-                if (value && !!value.match(/\d\d\d\d-\w*-\d\d?/)) {
-                    var selector = name + "[year]";
-                    var id = this.buildIdByName(selector);
-                    var parts = value.split("-");
-                    browser.setValue(id, (parseInt(parts[0]) + 1));
-                    browser.click("body");
-                    browser.pause(3000);
-                }
-            }
+                    
+                    
+            //
+            // if (valueType == "bool") {
+            //     browser.click(id);
+            //     browser.click("body");
+            //     browser.pause(3000);
+            // }
+            //
 
-            if (valueType == "integer") {
+            //
+            // if (valueType == "integer") {
                 // browser.click(id);
                 // // for (;value < 0; value--) {
                 // //     browser.keys('\uE015');
@@ -207,21 +222,7 @@ module.exports = new function() {
                 // browser.click("body");
                 // browser.pause(3000);
 
-            }
 
-
-        }
-
-
-    };
-
-
-
-    this.buildIdByName = function(selector){
-        var id = selector.replace(/\]\[|\[/g,"_");
-        id = "#" + id.replace("]","");
-        return id;
-    };
     this.doSomethingWithAllFieldsFromCurrentGroup = function(browser, callBack) {
         browser.execute(this.detectStepFields, [], callBack.bind(this));
     };

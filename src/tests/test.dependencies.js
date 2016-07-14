@@ -30,7 +30,7 @@ module.exports = {
                         
                         event.form.fields.forEach(function (field) {
                            if(field && field.dependent)
-                               formFunctions.fulfillTheDependency(browser, field.dependent);
+                            formFunctions.fulfillDependencies(browser, field.dependent);
                         });
 
                     });
