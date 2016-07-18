@@ -11,7 +11,7 @@ module.exports = {
         
         var races = dataBuilder.buildTestData(api);
 
-        navegation.login(browser, "nacho@sportmaniacs.com", "Aerith7");
+        navegation.login(browser, "user+test00@gmail.com", "123456");
 
         races.forEach(function(race) {
             race.events.forEach(function(event) {

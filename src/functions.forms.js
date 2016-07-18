@@ -28,12 +28,6 @@ module.exports = new function() {
 
         var selector = "";
         var hashMap = {};
-        var elementType = "input";
-
-        hashMap["name"] = field.name;
-        hashMap["data-is-field"] = 'data-is-field';
-        hashMap["data-short-name"] = this.calculateName(field.name);
-
         var breakFields = [
             "tipodni",
             "mail",
@@ -46,6 +40,10 @@ module.exports = new function() {
         var asTypeAhead = [
             "club"
         ];
+        hashMap["name"] = field.name;
+        hashMap["data-is-field"] = 'data-is-field';
+        hashMap["data-short-name"] = this.calculateName(field.name);
+        var elementType = this.calculateType(field);
 
         if (field.type == "date")
             return false;
@@ -104,8 +102,8 @@ module.exports = new function() {
 
         //FIN
         if(asRadio.indexOf(hashMap["data-short-name"]) != -1 && field.type != "hidden") {
-            elementType = "input";
             hashMap["type"] = "radio";
+            elementType = "input";
             delete hashMap["data-is-field"];
             delete hashMap["data-short-name"];//
             delete hashMap["data-group"];
@@ -116,8 +114,6 @@ module.exports = new function() {
             hashMap["type"] = "text";
         }
 
-        //FIN
-
 
         for (var attribute in hashMap)
             selector += `[${attribute}='${hashMap[attribute]}']`;
@@ -126,10 +122,57 @@ module.exports = new function() {
 
     };
 
-    this.fulfillDependencies = function(browser, dependency) {
-        let targetField = dependency.field;
-        let desiredValue = this.calculateFullFillingValue[dependency.condition](dependency.value, dependency.value_type);
-        browser.setValue(field, desiredValue);
+
+    this.fulfillDependencies = function(browser, field, raceFieldCollection) {
+        var desiredValue = this.calculateFullFillingValue[field.dependent.condition](field.dependent.value);
+        var id = buildIdByName(field.dependent.field);
+
+        var fieldIWantToChange = this.findDependentField(field.dependent.field, raceFieldCollection);
+        
+        this.setDependencyValue[fieldIWantToChange.type](browser, field.dependent, desiredValue, id);
+
+    };
+
+
+    
+    this.findDependentField = function (name, raceFieldCollection){
+
+        var result = false;
+        raceFieldCollection.forEach(function (field) {
+            if(field.name == name) {
+                result = field;
+            }
+        });
+        return result;
+    };
+
+
+
+    this.calculateType = function(field) {
+        var short_name = this.calculateName(field.name);
+        var elementType = "input";
+        var asRadio = [
+            "gender"
+        ];
+        var asTypeAhead = [
+            "club"
+        ];
+        //CASOS DEL TYPE
+        if ((field.type == "select" || field.type == "product") && field.options > 1) {
+            elementType = "select";
+        }
+
+        //FIN
+        if(asRadio.indexOf(short_name) != -1 && field.type != "hidden") {
+            elementType = "input";
+        }
+
+        if(asTypeAhead.indexOf(short_name) != -1 && field.type != "hidden") {
+            elementType = "input";
+        }
+        console.log(elementType);
+        return elementType;
+
     };
 
     this.calculateFullFillingValue = {
@@ -143,84 +186,50 @@ module.exports = new function() {
 
         in: function(value) {
             return [value];
+        },
+
+        ne: function(value){
+            return value;
         }
     };
 
-    checkBooleanDependency = function(browser, field){
-        var id = buildIdByName(field.name);
-        browser.click(id);
-        browser.click("body");
-        browser.pause(3000);
-    };
-    checkDateDependency = function(browser, field){
-        if (field.value) {
-            var selector = field.name + "[year]";
-            var id = buildIdByName(selector);
-            var parts = field.value.split("-");
-            browser.setValue(id, (parseInt(parts[0]) + 1));
-            browser.click("body");
+    this.setDependencyValue = {
+
+        checkbox: function(browser, dependency, desiredValue, id) {
+            browser.click(id);
+            browser.keys("\uE004");
             browser.pause(3000);
+        },
+
+        select: function(browser, dependency, desiredValue, id) {
+            if (desiredValue == "undefined")
+                desiredValue = 4;
+            browser.setValue(id, "");
+            for(var i = 0; i < desiredValue; i++ ){
+                browser.keys("\uE015");
+            }
+            browser.keys("\uE004");
+            browser.pause(3000);
+        },
+
+        date: function(browser, dependency, desiredValue, id) {
+            if (desiredValue) {
+                var selector = dependency.field + "[year]";
+                id = buildIdByName(selector);
+                var parts = desiredValue.split("-");
+                browser.setValue(id, (parseInt(parts[0]) + 1));
+                browser.keys("\uE004");
+                browser.pause(3000);
+            }
         }
     };
+
+
     buildIdByName = function(name){
         var id = name.replace(/\]\[|\[/g,"_");
         id = "#" + id.replace("]","");
         return id;
     };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // console.log("*****************************");
-            // console.log(name);
-            // console.log(value);
-            // console.log(condition);
-            // console.log(valueType);
-
-
-                    
-                    
-            //
-            // if (valueType == "bool") {
-            //     browser.click(id);
-            //     browser.click("body");
-            //     browser.pause(3000);
-            // }
-            //
-
-            //
-            // if (valueType == "integer") {
-                // browser.click(id);
-                // // for (;value < 0; value--) {
-                // //     browser.keys('\uE015');
-                // // }
-                // browser.keys('\uE006');
-                //
-                //
-                // browser.click("body");
-                // browser.pause(3000);
 
 
     this.doSomethingWithAllFieldsFromCurrentGroup = function(browser, callBack) {

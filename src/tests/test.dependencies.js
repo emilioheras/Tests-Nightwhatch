@@ -9,11 +9,10 @@ var userBuilder     = require("../user.builder");
 var api             = "http://api.local.sportmaniacs.com";
 // var api             = "http://api-beta.sportmaniacs.com";
 
-
 module.exports = {
 
     "Test Dependencies": function (browser) {
-        navegation.login(browser, "nacho@sportmaniacs.com", "Aerith7");
+        navegation.login(browser, "user+test00@gmail.com", "123456");
         var races   = dataBuilder.buildTestData(api);
         races.forEach(function (race) {
             race.events.forEach(function (event) {
@@ -27,10 +26,11 @@ module.exports = {
 
                         if (formFunctions.stepIsAnInscription(step))
                             navegation.clickImRegisteringAFriend(browser);
-                        
                         event.form.fields.forEach(function (field) {
-                           if(field && field.dependent)
-                            formFunctions.fulfillDependencies(browser, field.dependent);
+
+                            if(field && field.dependent) {
+                               formFunctions.fulfillDependencies(browser, field, event.form.fields);
+                            }
                         });
 
                     });
