@@ -40,6 +40,10 @@ module.exports = new function() {
     this.goToEventPage = function(browser, raceId, eventId){
         browser.url(this.buildUrl(browser, "/services/inscription/" + raceId + "/" + eventId));
     };
+
+    this.goToEventClassificationPage = function(browser, raceId, eventId){
+        browser.url(this.buildUrl(browser, "/races/" + raceId + "/" + eventId + "/results/official"));
+    };
     
     this.clickImRegisteringAFriend = function(browser) {
         browser.click("fieldset.active .friend-selector .col-sm-6:nth-of-type(2) label");

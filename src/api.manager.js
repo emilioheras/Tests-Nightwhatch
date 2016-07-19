@@ -9,7 +9,7 @@ module.exports = new function() {
     this.getRacesFromApi = function(api){
         var currentDate = navegation.currentDate();
 
-        var races= request('GET', `${api}/api/races/164`);
+        var races= request('GET', `${api}/races/97`);
         // var races = request('GET', `${api}/api/races?limit=5&date=${currentDate}&page=1`);
         // var races = request('GET', `${api}/api/services/races/inscriptions/form/375`); 
         
@@ -29,13 +29,13 @@ module.exports = new function() {
     };
 
     this.getEventsFromApi = function (api, race) {
-        var events = request('GET', `${api}/api/events?race=${race.id}`);
+        var events = request('GET', `${api}/events?race=${race.id}`);
         events = JSON.parse(events.getBody()).data;
         return events;
     };
 
     this.getFormFromApi = function (api, event) {
-        var form = request('GET', `${api}/api/services/inscription/form/${event.id}`);
+        var form = request('GET', `${api}/services/inscription/form/${event.id}`);
         form = JSON.parse(form.getBody()).data;
         return form;
     };
