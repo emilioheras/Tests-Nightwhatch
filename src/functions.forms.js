@@ -3,7 +3,7 @@
 module.exports = new function() {
     
     
-    this.stepIsAnInscription = function(step) {
+    this.stepIsAnInscription = function(step, browser) {
         return !isNaN(step);
     };
     
@@ -246,6 +246,7 @@ module.exports = new function() {
 
 
     this.doSomethingWithAllFieldsFromCurrentGroup = function(browser, callBack) {
+
         browser.execute(this.detectStepFields, [], callBack.bind(this));
     };
     

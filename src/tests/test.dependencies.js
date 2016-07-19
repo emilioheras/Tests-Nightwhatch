@@ -26,7 +26,8 @@ module.exports = {
                     event.form.steps = formFunctions.recalculateStepsForTeamInscriptions(event.form.steps, user);
                     
                     event.form.steps.forEach((step, index) => {
-                        if (formFunctions.stepIsAnInscription(step)){
+
+                        if (formFunctions.stepIsAnInscription(step, browser)){
                             navegation.clickImRegisteringAFriend(browser);
                         }else{
                             formFunctions.fillStepFields(browser, user);
