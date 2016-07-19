@@ -2,11 +2,152 @@
 
 module.exports = new function() {
     
+
+
+    this.fulfillDependencies = function(browser, field, user, raceFieldCollection) {
+        var id = buildIdByName(field.dependent.field);
+        var idOfTheField = buildIdByName(field.name);
+        var fieldIWantToChange = this.findDependentField(field.dependent.field, raceFieldCollection);
+
+        //calcular los valores posibles
+            var desiredValue = this.calculateFullFillingValue[field.dependent.condition](field.dependent.value);//calcular el valor de la dependencia
+            //calcular el valor que no desata la dependencia
+
+        this.setTheValueToFulFillTheDependency[fieldIWantToChange.type](browser, field.dependent, desiredValue, id, user, idOfTheField);
+        //Checkear que el field es visible
+        this.setTheValueToNotFulFillTheDependency[fieldIWantToChange.type](browser, field.dependent, desiredValue, id, user, idOfTheField);
+        //Checkear que el field no es visible
+    };
+
     
+    this.findDependentField = function (name, raceFieldCollection){
+
+        var result = false;
+        raceFieldCollection.forEach(function (field) {
+            if(field.name == name) {
+                result = field;
+            }
+        });
+        return result;
+    };
+
+
+
+    this.calculateFullFillingValue = {
+        eq: function(value) {
+            return value;
+        },
+
+        gt: function(value) {
+            return value + 1;
+        },
+
+        in: function(value) {
+            return value;
+        },
+
+        ne: function(value){
+            return value;
+        }
+    };
+
+    this.setAValueAndCheckTheDependency = {
+
+        checkbox: function(browser, dependency, desiredValue, id, user, idOfTheField) {
+            // if(desiredValue) {
+            //     browser.click("#data_0_Inscription_newClub");
+            //     browser.keys("\uE004");
+            //     browser.pause(3000);
+            //     browser.verify.elementPresent(idOfTheField);
+            //     browser.click("#data_0_Inscription_newClub");
+            //     browser.keys("\uE004");
+            //     browser.pause(3000);
+            //     browser.verify.elementNotPresent(idOfTheField);
+            // }
+            // if(!desiredValue){
+            //     browser.verify.elementPresent(idOfTheField);
+            //     browser.pause(3000);
+            //     browser.click("#data_0_Inscription_newClub");
+            //     browser.keys("\uE004");
+            //     browser.pause(3000);
+            //     browser.verify.elementNotPresent(idOfTheField);
+            //     // browser.pause(3000);
+            // }
+        },
+
+        select: function(browser, dependency, desiredValue, id, user) {
+            // if(desiredValue) {
+            //     var short_name = buildShortNameById(id);
+            //
+            //     if (desiredValue == "undefined")
+            //         browser.setValue(id, user[short_name]);
+            //
+            //     for (var i = 0; i < desiredValue; i++) {
+            //         browser.keys("\uE015");
+            //     }
+            //     browser.keys("\uE004");
+            //
+            // }
+
+        },
+
+        date: function(browser, dependency, desiredValue, id) {
+            // if (desiredValue) {
+            //     var selector = dependency.field + "[year]";
+            //     id = buildIdByName(selector);
+            //     var parts = desiredValue.split("-");
+            //     browser.setValue(id, (parseInt(parts[0]) + 1));
+            //     browser.keys("\uE004");
+            //
+            // }
+
+        }
+    };
+
+
+    buildShortNameById = function (id) {
+        var shortName = id.split('_');
+        var short_name;
+        if(shortName.length < 5) {
+            short_name = shortName[shortName.length - 1];
+        }else{
+            short_name = shortName[shortName.length - 2]+"_"+shortName[shortName.length - 1];
+        }
+        return short_name;
+    };
+
+    buildIdByName = function(name){
+        var id = name.replace(/\]\[|\[/g,"_");
+        id = "#" + id.replace("]","");
+        return id;
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
     this.stepIsAnInscription = function(step, browser) {
         return !isNaN(step);
     };
-    
+
     this.recalculateStepsForTeamInscriptions = function(steps, user) {
 
         if(user.teamtype) {
@@ -112,36 +253,10 @@ module.exports = new function() {
 
         for (var attribute in hashMap)
             selector += `[${attribute}='${hashMap[attribute]}']`;
-        
+
         return `${elementType}${selector}`;
 
     };
-
-
-    this.fulfillDependencies = function(browser, field, user, raceFieldCollection) {
-
-        var desiredValue = this.calculateFullFillingValue[field.dependent.condition](field.dependent.value);
-        var id = buildIdByName(field.dependent.field);
-
-        var fieldIWantToChange = this.findDependentField(field.dependent.field, raceFieldCollection);
-        if (fieldIWantToChange) {
-            this.setDependencyValue[fieldIWantToChange.type](browser, field.dependent, desiredValue, id, user);
-        }
-    };
-
-
-    
-    this.findDependentField = function (name, raceFieldCollection){
-
-        var result = false;
-        raceFieldCollection.forEach(function (field) {
-            if(field.name == name) {
-                result = field;
-            }
-        });
-        return result;
-    };
-
 
 
     this.calculateType = function(field) {
@@ -170,78 +285,6 @@ module.exports = new function() {
         }
         return elementType;
 
-    };
-
-    this.calculateFullFillingValue = {
-        eq: function(value) {
-            return value;
-        },
-
-        gt: function(value) {
-            return value + 1;
-        },
-
-        in: function(value) {
-            return [value];
-        },
-
-        ne: function(value){
-            return value;
-        }
-    };
-
-    this.setDependencyValue = {
-
-        checkbox: function(browser, dependency, desiredValue, id) {
-            if(desiredValue) {
-                browser.click(id);
-                browser.keys("\uE004");
-                browser.pause(3000);
-            }
-        },
-
-        select: function(browser, dependency, desiredValue, id, user) {
-            if(desiredValue) {
-                var short_name = buildShortNameById(id);
-
-                if (desiredValue == "undefined")
-                    browser.setValue(id, user[short_name]);
-
-                for (var i = 0; i < desiredValue; i++) {
-                    browser.keys("\uE015");
-                }
-                browser.keys("\uE004");
-
-            }
-        },
-
-        date: function(browser, dependency, desiredValue, id) {
-            if (desiredValue) {
-                var selector = dependency.field + "[year]";
-                id = buildIdByName(selector);
-                var parts = desiredValue.split("-");
-                browser.setValue(id, (parseInt(parts[0]) + 1));
-                browser.keys("\uE004");
-                browser.pause(3000);
-            }
-        }
-    };
-
-    buildShortNameById = function (id) {
-        var shortName = id.split('_');
-        var short_name;
-        if(shortName.length < 5) {
-            short_name = shortName[shortName.length - 1];
-        }else{
-            short_name = shortName[shortName.length - 2]+"_"+shortName[shortName.length - 1];
-        }
-        return short_name;
-    };
-
-    buildIdByName = function(name){
-        var id = name.replace(/\]\[|\[/g,"_");
-        id = "#" + id.replace("]","");
-        return id;
     };
 
 
