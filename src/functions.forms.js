@@ -86,12 +86,9 @@ module.exports = new function() {
 
         if(breakFields.indexOf(hashMap["data-short-name"]) != -1 && field.type != "hidden")
             hashMap["data-break"] = "data-break";
-        
 
-        //CASOS DEL TYPE
         if (field.type == "select" || field.type == "product")
         {
-            elementType = "select";
             delete hashMap["type"];
 
             if (field.required)
@@ -103,14 +100,12 @@ module.exports = new function() {
         //FIN
         if(asRadio.indexOf(hashMap["data-short-name"]) != -1 && field.type != "hidden") {
             hashMap["type"] = "radio";
-            elementType = "input";
             delete hashMap["data-is-field"];
-            delete hashMap["data-short-name"];//
+            delete hashMap["data-short-name"];
             delete hashMap["data-group"];
         }
 
         if(asTypeAhead.indexOf(hashMap["data-short-name"]) != -1 && field.type != "hidden") {
-            elementType = "input";
             hashMap["type"] = "text";
         }
 
@@ -123,14 +118,15 @@ module.exports = new function() {
     };
 
 
-    this.fulfillDependencies = function(browser, field, raceFieldCollection) {
+    this.fulfillDependencies = function(browser, field, user, raceFieldCollection) {
+
         var desiredValue = this.calculateFullFillingValue[field.dependent.condition](field.dependent.value);
         var id = buildIdByName(field.dependent.field);
 
         var fieldIWantToChange = this.findDependentField(field.dependent.field, raceFieldCollection);
-        
-        this.setDependencyValue[fieldIWantToChange.type](browser, field.dependent, desiredValue, id);
-
+        if (fieldIWantToChange) {
+            this.setDependencyValue[fieldIWantToChange.type](browser, field.dependent, desiredValue, id, user);
+        }
     };
 
 
@@ -149,6 +145,7 @@ module.exports = new function() {
 
 
     this.calculateType = function(field) {
+
         var short_name = this.calculateName(field.name);
         var elementType = "input";
         var asRadio = [
@@ -157,20 +154,20 @@ module.exports = new function() {
         var asTypeAhead = [
             "club"
         ];
-        //CASOS DEL TYPE
-        if ((field.type == "select" || field.type == "product") && field.options > 1) {
-            elementType = "select";
-        }
 
-        //FIN
+        if ((field.options && field.options.length > 1 || field.ws) && (field.type == "select" || field.type == "product") )
+            elementType = "select";
+
         if(asRadio.indexOf(short_name) != -1 && field.type != "hidden") {
             elementType = "input";
         }
-
         if(asTypeAhead.indexOf(short_name) != -1 && field.type != "hidden") {
             elementType = "input";
         }
-        console.log(elementType);
+
+        if (field.options && field.type == "select" && field.options.length == 1 && !field.ws) {
+            elementType = "input";
+        }
         return elementType;
 
     };
@@ -196,20 +193,26 @@ module.exports = new function() {
     this.setDependencyValue = {
 
         checkbox: function(browser, dependency, desiredValue, id) {
-            browser.click(id);
-            browser.keys("\uE004");
-            browser.pause(3000);
+            if(desiredValue) {
+                browser.click(id);
+                browser.keys("\uE004");
+                browser.pause(3000);
+            }
         },
 
-        select: function(browser, dependency, desiredValue, id) {
-            if (desiredValue == "undefined")
-                desiredValue = 4;
-            browser.setValue(id, "");
-            for(var i = 0; i < desiredValue; i++ ){
-                browser.keys("\uE015");
+        select: function(browser, dependency, desiredValue, id, user) {
+            if(desiredValue) {
+                var short_name = buildShortNameById(id);
+
+                if (desiredValue == "undefined")
+                    browser.setValue(id, user[short_name]);
+
+                for (var i = 0; i < desiredValue; i++) {
+                    browser.keys("\uE015");
+                }
+                browser.keys("\uE004");
+
             }
-            browser.keys("\uE004");
-            browser.pause(3000);
         },
 
         date: function(browser, dependency, desiredValue, id) {
@@ -224,6 +227,16 @@ module.exports = new function() {
         }
     };
 
+    buildShortNameById = function (id) {
+        var shortName = id.split('_');
+        var short_name;
+        if(shortName.length < 5) {
+            short_name = shortName[shortName.length - 1];
+        }else{
+            short_name = shortName[shortName.length - 2]+"_"+shortName[shortName.length - 1];
+        }
+        return short_name;
+    };
 
     buildIdByName = function(name){
         var id = name.replace(/\]\[|\[/g,"_");
@@ -299,7 +312,7 @@ module.exports = new function() {
                     return false;
                 
                 var desiredValue = user[item.name];
-                
+
                 browser.setValue(id, desiredValue);
                 browser.click("body");
                 browser.pause(300);
