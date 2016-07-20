@@ -359,6 +359,12 @@ module.exports = new function() {
     this.ImOnTheTPV = function(browser) {
         browser.assert.urlContains('realizarPago');
     };
+
+    this.calculateNumberOfPagesWithAthletes = function(browser, numberOfAthletes) {
+        var numberOfPages = Math.ceil(numberOfAthletes);
+        return numberOfPages;
+    }
+
     
 };
 
