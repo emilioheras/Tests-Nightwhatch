@@ -4,22 +4,277 @@ module.exports = new function() {
     
 
 
-    this.fulfillDependencies = function(browser, field, user, raceFieldCollection) {
+    this.checkTheDependencies = function(browser, field, user, raceFieldCollection) {
         var id = buildIdByName(field.dependent.field);
         var idOfTheField = buildIdByName(field.name);
         var fieldIWantToChange = this.findDependentField(field.dependent.field, raceFieldCollection);
 
         //calcular los valores posibles
-            var desiredValue = this.calculateFullFillingValue[field.dependent.condition](field.dependent.value);//calcular el valor de la dependencia
-            //calcular el valor que no desata la dependencia
+            var desiredValue = this.calculateFullFillingValue[field.dependent.condition](field.dependent, fieldIWantToChange);
+            var nonDesiredValue = this.caculateNotFulFillingValue[field.dependent.condition](field.dependent, fieldIWantToChange, desiredValue);
+        //
+        //
+        //
+            this.setTheValueAndCheckThatFieldIsPresent[fieldIWantToChange.type](browser, id, desiredValue, user, fieldIWantToChange, idOfTheField);
+            this.setTheValueAndCheckThatFieldIsNotPresent[fieldIWantToChange.type](browser, id, nonDesiredValue, user, fieldIWantToChange, idOfTheField);
 
-        this.setTheValueToFulFillTheDependency[fieldIWantToChange.type](browser, field.dependent, desiredValue, id, user, idOfTheField);
-        //Checkear que el field es visible
-        this.setTheValueToNotFulFillTheDependency[fieldIWantToChange.type](browser, field.dependent, desiredValue, id, user, idOfTheField);
-        //Checkear que el field no es visible
     };
 
-    
+
+    this.setTheValueAndCheckThatFieldIsPresent = {
+
+        checkbox: function(browser, id, desiredValue, user, field, idOfTheField) {
+            browser.moveToElement(id, 10, 10);
+            if(desiredValue){
+                browser.click(id);
+                browser.keys("\uE004");
+                browser.waitForElementVisible(idOfTheField, 1000);
+                browser.click(id);
+            }else{
+                browser.keys("\uE004");
+                browser.waitForElementVisible(idOfTheField, 1000);
+            }
+        },
+
+        radio: function(browser, id, desiredValue, user, field, idOfTheField) {
+            browser.moveToElement(id, 10, 10);
+            if (nonDesiredValue) {
+                browser.click(id);
+                browser.keys("\uE004");
+                browser.waitForElementNotVisible(idOfTheField, 1000);
+                browser.click(id);
+            } else {
+                browser.keys("\uE004");
+                browser.waitForElementNotVisible(idOfTheField, 1000);
+            }
+        },
+
+        select: function(browser, id, desiredValue, user, field, idOfTheField) {
+
+            if (desiredValue == undefined) {
+                var short_name = buildShortNameById(id);
+                browser.setValue(id, user[short_name]);
+                browser.waitForElementVisible(idOfTheField, 1000);           }
+            if(desiredValue) {
+
+                if(desiredValue.length == undefined) {
+                    desiredValue = [desiredValue];
+                }
+                desiredValue.forEach((value, index) => {
+                    browser.setValue(id, value);
+                    browser.keys("\uE004");
+                    browser.waitForElementVisible(idOfTheField, 1000);
+                });
+            }
+        },
+
+        date: function(browser, id, desiredValue, user, field, idOfTheField) {
+            if (desiredValue) {
+                var parts = desiredValue.split("-");
+                browser.setValue(id+"_year", parts[0]);
+                browser.setValue(id+"_month", parts[1]);
+                browser.setValue(id+"_day", parts[2]);
+            }
+            browser.waitForElementVisible(idOfTheField, 1000);
+        }
+    };
+    this.setTheValueAndCheckThatFieldIsNotPresent = {
+
+        checkbox: function(browser, id, nonDesiredValue, user, field, idOfTheField) {
+            browser.moveToElement(id, 10, 10);
+            if(nonDesiredValue){
+                browser.click(id);
+                browser.keys("\uE004");
+                browser.waitForElementNotVisible(idOfTheField, 1000);
+                browser.click(id);
+            }else{
+                browser.keys("\uE004");
+                browser.waitForElementNotVisible(idOfTheField, 1000);
+            }
+        },
+
+        radio: function(browser, id, nonDesiredValue, user, field, idOfTheField) {
+            browser.moveToElement(id, 10, 10);
+            if(nonDesiredValue){
+                browser.click(id);
+                browser.keys("\uE004");
+                browser.waitForElementNotVisible(idOfTheField, 1000);
+                browser.click(id);
+            }else{
+                browser.keys("\uE004");
+                browser.waitForElementNotVisible(idOfTheField, 1000);
+            }
+        },
+
+        select: function(browser, id, nonDesiredValue, user, field, idOfTheField) {
+
+            if (nonDesiredValue == undefined) {
+                var short_name = buildShortNameById(id);
+                browser.setValue(id, user[short_name]);
+                browser.waitForElementNotVisible(idOfTheField, 1000);
+            }
+            if(nonDesiredValue) {
+
+                if(nonDesiredValue.length == undefined) {
+                    nonDesiredValue = [nonDesiredValue];
+                }
+                if(nonDesiredValue != "undefined")
+                    nonDesiredValue.forEach((value, index) => {
+                        browser.setValue(id, value);
+                        browser.keys("\uE004");
+                        browser.waitForElementNotVisible(idOfTheField, 1000);
+                    });
+
+            }
+        },
+
+        date: function(browser, id, nonDesiredValue, user, field, idOfTheField) {
+            if (nonDesiredValue) {
+                var parts = nonDesiredValue.split("-");
+                browser.setValue(id+"_year", parts[0]);
+                browser.setValue(id+"_month", parts[1]);
+                browser.setValue(id+"_day", parts[2]);
+            }
+            browser.waitForElementNotVisible(idOfTheField, 1000);
+        }
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    this.caculateNotFulFillingValue = {
+
+        eq: function(dependency, fieldIWantToChange, desiredValue){
+            if(dependency.value_type == "integer") {
+                var nonDesiredValue = [];
+                fieldIWantToChange.options.forEach((option, index) => {
+                    if(option.key != desiredValue){
+                        nonDesiredValue.push(option.value);
+                    }
+                });
+                return nonDesiredValue;
+            }
+            if (dependency.value_type == "bool")
+                return !desiredValue;
+            if (dependency.value_type == "date"){
+                var parts = desiredValue.split("-");
+                parts[0] = parseInt(parts[0])+1;
+                var newVal = parts.join("-");
+                return newVal;
+            }
+        },
+        gt: function(dependency, fieldIWantToChange, desiredValue){
+
+            return dependency.value;
+
+        },
+        in: function(dependency, fieldIWantToChange, desiredValue){
+            if(dependency.value_type == "integer") {
+                var nonDesiredValue = [];
+                fieldIWantToChange.options.forEach((option, index) => {
+                    if(desiredValue.indexOf(option.key) == -1){
+                        nonDesiredValue.push(option.value);
+                    }
+                });
+                return nonDesiredValue;
+            }
+        },
+        ne: function(dependency, fieldIWantToChange, desiredValue){
+            if(dependency.value_type == "integer") {
+                var nonDesiredValue = [];
+                fieldIWantToChange.options.forEach((option, index) => {
+                    if(desiredValue.indexOf(option.value) == -1){
+                        nonDesiredValue.push(option.value);
+                    }
+                });
+                return nonDesiredValue;
+            }
+            return dependency.value;
+
+        }
+
+    };
+
+
+    this.calculateFullFillingValue = {
+        eq: function(dependency, fieldIWantToChange) {
+            return dependency.value;
+        },
+
+        gt: function(dependency, fieldIWantToChange) {
+            if (dependency.value_type == "date"){
+                var parts = dependency.value.split("-");
+                parts[0] = parseInt(parts[0])+1;
+                var newVal = parts.join("-");
+                return newVal;
+            }
+            return dependency.value + 1;
+        },
+
+        in: function(dependency, fieldIWantToChange) {
+            return dependency.value;
+        },
+
+        ne: function(dependency, fieldIWantToChange){
+            if(dependency.value_type == "integer") {
+                var desiredValue = [];
+                if(fieldIWantToChange.options) {
+                    fieldIWantToChange.options.forEach((option, index) => {
+
+                        if (option.key != dependency.value) {
+                            desiredValue.push(option.value);
+                        }
+                    });
+                }
+                return desiredValue;
+            }
+            if (dependency.value_type == "date"){
+                var parts = dependency.value.split("-");
+                parts[0] = parseInt(parts[0])+1;
+                var newVal = parts.join("-");
+                return newVal;
+            }
+            if (dependency.value_type == "bool")
+                return !dependency.value;
+
+        }
+    };
+
     this.findDependentField = function (name, raceFieldCollection){
 
         var result = false;
@@ -29,79 +284,6 @@ module.exports = new function() {
             }
         });
         return result;
-    };
-
-
-
-    this.calculateFullFillingValue = {
-        eq: function(value) {
-            return value;
-        },
-
-        gt: function(value) {
-            return value + 1;
-        },
-
-        in: function(value) {
-            return value;
-        },
-
-        ne: function(value){
-            return value;
-        }
-    };
-
-    this.setAValueAndCheckTheDependency = {
-
-        checkbox: function(browser, dependency, desiredValue, id, user, idOfTheField) {
-            // if(desiredValue) {
-            //     browser.click("#data_0_Inscription_newClub");
-            //     browser.keys("\uE004");
-            //     browser.pause(3000);
-            //     browser.verify.elementPresent(idOfTheField);
-            //     browser.click("#data_0_Inscription_newClub");
-            //     browser.keys("\uE004");
-            //     browser.pause(3000);
-            //     browser.verify.elementNotPresent(idOfTheField);
-            // }
-            // if(!desiredValue){
-            //     browser.verify.elementPresent(idOfTheField);
-            //     browser.pause(3000);
-            //     browser.click("#data_0_Inscription_newClub");
-            //     browser.keys("\uE004");
-            //     browser.pause(3000);
-            //     browser.verify.elementNotPresent(idOfTheField);
-            //     // browser.pause(3000);
-            // }
-        },
-
-        select: function(browser, dependency, desiredValue, id, user) {
-            // if(desiredValue) {
-            //     var short_name = buildShortNameById(id);
-            //
-            //     if (desiredValue == "undefined")
-            //         browser.setValue(id, user[short_name]);
-            //
-            //     for (var i = 0; i < desiredValue; i++) {
-            //         browser.keys("\uE015");
-            //     }
-            //     browser.keys("\uE004");
-            //
-            // }
-
-        },
-
-        date: function(browser, dependency, desiredValue, id) {
-            // if (desiredValue) {
-            //     var selector = dependency.field + "[year]";
-            //     id = buildIdByName(selector);
-            //     var parts = desiredValue.split("-");
-            //     browser.setValue(id, (parseInt(parts[0]) + 1));
-            //     browser.keys("\uE004");
-            //
-            // }
-
-        }
     };
 
 

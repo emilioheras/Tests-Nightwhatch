@@ -16,30 +16,25 @@ module.exports = {
         var races   = dataBuilder.buildTestData(api);
         races.forEach(function (race) {
             race.events.forEach(function (event) {
-                
                 if (event.form) {
                     navegation.goToEventPage(browser, race.id, event.id);
                     var user = userBuilder.buildAppropriateUser(event.form.fields, event);
                 }
-                
                 if(event.form.steps && event.form.steps.length) {
                     event.form.steps = formFunctions.recalculateStepsForTeamInscriptions(event.form.steps, user);
-                    
                     event.form.steps.forEach((step, index) => {
-
                         if (formFunctions.stepIsAnInscription(step, browser)){
                             navegation.clickImRegisteringAFriend(browser);
                         }else{
                             formFunctions.fillStepFields(browser, user);
                             navegation.goToNextStep(browser);
                         }
-                        
                         event.form.fields.forEach(function (field) {
                             if(field && field.dependent) {
-                               formFunctions.fulfillDependencies(browser, field, user, event.form.fields);
+                               formFunctions.checkTheDependencies(browser, field, user, event.form.fields);
+
                             }
                         });
-
                     });
                 }
             });
