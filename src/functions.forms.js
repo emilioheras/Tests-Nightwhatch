@@ -1,27 +1,56 @@
 
 
 module.exports = new function() {
+
     
 
+    this.generateArrayOfIdsFromTheCurrentStep = function(browser) {
 
-    this.checkTheDependencies = function(browser, field, user, raceFieldCollection) {
-        var id = buildIdByName(field.dependent.field);
-        var idOfTheField = buildIdByName(field.name);
-        var fieldIWantToChange = this.findDependentField(field.dependent.field, raceFieldCollection);
+        this.doSomethingWithAllFieldsFromCurrentGroup(browser, function (result) {
+            browser.execute(function () {
+                var arrayIds = [];
+                result.value.forEach((item, index) => {
 
-        //calcular los valores posibles
-            var desiredValue = this.calculateFullFillingValue[field.dependent.condition](field.dependent, fieldIWantToChange);
-            var nonDesiredValue = this.caculateNotFulFillingValue[field.dependent.condition](field.dependent, fieldIWantToChange, desiredValue);
-        //
-        //
-        //
-            this.setTheValueAndCheckThatFieldIsPresent[fieldIWantToChange.type](browser, id, desiredValue, user, fieldIWantToChange, idOfTheField);
-            this.setTheValueAndCheckThatFieldIsNotPresent[fieldIWantToChange.type](browser, id, nonDesiredValue, user, fieldIWantToChange, idOfTheField);
-
+                    var id = '#' + item.id;
+                    arrayIds.push(id);
+                });
+                console.log(arrayIds);
+                return arrayIds;
+            });
+        });
     };
 
 
-    this.setTheValueAndCheckThatFieldIsPresent = {
+    this.checkDependenciesFromStepFields = function(browser, field, user, raceFieldCollection, idOfTheDependencyField, arrayStepIds) {
+        
+        // if (arrayStepIds.indexOf(idOfTheDependencyField) != -1) {
+        //     var idOfTheField = this.buildIdByName(field.name);
+        //     var fieldIWantToChange = this.findDependentField(field.dependent.field, raceFieldCollection);
+        //     //calcular los valores posibles
+        //     var desiredValue = this.calculateFullFillingValue[field.dependent.condition](field.dependent, fieldIWantToChange);
+        //     var nonDesiredValue = this.caculateNotFulFillingValue[field.dependent.condition](field.dependent, fieldIWantToChange, desiredValue);
+        //
+        //     browser.execute(function (idOfTheDependencyField) {
+        //         var classOfField = $(idOfTheDependencyField).hasClass("form-control locked");
+        //         return classOfField;
+        //     }, [idOfTheDependencyField], function (result) {
+        //         if (!result.value) {
+        //             setTheValueAndCheckThatFieldIsPresent[fieldIWantToChange.type](browser, idOfTheDependencyField, desiredValue, user, fieldIWantToChange, idOfTheField);
+        //             setTheValueAndCheckThatFieldIsNotPresent[fieldIWantToChange.type](browser, idOfTheDependencyField, nonDesiredValue, user, fieldIWantToChange, idOfTheField);
+        //         }
+        //     });
+        // }
+    };
+
+
+
+
+
+
+
+
+
+    setTheValueAndCheckThatFieldIsPresent = {
 
         checkbox: function(browser, id, desiredValue, user, field, idOfTheField) {
             browser.moveToElement(id, 10, 10);
@@ -78,7 +107,7 @@ module.exports = new function() {
             browser.waitForElementVisible(idOfTheField, 1000);
         }
     };
-    this.setTheValueAndCheckThatFieldIsNotPresent = {
+    setTheValueAndCheckThatFieldIsNotPresent = {
 
         checkbox: function(browser, id, nonDesiredValue, user, field, idOfTheField) {
             browser.moveToElement(id, 10, 10);
@@ -138,37 +167,7 @@ module.exports = new function() {
             browser.waitForElementNotVisible(idOfTheField, 1000);
         }
     };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
 
@@ -298,7 +297,7 @@ module.exports = new function() {
         return short_name;
     };
 
-    buildIdByName = function(name){
+    this.buildIdByName = function(name){
         var id = name.replace(/\]\[|\[/g,"_");
         id = "#" + id.replace("]","");
         return id;
@@ -516,7 +515,7 @@ module.exports = new function() {
 
         return result;
     };
-
+    
     this.fillStepFields = function(browser, user) {
 
         this.doSomethingWithAllFieldsFromCurrentGroup(browser, function(result) {
