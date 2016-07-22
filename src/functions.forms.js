@@ -4,42 +4,37 @@ module.exports = new function() {
 
     
 
-    this.generateArrayOfIdsFromTheCurrentStep = function(browser) {
-
-        this.doSomethingWithAllFieldsFromCurrentGroup(browser, function (result) {
-            browser.execute(function () {
-                var arrayIds = [];
-                result.value.forEach((item, index) => {
-
-                    var id = '#' + item.id;
-                    arrayIds.push(id);
-                });
-                console.log(arrayIds);
-                return arrayIds;
-            });
+    this.generateArrayOfIdsFromTheCurrentStep = function(fields, step) {
+        var object ={};
+        var arrayOfIdsOfTheCurrentStep=[];
+        fields.forEach((field) => {
+           if(field.group.key == step){
+               var id = this.buildIdByName(field.name);
+               arrayOfIdsOfTheCurrentStep.push(id);
+           }
         });
+        object[step]=arrayOfIdsOfTheCurrentStep;
+        return object;
     };
 
 
-    this.checkDependenciesFromStepFields = function(browser, field, user, raceFieldCollection, idOfTheDependencyField, arrayStepIds) {
+    this.checkDependenciesFromStepFields = function(browser, field, user, raceFieldCollection, idOfTheDependencyField) {
+            var idOfTheField = this.buildIdByName(field.name);
+            var fieldIWantToChange = this.findDependentField(field.dependent.field, raceFieldCollection);
+            var desiredValue = this.calculateFullFillingValue[field.dependent.condition](field.dependent, fieldIWantToChange);
+            var nonDesiredValue = this.caculateNotFulFillingValue[field.dependent.condition](field.dependent, fieldIWantToChange, desiredValue);
+
+            browser.execute(function (idOfTheDependencyField) {
+                var classOfField = $(idOfTheDependencyField).hasClass("form-control locked");
+                return classOfField;
+            }, [idOfTheDependencyField], function (result) {
+                if (!result.value) {
+                    setTheValueAndCheckThatFieldIsPresent[fieldIWantToChange.type](browser, idOfTheDependencyField, desiredValue, user, fieldIWantToChange, idOfTheField);
+                    setTheValueAndCheckThatFieldIsNotPresent[fieldIWantToChange.type](browser, idOfTheDependencyField, nonDesiredValue, user, fieldIWantToChange, idOfTheField);
+                }
+            });
+
         
-        // if (arrayStepIds.indexOf(idOfTheDependencyField) != -1) {
-        //     var idOfTheField = this.buildIdByName(field.name);
-        //     var fieldIWantToChange = this.findDependentField(field.dependent.field, raceFieldCollection);
-        //     //calcular los valores posibles
-        //     var desiredValue = this.calculateFullFillingValue[field.dependent.condition](field.dependent, fieldIWantToChange);
-        //     var nonDesiredValue = this.caculateNotFulFillingValue[field.dependent.condition](field.dependent, fieldIWantToChange, desiredValue);
-        //
-        //     browser.execute(function (idOfTheDependencyField) {
-        //         var classOfField = $(idOfTheDependencyField).hasClass("form-control locked");
-        //         return classOfField;
-        //     }, [idOfTheDependencyField], function (result) {
-        //         if (!result.value) {
-        //             setTheValueAndCheckThatFieldIsPresent[fieldIWantToChange.type](browser, idOfTheDependencyField, desiredValue, user, fieldIWantToChange, idOfTheField);
-        //             setTheValueAndCheckThatFieldIsNotPresent[fieldIWantToChange.type](browser, idOfTheDependencyField, nonDesiredValue, user, fieldIWantToChange, idOfTheField);
-        //         }
-        //     });
-        // }
     };
 
 
@@ -55,10 +50,13 @@ module.exports = new function() {
         checkbox: function(browser, id, desiredValue, user, field, idOfTheField) {
             browser.moveToElement(id, 10, 10);
             if(desiredValue){
+                browser.pause(300);
                 browser.click(id);
+                browser.pause(300);
                 browser.keys("\uE004");
                 browser.waitForElementVisible(idOfTheField, 1000);
                 browser.click(id);
+                browser.pause(300);
             }else{
                 browser.keys("\uE004");
                 browser.waitForElementVisible(idOfTheField, 1000);
@@ -67,7 +65,7 @@ module.exports = new function() {
 
         radio: function(browser, id, desiredValue, user, field, idOfTheField) {
             browser.moveToElement(id, 10, 10);
-            if (nonDesiredValue) {
+            if (desiredValue) {
                 browser.click(id);
                 browser.keys("\uE004");
                 browser.waitForElementNotVisible(idOfTheField, 1000);
@@ -112,10 +110,13 @@ module.exports = new function() {
         checkbox: function(browser, id, nonDesiredValue, user, field, idOfTheField) {
             browser.moveToElement(id, 10, 10);
             if(nonDesiredValue){
+                browser.pause(300);
                 browser.click(id);
+                browser.pause(300);
                 browser.keys("\uE004");
                 browser.waitForElementNotVisible(idOfTheField, 1000);
                 browser.click(id);
+                browser.pause(300);
             }else{
                 browser.keys("\uE004");
                 browser.waitForElementNotVisible(idOfTheField, 1000);
@@ -537,7 +538,7 @@ module.exports = new function() {
                     return false;
                 
                 var desiredValue = user[item.name];
-
+                browser.moveToElement(id, 10, 10);
                 browser.setValue(id, desiredValue);
                 browser.click("body");
                 browser.pause(300);
