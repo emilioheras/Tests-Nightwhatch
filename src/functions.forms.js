@@ -249,6 +249,7 @@ module.exports = new function() {
 
         browser.execute(this.detectStepFields, [], callBack.bind(this));
     };
+
     
     this.detectStepFields = function() {
         var result = [];
