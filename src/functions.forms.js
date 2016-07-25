@@ -2,7 +2,55 @@
 
 module.exports = new function() {
 
+    this.getPriceOptions = function(field){
+
+        if(field.price){
+            return [parseFloat(field.price)];
+        }
+
+        if(field.options && field.options.length > 1){
+            var prices = [];
+            field.options.forEach((option, index) => {
+                if(option.price != undefined)
+                    prices.push(option.price);
+            });
+            if(prices.length)
+                return prices;
+        }
+    };
+
+
+
+
+    this.doSomethingWithThePrice= function(browser, callBack){
+        browser.execute(this.getCurrentPrice, [] , callBack.bind(this));
+    };
+
+
+    this.getCurrentPrice = function(){
+
+        var currentPrice = $("#the-price > tbody > tr:last-child > td:last-child").text();
+        return currentPrice;
+    };
+
+
+    this.getTheModifiedPrice = function(browser, posiblePrice ){
+
+
+        this.doSomethingWithThePrice(browser, function(result) {
+            var currentPrice = parseFloat(result.value.replace("€", ""));
+            var modificationPrice = parseFloat(posiblePrice);
+            var modifiedPrice = currentPrice + modificationPrice;
+            return modifiedPrice;
+
+        });
+    };
     
+
+
+
+
+
 
     this.generateArrayOfIdsFromTheCurrentStep = function(fields, step) {
         var object ={};
@@ -36,6 +84,10 @@ module.exports = new function() {
 
         
     };
+
+
+
+
 
     setTheValueAndCheckThatFieldIsPresent = {
 
