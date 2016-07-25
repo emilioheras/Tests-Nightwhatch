@@ -44,8 +44,9 @@ module.exports = new function() {
             if (steps.match(/FETRI/)) {
                 user = baseUserFetri;
             }
-            if (steps.match(/Team/))
+            if (steps.match(/Team/)) {
                 user = baseUserTeam;
+            }
         }
         return user;
 

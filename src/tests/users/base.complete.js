@@ -6,7 +6,7 @@ module.exports = {
 	"mail":"user@gmail.com",
 	"verify_email":"user@gmail.com",
 	"dni":"22584205E",
-	"tipodni":"0",
+	"tipodni":"DNI",
 	"gender":"0",
 	"dateofbirthday":"1973-Agosto-05",
 	"prefix_phone":"34",
