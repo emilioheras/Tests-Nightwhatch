@@ -37,7 +37,7 @@ module.exports = {
                                         //Aqui hay que segun el tipo de campo hacer una cosa u otra(click, setValue...)
                                         
                                         //Este selector va mal, no lo encuentra
-                                        browser.assert.value("#the-price > tbody > tr.u-fw-600.u-fz-md > td.u-whs-nw.u-bd-n", "hola");
+                                        browser.assert.value("#the-price > tbody > tr:last-child > td:last-child", "hola");
                                     });
                                 }
                             }
