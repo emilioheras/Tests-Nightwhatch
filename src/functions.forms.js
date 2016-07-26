@@ -42,7 +42,6 @@ module.exports = new function() {
                 browser.click(id);
                 browser.pause(1000);
                 var modifiedPrice = currentPrice + option;
-                console.log(option);
             }
             if(typeof option == "object"){
                 browser.setValue(id, option.value);
@@ -51,14 +50,10 @@ module.exports = new function() {
                 var modifiedPrice = currentPrice + option.price;
                 if(id.match(/selprice/) && option.key != ""){
                     var modifiedPrice = option.price;
-                    console.log(option.price)
                 }
-                console.log(option.price);
             }
 
             var value = modifiedPrice+"";
-            console.log(typeof value);
-            console.log(value);
             if (value.indexOf(".") == -1){
                 value = value+".00";
             }
