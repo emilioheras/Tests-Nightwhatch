@@ -7,7 +7,7 @@ var api             = "http://api.local.sportmaniacs.com";
 
 module.exports = {
 
-    "Test Formularios" : function (browser) {
+    "Test Forms" : function (browser) {
         
         var races = dataBuilder.buildTestData(api);
 

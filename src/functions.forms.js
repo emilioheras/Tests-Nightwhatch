@@ -12,40 +12,78 @@ module.exports = new function() {
             var prices = [];
             field.options.forEach((option, index) => {
                 if(option.price != undefined)
-                    prices.push(option.price);
+                    prices.push(option);
             });
-            if(prices.length)
+            if(prices.length) {
                 return prices;
+            }
         }
     };
-
-
-
+    
 
     this.doSomethingWithThePrice= function(browser, callBack){
-        browser.execute(this.getCurrentPrice, [] , callBack.bind(this));
+        browser.execute(this.getCurrentPrice, [browser] , callBack.bind(this));
     };
 
 
-    this.getCurrentPrice = function(){
-
+    this.getCurrentPrice = function(browser){
         var currentPrice = $("#the-price > tbody > tr:last-child > td:last-child").text();
         return currentPrice;
     };
 
-
-    this.getTheModifiedPrice = function(browser, posiblePrice ){
-
+    
+    this.checkPricesToEachChange = function(browser, option, id){
 
         this.doSomethingWithThePrice(browser, function(result) {
-            var currentPrice = parseFloat(result.value.replace("€", ""));
-            var modificationPrice = parseFloat(posiblePrice);
-            var modifiedPrice = currentPrice + modificationPrice;
-            return modifiedPrice;
+            var currentPrice = result.value.replace("€", "");
+            currentPrice = parseFloat(currentPrice);
+            if(typeof option == "number") {
+                browser.moveToElement("#custom-content > fieldset > div.subgroups-container.animated.fadeInDown > div:nth-child(6) > h2", 10, 10);
+                browser.click(id);
+                browser.pause(1000);
+                var modifiedPrice = currentPrice + option;
+                console.log(option);
+            }
+            if(typeof option == "object"){
+                browser.setValue(id, option.value);
+                browser.keys("\uE004");
+                browser.pause(1000);
+                var modifiedPrice = currentPrice + option.price;
+                if(id.match(/selprice/) && option.key != ""){
+                    var modifiedPrice = option.price;
+                    console.log(option.price)
+                }
+                console.log(option.price);
+            }
+
+            var value = modifiedPrice+"";
+            console.log(typeof value);
+            console.log(value);
+            if (value.indexOf(".") == -1){
+                value = value+".00";
+            }
+
+            if(value.match(/\../) && !value.match(/\.../)){
+                value = value+"0";
+            }
+
+            value = value+"€";
+            browser.getText("#the-price > tbody > tr:last-child > td:last-child", function(result) {
+                this.assert.equal(result.value, value);
+            });
+            if(typeof option == "number") {
+                browser.click(id);
+                browser.pause(1000);
+            }
+            if(typeof option == "object"){
+                browser.setValue(id, "Elige una opción");
+                browser.keys("\uE004");
+                browser.pause(1000);
+                var modifiedPrice = currentPrice + option.price;
+            }
 
         });
     };
-    
 
 
 

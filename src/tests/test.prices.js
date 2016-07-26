@@ -16,6 +16,7 @@ module.exports = {
         var races   = dataBuilder.buildTestData(api);
         races.forEach(function (race) {
             race.events.forEach(function (event) {
+                console.log("***************************"+event.id+"***************************");
                 if (event.form) {
                     navegation.goToEventPage(browser, race.id, event.id);
                     var user = userBuilder.buildAppropriateUser(event.form.fields, event);
@@ -25,27 +26,23 @@ module.exports = {
                     event.form.steps.forEach((step, index) => {
                         if (formFunctions.stepIsAnInscription(step, browser)) {
                             navegation.clickImRegisteringAFriend(browser);
-                        }
-                        event.form.fields.forEach(function (field) {
-                            if (field.isPrice) {
-                                var id = formFunctions.buildIdByName(field.name);
-                                var priceOptions = formFunctions.getPriceOptions(field);
-
-                                if(priceOptions) {
-                                    priceOptions.forEach((price, index) => {
-                                        var modifiedPrice = formFunctions.getTheModifiedPrice(browser, price);
-                                        //Aqui hay que segun el tipo de campo hacer una cosa u otra(click, setValue...)
-                                        
-                                        //Este selector va mal, no lo encuentra
-                                        browser.assert.value("#the-price > tbody > tr:last-child > td:last-child", "hola");
-                                    });
+                            event.form.fields.forEach(function (field) {
+                                if (field.isPrice && !field.ws) {
+                                    var id = formFunctions.buildIdByName(field.name);
+                                    var priceOptions = formFunctions.getPriceOptions(field);
+                                    if (formFunctions.stepIsAnInscription(step, browser)) {
+                                        if (priceOptions) {
+                                            priceOptions.forEach((option, index) => {
+                                                formFunctions.checkPricesToEachChange(browser, option, id);
+                                            });
+                                        }
+                                    }
                                 }
-                            }
-                        });
-                        // if (!formFunctions.stepIsAnInscription(step, browser) || typeOfEvent == 11) {
-                        //     formFunctions.fillStepFields(browser, user);
-                        //     navegation.goToNextStep(browser);
-                        // }
+                            });
+                        }else{
+                            formFunctions.fillStepFields(browser, user);
+                            navegation.goToNextStep(browser);
+                        }
                     });
                 }
             });
