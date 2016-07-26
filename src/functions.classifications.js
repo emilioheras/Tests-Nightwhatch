@@ -38,9 +38,8 @@ module.exports = new function() {
 
     this.checkNumOfAthleteOfLastPage = function(browser, counterAthletes) {    	 
         this.doSomethingWithTheNumAthletes(browser, function(result) {
-        	var realCounterAthletes = counterAthletes + 50;
-        	var restOfAthletes = result.value - realCounterAthletes;
-        	var total = realCounterAthletes + restOfAthletes;
+        	var restOfAthletes = counterAthletes - result.value;
+        	var total = counterAthletes - restOfAthletes;
             browser.assert.equal(result.value, total);
         }
     )};
