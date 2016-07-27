@@ -1,21 +1,10 @@
- 
+
 module.exports = new function() {
 
     this.calculateNumberOfPagesWithAthletes = function(browser, numberOfAthletes) {
         var numberOfPages = numberOfAthletes / 50;
         numberOfPages = Math.ceil(numberOfPages);
         return numberOfPages;
-    };
-
-    this.calculateNumberOfRowsInTheTable = function(browser) {
-    	// var numberOfRows = document.getElementById("ranking-table-renderer").rows.length -1;
-    	
-    	var id = "#ranking-table-renderer > tbody > tr";
-    	var rows = `${id}`;
-    	var numberOfRows = rows.length;
-    	console.log(numberOfRows);
-    	
-    	return numberOfRows;
     };
 
     this.detectNumberOfAthletesPerPage = function() {
@@ -41,6 +30,38 @@ module.exports = new function() {
         	var restOfAthletes = counterAthletes - result.value;
         	var total = counterAthletes - restOfAthletes;
             browser.assert.equal(result.value, total);
+        })
+    };
+
+    this.getListOfTimes = function() {
+        var listOfTimesInSeconds = [];
+        var stringSingleTime = "";
+        var timeInSeconds = 0;
+        var numberOfRows = $("#ranking-table-renderer > tbody > tr").length;
+
+        for (var i=1; i<=numberOfRows; i++) {
+            stringSingleTime = $("tr.table-tr:nth-child(" + i + ") > td:nth-child(5)").text();
+
+            var dataTime = stringSingleTime.split(":");
+            timeInSeconds = parseInt(dataTime[0])*3600 + parseInt(dataTime[1])*60 + parseInt(dataTime[2]);
+            listOfTimesInSeconds[i-1] = timeInSeconds;
         }
-    )};
+        return listOfTimesInSeconds;
+    };
+
+    this.doSomethingWithTheListOfTimes = function(browser, callBack) {
+
+        browser.execute(this.getListOfTimes, [], callBack.bind(this));
+    };
+
+    this.checkTheOrderOfTimes = function(browser) {
+        this.doSomethingWithTheListOfTimes(browser, function(result) {
+            var arrayOfTimes = result.value;
+            var cloneArrayOfTimes = result.value.slice(0);
+            cloneArrayOfTimes = cloneArrayOfTimes.sort(function (a, b) {return a - b;});
+
+            for (var i=0; i<arrayOfTimes.length; i++)
+                browser.assert.equal(arrayOfTimes[i], cloneArrayOfTimes[i]);
+        })
+    };
 };
