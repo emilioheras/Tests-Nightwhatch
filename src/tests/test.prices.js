@@ -16,7 +16,6 @@ module.exports = {
         var races   = dataBuilder.buildTestData(api);
         races.forEach(function (race) {
             race.events.forEach(function (event) {
-                console.log("***************************"+event.id+"***************************");
                 if (event.form) {
                     navegation.goToEventPage(browser, race.id, event.id);
                     var user = userBuilder.buildAppropriateUser(event.form.fields, event);

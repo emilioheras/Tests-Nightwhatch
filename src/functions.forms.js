@@ -2,6 +2,9 @@
 
 module.exports = new function() {
 
+
+//**************************Funciones de precios*******************************************
+
     this.getPriceOptions = function(field){
 
         if(field.price){
@@ -37,6 +40,8 @@ module.exports = new function() {
         this.doSomethingWithThePrice(browser, function(result) {
             var currentPrice = result.value.replace("€", "");
             currentPrice = parseFloat(currentPrice);
+            
+            
             if(typeof option == "number") {
                 browser.moveToElement("#custom-content > fieldset > div.subgroups-container.animated.fadeInDown > div:nth-child(6) > h2", 10, 10);
                 browser.click(id);
@@ -52,19 +57,12 @@ module.exports = new function() {
                     var modifiedPrice = option.price;
                 }
             }
+            
+            var desiredValue = this.giveFormatToThePrice(modifiedPrice);
 
-            var value = modifiedPrice+"";
-            if (value.indexOf(".") == -1){
-                value = value+".00";
-            }
 
-            if(value.match(/\../) && !value.match(/\.../)){
-                value = value+"0";
-            }
-
-            value = value+"€";
             browser.getText("#the-price > tbody > tr:last-child > td:last-child", function(result) {
-                this.assert.equal(result.value, value);
+                this.assert.equal(result.value, desiredValue);
             });
             if(typeof option == "number") {
                 browser.click(id);
@@ -74,16 +72,34 @@ module.exports = new function() {
                 browser.setValue(id, "Elige una opción");
                 browser.keys("\uE004");
                 browser.pause(1000);
-                var modifiedPrice = currentPrice + option.price;
             }
 
         });
     };
 
 
+    this.giveFormatToThePrice = function(modifiedPrice){
+        var value = modifiedPrice+"";
+        if (value.indexOf(".") == -1){
+            value = value+".00";
+        }
+
+        if(value.match(/\../) && !value.match(/\.../)){
+            value = value+"0";
+        }
+
+        value = value+"€";
+        return value;
+    };
 
 
 
+
+
+
+
+//**************************Funciones de dependencias*******************************************
+    
 
     this.generateArrayOfIdsFromTheCurrentStep = function(fields, step) {
         var object ={};
@@ -117,10 +133,7 @@ module.exports = new function() {
 
         
     };
-
-
-
-
+    
 
     setTheValueAndCheckThatFieldIsPresent = {
 
@@ -240,14 +253,7 @@ module.exports = new function() {
         }
     };
     
-
-
-
-
-
-
-
-
+    
     this.caculateNotFulFillingValue = {
 
         eq: function(dependency, fieldIWantToChange, desiredValue){
@@ -387,22 +393,10 @@ module.exports = new function() {
 
 
 
-
-
-
-
-
-
-
-
-
     
 
 
-
-
-
-
+//**************************Funciones de inscripciones*******************************************
 
 
 
