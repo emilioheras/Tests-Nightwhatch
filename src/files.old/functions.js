@@ -21,7 +21,7 @@ Utils = function() {
 
 	this.singUpIfNotExistAccount = function(browser, name, surname, email, password, day, month, year, dni, phone, club, address, postalCode, country) {
 		this.logout(browser);
-		this.login(browser, 'user+test00@gmail.com' , '123456');
+		this.login(browser, 'alberto@sportmaniacs.com' , '123456');
 		browser.pause(2000);
 		if (browser.assert.elementPresent(".alert")) {
 			this.createNewAcount(browser, name, surname, email, password);
@@ -174,7 +174,7 @@ Utils = function() {
 
 	// this.enterValidOrInvalidDocumentNumber = function (browser) { //Inscripcion Supersprint
 	// 	this.logout(browser);
-	//  	this.login(browser, 'user+test00@gmail.com' , '123456');
+	//  	this.login(browser, 'alberto@sportmaniacs.com' , '123456');
 	//  	browser.url(this.buildUrl(browser, data.supersprintInscription.eventsSupersprintInscription));
 	// };
 

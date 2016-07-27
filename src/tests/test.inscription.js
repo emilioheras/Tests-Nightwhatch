@@ -13,9 +13,12 @@ var api             = "http://api.local.sportmaniacs.com";
 module.exports = {
 
     "Test Inscriptions" : function (browser) {
-        navegation.login(browser, "user+test00@gmail.com", "123456");
+        navegation.login(browser, "alberto@sportmaniacs.com", "123456");
         var races   = dataBuilder.buildTestData(api);
         races.forEach(function (race) {
+            browser.getLog(race.name, function(){
+                console.log(race.name);
+            });
             race.events.forEach(function (event) {
                 if (event.form) {
                     navegation.goToEventPage(browser, race.id, event.id);
@@ -31,8 +34,18 @@ module.exports = {
                         formFunctions.fillStepFields(browser, user);
                         navegation.goToNextStep(browser);
                     });
-                    navegation.clickOnPayButton(browser);
-                    formFunctions.checkInscriptionEndedOk(browser);
+                    browser.getText("#the-price > tbody > tr:last-child > td:last-child", function (result) {
+                        console.log(result.value);
+                        var valor = result.value.replace("€", "")
+                        valor = parseInt(valor);
+                        console.log(valor);
+                        navegation.clickOnPayButton(browser);
+                        if(valor > 0){
+                            formFunctions.ImOnTheTPV(browser);
+                        }else{
+                            formFunctions.ImOnTheThankyouPage(browser);
+                        }
+                    });
                 }
             });
         });

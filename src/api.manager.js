@@ -9,8 +9,8 @@ module.exports = new function() {
     this.getRacesFromApi = function(api){
         var currentDate = navegation.currentDate();
 
-        var races= request('GET', `${api}/api/races/164`);
-        // var races = request('GET', `${api}/api/races?limit=5&date=${currentDate}&page=1`);
+        // var races= request('GET', `${api}/api/races/el-cueto-el-oso-2016`);
+        var races = request('GET', `${api}/api/races?limit=50&date=2016-08-13&page=1`);
         // var races = request('GET', `${api}/api/services/races/inscriptions/form/375`); 
         
         races = this.imTestingOneOrMoreRaces(races);

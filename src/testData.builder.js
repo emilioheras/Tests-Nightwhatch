@@ -8,7 +8,7 @@ module.exports = new function() {
 
     this.buildTestData = function(api) {
         var races = manager.getRacesFromApi(api);
-        var data = raceBuilder.transform(races);
+        var data =  raceBuilder.transform(races);
         return data;
     }
 

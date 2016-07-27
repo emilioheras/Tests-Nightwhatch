@@ -610,8 +610,14 @@ module.exports = new function() {
 
                 browser.pause(300);
 
+                if (id.match(/selprice/)){
+                    browser.click(id);
+                    browser.keys(['\uE015', '\uE006']);
+                }
+
                 if (id.match(/value/)){
                     if (id) {
+                        browser.pause(300);
                         this.fillExtraFields(browser, id, item);
                     }
                     browser.pause(300);
@@ -645,8 +651,9 @@ module.exports = new function() {
     this.fillExtraFields = function(browser, id, item){
         browser.getTagName(id, function(result) {
             if (result.value == "select") {
+                browser.moveToElement(id, 10, 10);
                 browser.click(id);
-                browser.keys(['\uE015', '\uE006']);
+                browser.keys(['\uE015']);
             }
             if (item.type == "text") {
                 browser.setValue(id, "ExtraExtra");
@@ -655,6 +662,7 @@ module.exports = new function() {
             if (item.type == "radio" || item.type == "checkbox"){
                 browser.waitForElementPresent(id, 2000);
                 browser.click(id);
+
             }
         });
     };
@@ -668,6 +676,11 @@ module.exports = new function() {
     };
     this.ImOnTheTPV = function(browser) {
         browser.assert.urlContains('realizarPago');
+        browser.setValue("#inputCard", "4548812049400004");
+        browser.setValue("#cad1", "12");
+        browser.setValue("#cad2", "20");
+        browser.setValue("#codseg", "123");
+        browser.click("#divImgAceptar");
     };
     
 };

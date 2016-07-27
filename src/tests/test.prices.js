@@ -12,7 +12,7 @@ var api             = "http://api.local.sportmaniacs.com";
 module.exports = {
 
     "Test Prices" : function (browser) {
-        navegation.login(browser, "user+test00@gmail.com", "123456");
+        navegation.login(browser, "alberto@sportmaniacs.com", "123456");
         var races   = dataBuilder.buildTestData(api);
         races.forEach(function (race) {
             race.events.forEach(function (event) {

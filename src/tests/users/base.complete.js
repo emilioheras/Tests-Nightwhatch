@@ -1,10 +1,9 @@
 module.exports = {
-	"selprice": "Gratis por tu cara bonita",
 	"name":"user",
 	"surname":"user",
 	"pass":"123456",
-	"mail":"user@gmail.com",
-	"verify_email":"user@gmail.com",
+	"mail":"alberto@sportmaniacs.com",
+	"verify_email":"alberto@sportmaniacs.com",
 	"dni":"22584205E",
 	"tipodni":"DNI",
 	"gender":"0",

@@ -12,16 +12,23 @@ module.exports = new function() {
     };
 
     this.buildRace = function(race) {
-        race.events.forEach((event) => {
-            this.buildEvent(event);
-        });
-        return race;
+        if(race.events) {
+            race.events.forEach((event) => {
+                this.buildEvent(event);
+            });
+            return race;
+        } else {
+            console.log(race);
+        }
     };
 
     this.buildEvent = function(event) {
-        if (event)
+        if (event) {
             this.createFormSteps(event);
-        return event;
+            return event;
+        }else{
+                console.log(event);
+        }
     };
 
     this.createFormSteps = function(event) {
