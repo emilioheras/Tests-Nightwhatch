@@ -7,6 +7,10 @@ var baseUrl         = "http://web-test.local.sportmaniacs.com/es";
 
 module.exports = new function() {
 
+    this.goToTheHome = function(browser){
+        browser.url(baseUrl);
+    };
+    
     this.login = function(browser, user, pass) {
         var loginUrl = this.buildUrl(browser, "/login");
         browser.url(loginUrl);
