@@ -5,6 +5,14 @@ module.exports = new function() {
 
 //**************************Funciones de precios*******************************************
 
+    this.checkFinalPrice = function(browser, sumaryPrice) {
+        browser.getText("div.price > div.right > p", function (result) {
+            var priceOnTpv = result.value.replace(/([\ \t]+([\ \t]))/, '');
+            priceOnTpv = priceOnTpv.replace(",", ".");
+            this.assert.equal(priceOnTpv, sumaryPrice);
+        });
+    };
+
     this.getPriceOptions = function(field){
 
         if(field.price){
@@ -43,7 +51,7 @@ module.exports = new function() {
             
             
             if(typeof option == "number") {
-                browser.moveToElement("#custom-content > fieldset > div.subgroups-container.animated.fadeInDown > div:nth-child(6) > h2", 10, 10);
+                browser.moveToElement("#custom-content > fieldset > div.fadeInDown > div:last-child > h2", 10, 10);
                 browser.click(id);
                 browser.pause(1000);
                 var modifiedPrice = currentPrice + option;

@@ -29,19 +29,22 @@ module.exports = {
                                 if (field.isPrice && !field.ws) {
                                     var id = formFunctions.buildIdByName(field.name);
                                     var priceOptions = formFunctions.getPriceOptions(field);
-                                    if (formFunctions.stepIsAnInscription(step, browser)) {
-                                        if (priceOptions) {
+                                    if (formFunctions.stepIsAnInscription(step, browser))
+                                        if (priceOptions)
                                             priceOptions.forEach((option, index) => {
                                                 formFunctions.checkPricesToEachChange(browser, option, id);
                                             });
-                                        }
-                                    }
                                 }
                             });
-                        }else{
-                            formFunctions.fillStepFields(browser, user);
-                            navegation.goToNextStep(browser);
                         }
+                        formFunctions.fillStepFields(browser, user);
+                        navegation.goToNextStep(browser);
+                    });
+                    browser.getText("#the-price > tbody > tr:last-child > td:last-child", function (result) {
+                        var sumaryPrice = result.value;
+                        navegation.clickOnPayButton(browser);
+                        if (!formFunctions.ImOnTheTPV(browser))
+                            formFunctions.checkFinalPrice(browser, sumaryPrice);
                     });
                 }
             });

@@ -1,5 +1,5 @@
 module.exports = {
-	"selprice": "precio especial",
+	"selprice": "Gratis por tu cara bonita",
 	"name":"user",
 	"surname":"user",
 	"pass":"123456",
