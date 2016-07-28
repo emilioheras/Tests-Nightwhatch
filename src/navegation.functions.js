@@ -2,16 +2,13 @@
  * Created by Fran on 11/07/2016.
  */
 
-var baseUrl         = "http://web-test.local.sportmaniacs.com/es";
-// var baseUrl         = "https://sportmaniacs.com/es";
+// var baseUrl         = "http://web-test.local.sportmaniacs.com/es";
+var baseUrl         = "https://sportmaniacs.com/es";
 
 module.exports = new function() {
 
 
-    this.checkImOnTheTargetRace = function(browser, race){
-        browser.assert.urlEquals(baseUrl+"/services/inscription/"+race);
-    };
-    
+
     this.goToTheHome = function(browser){
         browser.url(baseUrl);
     };
