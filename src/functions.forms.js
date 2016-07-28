@@ -569,6 +569,7 @@ module.exports = new function() {
             var name = $(item).data("short-name");
             var id = $(item).attr("id");
             var type = $(item).attr("type");
+            var required = $(item).attr("required");
 
             if (!id)
                 return true;
@@ -590,7 +591,8 @@ module.exports = new function() {
                 result.push({
                     id: id,
                     name: name,
-                    type: type
+                    type: type,
+                    required: required
                 });
                 pushed.push(id);
             }
@@ -614,24 +616,25 @@ module.exports = new function() {
                     browser.click(id);
                     browser.keys(['\uE015', '\uE006']);
                 }
-
-                if (id.match(/value/)){
-                    if (id) {
+                if(item.required = "required") {
+                    if (id.match(/value/)) {
+                        if (id) {
+                            browser.pause(300);
+                            this.fillExtraFields(browser, id, item);
+                        }
                         browser.pause(300);
-                        this.fillExtraFields(browser, id, item);
                     }
-                    browser.pause(300);
                 }
-                
+
                 if(!user.hasOwnProperty(item.name))
                     return false;
-                
+
                 var desiredValue = user[item.name];
                 browser.pause(300);
                 browser.setValue(id, desiredValue);
                 browser.click("body");
                 browser.pause(300);
-                
+
                 if(desiredValue && !!desiredValue.match(/\d\d\d\d-\w*-\d\d?/)) {
 
                     var parts = desiredValue.split("-");
