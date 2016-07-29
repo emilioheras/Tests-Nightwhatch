@@ -12,37 +12,35 @@ module.exports = new function() {
 
     this.doSomethingWithAllRaceNames = function(browser, callBack) {
 
-        browser.execute(this.findAllRaceNamesFromTheDom, [browser], callBack.bind(this));
+        browser.execute(this.findAllRaceNamesFromTheDom, [], callBack.bind(this));
     };
 
-
-
-    this.findAllRaceNamesFromTheDom = function (browser) {
-        var numPags = $("body > main > div > div:last-child > nav > ul > li:last-child > a").text();
-
-
+    this.findAllRaceNamesFromTheDom = function () {
+        var numPaginas = $("body > main > div > div:last-child > nav > ul > li:last-child > a").text();
+        numPaginas = parseInt(numPaginas);
         var elem=$("div.card-block > h3").text();
-
-        for (var i = 2; i <= numPags; i++) {
-                browser.click("body > main > div > div:nth-child(3) > nav > ul > li:nth-child(" + i + ") > a");
-                browser.waitForElementPresent("body > main > div > div:nth-child(3) > nav > ul > li:nth-child(" + i + ") > a", 20000);
+        if (numPaginas) {
+            for (var i = 2; i <= numPaginas; i++) {
+                console.log(i);
+                $(`body > main > div > div:nth-child(3) > nav > ul > li:nth-child(${i}) > a`).click();
                 elem = elem + $("div.card-block > h3").text();
+            }
         }
-
         return elem;
     };
 
 
-    this.findTheTargetRaceOnTheResult = function(browser, name){
+    this.findTheTargetRaceOnTheResult = function(browser, name, part){
 
         this.doSomethingWithAllRaceNames(browser, function(result) {
+            browser.pause(5000);
             console.log(result.value);
+            console.log("*****TROZO DE LA CARRERA = "+ part);
             var raceNames = this.formatRaceNames(result.value);
             console.log(raceNames);
 
         });
     };
-
 
 
     this.formatRaceNames = function(elem) {

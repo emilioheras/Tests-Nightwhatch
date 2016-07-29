@@ -12,16 +12,16 @@ var api             = "http://api-beta.sportmaniacs.com";
 
 module.exports = {
 
-    // "checkTheSearchForARace": function (browser) {
-    //     navegation.goToTheHome(browser);
-    //     var races   = dataBuilder.buildTestData(api);
-    //     races.forEach(function (race) {
-    //         browser.setValue("#nameRace", race.name);
-    //         browser.click("div.col-xs-2.col-md-3 > button");
-    //         searchFunctions.checkImOnTheTargetRace(browser, race.slug);
-    //     });
-    // },
-    "checkSearchARaceByParts": function (browser) {
+    "checkTheSearchForARace": function (browser) {
+        navegation.goToTheHome(browser);
+        var races   = dataBuilder.buildTestData(api);
+        races.forEach(function (race) {
+            browser.setValue("#nameRace", race.name);
+            browser.click("div.col-xs-2.col-md-3 > button");
+            searchFunctions.checkImOnTheTargetRace(browser, race.slug);
+        });
+    },
+    "checkSearchARaceByParts": function (browser) { //No funciona
         navegation.goToTheHome(browser);
         var races   = dataBuilder.buildTestData(api);
         races.forEach(function (race) {
@@ -29,8 +29,7 @@ module.exports = {
             parts.forEach(function (part){
                 browser.setValue("#nameRace", part);
                 browser.click("div.col-xs-2.col-md-3 > button");
-                
-                searchFunctions.findTheTargetRaceOnTheResult(browser, race.name);
+                searchFunctions.findTheTargetRaceOnTheResult(browser);
                 navegation.goToTheHome(browser);
             });
         });
