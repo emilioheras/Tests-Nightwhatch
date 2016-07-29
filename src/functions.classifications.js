@@ -64,4 +64,36 @@ module.exports = new function() {
                 browser.assert.equal(arrayOfTimes[i], cloneArrayOfTimes[i]);
         })
     };
+
+    this.checkThatWeAreOnTheSamePageAfterClickingNextOrPrevious = function (browser, pageNumber, athleteNumber) {
+        for (var i=0; i<2; i++) {
+            browser.expect.element('tr.table-tr:nth-child(1) > td:nth-child(1)').text.to.equal(athleteNumber.toString());
+            browser.moveToElement('input.u-ta-c', 10, 10);
+            browser.assert.valueContains('input.u-ta-c', pageNumber.toString());
+            if(pageNumber == 1) {
+                browser.click('.u-mr-lg');
+            }else {
+                browser.click('a.nav-link:nth-child(4)');
+            }
+
+        }
+    };
+
+    this.checkThatPressingTheNextButtonWeGoToNextPage = function (browser, pageNumber, athleteNumber) {
+        browser.moveToElement('input.u-ta-c', 10, 10);
+        browser.assert.valueContains('input.u-ta-c', pageNumber.toString());
+        browser.expect.element('tr.table-tr:nth-child(1) > td:nth-child(1)').text.to.equal(athleteNumber.toString());
+    };
+
+    this.checkManualPagination = function (browser, numberOfPages) {
+        var numberOfFirstAthleteOfThePage = 1;
+        browser.moveToElement('input.u-ta-c', 10, 10);
+        for (var i = 1; i <= numberOfPages; i++) {
+            browser.clearValue('input.u-ta-c');
+            browser.setValue('input.u-ta-c', i);
+            browser.expect.element('tr.table-tr:nth-child(1) > td:nth-child(1)').text.to.equal(numberOfFirstAthleteOfThePage.toString());
+            browser.assert.valueContains('input.u-ta-c', i);
+            numberOfFirstAthleteOfThePage += 50;
+        }
+    };
 };
