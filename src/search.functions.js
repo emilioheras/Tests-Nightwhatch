@@ -1,7 +1,7 @@
 /**
  * Created by Fran on 28/07/2016.
  */
-var baseUrl         = "http://web-test.local.sportmaniacs.com/es";
+var baseUrl         = "https://sportmaniacs.com/es";
 
 module.exports = new function() {
 
@@ -20,6 +20,8 @@ module.exports = new function() {
         numPaginas = parseInt(numPaginas);
         var elem=$("div.card-block > h3").text();
         if (numPaginas) {
+
+            //ESTE FOR VA MUY RAPIDO Y NO LE DA TIEMPO A HACER EL PROCESO
             for (var i = 2; i <= numPaginas; i++) {
                 console.log(i);
                 $(`body > main > div > div:nth-child(3) > nav > ul > li:nth-child(${i}) > a`).click();

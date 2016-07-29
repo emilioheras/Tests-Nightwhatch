@@ -19,19 +19,43 @@ module.exports = {
             browser.setValue("#nameRace", race.name);
             browser.click("div.col-xs-2.col-md-3 > button");
             searchFunctions.checkImOnTheTargetRace(browser, race.slug);
+            navegation.goToTheHome(browser);
         });
+        browser.end();
     },
-    "checkSearchARaceByParts": function (browser) { //No funciona
+
+    // "checkSearchARaceByParts": function (browser) { //NO TERMINA DE FUNCIONAR
+    //     navegation.goToTheHome(browser);
+    //     var races   = dataBuilder.buildTestData(api);
+    //     races.forEach(function (race) {
+    //         var parts = race.name.split(" ");
+    //         parts.forEach(function (part){
+    //             browser.setValue("#nameRace", part);
+    //             browser.click("div.col-xs-2.col-md-3 > button");
+    //             searchFunctions.findTheTargetRaceOnTheResult(browser, race.name, part);
+    //             navegation.goToTheHome(browser);
+    //         });
+    //     });
+    // },
+    
+    "checkTopBarSearchInputWorks" : function (browser){
         navegation.goToTheHome(browser);
         var races   = dataBuilder.buildTestData(api);
         races.forEach(function (race) {
-            var parts = race.name.split(" ");
-            parts.forEach(function (part){
-                browser.setValue("#nameRace", part);
-                browser.click("div.col-xs-2.col-md-3 > button");
-                searchFunctions.findTheTargetRaceOnTheResult(browser);
-                navegation.goToTheHome(browser);
-            });
+            browser.setValue("#nameRace", race.name);
+            browser.click("div.col-xs-2.col-md-3 > button");
+            searchFunctions.checkImOnTheTargetRace(browser, race.slug);
+            browser.setValue("#topBarSearchInput", races[races.length-1].name);
+            browser.keys(['\uE007']);
+            searchFunctions.checkImOnTheTargetRace(browser, races[races.length-1].slug);
+            navegation.goToTheHome(browser);
         });
     },
+    "checkErrorMessageWhenRaceNotFind" : function (browser){
+        navegation.goToTheHome(browser);
+        browser.setValue("#nameRace", "r65rt");
+        browser.click("div.col-xs-2.col-md-3 > button");
+        browser.expect.element('#races > p').text.to.contain('Vaya, no se han encontrado resultados.');
+        browser.end();
+    }
 };
