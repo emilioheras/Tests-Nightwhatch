@@ -7,9 +7,7 @@ module.exports = new function() {
 
     this.checkFinalPrice = function(browser, sumaryPrice) {
         browser.getText("div.price > div.right > p", function (result) {
-            var priceOnTpv = result.value.replace(/([\ \t]+([\ \t]))/, '');
-            priceOnTpv = priceOnTpv.replace(",", ".");
-            this.assert.equal(priceOnTpv, sumaryPrice);
+            this.assert.equal(parseFloat(result.value), sumaryPrice);
         });
     };
 
@@ -609,7 +607,7 @@ module.exports = new function() {
             result.value.forEach((item, index) => {
 
                 var id = '#' + item.id;
-
+                browser.clearValue(id);
                 browser.pause(300);
 
                 if (id.match(/selprice/)){
@@ -669,14 +667,17 @@ module.exports = new function() {
             }
         });
     };
-    
-    this.checkInscriptionEndedOk = function (browser){
-        if (!this.ImOnTheTPV(browser) || this.ImOnTheThankyouPage(browser));
-    };
+
 
     this.ImOnTheThankyouPage = function(browser){
         browser.assert.urlContains('thank-you');
     };
+    
+    this.ImOnTheTPVWithoutSetPrice = function(browser){
+        browser.assert.urlContains('realizarPago');
+    };
+    
+    
     this.ImOnTheTPV = function(browser) {
         browser.assert.urlContains('realizarPago');
         browser.setValue("#inputCard", "4548812049400004");

@@ -41,10 +41,15 @@ module.exports = {
                         navegation.goToNextStep(browser);
                     });
                     browser.getText("#the-price > tbody > tr:last-child > td:last-child", function (result) {
-                        var sumaryPrice = result.value;
+                        var sumaryPrice = parseFloat(result.value);
                         navegation.clickOnPayButton(browser);
-                        if (!formFunctions.ImOnTheTPV(browser))
-                            formFunctions.checkFinalPrice(browser, sumaryPrice);
+                        console.log(sumaryPrice)
+                        if (sumaryPrice > 0) {
+                            formFunctions.ImOnTheTPVWithoutSetPrice(browser)
+                            formFunctions.checkFinalPrice(browser, sumaryPrice)
+                        }
+                        if (sumaryPrice <= 0)
+                            formFunctions.ImOnTheThankyouPage(browser)
                     });
                 }
             });

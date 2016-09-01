@@ -16,7 +16,7 @@ module.exports = {
 	"phone_emergency":"622454578",
 	"code":"46700",
 	"address":"Calle Test",
-	"country_id":"Alemania",
+	"country_id":"Deutschland",
 	"province_id":"Bremen",
 	"city_id":"Bremerhaven",
 	"club":"SIN CLUB",

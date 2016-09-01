@@ -2,8 +2,8 @@
  * Created by Fran on 11/07/2016.
  */
 
-// var baseUrl         = "http://web-test.local.sportmaniacs.com/es";
-var baseUrl         = "https://sportmaniacs.com/es";
+var baseUrl         = "http://web-test.local.sportmaniacs.com/es";
+// var baseUrl         = "https://sportmaniacs.com/es";
 
 module.exports = new function() {
 
@@ -56,11 +56,10 @@ module.exports = new function() {
         browser.click(".form-nav .btn.btn-primary.u-fl-r");
         browser.pause(3000);
         browser.waitForElementNotVisible(".plainoverlay", 50000);
-
     };
 
     this.clickOnPayButton = function (browser){
-        browser.waitForElementVisible('.pay', 300);
+        browser.waitForElementVisible('.pay', 30000);
         browser.click(".pay");
     };
     

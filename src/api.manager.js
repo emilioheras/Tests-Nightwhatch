@@ -10,8 +10,8 @@ module.exports = new function() {
         var currentDate = navegation.currentDate();
         
 //***********************************Carreras a testear***********************************************************/
-//         var races= request('GET', `${api}/api/races/164`);
-        var races = request('GET', `${api}/api/races?limit=2&date=2016-08-13&page=1`);
+     var races= request('GET', `${api}/api/races/164`);
+        // var races = request('GET', `${api}/api/races?limit=5&date=${currentDate}&page=1`);
         // var races = request('GET', `${api}/api/services/races/inscriptions/form/375`);
 //****************************************************************************************************************/
         
