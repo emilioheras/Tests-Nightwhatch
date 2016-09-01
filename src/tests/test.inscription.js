@@ -27,7 +27,6 @@ module.exports = {
                 if(event.form.steps && event.form.steps.length) {
                     event.form.steps = formFunctions.recalculateStepsForTeamInscriptions(event.form.steps, user);
                     event.form.steps.forEach((step, index) => {
-                        
                         if(formFunctions.stepIsAnInscription(step))
                             navegation.clickImRegisteringAFriend(browser);
                         
@@ -35,16 +34,14 @@ module.exports = {
                         navegation.goToNextStep(browser);
                     });
                     browser.getText("#the-price > tbody > tr:last-child > td:last-child", function (result) {
-                        console.log(result.value);
-                        var valor = result.value.replace("€", "")
-                        valor = parseInt(valor);
-                        console.log(valor);
+                        var sumaryPrice = parseFloat(result.value);
                         navegation.clickOnPayButton(browser);
-                        if(valor > 0){
-                            formFunctions.ImOnTheTPV(browser);
-                        }else{
-                            formFunctions.ImOnTheThankyouPage(browser);
+                        if (sumaryPrice > 0) {
+                            formFunctions.checkFinalPrice(browser, sumaryPrice)
+                            formFunctions.ImOnTheTPV(browser)
                         }
+                        if (sumaryPrice <= 0)
+                            formFunctions.ImOnTheThankyouPage(browser)
                     });
                 }
             });

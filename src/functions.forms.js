@@ -600,7 +600,7 @@ module.exports = new function() {
         return result;
     };
     
-    this.fillStepFields = function(browser, user) {
+    this.fillStepFields = function(browser, user, event) {
 
         this.doSomethingWithAllFieldsFromCurrentGroup(browser, function(result) {
 
@@ -634,7 +634,7 @@ module.exports = new function() {
                 browser.pause(300);
 
                 if(desiredValue && !!desiredValue.match(/\d\d\d\d-\w*-\d\d?/)) {
-
+                    
                     var parts = desiredValue.split("-");
                     browser.setValue(id+"_year", parts[0]);
                     browser.setValue(id+"_month", parts[1]);

@@ -43,7 +43,6 @@ module.exports = {
                     browser.getText("#the-price > tbody > tr:last-child > td:last-child", function (result) {
                         var sumaryPrice = parseFloat(result.value);
                         navegation.clickOnPayButton(browser);
-                        console.log(sumaryPrice)
                         if (sumaryPrice > 0) {
                             formFunctions.ImOnTheTPVWithoutSetPrice(browser)
                             formFunctions.checkFinalPrice(browser, sumaryPrice)

@@ -17,6 +17,15 @@ module.exports = new function() {
             var correctUser = this.chooseAppropriateUser(event);
             var result = correctUser;
             var fields = this.extractShortNames(formFields);
+            if(formFields)
+            formFields.forEach((field, index) => {
+                if (field.name.match(/dateofbirthday/)) {
+                    if(result.dateofbirthday > field.maxValue) //para chequear que no este en el rago el > es <
+                        var parts = field.maxValue.split("-");
+                        console.log(parseInt(parts[0])+1) //tenemos que sumar un año
+                    //tenemos que reconstruir el result.dateofbirthday con el año sumado del fieldmaxValue
+                }
+            });
             for (var field in result) {
                 if (fields.indexOf(field) == -1)
                     delete result[field];
