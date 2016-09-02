@@ -10,6 +10,33 @@ var baseUserRfea        = require("./tests/users/rfea.valid.complete");
 
 
 module.exports = new function() {
+
+    this.buildAnArrayOfInappropriateUsers = function (formFields, event) {
+
+        if (event) {
+            var correctUser = this.chooseAppropriateUser(event);
+            var result = correctUser;
+            result.dni = "88888888";
+            result.phone = "76637";
+            result.mail = "holaaaPgmail.com";
+            console.log(result)
+            var fields = this.extractShortNames(formFields);
+            if(formFields)
+                formFields.forEach((field, index) => {
+                    if (field.name.match(/dateofbirthday/)) {
+                        if(result.dateofbirthday < field.maxValue)
+                            result.dateofbirthday = this.chooseInappropriateDate(result.dateofbirthday, field.maxValue);
+                    }
+
+                });
+            for (var field in result) {
+                if (fields.indexOf(field) == -1)
+                    delete result[field];
+            }
+        }
+        if(Object.keys(result).length)
+            return result;
+    };
     
     this.buildAppropriateUser = function (formFields, event) {
 
@@ -39,7 +66,13 @@ module.exports = new function() {
         dateofbirthday = (parseInt(partsDateMinValue[0])+1)+"-"+partsDateActualValue[1]+"-"+partsDateActualValue[2];
         return dateofbirthday;
     };
-
+    this.chooseInappropriateDate = function (dateofbirthday, maxValue) {
+        var partsDateMinValue = maxValue.split("-");
+        var partsDateActualValue = dateofbirthday.split("-");
+        dateofbirthday = (parseInt(partsDateMinValue[0])-1)+"-"+partsDateActualValue[1]+"-"+partsDateActualValue[2];
+        console.log(dateofbirthday)
+        return dateofbirthday;
+    };
 
     this.chooseAppropriateUser = function (event) {
 

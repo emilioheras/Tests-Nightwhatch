@@ -603,7 +603,7 @@ module.exports = new function() {
 
         return result;
     };
-    
+
     this.fillStepFields = function(browser, user) {
 
         this.doSomethingWithAllFieldsFromCurrentGroup(browser, function(result) {
@@ -618,15 +618,8 @@ module.exports = new function() {
                     browser.click(id);
                     browser.keys(['\uE015', '\uE006']);
                 }
-                if (id.match(/value/)) {
-                    if(item.required == "required") {
-                        if (id) {
-                            browser.pause(300);
-                            this.fillExtraFields(browser, id, item);
-                        }
-                        browser.pause(300);
-                    }
-                }
+                if (id.match(/value/))
+                    this.fillExtraFields(browser, id, item);
 
                 if(!user.hasOwnProperty(item.name))
                     return false;
@@ -636,7 +629,7 @@ module.exports = new function() {
                 browser.setValue(id, desiredValue);
                 browser.click("body");
                 browser.pause(300);
-
+                console.log(desiredValue+"**********"+id);
                 if(desiredValue && !!desiredValue.match(/\d\d\d\d-\w*-\d\d?/)) {
                     
                     var parts = desiredValue.split("-");
@@ -652,25 +645,72 @@ module.exports = new function() {
         });
         return false;
     };
-    
-    this.fillExtraFields = function(browser, id, item){
-        browser.getTagName(id, function(result) {
 
-            if (result.value == "select") {
-                browser.moveToElement(id, 10, 10);
-                browser.click(id);
-                browser.keys(['\uE015']);
-            }
-            if (item.type == "text") {
-                browser.setValue(id, "ExtraExtra");
-            }
+    this.fillWrongStepFields = function(browser, user) {
 
-            if (item.type == "radio" || item.type == "checkbox"){
-                browser.waitForElementPresent(id, 2000);
-                browser.click(id);
+        this.doSomethingWithAllFieldsFromCurrentGroup(browser, function(result) {
 
-            }
+            result.value.forEach((item, index) => {
+
+                var id = '#' + item.id;
+                browser.clearValue(id);
+                browser.pause(300);
+
+                if (id.match(/selprice/)){
+                    browser.click(id);
+                    browser.keys(['\uE015', '\uE006']);
+                }
+
+                if(!user.hasOwnProperty(item.name))
+                    return false;
+
+                var desiredValue = user[item.name];
+                browser.pause(300);
+                browser.setValue(id, desiredValue);
+                browser.click("body");
+                browser.pause(300);
+                console.log(desiredValue+"**********"+id);
+                if(desiredValue && !!desiredValue.match(/\d\d\d\d-\w*-\d\d?/)) {
+
+                    var parts = desiredValue.split("-");
+                    browser.setValue(id+"_year", parts[0]);
+                    browser.setValue(id+"_month", parts[1]);
+                    browser.setValue(id+"_day", parts[2]);
+                }
+
+                if (item.type == "radio" || item.type == "checkbox") {
+                    browser.click(id + "_" + desiredValue);
+                }
+            });
         });
+        return false;
+    };
+
+
+
+    this.fillExtraFields = function(browser, id, item){
+        if(item.required == "required") {
+            if (id) {
+                browser.pause(300);
+                browser.getTagName(id, function (result) {
+
+                    if (result.value == "select") {
+                        browser.moveToElement(id, 10, 10);
+                        browser.click(id);
+                        browser.keys(['\uE015']);
+                    }
+                    if (item.type == "text") {
+                        browser.setValue(id, "ExtraExtra");
+                    }
+
+                    if (item.type == "radio" || item.type == "checkbox") {
+                        browser.waitForElementPresent(id, 2000);
+                        browser.click(id);
+
+                    }
+                });
+            }
+        }
     };
 
 

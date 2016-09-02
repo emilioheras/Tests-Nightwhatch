@@ -12,25 +12,60 @@ var api             = "http://api.local.sportmaniacs.com";
 
 module.exports = {
 
-    "Test Inscriptions" : function (browser) {
+    // "Test Inscriptions" : function (browser) {
+    //     navegation.login(browser, "alberto@sportmaniacs.com", "123456");
+    //     var races   = dataBuilder.buildTestData(api);
+    //     races.forEach(function (race) {
+    //         browser.getLog(race.name, function(){
+    //             console.log(race.name);
+    //         });
+    //         race.events.forEach(function (event) {
+    //             if (event.form) {
+    //                 navegation.goToEventPage(browser, race.id, event.id);
+    //                 var user = userBuilder.buildAppropriateUser(event.form.fields, event);
+    //             }
+    //             if(event.form.steps && event.form.steps.length) {
+    //                 event.form.steps = formFunctions.recalculateStepsForTeamInscriptions(event.form.steps, user);
+    //                 event.form.steps.forEach((step, index) => {
+    //                     if(formFunctions.stepIsAnInscription(step))
+    //                         navegation.clickImRegisteringAFriend(browser);
+    //
+    //                     formFunctions.fillStepFields(browser, user);
+    //                     navegation.goToNextStep(browser);
+    //                 });
+    //                 browser.getText("#the-price > tbody > tr:last-child > td:last-child", function (result) {
+    //                     var sumaryPrice = parseFloat(result.value);
+    //                     navegation.clickOnPayButton(browser);
+    //                     if (sumaryPrice > 0) {
+    //                         formFunctions.ImOnTheTPV(browser)
+    //                     }
+    //                     if (sumaryPrice <= 0)
+    //                         formFunctions.ImOnTheThankyouPage(browser)
+    //                 });
+    //             }
+    //         });
+    //     });
+    //     browser.end()
+    // },
+    "Test Inscriptions with a bad user": function (browser) {
         navegation.login(browser, "alberto@sportmaniacs.com", "123456");
-        var races   = dataBuilder.buildTestData(api);
+        var races = dataBuilder.buildTestData(api);
         races.forEach(function (race) {
-            browser.getLog(race.name, function(){
+            browser.getLog(race.name, function () {
                 console.log(race.name);
             });
             race.events.forEach(function (event) {
                 if (event.form) {
                     navegation.goToEventPage(browser, race.id, event.id);
-                    var user = userBuilder.buildAppropriateUser(event.form.fields, event);
+                    var user = userBuilder.buildAnArrayOfInappropriateUsers(event.form.fields, event);
                 }
-                if(event.form.steps && event.form.steps.length) {
+                if (event.form.steps && event.form.steps.length) {
                     event.form.steps = formFunctions.recalculateStepsForTeamInscriptions(event.form.steps, user);
                     event.form.steps.forEach((step, index) => {
-                        if(formFunctions.stepIsAnInscription(step))
+                        if (formFunctions.stepIsAnInscription(step))
                             navegation.clickImRegisteringAFriend(browser);
-                        
-                        formFunctions.fillStepFields(browser, user);
+
+                        formFunctions.fillWrongStepFields(browser, user);
                         navegation.goToNextStep(browser);
                     });
                     browser.getText("#the-price > tbody > tr:last-child > td:last-child", function (result) {
