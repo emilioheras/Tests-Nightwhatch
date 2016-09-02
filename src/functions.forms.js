@@ -621,7 +621,6 @@ module.exports = new function() {
                 if (id.match(/value/)) {
                     if(item.required == "required") {
                         if (id) {
-                            console.log(id)
                             browser.pause(300);
                             this.fillExtraFields(browser, id, item);
                         }

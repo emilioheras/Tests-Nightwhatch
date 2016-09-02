@@ -42,7 +42,6 @@ module.exports = {
                     });
                     browser.getText("#the-price > tbody > tr:last-child > td:last-child", function (result) {
                         var sumaryPrice = parseFloat(result.value);
-                        console.log(sumaryPrice)
                         navegation.clickOnPayButton(browser);
                         if (sumaryPrice > 0) {
                             formFunctions.ImOnTheTPVWithoutSetPrice(browser)
