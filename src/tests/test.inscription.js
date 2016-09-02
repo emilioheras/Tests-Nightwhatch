@@ -37,7 +37,6 @@ module.exports = {
                         var sumaryPrice = parseFloat(result.value);
                         navegation.clickOnPayButton(browser);
                         if (sumaryPrice > 0) {
-                            formFunctions.checkFinalPrice(browser, sumaryPrice)
                             formFunctions.ImOnTheTPV(browser)
                         }
                         if (sumaryPrice <= 0)

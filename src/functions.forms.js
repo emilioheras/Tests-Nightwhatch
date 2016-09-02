@@ -5,9 +5,13 @@ module.exports = new function() {
 
 //**************************Funciones de precios*******************************************
 
+
+
     this.checkFinalPrice = function(browser, sumaryPrice) {
         browser.getText("div.price > div.right > p", function (result) {
-            this.assert.equal(parseFloat(result.value), sumaryPrice);
+            var currentPrice = result.value.replace("€", "");
+            currentPrice = currentPrice.replace(",", ".");
+            this.assert.equal(parseFloat(currentPrice), sumaryPrice);
         });
     };
 
@@ -600,7 +604,7 @@ module.exports = new function() {
         return result;
     };
     
-    this.fillStepFields = function(browser, user, event) {
+    this.fillStepFields = function(browser, user) {
 
         this.doSomethingWithAllFieldsFromCurrentGroup(browser, function(result) {
 
@@ -614,9 +618,10 @@ module.exports = new function() {
                     browser.click(id);
                     browser.keys(['\uE015', '\uE006']);
                 }
-                if(item.required = "required") {
-                    if (id.match(/value/)) {
+                if (id.match(/value/)) {
+                    if(item.required == "required") {
                         if (id) {
+                            console.log(id)
                             browser.pause(300);
                             this.fillExtraFields(browser, id, item);
                         }
@@ -651,6 +656,7 @@ module.exports = new function() {
     
     this.fillExtraFields = function(browser, id, item){
         browser.getTagName(id, function(result) {
+
             if (result.value == "select") {
                 browser.moveToElement(id, 10, 10);
                 browser.click(id);

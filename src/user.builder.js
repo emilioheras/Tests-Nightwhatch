@@ -20,10 +20,8 @@ module.exports = new function() {
             if(formFields)
             formFields.forEach((field, index) => {
                 if (field.name.match(/dateofbirthday/)) {
-                    if(result.dateofbirthday > field.maxValue) //para chequear que no este en el rago el > es <
-                        var parts = field.maxValue.split("-");
-                        console.log(parseInt(parts[0])+1) //tenemos que sumar un año
-                    //tenemos que reconstruir el result.dateofbirthday con el año sumado del fieldmaxValue
+                    if(result.dateofbirthday < field.maxValue)
+                      result.dateofbirthday = this.chooseAppropriateDate(result.dateofbirthday, field.maxValue);
                 }
             });
             for (var field in result) {
@@ -34,7 +32,13 @@ module.exports = new function() {
         if(Object.keys(result).length)
             return result;
     };
-
+    
+    this.chooseAppropriateDate = function (dateofbirthday, maxValue) {
+        var partsDateMinValue = maxValue.split("-");
+        var partsDateActualValue = dateofbirthday.split("-");
+        dateofbirthday = (parseInt(partsDateMinValue[0])+1)+"-"+partsDateActualValue[1]+"-"+partsDateActualValue[2];
+        return dateofbirthday;
+    };
 
 
     this.chooseAppropriateUser = function (event) {
