@@ -57,15 +57,24 @@ module.exports = {
             race.events.forEach(function (event) {
                 if (event.form) {
                     navegation.goToEventPage(browser, race.id, event.id);
-                    var user = userBuilder.buildAnArrayOfInappropriateUsers(event.form.fields, event);
+                    var userBad = userBuilder.buildAnInappropriateUser(event.form.fields, event);
+                    var user = userBuilder.buildAppropriateUser(event.form.fields, event);
                 }
                 if (event.form.steps && event.form.steps.length) {
                     event.form.steps = formFunctions.recalculateStepsForTeamInscriptions(event.form.steps, user);
                     event.form.steps.forEach((step, index) => {
                         if (formFunctions.stepIsAnInscription(step))
                             navegation.clickImRegisteringAFriend(browser);
-
-                        formFunctions.fillWrongStepFields(browser, user);
+                        formFunctions.fillWrongStepFields(browser, userBad);
+                        browser.getAttribute("#the-body a.formSteps-item.formSteps-item--active", "title", function (result) {
+                            var titleCurrentStep = result.value;
+                            navegation.goToNextStep(browser);
+                            browser.getAttribute("#the-body a.formSteps-item.formSteps-item--active", "title", function (result) {
+                                this.assert.equal(result.value, titleCurrentStep);
+                            });
+                        });
+                        formFunctions.clearStepFields(browser);
+                        formFunctions.fillStepFields(browser, user);
                         navegation.goToNextStep(browser);
                     });
                     browser.getText("#the-price > tbody > tr:last-child > td:last-child", function (result) {

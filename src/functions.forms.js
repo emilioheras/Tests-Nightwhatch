@@ -559,7 +559,23 @@ module.exports = new function() {
 
         browser.execute(this.detectStepFields, [], callBack.bind(this));
     };
-    
+
+
+
+
+    this.clearStepFields = function(browser) {
+
+        this.doSomethingWithAllFieldsFromCurrentGroup(browser, function(result) {
+
+            result.value.forEach((item, index) => {
+                var id = '#' + item.id;
+                browser.clearValue(id);
+            });
+        });
+    };
+
+
+
     this.detectStepFields = function() {
         var result = [];
         var fields = $(".form-register fieldset.active [name]:not([type=hidden])");
@@ -629,7 +645,6 @@ module.exports = new function() {
                 browser.setValue(id, desiredValue);
                 browser.click("body");
                 browser.pause(300);
-                console.log(desiredValue+"**********"+id);
                 if(desiredValue && !!desiredValue.match(/\d\d\d\d-\w*-\d\d?/)) {
                     
                     var parts = desiredValue.split("-");
@@ -669,7 +684,6 @@ module.exports = new function() {
                 browser.setValue(id, desiredValue);
                 browser.click("body");
                 browser.pause(300);
-                console.log(desiredValue+"**********"+id);
                 if(desiredValue && !!desiredValue.match(/\d\d\d\d-\w*-\d\d?/)) {
 
                     var parts = desiredValue.split("-");
