@@ -8,10 +8,19 @@ module.exports = new function() {
 
     this.getRacesFromApi = function(api){
         var currentDate = navegation.currentDate();
+<<<<<<< HEAD
 
         var races= request('GET', `${api}/api/races/164`);
         // var races = request('GET', `${api}/api/races?limit=5&date=${currentDate}&page=1`); 
         // var races = request('GET', `${api}/api/services/races/inscriptions/form/375`); 
+=======
+        
+//***********************************Carreras a testear***********************************************************/
+     var races= request('GET', `${api}/api/races/164`);
+        // var races = request('GET', `${api}/api/races?limit=5&date=${currentDate}&page=1`);
+        // var races = request('GET', `${api}/api/services/races/inscriptions/form/375`);
+//****************************************************************************************************************/
+>>>>>>> release/Release-1
         
         races = this.imTestingOneOrMoreRaces(races);
         

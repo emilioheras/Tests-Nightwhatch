@@ -12,6 +12,7 @@ module.exports = new function() {
     };
 
     this.buildRace = function(race) {
+<<<<<<< HEAD
         race.events.forEach((event) => {
             this.buildEvent(event);
         });
@@ -22,6 +23,25 @@ module.exports = new function() {
         if (event)
             this.createFormSteps(event);
         return event;
+=======
+        if(race.events) {
+            race.events.forEach((event) => {
+                this.buildEvent(event);
+            });
+            return race;
+        } else {
+            console.log(race);
+        }
+    };
+
+    this.buildEvent = function(event) {
+        if (event) {
+            this.createFormSteps(event);
+            return event;
+        }else{
+                console.log(event);
+        }
+>>>>>>> release/Release-1
     };
 
     this.createFormSteps = function(event) {
