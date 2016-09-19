@@ -56,13 +56,13 @@ module.exports = new function() {
                 browser.moveToElement("#custom-content > fieldset > div.fadeInDown > div:last-child > h2", 10, 10);
                 browser.click(id);
                 browser.pause(1000);
-                var modifiedPrice = currentPrice + option;
+                var modifiedPrice = option;
             }
             if(typeof option == "object"){
                 browser.setValue(id, option.value);
                 browser.keys("\uE004");
                 browser.pause(1000);
-                var modifiedPrice = currentPrice + option.price;
+                var modifiedPrice = option.price;
                 if(id.match(/selprice/) && option.key != ""){
                     var modifiedPrice = option.price;
                 }
@@ -72,7 +72,8 @@ module.exports = new function() {
 
 
             browser.getText("#the-price > tbody > tr:last-child > td:last-child", function(result) {
-                this.assert.equal(result.value, desiredValue);
+                browser.pause(2000);
+                this.verify.equal(result.value, desiredValue);
             });
             if(typeof option == "number") {
                 browser.click(id);

@@ -17,8 +17,12 @@ module.exports = new function() {
             var correctUser = this.chooseAppropriateUser(event);
             var result = correctUser;
             result.dni = "88888888";
+            result.dni_validate= "44444";
             result.phone = "76637";
+            result.license_type_validate = "Menor de 16 años";
+            result.birth_validate="1990-Agosto-04";
             result.mail = "holaaaPgmail.com";
+            result.teamtype= "perogrullo";
             result.code = 333444;
             var fields = this.extractShortNames(formFields);
             if(formFields)

@@ -18,6 +18,13 @@ module.exports = new function() {
         this.fillLoginform(browser, user, pass);
         browser.click("button[data-async-form-submit]");
     };
+    this.tryLoginWithAIncorrectEmail = function (browser, user, pass) {
+        var loginUrl = this.buildUrl(browser, "/login");
+        browser.url(loginUrl);
+        user = "alberto.sport";
+        this.fillLoginform(browser, user, pass);
+        browser.click("button[data-async-form-submit]");
+    };
 
     this.currentDate = function () {
         var today = new Date();
