@@ -21,6 +21,9 @@ module.exports = {
                 console.log(race.name);
             });
             race.events.forEach(function (event) {
+                browser.getLog(race.name, function(){
+                    console.log(race.event);
+                });
                 if (event.form) {
                     navegation.goToEventPage(browser, race.id, event.id);
                     var user = userBuilder.buildAppropriateUser(event.form.fields, event);
@@ -28,6 +31,9 @@ module.exports = {
                 if(event.form.steps && event.form.steps.length) {
                     event.form.steps = formFunctions.recalculateStepsForTeamInscriptions(event.form.steps, user);
                     event.form.steps.forEach((step, index) => {
+                        browser.getLog(step, function(){
+                            console.log(step);
+                        });
                         if(formFunctions.stepIsAnInscription(step))
                             navegation.clickImRegisteringAFriend(browser);
 
