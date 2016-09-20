@@ -50,6 +50,7 @@ module.exports = {
         browser.end()
     },
     "Test Inscriptions with a bad user": function (browser) {
+        browser.resizeWindow(1900, 1200);
         navegation.login(browser, "alberto@sportmaniacs.com", "123456");
         var races = dataBuilder.buildTestData(api);
         races.forEach(function (race) {

@@ -12,6 +12,7 @@ var api             = "http://api.local.sportmaniacs.com";
 module.exports = {
 
     "Test Forms" : function (browser) {
+        browser.resizeWindow(1900, 1200);
         
         var races = dataBuilder.buildTestData(api);
 
