@@ -29,9 +29,8 @@ module.exports = {
                     event.form.steps.forEach((step, index) => {
                         if (formFunctions.stepIsAnInscription(step)) {
                             navegation.clickImRegisteringAFriend(browser);
-                            navegation.waitForAjaxResponse(browser);
                         }
-
+                        navegation.waitForAjaxResponse(browser);
                         formFunctions.fillStepFields(browser, user);
                         navegation.goToNextStep(browser);
                     });
