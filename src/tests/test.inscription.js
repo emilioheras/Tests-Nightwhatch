@@ -17,15 +17,14 @@ module.exports = {
         navegation.login(browser, "alberto@sportmaniacs.com", "123456");
         var races   = dataBuilder.buildTestData(api);
         races.forEach(function (race) {
-            browser.getLog(race.name, function(){
-                console.log(race.name);
-            });
+
             race.events.forEach(function (event) {
                 if (event.form) {
                     navegation.goToEventPage(browser, race.id, event.id);
                     var user = userBuilder.buildAppropriateUser(event.form.fields, event);
                 }
                 if(event.form.steps && event.form.steps.length) {
+                    browser.verify.urlContains(race.id, "Testing the event " + event.id + " of the race " + race.id);
                     event.form.steps = formFunctions.recalculateStepsForTeamInscriptions(event.form.steps, user);
                     event.form.steps.forEach((step, index) => {
                         if (formFunctions.stepIsAnInscription(step)) {
