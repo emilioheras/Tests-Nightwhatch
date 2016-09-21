@@ -13,33 +13,36 @@ module.exports = new function() {
 
     this.buildAnInappropriateUser = function (formFields, event) {
 
-        if (event) {
-            var correctUser = this.chooseAppropriateUser(event);
-            var result = correctUser;
-            result.dni = "88888888";
-            result.dni_validate= "44444";
-            result.phone = "76637";
-            result.license_type_validate = "Menor de 16 años";
-            result.birth_validate="1990-Agosto-04";
-            result.mail = "holaaaPgmail.com";
-            result.teamtype= "perogrullo";
-            result.code = 333444;
+        if (event ) {
+            var correctUser = this.buildAppropriateUser(formFields, event);
+            var incorrectUser = JSON.parse(JSON.stringify(correctUser));
+            incorrectUser.name="user";
+            incorrectUser.dni = "88888888";
+            incorrectUser.dni_validate= "44444";
+            incorrectUser.phone = "76637";
+            incorrectUser.license_type_validate = "Menor de 16 años";
+            incorrectUser.birth_validate="1990-Agosto-04";
+            incorrectUser.mail = "holaaaPgmail.com";
+            incorrectUser.code = "333444";
+            incorrectUser.team="";
+            incorrectUser.teamtype="Equipo de 2";
             var fields = this.extractShortNames(formFields);
             if(formFields)
                 formFields.forEach((field, index) => {
                     if (field.name.match(/dateofbirthday/)) {
-                        if(result.dateofbirthday >= field.maxValue)
-                            result.dateofbirthday = this.chooseAppropriateDate(result.dateofbirthday, field.maxValue);
+                        if(incorrectUser.dateofbirthday >= field.maxValue)
+                            incorrectUser.dateofbirthday = this.chooseAppropriateDate(incorrectUser.dateofbirthday, field.maxValue);
                     }
 
                 });
-            for (var field in result) {
+            for (var field in incorrectUser) {
                 if (fields.indexOf(field) == -1)
-                    delete result[field];
+                    delete incorrectUser[field];
             }
         }
-        if(Object.keys(result).length)
-            return result;
+
+        return incorrectUser;
+
     };
     
     this.buildAppropriateUser = function (formFields, event) {
@@ -60,8 +63,8 @@ module.exports = new function() {
                     delete result[field];
             }
         }
-        if(Object.keys(result).length)
-            return result;
+
+        return result;
     };
     
     this.chooseAppropriateDate = function (dateofbirthday, maxValue) {

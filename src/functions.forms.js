@@ -1,4 +1,4 @@
-
+var navegation      = require("./navegation.functions");
 
 module.exports = new function() {
 
@@ -153,11 +153,11 @@ module.exports = new function() {
             if(desiredValue){
                 browser.click(id);
                 browser.keys("\uE004");
-                browser.waitForElementVisible(idOfTheField, 1000);
+                browser.waitForElementVisible(idOfTheField, 1000, "The element %s has been visible %d");
                 browser.click(id);
             }else{
                 browser.keys("\uE004");
-                browser.waitForElementVisible(idOfTheField, 1000);
+                browser.waitForElementVisible(idOfTheField, 1000, "The element %s has been visible %d");
             }
         },
 
@@ -166,11 +166,11 @@ module.exports = new function() {
             if (desiredValue) {
                 browser.click(id);
                 browser.keys("\uE004");
-                browser.waitForElementNotVisible(idOfTheField, 1000);
+                browser.waitForElementNotVisible(idOfTheField, 1000, "The element %s has been visible %d");
                 browser.click(id);
             } else {
                 browser.keys("\uE004");
-                browser.waitForElementNotVisible(idOfTheField, 1000);
+                browser.waitForElementNotVisible(idOfTheField, 1000, "The element %s has been visible %d");
             }
         },
 
@@ -179,7 +179,7 @@ module.exports = new function() {
                 var short_name = buildShortNameById(id);
                 browser.setValue(id, user[short_name]);
                 browser.keys("\uE004");
-                browser.waitForElementVisible(idOfTheField, 1000);
+                browser.waitForElementVisible(idOfTheField, 1000, "The element %s has been visible %d");
             }
             if(desiredValue) {
 
@@ -189,7 +189,7 @@ module.exports = new function() {
                 desiredValue.forEach((value, index) => {
                     browser.setValue(id, value);
                     browser.keys("\uE004");
-                    browser.waitForElementVisible(idOfTheField, 1000);
+                    browser.waitForElementVisible(idOfTheField, 1000, "The element %s has been visible %d");
                 });
             }
         },
@@ -201,7 +201,7 @@ module.exports = new function() {
                 browser.setValue(id+"_month", parts[1]);
                 browser.setValue(id+"_day", parts[2]);
             }
-            browser.waitForElementVisible(idOfTheField, 1000);
+            browser.waitForElementVisible(idOfTheField, 1000, "The element %s has been visible %d");
         }
     };
     setTheValueAndCheckThatFieldIsNotPresent = {
@@ -211,11 +211,11 @@ module.exports = new function() {
             if(nonDesiredValue){
                 browser.click(id);
                 browser.keys("\uE004");
-                browser.waitForElementNotVisible(idOfTheField, 1000);
+                browser.waitForElementNotVisible(idOfTheField, 1000, "The element %s has dissapear visible %d");
                 browser.click(id);
             }else{
                 browser.keys("\uE004");
-                browser.waitForElementNotVisible(idOfTheField, 1000);
+                browser.waitForElementNotVisible(idOfTheField, 1000, "The element %s has dissapear visible %d");
             }
         },
 
@@ -224,11 +224,11 @@ module.exports = new function() {
             if(nonDesiredValue){
                 browser.click(id);
                 browser.keys("\uE004");
-                browser.waitForElementNotVisible(idOfTheField, 1000);
+                browser.waitForElementNotVisible(idOfTheField, 1000, "The element %s has dissapear visible %d");
                 browser.click(id);
             }else{
                 browser.keys("\uE004");
-                browser.waitForElementNotVisible(idOfTheField, 1000);
+                browser.waitForElementNotVisible(idOfTheField, 1000, "The element %s has dissapear visible %d");
             }
         },
 
@@ -236,7 +236,7 @@ module.exports = new function() {
             if (nonDesiredValue == undefined) {
                 var short_name = buildShortNameById(id);
                 browser.setValue(id, user[short_name]);
-                browser.waitForElementNotVisible(idOfTheField, 1000);
+                browser.waitForElementNotVisible(idOfTheField, 1000, "The element %s has dissapear visible %d");
             }
             if(nonDesiredValue) {
 
@@ -247,7 +247,7 @@ module.exports = new function() {
                     nonDesiredValue.forEach((value, index) => {
                         browser.setValue(id, value);
                         browser.keys("\uE004");
-                        browser.waitForElementNotVisible(idOfTheField, 1000);
+                        browser.waitForElementNotVisible(idOfTheField, 1000, "The element %s has dissapear visible %d");
                     });
 
             }
@@ -260,7 +260,7 @@ module.exports = new function() {
                 browser.setValue(id+"_month", parts[1]);
                 browser.setValue(id+"_day", parts[2]);
             }
-            browser.waitForElementNotVisible(idOfTheField, 1000);
+            browser.waitForElementNotVisible(idOfTheField, 1000, "The element %s has been present %d");
         }
     };
     
@@ -624,7 +624,6 @@ module.exports = new function() {
     this.fillStepFields = function(browser, user) {
 
         this.doSomethingWithAllFieldsFromCurrentGroup(browser, function(result) {
-
             result.value.forEach((item, index) => {
 
                 var id = '#' + item.id;
@@ -669,7 +668,7 @@ module.exports = new function() {
             result.value.forEach((item, index) => {
 
                 var id = '#' + item.id;
-                browser.clearValue(id);
+
                 browser.pause(300);
 
                 if (id.match(/selprice/)){
@@ -703,6 +702,26 @@ module.exports = new function() {
 
 
 
+
+    this.detectStepErrors = function(){
+        var result = $(".form-control-danger");
+        return result.length;
+    };
+
+
+
+
+
+
+    this.checkIfImInTheSameStep = function(browser) {
+        browser.getAttribute("#the-body a.formSteps-item.formSteps-item--active", "title", function (result) {
+            var titleCurrentStep = result.value;
+            navegation.goToNextStep(browser);
+            browser.verify.attributeEquals("#the-body a.formSteps-item.formSteps-item--active","title", titleCurrentStep, "I can´t change to another step");
+        });
+    };
+
+
     this.fillExtraFields = function(browser, id, item){
         if(item.required == "required") {
             if (id) {
@@ -730,16 +749,16 @@ module.exports = new function() {
 
 
     this.ImOnTheThankyouPage = function(browser){
-        browser.assert.urlContains('thank-you');
+        browser.assert.urlContains('thank-you', 'The inscription is free and finishes on the Thankyou Page');
     };
     
     this.ImOnTheTPVWithoutSetPrice = function(browser){
-        browser.assert.urlContains('realizarPago');
+        browser.assert.urlContains('realizarPago', 'The inscription is not free and finish on the TPV');
     };
     
     
     this.ImOnTheTPV = function(browser) {
-        browser.assert.urlContains('realizarPago');
+        browser.assert.urlContains('realizarPago', 'The inscription is not free and finish on the TPV');
         browser.setValue("#inputCard", "4548812049400004");
         browser.setValue("#cad1", "12");
         browser.setValue("#cad2", "20");

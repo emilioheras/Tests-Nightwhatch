@@ -21,9 +21,6 @@ module.exports = {
                 console.log(race.name);
             });
             race.events.forEach(function (event) {
-                browser.getLog(race.name, function(){
-                    console.log(race.event);
-                });
                 if (event.form) {
                     navegation.goToEventPage(browser, race.id, event.id);
                     var user = userBuilder.buildAppropriateUser(event.form.fields, event);
@@ -31,11 +28,10 @@ module.exports = {
                 if(event.form.steps && event.form.steps.length) {
                     event.form.steps = formFunctions.recalculateStepsForTeamInscriptions(event.form.steps, user);
                     event.form.steps.forEach((step, index) => {
-                        browser.getLog(step, function(){
-                            console.log(step);
-                        });
-                        if(formFunctions.stepIsAnInscription(step))
+                        if (formFunctions.stepIsAnInscription(step)) {
                             navegation.clickImRegisteringAFriend(browser);
+                            navegation.waitForAjaxResponse(browser);
+                        }
 
                         formFunctions.fillStepFields(browser, user);
                         navegation.goToNextStep(browser);
@@ -60,30 +56,25 @@ module.exports = {
         navegation.login(browser, "alberto@sportmaniacs.com", "123456");
         var races = dataBuilder.buildTestData(api);
         races.forEach(function (race) {
-            browser.getLog(race.name, function () {
-                console.log(race.name);
-            });
             race.events.forEach(function (event) {
+
                 if (event.form) {
                     navegation.goToEventPage(browser, race.id, event.id);
+                    var userValidData = userBuilder.buildAppropriateUser(event.form.fields, event);
                     var userBad = userBuilder.buildAnInappropriateUser(event.form.fields, event);
-                    var user = userBuilder.buildAppropriateUser(event.form.fields, event);
                 }
                 if (event.form.steps && event.form.steps.length) {
-                    event.form.steps = formFunctions.recalculateStepsForTeamInscriptions(event.form.steps, user);
+                    browser.verify.urlContains(race.id, "Testing the event " + event.id + " of the race " + race.id);
+                    event.form.steps = formFunctions.recalculateStepsForTeamInscriptions(event.form.steps, userValidData);
                     event.form.steps.forEach((step, index) => {
-                        if (formFunctions.stepIsAnInscription(step))
+                        if (formFunctions.stepIsAnInscription(step)) {
                             navegation.clickImRegisteringAFriend(browser);
+                            navegation.waitForAjaxResponse(browser);
+                        }
                         formFunctions.fillWrongStepFields(browser, userBad);
-                        browser.getAttribute("#the-body a.formSteps-item.formSteps-item--active", "title", function (result) {
-                            var titleCurrentStep = result.value;
-                            navegation.goToNextStep(browser);
-                            browser.getAttribute("#the-body a.formSteps-item.formSteps-item--active", "title", function (result) {
-                                this.verify.equal(result.value, titleCurrentStep);
-                            });
-                        });
+                        formFunctions.checkIfImInTheSameStep(browser);
                         formFunctions.clearStepFields(browser);
-                        formFunctions.fillStepFields(browser, user);
+                        formFunctions.fillStepFields(browser, userValidData);
                         navegation.goToNextStep(browser);
                     });
                     browser.getText("#the-price > tbody > tr:last-child > td:last-child", function (result) {
