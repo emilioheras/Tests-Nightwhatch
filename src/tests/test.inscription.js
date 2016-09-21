@@ -29,8 +29,9 @@ module.exports = {
                     event.form.steps.forEach((step, index) => {
                         if (formFunctions.stepIsAnInscription(step)) {
                             navegation.clickImRegisteringAFriend(browser);
+                            navegation.waitForAjaxResponse(browser);
                         }
-                        navegation.waitForAjaxResponse(browser);
+                        browser.pause(3000);
                         formFunctions.fillStepFields(browser, user);
                         navegation.goToNextStep(browser);
                     });
@@ -69,6 +70,7 @@ module.exports = {
                             navegation.clickImRegisteringAFriend(browser);
                             navegation.waitForAjaxResponse(browser);
                         }
+                        browser.pause(3000);
                         formFunctions.fillWrongStepFields(browser, userBad);
                         formFunctions.checkIfImInTheSameStep(browser);
                         formFunctions.clearStepFields(browser);
