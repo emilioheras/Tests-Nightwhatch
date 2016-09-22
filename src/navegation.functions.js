@@ -47,7 +47,7 @@ module.exports = new function() {
 
         browser.execute(function () {
             $(document).ajaxComplete(function() {
-                
+
             });
         });
     };
@@ -65,6 +65,7 @@ module.exports = new function() {
 
     this.clickImRegisteringAFriend = function (browser) {
         browser.click("fieldset.active .friend-selector .col-sm-6:nth-of-type(2) label");
+        browser.pause(1000);
     };
 
     this.goToNextStep = function (browser) {
