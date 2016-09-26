@@ -14,6 +14,11 @@ module.exports = new function() {
         browser.click("button[data-async-form-submit]");
     };
 
+    this.logout = function(browser) {
+        var loginUrl = this.buildUrl(browser, "/app/logout");
+        browser.url(loginUrl);
+    };
+
     this.currentDate = function(){
         var today = new Date();
         var dd = today.getDate();
@@ -37,12 +42,28 @@ module.exports = new function() {
             .setValue("#loginFormPassword", pass)
     };
 
-    this.goToEventPage = function(browser, raceId, eventId){
+    this.goToEventPage = function(browser, raceId, eventId) {
         browser.url(this.buildUrl(browser, "/services/inscription/" + raceId + "/" + eventId));
     };
 
+    this.superClick = function(browser, element) {
+        browser.waitForElementVisible(element ,20000);
+        //browser.moveToElement('.text-uppercase', 10, 10);
+        browser.click(element, function (clickStatus) {
+            //console.log(clickStatus.status);
+            if (clickStatus.status == -1){
+                browser.click(element);
+            }
+        });
+    };
+
     this.goToEventClassificationPage = function(browser, raceId, eventId){
-        browser.url(this.buildUrl(browser, "/races/" + raceId + "/" + eventId + "/results/official"));
+        browser.url(this.buildUrl(browser, "/races/" + raceId + "/" + eventId + "/results"));
+    };
+
+    this.clickOnOfficialClassificationTab = function(browser) {
+        browser.waitForElementVisible(".nav-tabs > li:nth-child(2) > a:nth-child(1)", 20000);
+        browser.click(".nav-tabs > li:nth-child(2) > a:nth-child(1)");
     };
     
     this.clickImRegisteringAFriend = function(browser) {
@@ -60,6 +81,17 @@ module.exports = new function() {
     this.clickOnPayButton = function (browser){
         browser.waitForElementVisible('.pay', 300);
         browser.click(".pay");
+    };
+
+    this.waitingForLoader = function (browser) {
+        browser.waitForElementVisible(".plainoverlay", 5000);
+        browser.waitForElementNotVisible(".plainoverlay", 5000);
+    };
+
+    this.selectNextOptionClassification = function (browser) {
+        browser.moveToElement('.header', 10, 10);
+        browser.click('#eventCategory');
+        browser.keys(['\uE015', '\uE006']);
     };
     
 };
